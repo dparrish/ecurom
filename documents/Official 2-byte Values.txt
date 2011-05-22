@@ -1,0 +1,451 @@
+==============================
+
+88570008
+
+	2byte load
+		MUT 00 = 6B12
+		MUT 01 = 6B13
+
+	2byte RPM
+		MUT 02 = 6AFE
+		MUT 03 = 6AFF
+
+	2byte AirFlow
+		MUT 04 = 6B6A
+		MUT 05 = 6B6B
+
+MUT 3D TABLE ADDRESS = 35920
+
+==============================
+
+88580013
+
+	2byte load
+		MUT 00 = 6B22
+		MUT 01 = 6B23
+
+	2byte RPM
+		MUT 02 = 6AFE
+		MUT 03 = 6AFF
+
+	2byte AirFlow
+		MUT 04 = 6B7E
+		MUT 05 = 6B7F
+
+	MUT 3D TABLE ADDRESS = 373c4
+
+==============================
+
+88580014
+
+	2byte load
+		MUT 00 = 6B22
+		MUT 01 = 6B23
+
+	2byte RPM
+		MUT 02 = 6AFE
+		MUT 03 = 6AFF
+
+	2byte AirFlow
+		MUT 04 = 6B7E
+		MUT 05 = 6B7F
+
+	MUT 3D TABLE ADDRESS = 373c4
+
+==============================
+
+88590013
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 = 6B1E
+		MUT 03 = 6B1F
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+88590014
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 = 6B1E
+		MUT 03 = 6B1F
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+88590015
+
+	2byte load
+		MUT 00 = 6B42
+		MUT 01 =6B43
+
+	2byte RPM
+		MUT 02 = 6B1E
+		MUT 03 = 6B1F
+
+	2byte AirFlow
+		MUT 04 = 6B9E
+		MUT 05 = 6B9F
+
+	MUT 3D TABLE ADDRESS = 3EE84
+
+==============================
+
+88840013
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 =
+		MUT 03 =
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+88840016
+
+	2byte load
+		MUT 00 = 6B22
+		MUT 01 = 6B23
+
+	2byte RPM
+		MUT 02 = 6AFE
+		MUT 03 = 6AFF
+
+	2byte AirFlow
+		MUT 04 = 6B7E
+		MUT 05 =6B7F
+
+	MUT 3D TABLE ADDRESS = 377F8
+
+==============================
+
+88840017
+
+	2byte load
+		MUT 00 = 6B22
+		MUT 01 = 6B23
+
+	2byte RPM
+		MUT 02 = 6AFE
+		MUT 03 = 6AFF
+
+	2byte AirFlow
+		MUT 04 = 6B7E
+		MUT 05 =6B7F
+
+	MUT 3D TABLE ADDRESS = 37944
+
+==============================
+
+90550001
+
+	2byte load
+		MUT 00 = 885C
+		MUT 01 = 885D
+
+	2byte RPM
+		MUT 02 = 883A
+		MUT 03 = 883B
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS = 2e9e0
+
+==============================
+
+92460000
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 =
+		MUT 03 =
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+93660005
+
+	2byte load
+		MUT 00 = 8960
+		MUT 01 = 8961
+
+	2byte RPM
+		MUT 02 = 893E
+		MUT 03 = 893F
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS = 33400
+
+==============================
+
+94170008
+
+	2byte load
+		MUT 00 = 895C
+		MUT 01 = 895D
+
+	2byte RPM
+		MUT 02 = 893A
+		MUT 03 = 893B
+
+	2byte AirFlow
+		MUT 04 = 89BA
+		MUT 05 = 89BB
+
+	MUT 3D TABLE ADDRESS = 38060
+
+==============================
+
+94170014
+
+	2byte load
+		MUT 00 = 895C
+		MUT 01 = 895D
+
+	2byte RPM
+		MUT 02 = 893A
+		MUT 03 = 893B
+
+	2byte AirFlow
+		MUT 04 = 89BA
+		MUT 05 = 89BB
+
+	MUT 3D TABLE ADDRESS = 38158
+
+==============================
+
+94170015
+
+	2byte load
+		MUT 00 = 895C
+		MUT 01 = 895D
+
+	2byte RPM
+		MUT 02 = 893A
+		MUT 03 = 893B
+
+	2byte AirFlow
+		MUT 04 = 89BA
+		MUT 05 = 89BB
+
+	MUT 3D TABLE ADDRESS = 38158
+
+==============================
+
+96420007
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 = 8962
+		MUT 03 = 8963
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+96420008
+
+	2byte load
+		MUT 00 = 8984
+		MUT 01 = 8985
+
+	2byte RPM
+		MUT 02 = 8962
+		MUT 03 = 8963
+
+	2byte AirFlow
+		MUT 04 = 89E2
+		MUT 05 = 89E3
+
+	MUT 3D TABLE ADDRESS = 39FA0
+
+==============================
+
+96420011
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 =
+		MUT 03 =
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+96530006
+
+	2byte load
+		MUT 00 = 898A
+		MUT 01 = 898B
+
+	2byte RPM
+		MUT 02 = 8962
+		MUT 03 = 8963
+
+	2byte AirFlow
+		MUT 04 = 89E2
+		MUT 05 = 89E3
+
+	MUT 3D TABLE ADDRESS = 36200
+
+==============================
+
+96940011
+
+	2byte load
+		MUT 00 = 899A
+		MUT 01 = 899B
+
+	2byte RPM
+		MUT 02 = 8976
+		MUT 03 = 8977
+
+	2byte AirFlow
+		MUT 04 = 89F6
+		MUT 05 = 89F7
+
+	MUT 3D TABLE ADDRESS = 3F314
+
+==============================
+
+98640014
+
+	2byte load
+		MUT 00 = 885C
+		MUT 01 = 885D
+
+	2byte RPM
+		MUT 02 = 883A
+		MUT 03 = 883B
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS = 2E9E0
+
+==============================
+
+98640016
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 =
+		MUT 03 =
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS = 2EA9C
+
+==============================
+
+98650014
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 =
+		MUT 03 =
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+99270000
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 =
+		MUT 03 =
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS =
+
+==============================
+
+99860002
+
+	2byte load
+		MUT 00 =
+		MUT 01 =
+
+	2byte RPM
+		MUT 02 =
+		MUT 03 =
+
+	2byte AirFlow
+		MUT 04 =
+		MUT 05 =
+
+	MUT 3D TABLE ADDRESS = 302D8
+
+==============================
