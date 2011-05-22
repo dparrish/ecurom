@@ -1,0 +1,102 @@
+<MitsubishiLogger>
+  <config>test</config>
+  <Functions>
+    <!-- Custom Functions will go here, these will be available as functions and formulas
+    to be available to the Request Eval tag -->
+    
+  </Functions>
+  <ECUItems>
+    <!-- If you use custom requests, don't disable or remove AFRMap or InjPulseWidth values
+    Please note that all keywords are case sensitive, and the Hex requestID values must be in
+    capital letters (6F instead of 6f, stupid minor bug I found - Fixed 3/14/07)
+    Response="2" (or some value of response) now a required parameter
+    -->
+    
+    <Request LogReference="RPM" RequestID="21" Eval="int(31.25*x)" Unit="rpm" Logged="y"	Response="2"/>
+    <Request LogReference="Speed" RequestID="2F" Eval="(2*x)*0.621371192" Unit="MPH" Logged="y" Response="2"/>
+    <Request LogReference="TargetIdle" RequestID="24" Eval="7.8*x" Unit="RPM" Logged="y" Response="2"/>
+
+    <Request LogReference="AccelEnrich" RequestID="1D" Eval="100*x / 255" Unit="%" Logged="y" Response="2"/>
+    <Request LogReference="CoolantTemp" RequestID="07" Eval="-0.0003893*x^3+0.08056*x^2-6.5226*x+315.73" Unit="deg F" Logged="y" Response="2"/>
+
+    <Request LogReference="ECULoad" RequestID="1C" Eval="5*x/8" Unit="%" Logged="y" Response="2"/>
+    <Request LogReference="InjPulseWidth" RequestID="29" Eval="0.256*x" Unit="ms" Logged="y" Response="2"/>
+    <Request LogReference="AFRMAP" RequestID="32" Eval="x" Unit="Int" Logged="y"	Response="2"/>
+
+    <Request LogReference="FuelTrim_Low" RequestID="0C" Eval="int(0.1961*x)-25" Unit="%" Logged="y" Response="2"/>
+    <Request LogReference="FuelTrim_Middle" RequestID="0D" Eval="int(0.1961*x)-25" Unit="%" Logged="y" Response="2"/>
+    <Request LogReference="FuelTrim_High" RequestID="0E" Eval="int(0.1961*x)-25" Unit="%" Logged="y" Response="2"/>
+
+    <Request LogReference="O2FeedbackTrim" RequestID="0F" Eval="int(0.1961*x)-25" Unit="%" Logged="y" Response="2"/>
+    <Request LogReference="O2Sensor" RequestID="13" Eval="0.0195*x" Unit="V" Logged="y" Response="2"/>
+    <Request LogReference="O2SensorRear" RequestID="1F" Eval="0.0195*x" Unit="V" Logged="y" Response="2"/>
+
+    <Request LogReference="TPS" RequestID="17" Eval="100*x / 255" Unit="%" Logged="y" Response="2"/>
+    <Request LogReference="AirFlow" RequestID="1A" Eval="6.29*x" Unit="Hz" Logged="y" Response="2"/>
+    <Request LogReference="AirTemp"	RequestID="3A" Eval="-0.00000003166*x^5+0.00001425*x^4-0.002490*x^3+0.2143*x^2-10.279*x+361.01" Unit="deg F" Logged="y" Response="2"/>
+    <Request LogReference="AirVol" RequestID="2C" Eval="x" Unit="" Logged="y" Response="2" Notes="Raw Value"/>
+
+    <Request LogReference="KnockSum" RequestID="26" Eval="x" Unit="count" Logged="y" Response="2"/>
+    <Request LogReference="Knock" RequestID="30" Eval="x" Unit="count" Logged="y" Response="2"/>
+    <Request LogReference="KnockADC" RequestID="6A" Eval="x" Unit="count" Logged="y" Response="2"/>
+    <Request LogReference="KnockBase" RequestID="6B" Eval="x" Unit="count" Logged="y" Response="2"/>
+    <Request LogReference="KnockVar" RequestID="6C" Eval="x" Unit="count" Logged="y" Response="2"/>
+    <Request LogReference="KnockChange" RequestID="6D" Eval="x" Unit="count" Logged="y" Response="2"/>
+    <Request LogReference="KnockDynamics" RequestID="6E" Eval="x" Unit="count" Logged="y" Response="2"/>
+    <Request LogReference="KnockFlag" RequestID="6F" Eval="x" Unit="count" Logged="y" Response="2"/>
+
+    <Request LogReference="Baro" RequestID="15" Eval="x/2" Unit="kPa" Logged="y" Response="2" Notes="0.00486*x Bar"/>
+    <Request LogReference="ISCSteps" RequestID="16" Eval="x" Unit="steps" Logged="y" Response="2"/>
+
+    <Request LogReference="TimingAdv" RequestID="06" Eval="x-20" Unit="deg" Logged="y" Response="2"/>
+    <Request LogReference="Battery" RequestID="14" Eval="0.0733*x" Unit="V" Logged="y" Response="2"/>
+    <Request LogReference="EGRTemp" RequestID="12" Eval="-2.7*x + 597.7" Unit="deg F" Logged="y" Response="2"/>
+    <Request LogReference="OCTNumber" RequestID="27" Eval="x" Unit="Int" Logged="y" Response="2"/>
+    <Request LogReference="MDP" RequestID="38" Eval="1.25*x" Unit="%" Logged="y" Response="2"/>
+    <Request LogReference="WGDC" RequestID="86" Eval="x*100/255" Unit="%" Logged="y"  Response="2" />
+
+
+    <!-- Test Requests These look to be bitmapped for actuators or other flags
+    but are often reallocated for different load mods,  Optional Unit parameters
+    "Hex" Results converted to Hex 
+    "Raw" force bracketed Hex output of the response to the request (used only for regular requests)
+    "Int" is Integer, its basically the integer output of the Eval function
+    "Bin" is a binary representation of the integer value of the response -->
+
+    <Request LogReference="Request00-bin" RequestID="00" Eval="x" Unit="Bin" Logged="n" Response="3" Notes="Load Ignition"/>
+
+    <Request LogReference="Request00-hex" RequestID="00" Eval="x" Unit="Hex" Logged="n" Response="5" Notes="Load Ignition"/>
+    <Request LogReference="Request01-int" RequestID="01" Eval="x" Unit="Int" Logged="n" Response="3" Notes="Load2 AFR" />
+    <Request LogReference="Request02-raw" RequestID="02" Eval="x" Unit="Raw" Logged="n" Response="9" Notes="Load1 AFR" />
+
+    <!-- Place all Complex requests below this line
+    
+    You can place custom requests anywhere in the file, however if you want to use values
+    from current samples and not from the previous pass, it should be placed after the most
+    recent calls that your using.  All LogReference labels are available as variables for
+    evaluation,  therefore be careful how you name them (no spaces and whatnot VBScript rules)
+    
+    -->
+
+    <!-- Below are the two currently available custom load calculations, Both make assumptions
+    about Injector Latency, one uses the 14v value, one is a pre-set value fudged by battery voltage
+    both are thrown off when you have values for injector voltage latency other than stock values
+    I will be replacing these formulas with a linear regression for InjectorLatency11v and InjectorLatency14v
+    Which will result in a much more accurate starting point that can be tweaked for MAF error
+    -->
+    
+    <!-- <Request LogReference="Load" RequestID="FF" Eval="5*InjectorScale*(InjPulseWidth-InjectorLatency14v)/AFRMAP" Unit="Site" Logged="y" Response="2"/> -->
+
+    <!-- <Request LogReference="Load" RequestID="FF" Eval="5*InjectorScale*(InjPulseWidth-InjectorLatency14v)/AFRMAP" Unit="Site" Logged="y" Response="2"/> -->
+
+    <Request LogReference="Latency" RequestID="--" Eval="((Injectorlatency11v - Injectorlatency14v)/(11.72-14.06)* battery +(Injectorlatency11v - (((Injectorlatency11v - Injectorlatency14v)/(11.72 - 14.06 ))* 11.72 )))" Unit="" Logged="y" Response="2"/>
+    <Request LogReference="Load" RequestID="--" Eval="5*InjectorScale*(InjPulseWidth-Latency)/AFRMAP" Unit="Site" Logged="y" Response="2"/>
+
+    <!--    <Request LogReference="LoadAlt" RequestID="FF" Eval="5*InjectorScale*(InjPulseWidth-(-0.1026*[Battery]+1.8741))/AFRMAP" Unit="Site" Logged="y" Response="2"/> -->
+
+    <Request LogReference="LoadAlt" RequestID="--" Eval="5*513*(InjPulseWidth-(-0.1026*Battery+1.8741))/AFRMAP" Unit="Site" Logged="n" Response="2" Notes="Evoscan Load"/>
+
+
+  </ECUItems>
+</MitsubishiLogger>
+

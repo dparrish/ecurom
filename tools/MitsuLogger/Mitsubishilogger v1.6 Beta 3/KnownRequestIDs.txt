@@ -1,0 +1,58 @@
+This is an informational file, used for reference if you need to add/modify/remove items
+from RequestID.XML
+-----------------------------------------------------------------------------------------
+
+06 TimingAdv		Eval="x-20" Unit="deg"
+07 CoolantTemp		Eval="-0.0003893*x^3+0.08056*x^2-6.5226*x+315.73" Unit="deg F"
+
+0C FuelTrim_Low		Eval="int(.1961*x)-25" Unit="%"
+0D FuelTrim_Middle	Eval="int(.1961*x)-25" Unit="%"
+0E FuelTrim_High	Eval="int(.1961*x)-25" Unit="%"
+
+0F O2FeedbackTrim	Eval="int(.1961*x)-25" Unit="%"
+
+12 EGRTemp			Eval="-2.7*x + 597.7" Unit="deg F"
+13 O2Sensor			Eval="0.0195*x" Unit="V"
+14 Battery			Eval="0.0733*x" Unit="V"
+15 Baro				Eval="x/2" Unit="kPa"
+16 ISCSteps			Eval="x" Unit="steps"
+17 TPS				Eval="100*x / 255" Unit="%"
+
+1A AirFlow			Eval="6.29*x" Unit="Hz"
+
+1C ECULoad			Eval="5*x/8" Unit="%"
+1D AccelEnrich		Eval="100*x / 255" Unit="%"
+
+1F O2SensorRear		Eval="0.0195*x" Unit="V"
+
+21 RPM				Eval="int(31.25*x)" Unit="rpm"
+
+
+24 TargetIdle		Eval="7.8*x" Unit="RPM"
+
+26 KnockSum			Eval="x" Unit="count"
+27 OCTNumber		Eval="x" Unit="Int"
+
+29 InjPulseWidth	Eval="0.256*x" Unit="ms"
+
+2C AirVol			Eval="x" Unit="Int"
+
+2F Speed			Eval="(2*x)*0.621371192" Unit="MPH"
+
+
+30 Knock			Eval="x" Unit="count"
+
+32 AFRMAP			Eval="x" Unit="Int"
+
+38 MDP				Eval="1.25*x" Unit="%"
+
+3A AirTemp			Eval="-0.00000003166*x^5+0.00001425*x^4-0.002490*x^3+0.2143*x^2-10.279*x+361.01" Unit="deg F"
+
+6A KnockADC			Eval="x" Unit="Int"
+6B KnockBase		Eval="x" Unit="Int"
+6C KnockVar			Eval="x" Unit="Int"
+6D KnockChange		Eval="x" Unit="Int"
+6E KnockDynamics	Eval="x" Unit="Int"
+6F KnockFlag		Eval="x" Unit="Int"
+
+86 WGDC				Eval="x*100/255"

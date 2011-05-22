@@ -1,0 +1,412 @@
+<rom>
+  <romid>
+    <xmlid>88580013</xmlid>
+    <internalidaddress>f52</internalidaddress>
+    <internalidhex>88580013</internalidhex>
+    <make>Mitsubishi</make>
+    <market>AUDM</market>
+    <model>Lancer</model>
+    <submodel>EVO9</submodel>
+    <transmission>Manual</transmission>
+    <year>2006</year>
+    <flashmethod>mitsukernelocp</flashmethod>
+    <memmodel>SH7055</memmodel>
+  </romid>
+
+  <include>evo9base_20081101</include>
+  
+<!--  <include>88890013_mods</include>  -->
+  
+  
+
+<!--  *** FUEL ***  -->
+
+  <table name="High Octane Fuel Map" address="2dbd">
+    <table name="Engine Load" address="6fd0" elements="20" scaling="Load"/>
+    <table name="RPM" address="6fa8" elements="15"/>
+  </table>
+
+  <table name="Low Octane Fuel Map" address="2ef5">
+    <table name="Engine Load" address="6fd0" elements="20" scaling="Load"/>
+    <table name="RPM" address="6fa8" elements="15"/>
+  </table>
+  
+  <table name="Max Rich AFR vs Coolant Temp" address="644a">
+    <table name="Coolant Temperature" address="71e4"/>
+  </table>
+
+  <table name="Injector Size Scaling" address="1106"/>
+
+  <table name="Injector Battery Voltage Latency Compensation" address="31d4">
+    <table name="Battery Voltage" address="6efc"/>
+  </table>
+  
+  <table name="Cranking Enrichment IPW Adder (Main)" address="5240">
+    <table name="Coolant Temperature" address="7100"/>
+  </table>
+
+  <table name="Cranking Enrichment IPW Adder (Unused)" address="32fc">
+    <table name="Coolant Temperature" address="7100"/>
+  </table>
+ 
+  <table name="Accel Enrichment (Incorrect)" address="3278">
+    <table name="RPM" address="6d2e" elements="15"/>
+  </table>
+
+  <table name="Airflow/Hz Raw Scaling" address="2d06">
+    <table name="MAF Hz" address="6eac"/>
+  </table>
+
+  <table name="Airflow/Hz Offset Raw" address="1112"/>
+
+  <table name="MAF Compensation" address="2d22">
+    <table name="MAF Hz" address="6eac"/>
+  </table>
+
+  <table name="Relative Air Density vs Temp for Airflow/Hz" address="2d3e">
+    <table name="Degrees" address="7252"/>
+  </table>
+
+  <table name="Airflow/Hz Baro and Air Temp Compensation" address="2d51">
+    <table name="IAT_Comp/Baro_Bar" address="6e9a"/>
+    <table name="MAF Hz" address="6ee0"/>
+  </table>
+
+  <table name="MAF Sensor Filtering" address="1108">
+    <table name="Load"/>
+  </table>
+
+  <table name="MAF Size" address="110c"/>
+
+  <table name="Open Loop Load #1" address="3060">
+    <table name="RPM" address="6ca0"/>
+  </table>
+
+  <table name="Open Loop Load #2" address="3076">
+    <table name="RPM" address="6ca0"/>
+  </table>
+
+  <table name="Open Loop Throttle #1" address="3092">
+    <table name="RPM" address="6ca0"/>
+  </table>
+
+  <table name="Open Loop Throttle #2" address="30a8">
+    <table name="RPM" address="6ca0"/>
+  </table>
+
+
+
+<!--  *** FUEL LEAN SPOOL ***  -->
+
+  <table name="Lean Spool Start RPM" address="1280"/>
+
+  <table name="Lean Spool Stop RPM" address="1284"/>
+
+  <table name="Lean Spool Load Threshold" address="33b6">
+    <table name="input value" address="6f6a"/>
+  </table>
+
+  <table name="Lean Spool Trailing Time (Rich Side)" address="338e">
+    <table name="input value" address="6f6a"/>
+  </table>
+
+  <table name="Lean Spool Trailing Time (Lean Side)" address="33a2">
+    <table name="input value" address="6f6a"/>
+  </table>
+
+  <table name="Min Temp for Lean Spool" address="127e"/>
+
+  <table name="Lean Spool Enable Load Hysteresis" address="127c"/>
+
+  <table name="Lean Spool AFR Mapping" address="33ca">
+    <table name="base AFR" address="6f90"/>
+  </table>
+
+  <table name="Lean Spool AFR below Enable" address="1282"/>
+
+  <table name="Lean Spool Clip Value" address="1286"/>
+
+
+
+<!--  *** TIMING ***  -->
+
+  <table name="High Octane Ignition Map 1" address="33e9">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+
+  <table name="Low Octane Ignition Map 1" address="3599">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+
+  <table name="High Octane Ignition Map 2" address="54b1">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+
+  <table name="Low Octane Ignition Map 2" address="5661">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+
+  <table name="High Octane Ignition Map 3" address="59c1">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+
+  <table name="Low Octane Ignition Map 3" address="5b71">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+
+  <table name="High Oct EGR-Enabled Advance" address="38f9">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+
+  <table name="Low Oct EGR-Enabled Advance" address="3749">
+    <table name="Engine Load" address="7034" elements="21"/>
+    <table name="RPM" address="7002" elements="20"/>
+  </table>
+  
+  <table name="Low Coolant Temp Timing Trim Map 1" address="3aa9">
+    <table name="Engine Load" address="7034"/>
+    <table name="RPM" address="7002"/>
+  </table>
+
+  <table name="Low Coolant Temp Timing Trim Map 2" address="5811">
+    <table name="Engine Load" address="7034"/>
+    <table name="RPM" address="7002"/>
+  </table>
+  
+  <table name="Low Coolant Temp Timing Trim Map 3" address="5d21">
+    <table name="Engine Load" address="7034"/>
+    <table name="RPM" address="7002"/>
+  </table>
+  
+  <table name="Percent Low Temp Timing Trim vs Coolant Temp" address="3cb8">
+    <table name="Engine Temp" address="807c"/>
+  </table>
+  
+
+
+  <!--  *** MIVEC ***  -->
+
+  <table name="MIVEC Intake Advance" address="69df">
+    <table name="Engine Load" address="7b2a"/>
+    <table name="RPM" address="7b5c"/>
+  </table>
+
+  <table name="MIVEC Intake Advance Min" address="28ee"/>
+
+  <table name="MIVEC Intake Advance Max" address="28f0"/>
+  
+  <table name="MIVEC Max vs Coolant Temp" address="6b26">
+    <table name="Coolant Temp" address="70e6"/>
+  </table>
+
+
+
+<!--  *** TURBO BOOST SINGLE SOLENOID ***  -->
+
+  <table name="Boost Control Load Offset" address="1670"/>
+
+  <table name="Boost Desired Engine Load (High Gear Range)" address="3fa4">
+    <table name="RPM" address="7336"/>
+  </table>
+
+  <table name="Boost Desired Engine Load (Low Gear Range)" address="3fd6">
+    <table name="RPM" address="7336"/>
+  </table>
+
+  <table name="Baseline WGDC (High Gear Range)" address="3f5c">
+    <table name="RPM" address="7336"/>
+  </table>
+
+  <table name="Baseline WGDC (Low Gear Range)" address="3f8e">
+    <table name="RPM" address="7336"/>
+  </table>
+
+  <table name="Turbo Boost Error Correction" address="3f44">
+      <table name="Boost Error" address="7360"/>
+  </table>
+
+  <table name="WGDC Correction Interval (High Gear Range)" address="1654"/>
+
+  <table name="WGDC Correction Interval (Low Gear Range)" address="1656"/>
+  
+  <table name="Max Total Upward WGDC Correction vs TPS" address="3f34">
+    <table name="TPS" address="738c"/>
+  </table>
+  
+  <table name="Max Total Downward WGDC Correction" address="1658"/>
+
+  <table name="Max WGDC vs Coolant Temp" address="645a">
+    <table name="Coolant Temp" address="7200"/>
+  </table>
+
+  <table name="WGDC Limit During Fault" address="1e00"/>
+
+  <table name="Boost Control High/Low Gear Range RPM/MPH Crossover" address="1e04"/>
+  
+  <table name="Boost Cut Load" address="3050">
+    <table name="RPM" address="77ae"/>
+  </table>
+  
+  <table name="Boost Cut Delay" address="119a"/>
+  
+  <table name="Min Load for Boost Control" address="6542">
+      <table name="RPM" address="6ca0"/>
+  </table>
+
+  <table name="BCS Re/De-Activation RPM" address="1668">
+      <table name="Condition"/>
+  </table>
+
+
+
+<!--  *** IDLE ***  -->
+
+  <table name="Target Minimum Idle" address="3d48">
+       <table name="Engine Temp" address="71ca"/>
+  </table>
+
+  <table name="Target Idle RPM with AC On #1" address="1470"/>
+
+  <table name="Target Idle RPM with AC On #2" address="146c"/>
+  
+  <table name="Target Idle For Off-Normal MIVEC" address="2208"/>
+  
+  <table name="Target Idle When IAT > 205F" address="1e0a">
+    <table name="Conditions"/>
+  </table>
+
+
+
+  <table name="Desired ISCV intial step position with AC off-Neutral" address="3d48">
+    <table name="Engine Temp" address="71ca" elements="8"/>
+  </table>
+
+  <table name="Desired ISCV intial step position with AC off-Drive" address="3d5c">
+    <table name="Engine Temp" address="71ca" elements="8"/>
+  </table>
+
+  <table name="Desired ISCV intial step position with AC on-Neutral" address="3d70">
+    <table name="Engine Temp" address="71ca" elements="8"/>
+  </table>
+
+  <table name="Idle Stepper Lookup Table" address="3e55">
+    <table name="Coolant Temp" address="726c"/>
+    <table name="Load" address="7286"/>
+  </table>
+
+
+
+<!--  *** KNOCK CONTROL ***  -->
+
+  <table name="Knock Sensitivity Load Threshold" address="3cf6">
+    <table name="RPM" address="6c82"/>
+  </table>
+
+  <table name="Knock Background Noise Multiplier" address="6558">
+    <table name="RPM" address="8034"/>
+  </table>
+
+  <table name="Knock Background Noise Adder (TRIPLE GAIN)" address="656c">
+    <table name="RPM" address="8034"/>
+  </table>
+
+  <table name="Knock Background Noise Adder (SINGLE GAIN)" address="6580">
+    <table name="RPM" address="8034"/>
+  </table>
+
+
+
+<!--  *** MISC LIMITS ***  -->
+
+  <table name="Rev Limit" address="118c"/>
+
+  <table name="Stationary Rev Limit" address="274a"/>
+
+  <table name="Speed Limit" address="118e">
+    <table name="Condition"/>
+  </table>
+
+
+
+ <!--  *** MISC ***  -->
+
+  <!--  Universal tables are in evo9base.xml file.  -->
+  
+  <table name="Air Density Compensation" address="30fe">
+    <table name="MAF Air Temp" address="7252"/>
+  </table>
+
+  <table name="Coolant Temp Scaling" address="adce">
+     <table name="Coolant Temp Sensor Raw" address="ae80"/>
+  </table>
+
+  <table name="IAT Scaling" category="Misc" address="afd4">
+    <table name="Intake Air Temp Sensor Raw" address="b06a"/>
+  </table>
+
+
+
+<!--  *** OBD-II ***  -->
+
+  <table name="OBD-II Codes" address="a694">
+    <table name="r4 (hex)"/>
+    <table name="r5 (hex)"/>
+  </table>
+
+
+
+<!--  *** EMISSIONS EGR ***  -->
+
+  <table name="Base EGR Duty vs Load and RPM" address="415d">
+    <table name="Load Fuel/Timing" address="73fe"/>
+    <table name="RPM" address="73e0"/>
+  </table>
+
+  <table name="EGR Duty Normalization Factor vs Coolant Temp" address="41de">
+    <table name="Coolant Temp" address="70e6"/>
+  </table>
+
+  <table name="EGR Duty vs RPM (Fault Condition?)" address="41ec">
+    <table name="RPM" address="6c82"/>
+  </table>
+
+
+
+<!--  *** ECU PERIPHERY ***  -->
+
+  <!--  Tables are in the evo9base file  -->
+
+
+
+<!--  *** MUT ***  -->
+
+  <table name="MUT Table" address="373c4">
+    <table name="X"/>
+    <table name="Y"/>
+  </table>
+
+
+
+<!-- *** NEW TABLES FOR UPCOMING ECUFLASH RELEASE *** -->
+
+
+<!-- *** FOR TIMING SECTION *** -->
+
+
+
+<!-- *** FOR FUEL SECTION *** -->
+
+
+
+<!-- *** FOR IDLE SECTION *** -->
+
+
+
+</rom>
