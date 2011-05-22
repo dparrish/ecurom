@@ -1,0 +1,133 @@
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="config" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="config">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Ref" type="xs:string" minOccurs="0" />
+                <xs:element name="Unit" type="xs:string" minOccurs="0" />
+                <xs:element name="Mult" type="xs:float" minOccurs="0" />
+                <xs:element name="Add" type="xs:float" minOccurs="0" />
+                <xs:element name="Round" type="xs:integer" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <config>
+    <Ref>Load1byte</Ref>
+    <Unit>%</Unit>
+    <Mult>1.3</Mult>
+    <Add>0</Add>
+    <Round>1</Round>
+  </config>
+  <config>
+    <Ref>RPM</Ref>
+    <Unit>RPM</Unit>
+    <Mult>31.25</Mult>
+    <Add>0</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>Knock</Ref>
+    <Unit>unit</Unit>
+    <Mult>1</Mult>
+    <Add>0</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>Ign</Ref>
+    <Unit>deg</Unit>
+    <Mult>1</Mult>
+    <Add>-20</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>MAT</Ref>
+    <Unit>F</Unit>
+    <Mult>1.8</Mult>
+    <Add>-40</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>Coolant</Ref>
+    <Unit>F</Unit>
+    <Mult>1.8</Mult>
+    <Add>-40</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>Wideband</Ref>
+    <Unit>AFR</Unit>
+    <Mult>0.061</Mult>
+    <Add>7.4</Add>
+    <Round>2</Round>
+  </config>
+  <config>
+    <Ref>MAP</Ref>
+    <Unit>kPa</Unit>
+    <Mult>0.238683</Mult>
+    <Add>-14.7</Add>
+    <Round>1</Round>
+  </config>
+  <config>
+    <Ref>TPS</Ref>
+    <Unit>%</Unit>
+    <Mult>0.39216</Mult>
+    <Add>0</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>IPW</Ref>
+    <Unit>ms</Unit>
+    <Mult>0.256</Mult>
+    <Add>0</Add>
+    <Round>1</Round>
+  </config>
+  <config>
+    <Ref>FTlo</Ref>
+    <Unit>%</Unit>
+    <Mult>0.1953</Mult>
+    <Add>-25</Add>
+    <Round>1</Round>
+  </config>
+  <config>
+    <Ref>FTmed</Ref>
+    <Unit>%</Unit>
+    <Mult>0.1953</Mult>
+    <Add>-25</Add>
+    <Round>1</Round>
+  </config>
+  <config>
+    <Ref>FThi</Ref>
+    <Unit>%</Unit>
+    <Mult>0.1953</Mult>
+    <Add>-25</Add>
+    <Round>1</Round>
+  </config>
+  <config>
+    <Ref>RPM high byte</Ref>
+    <Unit>unit</Unit>
+    <Mult>256</Mult>
+    <Add>0</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>RPM low byte</Ref>
+    <Unit>unit</Unit>
+    <Mult>1</Mult>
+    <Add>0</Add>
+    <Round>0</Round>
+  </config>
+  <config>
+    <Ref>FFFF8aba</Ref>
+    <Unit>unit</Unit>
+    <Mult>1</Mult>
+    <Add>0</Add>
+    <Round>0</Round>
+  </config>
+</NewDataSet>

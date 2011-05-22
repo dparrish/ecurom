@@ -1,0 +1,26 @@
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="MAPVE" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="MAPVE">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="_x0030_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_" type="xs:float" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <MAPVE />
+  <MAPVE />
+  <MAPVE />
+  <MAPVE />
+  <MAPVE />
+  <MAPVE />
+  <MAPVE />
+  <MAPVE />
+</NewDataSet>

@@ -1,0 +1,18 @@
+<rom>
+  <romid>
+    <xmlid>88590014</xmlid>
+    <internalidaddress>f52</internalidaddress>
+    <internalidhex>88590014</internalidhex>
+    <make>Mitsubishi</make>
+    <market>USDM</market>
+    <model>Lancer</model>
+    <submodel>EVO9</submodel>
+    <transmission>Manual</transmission>
+    <year>2006</year>
+    <flashmethod>mitsukernelocp</flashmethod>
+    <memmodel>SH7055</memmodel>
+  </romid>
+
+<include>88590013</include>
+
+</rom>

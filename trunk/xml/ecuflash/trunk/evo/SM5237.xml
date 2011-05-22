@@ -1,0 +1,145 @@
+<rom>
+	<romid>
+		<xmlid>SM5237</xmlid>
+		<internalidaddress>3fffa</internalidaddress>
+		<internalidstring>SM5237</internalidstring>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Lancer</model>
+		<submodel>Evolution X</submodel>
+		<transmission>Auto</transmission>
+		<year>2008</year>
+		<flashmethod>mitsucan</flashmethod>
+		<checksummodule>mitsucan</checksummodule>
+		<memmodel>M32186F8</memmodel>
+	</romid>
+
+	<include>SM5236</include>
+
+	<table name="Timing map 2 Hi" address="5590f">
+		<table name="Load" address="60f7a"/>
+		<table name="RPM" address="60f46"/>
+	</table>
+
+	<table name="Timing Map 1 Lo" address="55b11">
+		<table name="Load" address="60f7a"/>
+		<table name="Y" address="60f46"/>
+	</table>
+
+	<table name="Hex Finder" address="53060" scaling="VehicleSpeed">
+		<table name="X"/>
+		<table name="Y"/>
+	</table>
+
+	<table name="Same as Timing Map Hi" address="5590f">
+		<table name="Load" address="60f7a"/>
+		<table name="RPM" address="60f46"/>
+	</table>
+
+	<table name="Evap Map w Timing" address="5ae77">
+		<table name="Load" address="60f7a"/>
+		<table name="RPM" address="60f46"/>
+	</table>
+
+	<table name="Fuel Map 2">
+		<table name="Load" address="60f00"/>
+		<table name="RPM" address="60eda"/>
+	</table>
+
+	<table name="Fuel map 1">
+		<table name="Load" address="60f00"/>
+		<table name="RPM" address="60eda"/>
+	</table>
+
+	<table name="Fuel Map 4" address="576d7">
+		<table name="Load" address="617da" elements="41"/>
+		<table name="Y" address="617ae" elements="19"/>
+	</table>
+
+	<table name="Boost map">
+		<table name="RPM" address="6155e"/>
+	</table>
+
+	<table name="VVT  Map 1" address="5db21">
+		<table name="Load" address="61588"/>
+		<table name="RPM" address="615b8"/>
+	</table>
+
+	<table name="VVT Exhaust 1" address="5df21">
+		<table name="Load" address="61588"/>
+		<table name="RPM" address="615b8"/>
+	</table>
+
+	<table name="VVT Exhaust Map 2" address="5e121">
+		<table name="Load" address="61588"/>
+		<table name="Y" address="615b8"/>
+	</table>
+
+	<table name="VVT Map 2" address="5dd21">
+		<table name="Load" address="61588"/>
+		<table name="RPM" address="615b8"/>
+	</table>
+
+	<table name="Knock Filter #5" address="569e3">
+		<table name="X" address="611b4"/>
+		<table name="Y" address="61198"/>
+	</table>
+
+	<table name="Knock Filter #1" address="56703">
+		<table name="Load" address="611b4"/>
+		<table name="RPM" address="61198"/>
+	</table>
+
+	<table name="Knock Filter #3" address="5692b">
+		<table name="X" address="611b4"/>
+		<table name="Y" address="61198"/>
+	</table>
+
+	<table name="Knock Filter #2" address="567bb">
+		<table name="X" address="611b4"/>
+		<table name="Y" address="61198"/>
+	</table>
+
+	<table name="Knock Filter#4" address="56873">
+		<table name="X" address="611b4"/>
+		<table name="Y" address="61198"/>
+	</table>
+
+	<table name="VVT Table unknown" address="5e32c">
+		<table name="RPM" address="62408" scaling="RPM"/>
+	</table>
+
+	<table name="Knock Filter bypass #1" address="5664b">
+		<table name="X" address="611b4"/>
+		<table name="Y" address="61198" elements="11"/>
+	</table>
+
+	<table name="2D Part throttle Boost Limit" address="5e934">
+		<table name="Throttle %" address="624ee" scaling="Throttle %"/>
+	</table>
+
+	<table name="2D Map unknown 5e614" address="5e93e">
+		<table name="X" address="624ee"/>
+	</table>
+
+	<table name="Wastegate Duty #1" address="5e94d" scaling="WGDuty">
+		<table name="X" address="62494"/>
+		<table name="Y" address="6246c"/>
+	</table>
+
+	<table name="Wastegate Duty Initial #1" address="5ec43">
+		<table name="X" address="624dc"/>
+		<table name="Y" address="624b6"/>
+	</table>
+
+	<table name="Wastegate Duty #2" address="5ea43" scaling="WGDuty">
+		<table name="X" address="62494"/>
+		<table name="Y" address="6246c"/>
+	</table>
+
+	<table name="Wastegate Duty #3" address="5eb39" scaling="WGDuty">
+		<table name="X" address="62494"/>
+		<table name="Y" address="6246c"/>
+	</table>
+
+</rom>

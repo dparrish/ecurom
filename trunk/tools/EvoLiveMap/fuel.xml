@@ -1,0 +1,154 @@
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="fuel" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="fuel">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="_x0030_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0033_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0034_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0035_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0036_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0037_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0038_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0039_" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_0" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_1" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_2" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_3" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_4" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_5" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_6" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_7" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_8" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0031_9" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_0" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_1" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_2" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_3" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_4" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_5" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_6" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_7" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_8" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0032_9" type="xs:float" minOccurs="0" />
+                <xs:element name="_x0033_0" type="xs:float" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <fuel>
+    <_x0031_>10</_x0031_>
+    <_x0032_>20</_x0032_>
+    <_x0033_>30</_x0033_>
+    <_x0034_>40</_x0034_>
+    <_x0035_>50</_x0035_>
+    <_x0036_>60</_x0036_>
+    <_x0037_>70</_x0037_>
+    <_x0038_>80</_x0038_>
+    <_x0039_>90</_x0039_>
+    <_x0031_0>100</_x0031_0>
+    <_x0031_1>120</_x0031_1>
+    <_x0031_2>140</_x0031_2>
+    <_x0031_3>160</_x0031_3>
+    <_x0031_4>180</_x0031_4>
+    <_x0031_5>200</_x0031_5>
+    <_x0031_6>220</_x0031_6>
+    <_x0031_7>240</_x0031_7>
+    <_x0031_8>260</_x0031_8>
+    <_x0031_9>280</_x0031_9>
+    <_x0032_0>300</_x0032_0>
+    <_x0032_1>320</_x0032_1>
+    <_x0032_2>340</_x0032_2>
+    <_x0032_3>360</_x0032_3>
+    <_x0032_4>380</_x0032_4>
+    <_x0032_5>400</_x0032_5>
+    <_x0032_6>420</_x0032_6>
+    <_x0032_7>440</_x0032_7>
+    <_x0032_8>460</_x0032_8>
+    <_x0032_9>480</_x0032_9>
+    <_x0033_0>500</_x0033_0>
+  </fuel>
+  <fuel>
+    <_x0030_>500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>750</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>1000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>1250</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>1500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>1750</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>2000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>2500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>3000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>3500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>4000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>4500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>5000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>5500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>6000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>6500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>7000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>7500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>8000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>8500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>9000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>9500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>10000</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>10500</_x0030_>
+  </fuel>
+  <fuel>
+    <_x0030_>11000</_x0030_>
+  </fuel>
+</NewDataSet>

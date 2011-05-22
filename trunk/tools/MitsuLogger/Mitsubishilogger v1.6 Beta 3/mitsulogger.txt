@@ -1,0 +1,222 @@
+[DataLogDefinition]
+ Name=EvoScan pre .97 or MitsuLogger 1.0
+ FileExtension=csv
+ FileIDTextLinesBefore=0
+ FileIDTextColumnsBefore=0
+ FileIDText=LogID
+ ColumnHeadersLinesBefore=0
+ DataLinesBefore=1
+ DelimiterAsciiCharacter=44
+ Version=1.0
+ Comments=EvoScan using Log Analyzer 1.1 or MitsuLogger 1.0 Definition
+[Column]
+ Name=LogEntrySeconds
+ Description=LogEntrySeconds
+ ColumnTitle=LogEntrySeconds
+ DataItemID=63
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=Accel Enrich
+ Description=Accel Enrichment
+ ColumnTitle=AccelEnrich
+ DataItemID=59
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=2
+[Column]
+ Name=C Temp
+ Description=Coolant Temperature
+ ColumnTitle=CoolantTemp
+ DataItemID=23
+ Type=1
+ ColumnDecimalPlaces=2
+ DisplayDecimalPlaces=2
+[Column]
+ Name=RPM
+ Description=Engine RPM
+ ColumnTitle=RPM
+ DataItemID=3
+ Type=1
+ ColumnDecimalPlaces=2
+ DisplayDecimalPlaces=0
+[Column]
+ Name=TrimHigh
+ Description=Fuel Trim - High
+ ColumnTitle=FuelTrim_High
+ DataItemID=58
+ Type=1
+ Offset=25
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=TrimLow
+ Description=Fuel Trim - Low
+ ColumnTitle=FuelTrim_Low
+ DataItemID=57
+ Type=1
+ Offset=25
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=TrimMed
+ Description=Fuel Trim - Med
+ ColumnTitle=FuelTrim_Middle
+ DataItemID=56
+ Type=1
+ Offset=25
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=Inj Pluse Width
+ Description=Injector Pulse Width
+ ColumnTitle=InjPulseWidth
+ DataItemID=13
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=3
+[Column]
+ Name=O2 Feedback
+ Description=O2 Feedback Trim
+ ColumnTitle=O2FeedbackTrim
+ DataItemID=55
+ Type=1
+ Offset=25
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=O2
+ Description=O2 Sensor
+ ColumnTitle=O2Sensor
+ DataItemID=7
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=TPS
+ Description=TPS
+ ColumnTitle=TPS
+ DataItemID=17
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=3
+[Column]
+ Name=AirFlow
+ Description=Air Flow
+ ColumnTitle=AirFlow
+ DataItemID=81
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=2
+[Column]
+ Name=Air Temp
+ Description=Air Temperature
+ ColumnTitle=AirTemp
+ DataItemID=31
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=2
+[Column]
+ Name=Baro
+ Description=Barometer
+ ColumnTitle=Baro
+ DataItemID=5
+ Type=1
+ ColumnDecimalPlaces=2
+ DisplayDecimalPlaces=2
+[Column]
+ Name=ISCSteps
+ Description=ISC Steps
+ ColumnTitle=ISCSteps
+ DataItemID=54
+ Type=1
+ ColumnDecimalPlaces=1
+ DisplayDecimalPlaces=1
+[Column]
+ Name=Knock
+ Description=Knock Count
+ ColumnTitle=KnockSum
+ DataItemID=30
+ Type=1
+ ColumnDecimalPlaces=0
+ DisplayDecimalPlaces=0
+[Column]
+ Name=Timing
+ Description=Timing Advance
+ ColumnTitle=TimingAdv
+ DataItemID=21
+ Type=1
+ Offset=10
+ ColumnDecimalPlaces=1
+ DisplayDecimalPlaces=1
+[Column]
+ Name=Battery
+ Description=Battery Voltage
+ ColumnTitle=Battery
+ DataItemID=22
+ Type=1
+ ColumnDecimalPlaces=3
+ DisplayDecimalPlaces=3
+[Column]
+ Name=EGRTemp
+ Description=EGRTemp
+ ColumnTitle=EGRTemp
+ DataItemID=51
+ Type=1
+ ColumnDecimalPlaces=2
+ DisplayDecimalPlaces=1
+[Column]
+ Name=Load
+ Description=Load
+ ColumnTitle=Load
+ DataItemID=52
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=ECULoad
+ Description=ECULoad
+ ColumnTitle=ECULoad
+ DataItemID=72
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4
+[Column]
+ Name=OCTNumber
+ Description=OCTNumber
+ ColumnTitle=OCTNumber
+ DataItemID=53
+ Type=1
+ ColumnDecimalPlaces=1
+ DisplayDecimalPlaces=1
+[Column]
+ Name=AFRMAP
+ Description=AFRMAP
+ ColumnTitle=AFRMAP
+ DataItemID=70
+ Type=1
+ ColumnDecimalPlaces=1
+[Column]
+ Name=Speed
+ Description=Speed
+ ColumnTitle=Speed
+ DataItemID=24
+ Type=1
+ ColumnDecimalPlaces=1
+ DisplayDecimalPlaces=1
+[Column]
+ Name=MDP
+ Description=MDP (Map)
+ ColumnTitle=MDP
+ DataItemID=71
+ Type=1
+ ColumnDecimalPlaces=1
+[Column]
+ Name=AFR
+ Description=AFR
+ ColumnTitle=AFR
+ DataItemID=73
+ Type=1
+ ColumnDecimalPlaces=4
+ DisplayDecimalPlaces=4

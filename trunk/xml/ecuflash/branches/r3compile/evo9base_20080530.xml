@@ -1,0 +1,834 @@
+<rom>
+  <romid>
+    <xmlid>evo9base</xmlid>
+    <internalidaddress>f52</internalidaddress>
+    <internalidstring>----</internalidstring>
+    <flashmethod>mitsukernelocp</flashmethod>
+    <memmodel>SH7055</memmodel>
+  </romid>
+
+
+  <!--  *** SCALINGS ***  -->
+
+  <scaling name="AFR" units="AFR" toexpr="14.7*128/x" frexpr="14.7*128/x" format="%.1f" min="8" max="20" inc="0.1" storagetype="uint8" endian="big"/>
+  <scaling name="AFR16" units="AFR" toexpr="14.7*128/x" frexpr="14.7*128/x" format="%.1f" min="8" max="20" inc="0.1" storagetype="uint16" endian="big"/>
+  <scaling name="AirFlow16" units="g/s" toexpr="x*600/65536" frexpr="x*65536/600" format="%.1f" min="0" max="600" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="AirFlow8" units="g/s" toexpr="x*321/256" frexpr="x*256/321" format="%.1f" min="0" max="321" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="AirTempFactor" units="Fraction" toexpr="x/64" frexpr="64/x" format="%.2f" min="0" max="2" inc="0.02" storagetype="uint8" endian="big"/>
+  <scaling name="AirTempBaroFactor" units="Fraction" toexpr="x/64" frexpr="64/x" format="%.2f" min="0" max="2" inc="0.02" storagetype="uint16" endian="big"/>
+  <scaling name="AirTempBaroCorrection" units="Fraction" toexpr="x/128" frexpr="128/x" format="%.2f" min="0" max="2" inc="0.02" storagetype="uint8" endian="big"/>
+  <scaling name="Baro16" units="bar" toexpr="x/200" frexpr="x*200" format="%.3f" min="0" max="1.100" inc="0.001" storagetype="uint16" endian="big"/>
+  <scaling name="BatteryVoltage" units="V" toexpr="x*75/1024" frexpr="x*1024/75" format="%.2f" min="0" max="18.75" inc="0.5" storagetype="uint16" endian="big"/>
+  <scaling name="BoostBar" units="bar" toexpr="x/93.7" frexpr="x*93.7" format="%.2f" min="0" max="2.7" inc="0.05" storagetype="uint8" endian="big"/>
+  <scaling name="BoostBar16" units="bar" toexpr="x/1372.2" frexpr="x*1372.2" format="%.2f" min="0" max="2.7" inc="0.05" storagetype="uint16" endian="big"/>
+  <scaling name="BoostErrorPsi" units="psi" toexpr="(x-128)/(8*5.18)" frexpr="x*8*5.18+128" format="%.1f" min="-3.1" max="3.1" inc="0.1" storagetype="uint16" endian="big"/>
+  <scaling name="EnrichmentAdj" units="%" toexpr="x/128" frexpr="x*128" format="%.2f" min="0" max="2" inc="0.05" storagetype="uint8" endian="big"/>
+  <scaling name="FABoostError" units="psi" toexpr="(x-168)/(8*5.18)" frexpr="x*8*5.18+168" format="%.1f" min="-3.1" max="3.1" inc="0.1" storagetype="uint16" endian="big"/>
+  <scaling name="Hex16" units="hex" toexpr="x" frexpr="x" format="%04X" min="0" max="65535" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="Hex8" units="hex" toexpr="x" frexpr="x" format="%02X" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="ISCVSteps" units="Steps" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="ISCVSteps16" units="Steps" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="InjectorLatency" units="ms" toexpr="x*0.024" frexpr="x/0.024" format="%.3f" min="0" max="4" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="InjectorScaling" units="cc/min" toexpr="29241/x" frexpr="29241/x" format="%.0f" min="1" max="1600" inc="10" storagetype="uint16" endian="big"/>
+  <scaling name="Load" units="%" toexpr="x*10/32" frexpr="x*32/10" format="%.0f" min="0" max="300" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="Load16" units="Load" toexpr="x*5/8" frexpr="x*8/5" format="%.1f" min="0" max="100" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="Load8" units="%" toexpr="x*5/8" frexpr="x*8/5" format="%.1f" min="0" max="160" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="LoadBoost" units="%" toexpr="x*5/4" frexpr="x*4/5" format="%.0f" min="0" max="319" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="LoadError" units="%" toexpr="x*5/32-20" frexpr="(x+20)*32/5" format="%.1f" min="-20" max="20" inc="0.5" storagetype="uint16" endian="big"/>
+  <scaling name="MAFsize" units="units" toexpr="39044/x" frexpr="39044/x" format="%.0f" min="1000" max="5000" inc="1" storagetype="int16" endian="big"/>
+  <scaling name="MAFHz" units="Hz" toexpr="6.29*x/64" frexpr="64/(6.29*x)" format="%.0f" min="0" max="5000" inc="1" storagetype="int16" endian="big"/>
+  <scaling name="O2Voltage" units="V" toexpr="0.0195*x" frexpr="x/0.0195" format="%.2f" min="0" max="1" inc="0.01" storagetype="uint16" endian="big"/>
+  <scaling name="OffsetWGDC" units="%WGDC Change" toexpr="(x-128)/2" frexpr="x*2+128" format="%.1f" min="-64" max="63.5" inc="0.1" storagetype="uint8" endian="big"/>
+  <scaling name="RPM" units="RPM" toexpr="x*1000/256" frexpr="x*256/1000" format="%.0f" min="0" max="11000" inc="50" storagetype="uint16" endian="big"/>
+  <scaling name="RPM8" units="RPM" toexpr="x*125/16" frexpr="x*16/125" format="%.0f" min="0" max="2000" inc="50" storagetype="uint8" endian="big"/>
+  <scaling name="RPMLimit" units="RPM" toexpr="7500000/x" frexpr="7500000/x" format="%.0f" min="0" max="9000" inc="60" storagetype="uint16" endian="big"/>
+  <scaling name="RPMStatLimit" units="RPM" toexpr="x*31.25" frexpr="x/31.25" format="%.0f" min="0" max="9000" inc="31.25" storagetype="uint16" endian="big"/>
+  <scaling name="RPMStatLimit8" units="RPM" toexpr="x*31.25" frexpr="x/31.25" format="%.0f" min="0" max="9000" inc="31.25" storagetype="uint8" endian="big"/>
+  <scaling name="RPMTarget" units="RPM" toexpr="x*125/16" frexpr="x*16/125" format="%.0f" min="0" max="2000" inc="50" storagetype="uint16" endian="big"/>
+  <scaling name="Temp" units="Celsius" toexpr="x-40" frexpr="x+40" format="%.0f" min="-40" max="140" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="Temp8" units="Celsius" toexpr="x-40" frexpr="x+40" format="%.0f" min="-40" max="140" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="TempScale" units="Celsius" toexpr="x" frexpr="x" format="%.0f" min="-40" max="140" inc="1" storagetype="int8" endian="big"/>
+  <scaling name="TempScaleFuel" units="Celsius" toexpr="x/10" frexpr="x*10" format="%.0f" min="-40" max="200" inc="1" storagetype="int16" endian="big"/>
+  <scaling name="ThrottlePercentage8" units="%" toexpr="x/255*100" frexpr="x*255/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint8"/>
+  <scaling name="ThrottlePercentage" units="%" toexpr="x/255*100" frexpr="x*255/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint16"/>
+  <scaling name="ThrottleVoltage" units="V" toexpr="x*5/256" frexpr="x*256/5" format="%.2f" min="0" max="5" inc="0.05" storagetype="uint8" endian="big"/>
+  <scaling name="ThrottleVoltage16" units="V" toexpr="x*5/256" frexpr="x*256/5" format="%.2f" min="0" max="5" inc="0.05" storagetype="uint16" endian="big"/>
+  <scaling name="Time" units="ms" toexpr="x*25" frexpr="x/25" format="%.0f" min="0" max="1.63838e+06" inc="25" storagetype="uint16" endian="big"/>
+  <scaling name="TimeSec" units="s" toexpr="x/10" frexpr="x*10" format="%.1f" min="0" max="25.5" inc="0.1" storagetype="uint16" endian="big"/>
+  <scaling name="Timing" units="degrees" toexpr="x" frexpr="x" format="%.0f" min="-128" max="128" inc="1" storagetype="int8" endian="big"/>
+  <scaling name="ValveTiming" units="degrees" toexpr="72-x*0.6" frexpr="(72-x)/0.6" format="%.1f" min="0" max="30" inc="0.6" storagetype="uint8" endian="big"/>
+  <scaling name="ValveTiming16" units="degrees" toexpr="72-x*0.6/32" frexpr="(72-x)*32/0.6" format="%.1f" min="-1.8" max="28.8" inc="0.1" storagetype="uint16" endian="big"/>
+  <scaling name="VehicleSpeed" units="km/h" toexpr="x*2" frexpr="x/2" format="%.0f" min="0" max="510" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="VehicleSpeed8" units="km/h" toexpr="x*2" frexpr="x/2" format="%.0f" min="0" max="510" inc="1" storagetype="uint8" endian="big"/>
+  <scaling name="Volts16" units="Volts" toexpr="x*5/255" frexpr="x*255/5" format="%.2f" min="0" max="5" inc="0.05" storagetype="uint16" endian="big"/>
+  <scaling name="VoltsADCx4" units="Volts" toexpr="x*5/1023" frexpr="x*1023/5" format="%.3f" min="0" max="5" inc="0.005" storagetype="uint16" endian="big"/>
+  <scaling name="WGDC" units="%WGDC" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint8" endian="big"/>
+  <scaling name="WGDuty" units="%" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint8" endian="big"/>
+  <scaling name="WGDuty16" units="%" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint16" endian="big"/>
+  <scaling name="EGRDuty" units="%" toexpr="x/1.28" frexpr="x*1.28" format="%.1f" min="0" max="100" inc="0.1" storagetype="uint8" endian="big"/>
+  <scaling name="EGRDutyCTFactor" units="Fraction" toexpr="x/128" frexpr="x*128" format="%.1f" min="0" max="1" inc="0.01" storagetype="uint8" endian="big"/>
+  <scaling name="psia16" units="psia" toexpr="x/(5.18*2)" frexpr="x*(2*5.18)" format="%.1f" min="0" max="32" inc="0.1" storagetype="uint16" endian="big"/>
+  <scaling name="psia8" units="psia" toexpr="x/(5.18*2)" frexpr="x*(2*5.18)" format="%.1f" min="0" max="24.6" inc="0.1" storagetype="uint8" endian="big"/>
+  <scaling name="uint16" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="65535" inc="1" storagetype="uint16" endian="big"/>
+  <scaling name="uint8" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+
+
+
+  <!--  *** FUEL ***  -->
+
+  <table name="High Octane Fuel Map" category="Fuel" type="3D" swapxy="true" scaling="AFR">
+    <table name="Engine Load" type="X Axis" elements="20" scaling="Load"/>
+    <table name="RPM" type="Y Axis" elements="15" scaling="RPM"/>
+  </table>
+
+  <table name="Low Octane Fuel Map" category="Fuel" type="3D" swapxy="true" scaling="AFR">
+    <table name="Engine Load" type="X Axis" elements="20" scaling="Load"/>
+    <table name="RPM" type="Y Axis" elements="15" scaling="RPM"/>
+  </table>
+
+  <table name="Injector Size Scaling" category="Fuel" type="1D" scaling="InjectorScaling"/>
+  <table name="Injector Battery Voltage Latency Compensation" category="Fuel" type="2D" scaling="InjectorLatency">
+    <table name="Battery Voltage" type="Y Axis" elements="7" scaling="BatteryVoltage"/>
+  </table>
+
+  <table name="Accel Enrichment" category="Fuel" type="2D" scaling="EnrichmentAdj">
+    <table name="RPM" address="59fa" type="Y Axis" elements="15" scaling="RPM"/>
+  </table>
+
+  <table name="Airflow/Hz Raw Scaling" category="Fuel" type="2D" level="3" scaling="uint8">
+    <table name="MAF Hz" type="Y Axis" elements="21" scaling="MAFHz"/>
+  </table>
+
+  <table name="Airflow/Hz Offset Raw" category="Fuel" type="1D" level="3" scaling="uint16"/>
+
+  <table name="MAF Compensation" category="Fuel" type="2D" level="3" scaling="uint8">
+    <table name="MAF Hz" type="Y Axis" elements="21" scaling="MAFHz"/>
+  </table>
+
+  <table name="Relative Air Density vs Temp" category="Fuel" type="2D" level="3" flipy="true" scaling="AirTempFactor">
+    <table name="Degrees" type="Y Axis" elements="8" scaling="Temp"/>
+  </table>
+
+  <table name="Baro and Air Temp Compensation" category="Fuel" type="3D" level="3" swapxy="true" scaling="AirTempBaroCorrection">
+    <table name="IAT_Comp/Baro_Bar" type="X Axis" elements="4" scaling="AirTempBaroFactor"/>
+    <table name="MAF Hz" type="Y Axis" elements="9" scaling="MAFHz"/>
+  </table>
+
+  <table name="MAF Sensor Filtering" category="Fuel" type="2D" level="3" scaling="uint16">
+    <table name="Load" type="Static Y Axis" elements="2">
+      <data>Hi</data>
+      <data>Lo</data>
+    </table>
+  </table>
+
+  <table name="MAF Size" category="Fuel" type="1D" level="3" scaling="AirFlow16"/>
+
+  <table name="Open Loop Load #1" category="Fuel" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+  <table name="Open Loop Load #2" category="Fuel" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+  <table name="Open Loop Throttle #1" category="Fuel" type="2D" scaling="ThrottlePercentage8">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+  <table name="Open Loop Throttle #2" category="Fuel" type="2D" scaling="ThrottlePercentage8">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+
+
+  <!--  *** FUEL LEAN SPOOL ***  -->
+
+  <table name="Lean Spool Start RPM" category="Fuel Lean Spool" type="1D" scaling="RPMStatLimit"/>
+  <table name="Lean Spool Stop RPM" category="Fuel Lean Spool" type="1D" scaling="RPMStatLimit"/>
+
+  <table name="Lean Spool Load Threshold" category="Fuel Lean Spool" type="2D" level="2" scaling="Load8">
+    <table name="input value" type="X Axis" elements="14" scaling="RPM"/>
+  </table>
+
+  <table name="Lean Spool Trailing Time (Rich Side)" category="Fuel Lean Spool" type="2D" level="2" scaling="uint8">
+    <table name="input value" type="X Axis" elements="14" scaling="RPM"/>
+  </table>
+
+  <table name="Lean Spool Trailing Time (Lean Side)" category="Fuel Lean Spool" type="2D" level="2" scaling="uint8">
+    <table name="input value" type="X Axis" elements="14" scaling="RPM"/>
+  </table>
+
+  <table name="Min Temp for Lean Spool" category="Fuel Lean Spool" type="1D" level="2" scaling="Temp"/>
+
+  <table name="Lean Spool Enable Load Hysteresis" category="Fuel Lean Spool" type="1D" level="2" scaling="Load16"/>
+
+  <table name="Lean Spool AFR Mapping" category="Fuel Lean Spool" type="2D" level="2" scaling="AFR">
+    <table name="base AFR" type="X Axis" elements="7" scaling="AFR16"/>
+  </table>
+
+  <table name="Lean Spool AFR below Enable" category="Fuel Lean Spool" type="1D" level="2" scaling="AFR16"/>
+
+  <table name="Lean Spool Clip Value" category="Fuel Lean Spool" type="1D" level="2" scaling="AFR16"/>
+
+
+
+  <!--  *** TIMING ***  -->
+
+  <table name="High Octane Ignition Map 1" category="Timing" type="3D" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+  <table name="Low Octane Ignition Map 1" category="Timing" type="3D" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+  <table name="High Octane Ignition Map 2" category="Timing" type="3D" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+  <table name="Low Octane Ignition Map 2" category="Timing" type="3D" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+  <table name="High Octane Ignition Map 3" category="Timing" type="3D" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+  <table name="Low Octane Ignition Map 3" category="Timing" type="3D" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+  <table name="High Oct EGR-Enabled Advance" category="Timing" type="3D" level="2" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+  <table name="Low Oct EGR-Enabled Advance" category="Timing" type="3D" level="2" swapxy="true" scaling="Timing">
+    <table name="Engine Load" type="X Axis" scaling="Load"/>
+    <table name="RPM" type="Y Axis" scaling="RPM"/>
+  </table>
+
+
+
+  <!--  *** MIVEC ***  -->
+
+  <table name="MIVEC Intake Advance" category="MIVEC" type="3D" swapxy="true" scaling="ValveTiming">
+    <table name="Engine Load" type="X Axis" elements="20" scaling="Load"/>
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="MIVEC Intake Advance Min" category="MIVEC" type="1D" level="2" scaling="ValveTiming16"/>
+
+  <table name="MIVEC Intake Advance Max" category="MIVEC" type="1D" level="2" scaling="ValveTiming16"/>
+
+
+
+<!--  *** TURBO BOOST NON-JDM ***  -->
+
+  <table name="Boost Cut Load" category="Turbo Boost non-JDM" type="2D" scaling="LoadBoost">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="9"/>
+  </table>
+
+  <table name="Boost Cut Delay" category="Turbo Boost non-JDM" type="1D" scaling="Time"/>
+
+  <table name="Boost Control Load Offset" category="Turbo Boost non-JDM" type="1D" scaling="Load16"/>
+
+  <table name="Boost Desired Engine Load #1" category="Turbo Boost non-JDM" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+  <table name="Boost Desired Engine Load #3 (BCLS)" category="Turbo Boost non-JDM" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+  <table name="Baseline WGDC #1" category="Turbo Boost non-JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+  <table name="Baseline WGDC #3 (BCLS)" category="Turbo Boost non-JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="16"/>
+  </table>
+
+  <table name="Turbo Boost Error Correction" category="Turbo Boost non-JDM" type="2D" scaling="OffsetWGDC">
+    <table name="Boost Error" type="Y Axis" elements="17" scaling="LoadError"/>
+  </table>
+
+  <table name="WGDC Correction interval #1" category="Turbo Boost non-JDM" type="1D" scaling="uint16"/>
+
+  <table name="WGDC Correction interval #2 (BCLS)" category="Turbo Boost non-JDM" type="1D" scaling="uint16"/>
+
+  <table name="BCS Re/De-Activation RPM" category="Turbo Boost non-JDM" type="2D" scaling="RPMStatLimit">
+    <table name="Condition" type="Static Y Axis" elements="4">
+      <data>Reactivate On</data>
+      <data>Reactivate Off</data>
+      <data>Deactivate On</data>
+      <data>Deactivate Off</data>
+    </table>
+  </table>
+
+  <table name="Min Load for Boost Control" category="Turbo Boost non-JDM" type="2D" scaling="Load8">
+      <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Max Total Upward WGDC Correction vs TPS" category="Turbo Boost non-JDM" type="2D" scaling="OffsetWGDC">
+    <table name="TPS" type="Y Axis" elements="9" scaling="ThrottlePercentage"/>
+  </table>
+
+  <table name="Max WGDC vs Coolant Temp" category="Turbo Boost non-JDM" type="2D" scaling="WGDuty">
+    <table name="Coolant Temp" type="Y Axis" elements="8" scaling="Temp"/>
+  </table>
+
+  <table name="Boost Control Limiting Vehicle Speed" category="Turbo Boost non-JDM" type="2D" scaling="VehicleSpeed8">
+    <table name="Condition" type="Static Y Axis" elements="2">
+      <data>On</data>
+      <data>Off</data>
+    </table>
+  </table>
+
+  <table name="WGDC Limit During Fault" category="Turbo Boost non-JDM" type="1D" level="3" scaling="WGDuty16"/>
+
+
+
+<!--  *** TURBO BOOST JDM ***  -->
+
+  <table name="Boost Cut Load" category="Turbo Boost JDM" type="2D" scaling="LoadBoost">
+    <table name="RPM" type="Y Axis" scaling="RPM" elements="9"/>
+  </table>
+
+  <table name="Boost Cut Delay" category="Turbo Boost JDM" type="1D" scaling="Time"/>
+
+  <table name="Boost Control Load Offset" category="Turbo Boost JDM" type="1D" scaling="Load16"/>
+
+  <table name="Boost Desired Engine Load #1" category="Turbo Boost JDM" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Boost Desired Engine Load #2" category="Turbo Boost JDM" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Boost Desired Engine Load #3 (BCLS)" category="Turbo Boost JDM" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Boost Desired Engine Load #4" category="Turbo Boost JDM" type="2D" scaling="Load8">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Baseline WGDC #1/1" category="Turbo Boost JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Baseline WGDC #1/2" category="Turbo Boost JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Baseline WGDC #1/3" category="Turbo Boost JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Baseline WGDC #2/1" category="Turbo Boost JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Baseline WGDC #2/2" category="Turbo Boost JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Baseline WGDC #2/3" category="Turbo Boost JDM" type="2D" scaling="WGDuty">
+    <table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
+  </table>
+
+  <table name="Turbo Boost Error Correction" category="Turbo Boost JDM" type="2D" scaling="OffsetWGDC">
+    <table name="Boost Error" type="Y Axis" elements="17" scaling="LoadError"/>
+  </table>
+
+  <table name="BCS Re/De-Activation RPM" category="Turbo Boost JDM" type="2D" scaling="RPMStatLimit">
+    <table name="Condition" type="Static Y Axis" elements="4">
+      <data>Reactivate On</data>
+      <data>Reactivate Off</data>
+      <data>Deactivate On</data>
+      <data>Deactivate Off</data>
+    </table>
+  </table>
+
+  <table name="Boost Control Limiting Vehicle Speed" category="Turbo Boost JDM" type="2D" scaling="VehicleSpeed8">
+    <table name="Condition" type="Static Y Axis" elements="2">
+      <data>On</data>
+      <data>Off</data>
+    </table>
+  </table>
+
+
+
+<!--  *** TURBO ANTI-LAG ***  -->
+
+  <table name="Boost Enhancement (Anti-Lag) Start RPM" category="Turbo Anti-Lag" type="1D" scaling="RPMStatLimit"/>
+
+  <table name="Boost Enhancement (Anti-lag) Stop RPM" category="Turbo Anti-Lag" type="1D" level="3" scaling="RPMStatLimit"/>
+
+
+
+<!--  *** IDLE ***  -->
+
+  <table name="Desired ISCV intial step position with AC off-Neutral" category="Idle" type="2D" scaling="ISCVSteps">
+    <table name="Engine Temp" type="Y Axis" scaling="Temp"/>
+  </table>
+
+  <table name="Desired ISCV intial step position with AC off-Drive" category="Idle" type="2D" scaling="ISCVSteps">
+    <table name="Engine Temp" type="Y Axis" scaling="Temp"/>
+  </table>
+
+  <table name="Desired ISCV intial step position with AC on-Neutral" category="Idle" type="2D" scaling="ISCVSteps">
+    <table name="Engine Temp" type="Y Axis" scaling="Temp"/>
+  </table>
+
+  <table name="Desired Idle RPM-Neutral" category="Idle" type="2D" scaling="RPM8">
+    <table name="Engine Temp" type="Y Axis" scaling="Temp"/>
+  </table>
+
+  <table name="Desired Idle RPM-Drive" category="Idle" type="2D" flipy="true" scaling="RPM8">
+    <table name="Engine Temp" type="Y Axis" scaling="Temp"/>
+  </table>
+
+  <table name="Idle Stepper Lookup Table" category="Idle" type="3D" scaling="ISCVSteps">
+    <table name="Coolant Temp" type="X Axis" elements="8" scaling="Temp"/>
+    <table name="Load" type="Y Axis" elements="27" scaling="Load16"/>
+  </table>
+
+
+
+  <!--  *** MISC ***  -->
+
+  <table name="Immobilizer" category="Misc" address="3ffce" type="1D" level="3" scaling="Hex16"/>
+  <table name="Init Code" category="Misc" address="3ffcc" type="1D" level="2" scaling="Hex16"/>
+
+  <table name="ECU Internal ID" category="Misc" address="f52" type="2D" level="3" scaling="Hex8">
+     <table name="Byte Position" type="Static X Axis" elements="4">
+       <data>b1</data>
+       <data>b2</data>
+       <data>b3</data>
+       <data>b4</data>
+     </table>
+  </table>
+
+  <table name="Coolant Temp Scaling" category="Misc" type="2D" level="2" scaling="TempScale">
+     <table name="Coolant Temp Sensor Raw" type="Y Axis" elements="167" scaling="VoltsADCx4"/>
+  </table>
+
+  <table name="IAT Scaling" category="Misc" type="2D" level="2" scaling="TempScale">
+    <table name="Intake Air Temp Sensor Raw" type="Y Axis" elements="139" scaling="VoltsADCx4"/>
+  </table>
+
+
+
+  <!--  *** MISC LIMITS ***  -->
+
+  <table name="Speed Limit" category="Misc Limits" type="2D" scaling="VehicleSpeed">
+    <table name="Condition" type="Static Y Axis" elements="2">
+      <data>On</data>
+      <data>Off</data>
+    </table>
+  </table>
+
+  <table name="Rev Limit" category="Misc Limits" type="1D" scaling="RPMLimit"/>
+
+  <table name="Stationary Rev Limit" category="Misc Limits" type="1D" scaling="RPMStatLimit"/>
+
+
+
+  <!--  *** IC SPRAY ***  -->
+
+  <table name="IC Relay Timer On/Off Time" category="IC Spray" type="2D" scaling="TimeSec">
+    <table name="Condition" type="Static Y Axis" elements="2">
+      <data>On Time</data>
+      <data>Off Time</data>
+    </table>
+  </table>
+
+  <table name="IC Relay Control Min RPM" category="IC Spray" type="1D" scaling="RPMStatLimit"/>
+
+  <table name="IC Relay Control Water Temp" category="IC Spray" type="2D" scaling="Temp">
+    <table name="Condition" type="Static Y Axis" elements="2">
+      <data>On</data>
+      <data>Off</data>
+    </table>
+  </table>
+
+  <table name="IC Relay Control Min Load" category="IC Spray" type="1D" scaling="Load"/>
+
+  <table name="IC Relay Control Max Vehicle Speed" category="IC Spray" type="1D" scaling="VehicleSpeed"/>
+
+  <table name="IC Relay Control TPS Position" category="IC Spray" type="2D" scaling="ThrottlePercentage">
+    <table name="Condition" type="Static Y Axis" elements="2">
+      <data>On</data>
+      <data>Off</data>
+    </table>
+  </table>
+
+  <table name="IC Relay Control Min Air Temp" category="IC Spray" type="1D" scaling="Temp"/>
+
+  <table name="IC Relay Timer On/Off Time" category="IC Spray" type="2D" scaling="TimeSec">
+    <table name="Condition" type="Static Y Axis" elements="2">
+      <data>On Time</data>
+      <data>Off Time</data>
+    </table>
+  </table>
+
+
+
+<!--  *** KNOCK CONTROL ***  -->
+
+  <table name="Knock Sensor Filter Map 1" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 2" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 3" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 4" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 5" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 6" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 7" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 8" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="12" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 9" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 10" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 11" category="Knock Control" type="3D" level="2" swapxy="true" scaling="uint8">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+  <table name="Knock Sensor Filter Map 12" category="Knock Control" type="3D" level="2" swapxy="true" scaling="Timing">
+    <table name="TAR" type="X Axis" elements="16" scaling="Load16"/>
+    <table name="RPM" type="Y Axis" elements="11" scaling="RPM"/>
+  </table>
+
+
+
+<!--  *** OBD-II ***  -->
+
+  <table name="OBD-II Codes" category="OBD-II" type="3D" level="2" scaling="Hex16">
+    <table name="r4 (hex)" type="Static X Axis" elements="16" scaling="Hex16">
+      <data>8000</data>
+      <data>4000</data>
+      <data>2000</data>
+      <data>1000</data>
+      <data>800</data>
+      <data>400</data>
+      <data>200</data>
+      <data>100</data>
+      <data>80</data>
+      <data>40</data>
+      <data>20</data>
+      <data>10</data>
+      <data>8</data>
+      <data>4</data>
+      <data>2</data>
+      <data>1</data>
+    </table>
+    <table name="r5 (hex)" type="Static Y Axis" elements="16">
+      <data>00</data>
+      <data>01</data>
+      <data>02</data>
+      <data>03</data>
+      <data>04</data>
+      <data>05</data>
+      <data>06</data>
+      <data>07</data>
+      <data>08</data>
+      <data>09</data>
+      <data>0A</data>
+      <data>0B</data>
+      <data>0C</data>
+      <data>0D</data>
+      <data>0E</data>
+      <data>0F</data>
+    </table>
+  </table>
+
+
+
+<!--  *** OBD-II EVAP ***  -->
+
+  <table name="Fuel Temp scaling" category="OBD-II Evap" type="2D" level="2" scaling="TempScaleFuel">
+    <table name="FT sensor voltage" address="b32e" type="Y Axis" elements="121" scaling="VoltsADCx4"/>
+  </table>
+
+  <table name="Fuel Temp Sensor Check Lo" category="OBD-II Evap" type="1D" level="2" scaling="uint16"/>
+
+  <table name="Fuel Temp Sensor Check Hi" category="OBD-II Evap" type="1D" level="2" scaling="uint16"/>
+
+
+
+<!--  *** EMISSIONS EGR ***  -->
+
+  <table name="Base EGR Duty vs Load and RPM" category="Emissions EGR" type="3D" level="2" swapxy="true" scaling="EGRDuty">
+    <table name="Load Fuel/Timing" type="X Axis" elements="11" scaling="Load"/>
+    <table name="RPM" type="Y Axis" elements="10" scaling="RPM"/>
+  </table>
+
+  <table name="EGR Duty Normalization Factor vs Coolant Temp" category="Emissions EGR" type="2D" level="2" scaling="EGRDutyCTFactor">
+    <table name="Coolant Temp" type="Y Axis" elements="8" scaling="Temp"/>
+  </table>
+
+  <table name="EGR Duty vs RPM (Fault Condition?)" category="Emissions EGR" type="2D" level="2" scaling="EGRDuty">
+    <table name="RPM" type="Y Axis" elements="10" scaling="RPM"/>
+  </table>
+
+
+
+<!--  *** ECU PERIPHERY ***  -->
+
+  <table name="ECU Periphery00 Hex" category="Periphery" address="f9a" type="1D" level="2" scaling="Hex16"/>
+  <table name="ECU Periphery0 Hex" category="Periphery" address="faa" type="1D" level="2" scaling="Hex16"/>
+  <table name="ECU Periphery1 Hex" category="Periphery" address="fba" type="1D" level="2" scaling="Hex16"/>
+  <table name="ECU Periphery2 Hex" category="Periphery" address="fca" type="1D" level="2" scaling="Hex16"/>
+  <table name="ECU Periphery3 Hex" category="Periphery" address="fda" type="1D" level="2" scaling="Hex16"/>
+  <table name="ECU Periphery4 Hex" category="Periphery" address="fea" type="1D" level="2" scaling="Hex16"/>
+
+  <scaling name="blobbits" storagetype="bloblist" storagebits="1">
+    <data name="0" value="00"/>
+    <data name="1" value="01"/>
+  </scaling>
+
+  <table name="ECU Periphery00 (F9A) Bits" category="Periphery" address="f9a" type="2D" level="2" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="ECU Periphery0 (FAA) Bits" category="Periphery" address="faa" type="2D" level="2" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="ECU Periphery1 (FBA) Bits" category="Periphery" address="fba" type="2D" level="2" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+    <table name="ECU Periphery2 (FCA) Bits" category="Periphery" address="fca" type="2D" level="2" scaling="blobbits">
+      <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+        <data>bit.15</data>
+        <data>bit.14</data>
+        <data>bit.13</data>
+        <data>bit.12</data>
+        <data>bit.11</data>
+        <data>bit.10</data>
+        <data>bit.9</data>
+        <data>bit.8</data>
+        <data>bit.7</data>
+        <data>bit.6</data>
+        <data>bit.5</data>
+        <data>bit.4</data>
+        <data>bit.3</data>
+        <data>bit.2</data>
+        <data>bit.1</data>
+        <data>bit.0</data>
+      </table>
+  </table>
+
+    <table name="ECU Periphery3 (FDA) Bits" category="Periphery" address="fda" type="2D" level="2" scaling="blobbits">
+      <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+        <data>bit.15</data>
+        <data>bit.14</data>
+        <data>bit.13</data>
+        <data>bit.12</data>
+        <data>bit.11</data>
+        <data>bit.10</data>
+        <data>bit.9</data>
+        <data>bit.8</data>
+        <data>bit.7</data>
+        <data>bit.6</data>
+        <data>bit.5</data>
+        <data>bit.4</data>
+        <data>bit.3</data>
+        <data>bit.2</data>
+        <data>bit.1</data>
+        <data>bit.0</data>
+      </table>
+  </table>
+
+    <table name="ECU Periphery4 (FEA) Bits" category="Periphery" address="fea" type="2D" level="2" scaling="blobbits">
+      <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+        <data>bit.15</data>
+        <data>bit.14</data>
+        <data>bit.13</data>
+        <data>bit.12</data>
+        <data>bit.11</data>
+        <data>bit.10</data>
+        <data>bit.9</data>
+        <data>bit.8</data>
+        <data>bit.7</data>
+        <data>bit.6</data>
+        <data>bit.5</data>
+        <data>bit.4</data>
+        <data>bit.3</data>
+        <data>bit.2</data>
+        <data>bit.1</data>
+        <data>bit.0</data>
+      </table>
+  </table>
+
+
+<!--  *** MUT ***  -->
+
+  <table name="MUT Table" category="MUT" type="3D" level="2" scaling="Hex16">
+    <table name="X" type="Static X Axis" elements="32" scaling="Hex16">
+      <data>-</data>
+      <data>0</data>
+      <data>-</data>
+      <data>1</data>
+      <data>-</data>
+      <data>2</data>
+      <data>-</data>
+      <data>3</data>
+      <data>-</data>
+      <data>4</data>
+      <data>-</data>
+      <data>5</data>
+      <data>-</data>
+      <data>6</data>
+      <data>-</data>
+      <data>7</data>
+      <data>-</data>
+      <data>8</data>
+      <data>-</data>
+      <data>9</data>
+      <data>-</data>
+      <data>A</data>
+      <data>-</data>
+      <data>B</data>
+      <data>-</data>
+      <data>C</data>
+      <data>-</data>
+      <data>D</data>
+      <data>-</data>
+      <data>E</data>
+      <data>-</data>
+      <data>F</data>
+    </table>
+    <table name="Y" type="Static Y Axis" elements="30">
+      <data>MUT0X</data>
+      <data>MUT1X</data>
+      <data>MUT2X</data>
+      <data>MUT3X</data>
+      <data>MUT4X</data>
+      <data>MUT5X</data>
+      <data>MUT6X</data>
+      <data>MUT7X</data>
+      <data>MUT8X</data>
+      <data>MUT9X</data>
+      <data>MUTAX</data>
+      <data>MUTBX</data>
+      <data>MUTCX</data>
+      <data>MUTDX</data>
+      <data>MUTEX</data>
+      <data>MUTFX</data>
+      <data>MUT10X</data>
+      <data>MUT11X</data>
+      <data>MUT12X</data>
+      <data>MUT13X</data>
+      <data>MUT14X</data>
+      <data>MUT15X</data>
+      <data>MUT16X</data>
+      <data>MUT17X</data>
+      <data>MUT18X</data>
+      <data>MUT19X</data>
+      <data>MUT1AX</data>
+      <data>MUT1BX</data>
+      <data>MUT1CX</data>
+      <data>MUT1DX</data>
+    </table>
+  </table>
+
+</rom>
