@@ -1,0 +1,66 @@
+DTC P0090: Fuel Pressure Solenoid Circuit
+DTC P0101: Volume Airflow Circuit Range/Performance Problem
+DTC P0102: Volume Airflow Circuit Low Input
+DTC P0106: Barometric Pressure Circuit Range/Performance Pro
+DTC P0107: Barometric Pressure Circuit Low Input
+DTC P0108: Barometric Pressure Circuit High Input
+DTC P0111: Intake Air Temperature Circuit Range/Performance
+DTC P0112: Intake Air Temperature Circuit Low Input
+DTC P0113: Intake Air Temperature Circuit High Input
+DTC P0116: Engine Coolant Temperature Circuit Range/Performa
+DTC P0117: Engine Coolant Temperature Circuit Low Input
+DTC P0118: Engine Coolant Temperature Circuit High Input
+DTC P0121: Throttle Position Circuit Range/Performance Probl
+DTC P0122: Throttle Position Circuit Low Input
+DTC P0123: Throttle Position Circuit High Input
+DTC P0125: Insufficient Coolant Temperature for Closed Loop
+DTC P0128: Coolant Thermostat (Coolant Temperature Below The
+DTC P0130: Heated Oxygen Sensor Circuit [SEMSOR 1]
+DTC P0131: Heated Oxygen Sensor Circuit Low Voltage [SEMSOR
+DTC P0132: Heated Oxygen Sensor Circuit High Voltage [SEMSOR
+DTC P0133: Heated Oxygen Sensor Circuit Slow Response [SEMSO
+DTC P0134: Heated Oxygen Sensor No Activity Detected [SEMSOR
+DTC P0135: Heated Oxygen Sensor Heater Circuit [SEMSOR 1]
+DTC P0136: Heated Oxygen Sensor Circuit [SEMSOR 2]
+DTC P0137: Heated Oxygen Sensor Circuit Low Voltage [SEMSOR
+DTC P0138: Heated Oxygen Sensor Circuit High Voltage [SEMSOR
+DTC P0139: Heated Oxygen Sensor Circuit Slow Response [SEMSO
+DTC P0141: Heated Oxygen Sensor Heater Circuit [SEMSOR 2]
+DTC P0171: System too Lean
+DTC P0172: System too Rich
+DTC P0181: Fuel Tank Temperature Sensor Circuit Range/Perfor
+DTC P0182: Fuel Tank Temperature Sensor Circuit Low Input
+DTC P0183: Fuel Tank Temperature Sensor Circuit High Input
+DTC P0201: Injector Circuit-Cylinder 1, DTC P0202: Injector
+DTC P0234: Turbocharger Wastegate System Malfunction
+DTC P0243: Turbocharger Wastegate Solenoid Circuit
+DTC P0300: Random/Multiple Cylinder Misfire Detected
+DTC P0301: Cylinder 1 Misfire Detected, DTC P0302: Cylinder
+DTC P0325: Knock Sensor Circuit
+DTC P0335: Crankshaft Position Sensor Circuit
+DTC P0340: Camshaft Position Sensor Circuit
+DTC P0401: EGR Flow Insufficient Detected
+DTC P0403: EGR Control Circuit
+DTC P0420: Catalyst Efficiency Below Threshold
+DTC P0441: Evaporative Emission Control System Incorrect Pur
+DTC P0442: Evaporative Emission System Leak Detected (Small
+DTC P0443: Evaporative Emission Control System Purge Control
+DTC P0446: Evaporative Emission Control System Vent Control
+DTC P0451: Evaporative Emission System Pressure Sensor Range
+DTC P0452: Evaporative Emission System Pressure Sensor Low I
+DTC P0453: Evaporative Emission System Pressure Sensor High
+DTC P0455: Evaporative Emission System Leak Detected (Gross
+DTC P0456: Evaporative Emission System Leak Detected (Very S
+DTC P0461: Fuel Level Sensor Circuit Range/Performance [SUB]
+DTC P0500: Vehicle Speed Sensor Malfunction
+DTC P0506: Idle Control System RPM Lower Than Expected
+DTC P0507: Idle Control System RPM Higher Than Expected
+DTC P0513: Immobilizer Malfunction
+DTC P0551: Power Steering Pressure Switch Circuit Range/Perf
+DTC P0554: Power Steering Pressure Switch Circuit Intermitte
+DTC P0622: Generator FR Terminal Circuit Malfunction
+DTC P0830: Clutch Pedal Position Switch Circuit Range/Perfor
+DTC P1400: Manifold Differential Pressure Sensor Circuit Mal
+DTC P1603: Battery Backup Circuit Malfunction
+DTC P2066: Fuel Level Sensor Circuit Range/Performance
+DTC P2263: Intake Charge System Malfunction 
