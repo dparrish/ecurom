@@ -1,0 +1,65 @@
+<rom>
+	<romid>
+		<xmlid>21810021</xmlid>
+		<internalidaddress>1021a</internalidaddress>
+		<internalidhex>21810021</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse</model>
+		<submodel>GT</submodel>
+		<transmission>Manual</transmission>
+		<year>2000</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539F</memmodel>
+	</romid>
+
+	<scaling name="AFR" units="AFR" toexpr="14.7*128/x" frexpr="14.7*128/x" format="%.1f" min="8" max="20" inc="0.1" storagetype="uint8" endian="little"/>
+	<scaling name="Airflow16" units="g/s" toexpr="x*600/65536" frexpr="x*65536/600" format="%.1f" min="0" max="600" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="Base 16" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="65535" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="EnrichmentAdj" units="%" toexpr="x/128" frexpr="x*128" format="%.2f" min="0" max="2" inc="0.05" storagetype="uint8" endian="big"/>
+	<scaling name="InjectorScaling" units="cc/min" toexpr="29241/x" frexpr="29241/x" format="%.0f" min="1" max="1000" inc="10" storagetype="uint16" endian="big"/>
+	<scaling name="Load" units="%" toexpr="x*10/32" frexpr="x*32/10" format="%.0f" min="0" max="300" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="Load8" units="%" toexpr="x*5/8" frexpr="x*8/5" format="%.1f" min="0" max="160" inc="1" storagetype="uint8" endian="little"/>
+	<scaling name="RPM" units="Revs" toexpr="x*1000/256" frexpr="x*256/1000" format="%.0f" min="0" max="11000" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="RevLimit" units="RPM" toexpr="7500000/x" frexpr="7500000/x" format="%.0f" min="0" max="9000" inc="60" storagetype="int16" endian="big"/>
+	<scaling name="Timing" units="Degrees" toexpr="x" frexpr="x" format="%.0f" min="-61" max="61" inc="1" storagetype="int8" endian="big"/>
+
+	<table name="High Octane Fuel Map" address="117a3" type="3D" level="1" swapxy="true" scaling="AFR">
+		<table name="Load" address="2ed82" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="2eea6" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="1185f" type="3D" level="1" swapxy="true" scaling="AFR">
+		<table name="Load" address="2ed82" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="2eea6" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="High Octane Timing Map" category="Timing" address="11c25" type="3D" level="1" swapxy="true" scaling="Timing">
+		<table name="Load" address="2ef16" type="X Axis" elements="11" scaling="Load"/>
+		<table name="RPM" address="2eee8" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Low Octane Timing Map" category="Timing" address="11d11" type="3D" level="1" swapxy="true" scaling="Timing">
+		<table name="Load" address="2ef16" type="X Axis" elements="11" scaling="Load"/>
+		<table name="RPM" address="2eee8" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Rev Limit" category="Limits" address="1086a" type="1D" level="1" scaling="RevLimit"/>
+
+	<table name="Acceleration Enrichment Map" address="11ac6" type="2D" level="1" scaling="EnrichmentAdj">
+		<table name="RPM" address="2eca4" type="Y Axis" elements="12" scaling="RPM"/>
+	</table>
+
+	<table name="Open Loop Load 1" address="1193c" type="2D" level="1" scaling="Load8">
+		<table name="RPM" address="2ec86" type="Y Axis" elements="12" scaling="RPM"/>
+	</table>
+
+	<table name="Open Loop Load 2" address="1194c" type="2D" level="1" scaling="Load8">
+		<table name="RPM" address="2ec86" type="Y Axis" elements="12" scaling="RPM"/>
+	</table>
+
+	<table name="MAF Size" category="Misc" address="1080c" type="1D" level="1" scaling="Airflow16"/>
+
+	<table name="Injector Scaling" address="10806" type="1D" level="1" scaling="InjectorScaling"/>
+
+</rom>

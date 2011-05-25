@@ -1,0 +1,19 @@
+<rom>
+	<romid>
+		<xmlid>A4RN100Q</xmlid>
+		<internalidaddress>200</internalidaddress>
+		<internalidstring>A4RN100Q</internalidstring>
+	      <caseid>AG821-2593</caseid>
+		<make>Subaru</make>
+		<market>EDM</market>
+		<model>Impreza</model>
+		<submodel>WRX STi</submodel>
+		<transmission>Manual/Auto</transmission>
+		<year>2001/2002</year>
+		<flashmethod>wrx02</flashmethod>
+		<memmodel>68HC16Y5</memmodel>
+	</romid>
+
+	<include>A4RN200H</include>
+
+</rom>

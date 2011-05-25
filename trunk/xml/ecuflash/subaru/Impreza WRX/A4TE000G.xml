@@ -1,0 +1,19 @@
+<rom>
+	<romid>
+		<xmlid>A4TE000G</xmlid>
+		<internalidaddress>200</internalidaddress>
+		<internalidstring>A4TE000G</internalidstring>
+		<caseid>AH750-5140</caseid>
+		<make>Subaru</make>
+		<market>EDM</market>
+		<model>Impreza</model>
+		<submodel>WRX</submodel>
+		<transmission>Manual/Auto</transmission>
+		<year>2003</year>
+		<flashmethod>wrx02</flashmethod>
+		<memmodel>68HC16Y5</memmodel>
+	</romid>
+
+	<include>A4TE001G</include>
+
+</rom>

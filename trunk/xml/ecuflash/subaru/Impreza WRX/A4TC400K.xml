@@ -1,0 +1,19 @@
+<rom>
+	<romid>
+		<xmlid>A4TC400K</xmlid>
+		<internalidaddress>200</internalidaddress>
+		<internalidstring>A4TC400K</internalidstring>
+		<caseid></caseid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Impreza</model>
+		<submodel>WRX</submodel>
+		<transmission>Auto</transmission>
+		<year>2003</year>
+		<flashmethod>wrx02</flashmethod>
+		<memmodel>68HC16Y5</memmodel>
+	</romid>
+
+	<include>A4TC300L</include>
+
+</rom>

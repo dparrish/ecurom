@@ -1,0 +1,96 @@
+<rom>
+	<romid>
+		<xmlid>94171715</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>94171715</internalidhex>
+		<make>Mitsubishi</make>
+		<market>TDM</market>
+		<model>Lancer</model>
+		<submodel>Evolution VIII</submodel>
+		<transmission>6MT</transmission>
+		<year>2005</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>TephraMOD-94170715-v7</include>
+
+	<table name="SD MAP Sensor VE and Calibration" category="Speed Density Tuning" address="32e8" type="2D" scaling="MAP VE load">
+		<table name="MAP" address="32c6" type="Y Axis" elements="8" scaling="kPa OMNI4barMAP"/>
+	</table>
+
+	<table name="SD RPM VE" category="Speed Density Tuning" address="337c" type="2D" scaling="Percent (128)">
+		<table name="RPM" address="63da" type="Y Axis" elements="17" scaling="RPM"/>
+	</table>
+
+	<table name="SD Set Baro Value" category="Speed Density Tuning" address="aa4a" type="1D" scaling="Baro16"/>
+
+	<table name="Stutter Fix Option #1 (Set Over/Under Flag for MAF Signal Averaging Val)" category="Speed Density Programming" address="162c" type="2D" level="2" scaling="uint16">
+		<table type="Static Y Axis" elements="1">
+			<data>Stock = 205                   For Fix Option #1, Set = 255</data>
+		</table>
+	</table>
+
+	<table name="Stutter Fix Option #2 (Set Scaling Factor for Transition Load)" category="Speed Density Programming" address="1630" type="2D" level="2" scaling="uint16">
+		<table type="Static Y Axis" elements="1">
+			<data>Stock = 112                   For Fix Option #2, Set = 0</data>
+		</table>
+	</table>
+
+	<table name="Stutter Fix Option #3 (BT -> NOP for DeltaMasterLoadPos/Neg Threshold)" category="Speed Density Programming" address="26778" type="2D" level="2" scaling="Hex16">
+		<table type="Static Y Axis" elements="1">
+			<data>Stock = 0x8909                   For Fix Option #3, Set = 0x0009</data>
+		</table>
+	</table>
+	
+	<table name="SD Change to mul r0,r1:sts macl,r0:shlr8 r0:nops" category="Speed Density Programming" address="1131a" type="2D" level="1" scaling="Hex16">
+		<table type="Y Axis" elements="18"/>
+	</table>
+
+	<table name="SD NOP 1" category="Speed Density Programming" address="11310" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD NOP 2" category="Speed Density Programming" address="26582" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD NOP 3" category="Speed Density Programming" address="265a6" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD Point to Preptable Address" category="Speed Density Programming" address="1130a" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD Change to 16 Bit Lookup (0xC28 -> 0xE02)" category="Speed Density Programming" address="113ce" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD MAP Calibration Input Data Table Address" category="Speed Density Programming" address="113ca" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD MAP Calibration Input Data Table Header" category="Speed Density Programming" address="32bc" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="Y Axis" elements="5"/>
+	</table>
+
+	<table name="SD MAP Calibration Output Data Table Address" category="Speed Density Programming" address="113d2" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD MAP Calibration Output Data Table Header" category="Speed Density Programming" address="32e0" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="Y Axis" elements="4"/>
+	</table>
+
+	<table name="SD Disable MAF Error Main (0xCB08 -> 0x0009)" category="Speed Density Programming" address="111fa" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD Disable MAF Error OBD-II CEL (0x09F2 -> 0x1068)" category="Speed Density Programming" address="8b6a" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD Point Baro ADC RAM to Fixed Value" category="Speed Density Programming" address="aa18" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="Y Axis" elements="6"/>
+	</table>
+
+	<table name="SD Disable Baro Error OBD-II CEL (0x0F6E -> 0x1022)" category="Speed Density Programming" address="8bea" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD Convert IAT to MAT (0x03 -> 0x0E)" category="Speed Density Programming" address="aa05" type="1D" level="1" scaling="Hex8"/>
+
+	<table name="SD MAT Scaling for IAT Scaling Table" category="Speed Density Programming" address="9a96" type="2D" level="1" scaling="TempScaleFuel">
+		<table name="MAT Sensor ADC volts" address="9b2c" type="Y Axis" elements="139" scaling="Volts16"/>
+	</table>
+
+	<table name="SD Point to Next ADC Routine Address in MAP ADC" category="Speed Density Programming" address="aa92" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD Pointer for MAP 11 Bit ADC RAM Address" category="Speed Density Programming" address="aa90" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD MAP 11 Bit ADC RAM Address" category="Speed Density Programming" address="aa9c" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="Y Axis" elements="2"/>
+	</table>
+
+</rom>

@@ -1,0 +1,119 @@
+<rom>
+	<romid>
+		<xmlid>Airtrek</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>83540008</internalidhex>
+		<caseid>none</caseid>
+		<ecuid>none</ecuid>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Airtrek</model>
+		<submodel>Turbo</submodel>
+		<transmission>Auto</transmission>
+		<year>2005</year>
+		<flashmethod>mitsukernelocp</flashmethod>
+		<memmodel>SH7055</memmodel>
+	</romid>
+
+	<include>evo9base</include>
+
+	<table name="High Octane Ignition Map 1" address="3b9b">
+		<table name="Engine Load" address="5f4e" elements="19"/>
+		<table name="RPM" address="5ef6" elements="18"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" address="3fc1">
+		<table name="Engine Load" address="5f4e" elements="19"/>
+		<table name="RPM" address="5ef6" elements="18"/>
+	</table>
+
+	<table name="High Octane Ignition Map 2" address="3cfd">
+		<table name="Engine Load" address="5f4e" elements="19"/>
+		<table name="RPM" address="5ef6" elements="18"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 2" address="3e5f">
+		<table name="Engine Load" address="5f4e" elements="19"/>
+		<table name="RPM" address="5ef6" elements="18"/>
+	</table>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="396f">
+		<table name="Battery Voltage" address="5e0a"/>
+	</table>
+
+	<table name="Accel Enrichment" address="39c8">
+		<table name="RPM" address="6ade"/>
+	</table>
+
+	<table name="Rev Limit" address="1586"/>
+
+	<table name="Stationary Rev Limit" address="2b8e"/>
+
+	<table name="Boost Delay Timer" address="1594"/>
+
+	<table name="Injector size scaling" address="1508"/>
+
+	<table name="Open Loop Load # 1" address="3820">
+		<table name="RPM" address="6ade" elements="15"/>
+	</table>
+
+	<table name="Open Loop Load # 2" address="3836">
+		<table name="RPM" address="6ade" elements="15"/>
+	</table>
+
+	<table name="Open Loop Throttle Low Load" address="3850">
+		<table name="RPM" address="6ade" elements="15"/>
+	</table>
+
+	<table name="Open Loop Throttle High Load" address="3866">
+		<table name="RPM" address="6ade" elements="15"/>
+	</table>
+
+	<table name="Boost Limit" address="37fe">
+		<table name="RPM" address="68ae" elements="9"/>
+	</table>
+
+	<table name="MAF Scaling" address="3306">
+		<table name="Load" address="5dba"/>
+	</table>
+
+	<table name="MAF Smoothing Table" address="3322">
+		<table name="Load" address="5dba"/>
+	</table>
+
+	<table name="Air Temperature Compensation" address="333e">
+		<table name="Degrees" address="5ffc"/>
+	</table>
+
+	<table name="Barometric Pressure Compensation" address="3351">
+		<table name="Atmosphere Pressure" address="5da8"/>
+		<table name="RPM" address="5dee"/>
+	</table>
+
+	<table name="MAF Size" address="1510"/>
+
+	<table name="Speed Limit" address="158e">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Octane Fuel Map 1" address="35cb">
+		<table name="Engine Load" address="5ec8"/>
+		<table name="RPM" address="6ade"/>
+	</table>
+
+	<table name="Low Octane Fuel Map 1" address="33bb">
+		<table name="Engine Load" address="5ec8"/>
+		<table name="RPM" address="6ade"/>
+	</table>
+
+	<table name="High Octane Fuel Map 2" address="36d3">
+		<table name="Engine Load" address="5ec8"/>
+		<table name="RPM" address="6ade"/>
+	</table>
+
+	<table name="Low Octane Fuel Map 2" address="34c3">
+		<table name="Engine Load" address="5ec8"/>
+		<table name="RPM" address="6ade"/>
+	</table>
+
+</rom>

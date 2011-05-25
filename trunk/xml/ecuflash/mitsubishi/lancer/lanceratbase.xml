@@ -1,0 +1,9 @@
+<rom>
+	<romid>
+		<xmlid>lancermtbase</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidstring>----</internalidstring>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7055</memmodel>
+	</romid>
+</rom>

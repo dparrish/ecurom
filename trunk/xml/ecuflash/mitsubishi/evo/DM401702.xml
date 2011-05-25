@@ -1,0 +1,19 @@
+<rom>
+	<romid>
+		<xmlid>DM401702</xmlid>
+		<internalidaddress>11000</internalidaddress>
+		<internalidhex>401702</internalidhex>
+		<caseid>8631A028</caseid>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Lancer</model>
+		<submodel>Evo 8 ACD</submodel>
+		<transmission>Manual</transmission>
+		<year>2004</year>
+		<flashmethod>mitsukernel</flashmethod>
+        	<checksummodule>mitsuh8</checksummodule>
+		<memmodel>H8539FA</memmodel>
+	</romid>
+
+
+</rom>

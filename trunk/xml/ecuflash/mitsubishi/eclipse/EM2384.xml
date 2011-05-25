@@ -1,0 +1,18 @@
+<rom>
+	<romid>
+		<xmlid>EM2384</xmlid>
+		<internalidaddress>2fefa</internalidaddress>
+		<internalidstring>EM2384</internalidstring>
+		<caseid>MD359403</caseid>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse</model>
+		<submodel>GSX AWD</submodel>
+		<transmission>Manual</transmission>
+		<year>1999</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539FA</memmodel>
+	</romid>
+
+
+</rom>

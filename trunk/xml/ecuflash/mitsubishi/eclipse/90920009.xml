@@ -1,0 +1,18 @@
+<rom>
+	<romid>
+		<xmlid>90920009</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>90920009</internalidhex>
+		<caseid/>
+		<ecuid/>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse</model>
+		<submodel>GS</submodel>
+		<transmission>Manual</transmission>
+		<year>2003</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+	<include>evo7base</include>
+</rom>
