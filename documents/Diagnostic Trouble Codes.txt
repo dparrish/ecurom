@@ -1,66 +1,1511 @@
+DTC P0010: A Camshaft Position Actuator Circuit (Bank 1)
+DTC P0011: A Camshaft Position - Timing Over-Advanced or System Performance (Bank 1))
+DTC P0012: A Camshaft Position - Timing Over-Retarded (Bank 1)
+DTC P0013: B Camshaft Position - Actuator Circuit (Bank 1)
+DTC P0014: B Camshaft Position - Timing Over-Advanced or System Performance (Bank 1)
+DTC P0015: B Camshaft Position - Timing Over-Retarded (Bank 1)
+DTC P0016: Crankshaft/Camshaft Timing Misalignment A rationality error has been detected for camshaft position out of phase with crankshaft.
+DTC P0020: A Camshaft Position Actuator Circuit (Bank 2)
+DTC P0021: A Camshaft Position - Timing Over-Advanced or System Performance (Bank 2)
+DTC P0022: A Camshaft Position - Timing Over-Retarded (Bank 2)
+DTC P0023: B Camshaft Position - Actuator Circuit (Bank 2)
+DTC P0024: B Camshaft Position - Timing Over-Advanced or System Performance (Bank 2)
+DTC P0025: B Camshaft Position - Timing Over-Retarded (Bank 2)
+DTC P0030: HO2S Heater Control Circuit Bank 1 Sensor 1
+DTC P0031: HO2S Heater Circuit Low Voltage Bank 1 Sensor 1
+DTC P0032: HO2S Heater Circuit High Voltage Bank 1 Sensor 1
+DTC P0036: HO2S Heater Control Circuit Bank 1 Sensor 2
+DTC P0037: HO2S Heater Circuit Low Voltage Bank 1 Sensor 2
+DTC P0038: HO2S Heater Circuit High Voltage Bank 1 Sensor 2
+DTC P0050: HO2S Heater Circuit Bank 2 Sensor 1
+DTC P0051: HO2S Heater Circuit Low Voltage Bank 2 Sensor 1
+DTC P0052: HO2S Heater Circuit High Voltage Bank 2 Sensor 1
+DTC P0056: HO2S Heater Circuit Bank 2 Sensor 2
+DTC P0057: HO2S Heater Circuit Low Voltage Bank 2 Sensor 2
+DTC P0058: HO2S Heater Circuit High Voltage Bank 2 Sensor 2
 DTC P0090: Fuel Pressure Solenoid Circuit
-DTC P0101: Volume Airflow Circuit Range/Performance Problem
-DTC P0102: Volume Airflow Circuit Low Input
-DTC P0106: Barometric Pressure Circuit Range/Performance Pro
-DTC P0107: Barometric Pressure Circuit Low Input
-DTC P0108: Barometric Pressure Circuit High Input
-DTC P0111: Intake Air Temperature Circuit Range/Performance
+DTC P0100: Mass or Volume Air Flow Circuit Malfunction Insufficient Activity
+DTC P0101: Mass or Volume Air Flow Circuit Range/PerformanceProblem
+DTC P0102: Mass or Volume Air Flow Circuit Low Input
+DTC P0103: Mass or Volume Air Flow Circuit High Input
+DTC P0104: Mass or Volume Air Flow Circuit Intermittent
+DTC P0105: Manifold Absolute Pressure/Barometric Pressure CircuitMalfunction
+DTC P0106: Manifold Absolute Pressure/Barometric Pressure Circuit Range/Performance Problem
+DTC P0107: Manifold Absolute Pressure/Barometric Pressure Circuit Low Input
+DTC P0108: Manifold Absolute Pressure/Barometric Pressure Circuit High Input
+DTC P0109: Manifold Absolute Pressure/Barometric Pressure Circuit Intermittent
+DTC P0110: Intake Air Temperature Circuit Malfunction
+DTC P0111: Intake Air Temperature Circuit Range/Performance Problem
 DTC P0112: Intake Air Temperature Circuit Low Input
 DTC P0113: Intake Air Temperature Circuit High Input
-DTC P0116: Engine Coolant Temperature Circuit Range/Performa
+DTC P0114: Intake Air Temperature Circuit Intermittent
+DTC P0115: Engine Coolant Temperature Circuit Malfunction
+DTC P0116: Engine Coolant Temperature Circuit Range/Performance Problem
 DTC P0117: Engine Coolant Temperature Circuit Low Input
 DTC P0118: Engine Coolant Temperature Circuit High Input
-DTC P0121: Throttle Position Circuit Range/Performance Probl
-DTC P0122: Throttle Position Circuit Low Input
-DTC P0123: Throttle Position Circuit High Input
-DTC P0125: Insufficient Coolant Temperature for Closed Loop
+DTC P0119: Engine Coolant Temperature Circuit Intermittent
+DTC P0120: Throttle/Pedal Position Sensor/Switch A CircuitMalfunction
+DTC P0121: Throttle/Pedal Position Sensor/Switch A Circuit Range/Performance Problem
+DTC P0122: Throttle/Pedal Position Sensor/Switch A Circuit Low Input
+DTC P0123: Throttle/Pedal Position Sensor/Switch A Circuit High Input
+DTC P0124: Throttle/Pedal Position Sensor/Switch A Circuit Intermittent
+DTC P0125: Insufficient Coolant Temperature for Closed Loop Fuel Control
+DTC P0126: Insufficient Coolant Temperature for Stable Operation
 DTC P0128: Coolant Thermostat (Coolant Temperature Below The
+DTC P0128: Range/Performance Problem In Thermostat
+DTC P0129: UNKNOWN CODE
 DTC P0130: Heated Oxygen Sensor Circuit [SEMSOR 1]
+DTC P0130: O2 Sensor Circuit Malfunction (Bank 1 Sensor 1)
 DTC P0131: Heated Oxygen Sensor Circuit Low Voltage [SEMSOR
+DTC P0131: O2 Sensor Circuit Low Voltage (Bank 1 Sensor 1)
 DTC P0132: Heated Oxygen Sensor Circuit High Voltage [SEMSOR
+DTC P0132: O2 Sensor Circuit High Voltage (Bank 1 Sensor 1)
 DTC P0133: Heated Oxygen Sensor Circuit Slow Response [SEMSO
+DTC P0133: O2 Sensor Circuit Slow Response (Bank 1 Sensor 1)
 DTC P0134: Heated Oxygen Sensor No Activity Detected [SEMSOR
+DTC P0134: O2 Sensor Circuit No Activity Detected (Bank 1 Sensor 1)
 DTC P0135: Heated Oxygen Sensor Heater Circuit [SEMSOR 1]
+DTC P0135: O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 1)
 DTC P0136: Heated Oxygen Sensor Circuit [SEMSOR 2]
+DTC P0136: O2 Sensor Circuit Malfunction (Bank 1 Sensor 2)
 DTC P0137: Heated Oxygen Sensor Circuit Low Voltage [SEMSOR
+DTC P0137: O2 Sensor Circuit Low Voltage (Bank 1 Sensor 2)
 DTC P0138: Heated Oxygen Sensor Circuit High Voltage [SEMSOR
+DTC P0138: O2 Sensor Circuit High Voltage (Bank 1 Sensor 2)
 DTC P0139: Heated Oxygen Sensor Circuit Slow Response [SEMSO
+DTC P0139: O2 Sensor Circuit Slow Response (Bank 1 Sensor 2)
+DTC P0140: O2 Sensor Circuit No Activity Detected (Bank 1 Sensor 2)
 DTC P0141: Heated Oxygen Sensor Heater Circuit [SEMSOR 2]
-DTC P0171: System too Lean
-DTC P0172: System too Rich
+DTC P0141: O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 2)
+DTC P0142: O2 Sensor Circuit Malfunction (Bank 1 Sensor 3)
+DTC P0143: O2 Sensor Circuit Low Voltage (Bank 1 Sensor 3)
+DTC P0144: O2 Sensor Circuit High Voltage (Bank 1 Sensor 3)
+DTC P0145: O2 Sensor Circuit Slow Response (Bank 1 Sensor 3)
+DTC P0146: O2 Sensor Circuit No Activity Detected (Bank 1 Sensor 3)
+DTC P0147: O2 Sensor Heater Circuit Malfunction (Bank 1 Sensor 3)
+DTC P0148: UNKNOWN CODE
+DTC P0149: UNKNOWN CODE
+DTC P0150: O2 Sensor Circuit Malfunction (Bank 2 Sensor 1)
+DTC P0151: O2 Sensor Circuit Low Voltage (Bank 2 Sensor 1)
+DTC P0152: O2 Sensor Circuit High Voltage (Bank 2 Sensor 1)
+DTC P0153: O2 Sensor Circuit Slow Response (Bank 2 Sensor 1)
+DTC P0154: O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 1)
+DTC P0155: O2 Sensor Heater Circuit Malfunction (Bank 2 Sensor 1)
+DTC P0156: O2 Sensor Circuit Malfunction (Bank 2 Sensor 2)
+DTC P0157: O2 Sensor Circuit Low Voltage (Bank 2 Sensor 2)
+DTC P0158: O2 Sensor Circuit High Voltage (Bank 2 Sensor 2)
+DTC P0159: O2 Sensor Circuit Slow Response (Bank 2 Sensor 2)
+DTC P0160: O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 2)
+DTC P0161: O2 Sensor Heater Circuit Malfunction (Bank 2 Sensor 2)
+DTC P0162: O2 Sensor Circuit Malfunction (Bank 2 Sensor 3)
+DTC P0163: O2 Sensor Circuit Low Voltage (Bank 2 Sensor 3)
+DTC P0164: O2 Sensor Circuit High Voltage (Bank 2 Sensor 3)
+DTC P0165: O2 Sensor Circuit Slow Response (Bank 2 Sensor 3)
+DTC P0166: O2 Sensor Circuit No Activity Detected (Bank 2 Sensor 3
+DTC P0167: O2 Sensor Heater Circuit Malfunction (Bank 2 Sensor 3)
+DTC P0168: UNKNOWN CODE
+DTC P0169: UNKNOWN CODE
+DTC P0170: Fuel Trim Malfunction (Bank 1)
+DTC P0171: System too Lean (Bank 1)
+DTC P0172: System too Rich (Bank 1)
+DTC P0173: Fuel Trim Malfunction (Bank 2)
+DTC P0174: System too Lean (Bank 2)
+DTC P0175: System too Rich (Bank 2)
+DTC P0176: Fuel Composition Sensor Circuit Malfunction
+DTC P0177: Fuel Composition Sensor Circuit Range/Performance
+DTC P0178: Fuel Composition Sensor Circuit Low Input
+DTC P0179: Fuel Composition Sensor Circuit High Input
+DTC P0180: Fuel Temperature Sensor A Circuit Malfunction
 DTC P0181: Fuel Tank Temperature Sensor Circuit Range/Perfor
+DTC P0181: Fuel Temperature Sensor A Circuit Range/Performance
 DTC P0182: Fuel Tank Temperature Sensor Circuit Low Input
+DTC P0182: Fuel Temperature Sensor A Circuit Low Input
 DTC P0183: Fuel Tank Temperature Sensor Circuit High Input
-DTC P0201: Injector Circuit-Cylinder 1, DTC P0202: Injector
+DTC P0183: Fuel Temperature Sensor A Circuit High Input
+DTC P0184: Fuel Temperature Sensor A Circuit Intermittent
+DTC P0185: Fuel Temperature Sensor B Circuit Malfunction
+DTC P0186: Fuel Temperature Sensor B Circuit Range/Performance
+DTC P0187: Fuel Temperature Sensor B Circuit Low Input
+DTC P0188: Fuel Temperature Sensor B Circuit High Input
+DTC P0189: Fuel Temperature Sensor B Circuit Intermittent
+DTC P0190: Fuel Rail Pressure Sensor Circuit Malfunction
+DTC P0191: Fuel Rail Pressure Sensor Circuit Range/Performance
+DTC P0192: Fuel Rail Pressure Sensor Circuit Low Input
+DTC P0193: Fuel Rail Pressure Sensor Circuit High Input
+DTC P0194: Fuel Rail Pressure Sensor Circuit Intermittent
+DTC P0195: Engine Oil Temperature Sensor Malfunction
+DTC P0196: Engine Oil Temperature Sensor Range/Performance
+DTC P0197: Engine Oil Temperature Sensor Low
+DTC P0198: Engine Oil Temperature Sensor High
+DTC P0199: Engine Oil Temperature Sensor Intermittent
+DTC P0200: Injector Circuit Malfunction
+DTC P0201: Injector Circuit Malfunction - Cylinder 1
+DTC P0202: Injector Circuit Malfunction - Cylinder 2
+DTC P0203: Injector Circuit Malfunction - Cylinder 3
+DTC P0204: Injector Circuit Malfunction - Cylinder 4
+DTC P0205: Injector Circuit Malfunction - Cylinder 5
+DTC P0206: Injector Circuit Malfunction - Cylinder 6
+DTC P0207: Injector Circuit Malfunction - Cylinder 7
+DTC P0208: Injector Circuit Malfunction - Cylinder 8
+DTC P0209: Injector Circuit Malfunction - Cylinder 9
+DTC P0210: Injector Circuit Malfunction - Cylinder 10
+DTC P0211: Injector Circuit Malfunction - Cylinder 11
+DTC P0212: Injector Circuit Malfunction - Cylinder 12
+DTC P0213: Cold Start Injector 1 Malfunction
+DTC P0214: Cold Start Injector 2 Malfunction
+DTC P0215: Engine Shutoff Solenoid Malfunction
+DTC P0216: Injection Timing Control Circuit Malfunction
+DTC P0217: Engine Overtemp Condition
+DTC P0218: Transmission Over Temperature Condition
+DTC P0219: Engine Overspeed Condition
+DTC P0220: Throttle/Pedal Position Sensor/Switch B Circuit Malfunction
+DTC P0221: Throttle/Pedal Position Sensor/Switch B Circuit Range/Performance Problem
+DTC P0222: Throttle/Pedal Position Sensor/Switch B Circuit Low Input
+DTC P0223: Throttle/Pedal Position Sensor/Switch B Circuit High Input
+DTC P0224: Throttle/Pedal Position Sensor/Switch B Circuit Intermittent
+DTC P0225: Throttle/Pedal Position Sensor/Switch C Circuit Malfunction
+DTC P0226: Throttle/Pedal Position Sensor/Switch C Circuit Range/Performance Problem
+DTC P0227: Throttle/Pedal Position Sensor/Switch C Circuit Low Input
+DTC P0228: Throttle/Pedal Position Sensor/Switch C Circuit High Input
+DTC P0229: Throttle/Pedal Position Sensor/Switch C Circuit Intermittent
+DTC P0230: Fuel Pump Primary Circuit Malfunction
+DTC P0231: Fuel Pump Secondary Circuit Low
+DTC P0232: Fuel Pump Secondary Circuit High
+DTC P0233: Fuel Pump Secondary Circuit Intermittent
+DTC P0234: Engine Overboost Condition
 DTC P0234: Turbocharger Wastegate System Malfunction
-DTC P0243: Turbocharger Wastegate Solenoid Circuit
+DTC P0235: Turbocharger Boost Sensor A Circuit Malfunction
+DTC P0236: Turbocharger Boost Sensor A Circuit Range/Performance
+DTC P0237: Turbocharger Boost Sensor A Circuit Low
+DTC P0238: Turbocharger Boost Sensor A Circuit High
+DTC P0239: Turbocharger Boost Sensor B Malfunction
+DTC P0240: Turbocharger Boost Sensor B Circuit Range/Performance
+DTC P0241: Turbocharger Boost Sensor B Circuit Low
+DTC P0242: Turbocharger Boost Sensor B Circuit High
+DTC P0243: Turbocharger Wastegate Solenoid A Malfunction
+DTC P0244: Turbocharger Wastegate Solenoid A Range/Performance
+DTC P0245: Turbocharger Wastegate Solenoid A Low
+DTC P0248: Turbocharger Wastegate Solenoid B Range/Performance
+DTC P0249: Turbocharger Wastegate Solenoid B Low
+DTC P0250: Turbocharger Wastegate Solenoid B High
+DTC P0251: Injection Pump Fuel Metering Control "A" Malfunction (Cam/Rotor/Injector)
+DTC P0252: Injection Pump Fuel Metering Control "A" Range/Performance (Cam/Rotor/Injector)
+DTC P0253: Injection Pump Fuel Metering Control "A" Low (Cam/Rotor/Injector)
+DTC P0254: Injection Pump Fuel Metering Control "A" High (Cam/Rotor/Injector)
+DTC P0255: Injection Pump Fuel Metering Control "A" Intermittent (Cam/Rotor/Injector)
+DTC P0256: Injection Pump Fuel Metering Control "B" Malfunction (Cam/Rotor/Injector)
+DTC P0257: Injection Pump Fuel Metering Control "B" Range/Performance (Cam/Rotor/Injector)
+DTC P0258: Injection Pump Fuel Metering Control "B" Low (Cam/Rotor/Injector)
+DTC P0259: Injection Pump Fuel Metering Control "B" High(Cam/Rotor/Injector)
+DTC P0260: Injection Pump Fuel Metering Control "B" Intermittent(Cam/Rotor/Injector)
+DTC P0261: Cylinder 1 Injector Circuit Low
+DTC P0262: Cylinder 1 Injector Circuit High
+DTC P0263: Cylinder 1 Contribution/Balance Fault
+DTC P0264: Cylinder 2 Injector Circuit Low
+DTC P0265: Cylinder 2 Injector Circuit High
+DTC P0266: Cylinder 2 Contribution/Balance Fault
+DTC P0267: Cylinder 3 Injector Circuit Low
+DTC P0268: Cylinder 3 Injector Circuit High
+DTC P0269: Cylinder 3 Contribution/Balance Fault
+DTC P0270: Cylinder 4 Injector Circuit Low
+DTC P0271: Cylinder 4 Injector Circuit High
+DTC P0272: Cylinder 4 Contribution/Balance Fault
+DTC P0273: Cylinder 5 Injector Circuit Low
+DTC P0274: Cylinder 5 Injector Circuit High
+DTC P0275: Cylinder 5 Contribution/Balance Fault
+DTC P0276: Cylinder 6 Injector Circuit Low
+DTC P0277: Cylinder 6 Injector Circuit High
+DTC P0278: Cylinder 6 Contribution/Balance Fault
+DTC P0279: Cylinder 7 Injector Circuit Low
+DTC P0280: Cylinder 7 Injector Circuit High
+DTC P0281: Cylinder 7 Contribution/Balance Fault
+DTC P0282: Cylinder 8 Injector Circuit Low
+DTC P0283: Cylinder 8 Injector Circuit High
+DTC P0284: Cylinder 8 Contribution/Balance Fault
+DTC P0285: Cylinder 9 Injector Circuit Low
+DTC P0286: Cylinder 9 Injector Circuit High
+DTC P0287: Cylinder 9 Contribution/Balance Fault
+DTC P0288: Cylinder 10 Injector Circuit Low
+DTC P0289: Cylinder 10 Injector Circuit High
+DTC P0290: Cylinder 10 Contribution/Balance Fault
+DTC P0291: Cylinder 11 Injector Circuit Low
+DTC P0292: Cylinder 11 Injector Circuit High
+DTC P0293: Cylinder 11 Contribution/Balance Fault
+DTC P0294: Cylinder 12 Injector Circuit Low
+DTC P0295: Cylinder 12 Injector Circuit High
+DTC P0296: Cylinder 12 Contribution/Range Fault
+DTC P0297: UNKNOWN CODE
+DTC P0298: UNKNOWN CODE
+DTC P0299: UNKNOWN CODE
 DTC P0300: Random/Multiple Cylinder Misfire Detected
-DTC P0301: Cylinder 1 Misfire Detected, DTC P0302: Cylinder
-DTC P0325: Knock Sensor Circuit
-DTC P0335: Crankshaft Position Sensor Circuit
-DTC P0340: Camshaft Position Sensor Circuit
-DTC P0401: EGR Flow Insufficient Detected
-DTC P0403: EGR Control Circuit
-DTC P0420: Catalyst Efficiency Below Threshold
-DTC P0441: Evaporative Emission Control System Incorrect Pur
-DTC P0442: Evaporative Emission System Leak Detected (Small
-DTC P0443: Evaporative Emission Control System Purge Control
-DTC P0446: Evaporative Emission Control System Vent Control
-DTC P0451: Evaporative Emission System Pressure Sensor Range
-DTC P0452: Evaporative Emission System Pressure Sensor Low I
-DTC P0453: Evaporative Emission System Pressure Sensor High
-DTC P0455: Evaporative Emission System Leak Detected (Gross
-DTC P0456: Evaporative Emission System Leak Detected (Very S
+DTC P0301: Cylinder 1 Misfire Detected
+DTC P0302: Cylinder 2 Misfire Detected
+DTC P0303: Cylinder 3 Misfire Detected
+DTC P0304: Cylinder 4 Misfire Detected
+DTC P0305: Cylinder 5 Misfire Detected
+DTC P0306: Cylinder 6 Misfire Detected
+DTC P0307: Cylinder 7 Misfire Detected
+DTC P0308: Cylinder 8 Misfire Detected
+DTC P0309: Cylinder 9 Misfire Detected
+DTC P0310: Cylinder 10 Misfire Detected
+DTC P0311: Cylinder 11 Misfire Detected
+DTC P0312: Cylinder 12 Misfire Detected
+DTC P0313: Misfire Detected With Low Fuel Level
+DTC P0314: UNKNOWN CODE
+DTC P0315: UNKNOWN CODE
+DTC P0316: UNKNOWN CODE
+DTC P0317: UNKNOWN CODE
+DTC P0318: Rough Road Sensor Circuit
+DTC P0319: UNKNOWN CODE
+DTC P0320: Ignition/Distributor Engine Speed Input Circuit Malfunction The ignition engine speed sensor input signal to the PCM is continuously monitored. The test fails when the signal indicated that two successive erratic profile ignition pickup (pip) pulses have occurred. Possible causes: 1. Loose wires / connectors 2. Arcing secondary ignition components (coil, wires and plugs) 3. On board transmitter (2-way radio)
+DTC P0321: Ignition/Distributor Engine Speed Input Circuit Range/Performance
+DTC P0322: Ignition/Distributor Engine Speed Input Circuit No Signal
+DTC P0323: Ignition/Distributor Engine Speed Input Circuit Intermittent
+DTC P0325: Knock Sensor 1 Circuit Malfunction (Bank 1 or Single Sensor)
+DTC P0326: Knock Sensor 1 Circuit Range/Performance (Bank 1 or Single Sensor)
+DTC P0327: Knock Sensor 1 Circuit Low Input (Bank 1 or Single Sensor)
+DTC P0328: Knock Sensor 1 Circuit High Input (Bank 1 or Single Sensor)
+DTC P0329: Knock Sensor 1 Circuit Intermittent (Bank 1 or Single Sensor)
+DTC P0330: Knock Sensor 2 Circuit Malfunction (Bank 2)
+DTC P0331: Knock Sensor 2 Circuit Range/Performance (Bank 2)
+DTC P0332: Knock Sensor 2 Circuit Low Input (Bank 2)
+DTC P0333: Knock Sensor 2 Circuit High Input (Bank 2)
+DTC P0334: Knock Sensor 2 Circuit Intermittent (Bank 2)
+DTC P0335: Crankshaft Position Sensor A Circuit Malfunction
+DTC P0336: Crankshaft Position Sensor A Circuit Range/Performance
+DTC P0337: Crankshaft Position Sensor A Circuit Low Input
+DTC P0338: Crankshaft Position Sensor A Circuit High Input
+DTC P0339: Crankshaft Position Sensor A Circuit Intermittent
+DTC P0340: Camshaft Position Sensor Circuit Malfunction
+DTC P0341: Camshaft Position Sensor Circuit Range/Performance
+DTC P0342: Camshaft Position Sensor Circuit Low Input
+DTC P0343: Camshaft Position Sensor Circuit High Input
+DTC P0344: Camshaft Position Sensor Circuit Intermittent
+DTC P0345: UNKNOWN CODE
+DTC P0346: UNKNOWN CODE
+DTC P0347: UNKNOWN CODE
+DTC P0348: UNKNOWN CODE
+DTC P0349: UNKNOWN CODE
+DTC P0350: Ignition Coil Primary/Secondary Circuit Malfunction
+DTC P0351: Ignition Coil 1 Primary/Secondary Circuit Malfunction
+DTC P0352: Ignition Coil 2 Primary/Secondary Circuit Malfunction
+DTC P0353: Ignition Coil 3 Primary/Secondary Circuit Malfunction
+DTC P0354: Ignition Coil 4 Primary/Secondary Circuit Malfunction
+DTC P0355: Ignition Coil 5 Primary/Secondary Circuit Malfunction
+DTC P0356: Ignition Coil 6 Primary/Secondary Circuit Malfunction
+DTC P0357: Ignition Coil 7 Primary/Secondary Circuit Malfunction
+DTC P0358: Ignition Coil 8 Primary/Secondary Circuit Malfunction
+DTC P0359: Ignition Coil I Primary/Secondary Circuit Malfunction
+DTC P0360: Ignition Coil J Primary/Secondary Circuit Malfunction
+DTC P0361: Ignition Coil K Primary/Secondary Circuit Malfunction
+DTC P0362: Ignition Coil L Primary/Secondary Circuit Malfunction
+DTC P0363: UNKNOWN CODE
+DTC P0364: UNKNOWN CODE
+DTC P0365: UNKNOWN CODE
+DTC P0366: UNKNOWN CODE
+DTC P0367: UNKNOWN CODE
+DTC P0368: UNKNOWN CODE
+DTC P0369: UNKNOWN CODE
+DTC P0370: Timing Reference High Resolution Signal A Malfunction
+DTC P0371: Timing Reference High Resolution Signal A Too Many Pulses
+DTC P0372: Timing Reference High Resolution Signal A Too Few Pulses
+DTC P0373: Timing Reference High Resolution Signal A Intermittent/Erratic Pulses
+DTC P0374: Timing Reference High Resolution Signal A No Pulses
+DTC P0375: Timing Reference High Resolution Signal B Malfunction
+DTC P0376: Timing Reference High Resolution Signal B Too Many Pulses
+DTC P0377: Timing Reference High Resolution Signal B Too Few Pulses
+DTC P0378: Timing Reference High Resolution Signal B Intermittent/Erratic Pulses
+DTC P0379: Timing Reference High Resolution Signal B No Pulses
+DTC P0380: Glow Plug/Heater Circuit "A" Malfunction
+DTC P0381: Glow Plug/Heater Indicator Circuit Malfunction
+DTC P0382: Glow Plug/Heater Circuit "B" Malfunction
+DTC P0383: UNKNOWN CODE
+DTC P0384: UNKNOWN CODE
+DTC P0385: Crankshaft Position Sensor B Circuit Malfunction
+DTC P0386: Crankshaft Position Sensor B Circuit Range/Performance
+DTC P0387: Crankshaft Position Sensor B Circuit Low Input
+DTC P0388: Crankshaft Position Sensor B Circuit High Input
+DTC P0389: Crankshaft Position Sensor B Circuit Intermittent
+DTC P0400: Exhaust Gas Recirculation Flow Malfunction
+DTC P0401: Exhaust Gas Recirculation Flow Insufficient Detected
+DTC P0402: Exhaust Gas Recirculation Flow Excessive Detected
+DTC P0403: Exhaust Gas Recirculation Circuit Malfunction
+DTC P0404: Exhaust Gas Recirculation Circuit Range/Performance
+DTC P0405: Exhaust Gas Recirculation Sensor A Circuit Low
+DTC P0406: Exhaust Gas Recirculation Sensor A Circuit High
+DTC P0407: Exhaust Gas Recirculation Sensor B Circuit Low
+DTC P0408: Exhaust Gas Recirculation Sensor B Circuit High
+DTC P0409: UNKNOWN CODE
+DTC P0410: Secondary Air Injection System Malfunction
+DTC P0411: Secondary Air Injection System Incorrect Flow Detected
+DTC P0412: Secondary Air Injection System Switching Valve A Circuit Malfunction
+DTC P0413: Secondary Air Injection System Switching Valve A Circuit Open
+DTC P0414: Secondary Air Injection System Switching Valve A Circuit Shorted
+DTC P0415: Secondary Air Injection System Switching Valve B Circuit Malfunction
+DTC P0416: Secondary Air Injection System Switching Valve B Circuit Open
+DTC P0417: Secondary Air Injection System Switching Valve B Circuit Shorted
+DTC P0418: Secondary Air Injection System Relay "A" Circuit Malfunction
+DTC P0419: Secondary Air Injection System Relay "B" Circuit Malfunction
+DTC P0420: Catalyst System Efficiency Below Threshold (Bank 1)
+DTC P0421: Warm Up Catalyst Efficiency Below Threshold (Bank 1)
+DTC P0422: Main Catalyst Efficiency Below Threshold (Bank 1)
+DTC P0423: Heated Catalyst Efficiency Below Threshold (Bank 1)
+DTC P0424: Heated Catalyst Temperature Below Threshold (Bank 1)
+DTC P0425: UNKNOWN CODE
+DTC P0426: UNKNOWN CODE
+DTC P0427: UNKNOWN CODE
+DTC P0428: UNKNOWN CODE
+DTC P0429: UNKNOWN CODE
+DTC P0430: Catalyst System Efficiency Below Threshold (Bank 2)
+DTC P0431: Warm Up Catalyst Efficiency Below Threshold (Bank 2)
+DTC P0432: Main Catalyst Efficiency Below Threshold (Bank 2)
+DTC P0433: Heated Catalyst Efficiency Below Threshold (Bank 2)
+DTC P0434: Heated Catalyst Temperature Below Threshold (Bank 2)
+DTC P0435: UNKNOWN CODE
+DTC P0436: UNKNOWN CODE
+DTC P0437: UNKNOWN CODE
+DTC P0438: UNKNOWN CODE
+DTC P0439: UNKNOWN CODE
+DTC P0440: Evaporative Emission Control System Malfunction
+DTC P0441: Evaporative Emission Control System Incorrect Purge Flow
+DTC P0442: Evaporative Emission Control System Leak Detected (small leak)
+DTC P0443: Evaporative Emission Control System Purge Control Valve Circuit Malfunction
+DTC P0444: Evaporative Emission Control System Purge Control Valve Circuit Open
+DTC P0445: Evaporative Emission Control System Purge Control Valve Circuit Shorted
+DTC P0446: Evaporative Emission Control System Vent Control Circuit Malfunction
+DTC P0447: Evaporative Emission Control System Vent Control Circuit Open
+DTC P0448: Evaporative Emission Control System Vent Control Circuit Shorted
+DTC P0449: Evaporative Emission Control System Vent Valve/Solenoid Circuit Malfunction
+DTC P0450: Evaporative Emission Control System Pressure Sensor Malfunction
+DTC P0451: Evaporative Emission Control System Pressure Sensor Range/Performance
+DTC P0452: Evaporative Emission Control System Pressure Sensor Low Input
+DTC P0453: Evaporative Emission Control System Pressure Sensor High Input
+DTC P0454: Evaporative Emission Control System Pressure Sensor Intermittent
+DTC P0455: Evaporative Emission Control System Leak Detected (gross leak)
+DTC P0456: EVAP Leak Monitor Small Leak Detected (***(May not be applicable for Honda / Acura)***)
+DTC P0457: UNKNOWN CODE
+DTC P0458: UNKNOWN CODE
+DTC P0459: UNKNOWN CODE
+DTC P0460: Fuel Level Sensor Circuit Malfunction
 DTC P0461: Fuel Level Sensor Circuit Range/Performance [SUB]
+DTC P0462: Fuel Level Sensor Circuit Low Input
+DTC P0463: Fuel Level Sensor Circuit High Input
+DTC P0464: Fuel Level Sensor Circuit Intermittent
+DTC P0465: Purge Flow Sensor Circuit Malfunction
+DTC P0466: Purge Flow Sensor Circuit Range/Performance
+DTC P0467: Purge Flow Sensor Circuit Low Input
+DTC P0468: Purge Flow Sensor Circuit High Input
+DTC P0469: Purge Flow Sensor Circuit Intermittent
+DTC P0470: Exhaust Pressure Sensor Malfunction
+DTC P0471: Exhaust Pressure Sensor Range/Performance
+DTC P0472: Exhaust Pressure Sensor Low
+DTC P0473: Exhaust Pressure Sensor High
+DTC P0474: Exhaust Pressure Sensor Intermittent
+DTC P0475: Exhaust Pressure Control Valve Malfunction
+DTC P0476: Exhaust Pressure Control Valve Range/Performance
+DTC P0477: Exhaust Pressure Control Valve Low
+DTC P0478: Exhaust Pressure Control Valve High
+DTC P0479: Exhaust Pressure Control Valve Intermittent
+DTC P0480: Cooling Fan 1 Control Circuit Malfunction
+DTC P0481: Cooling Fan 2 Control Circuit Malfunction
+DTC P0482: Cooling Fan 3 Control Circuit Malfunction
+DTC P0483: Cooling Fan Rationality Check Malfunction
+DTC P0484: Cooling Fan Circuit Over Current
+DTC P0485: Cooling Fan Power/Ground Circuit Malfunction
+DTC P0486: UNKNOWN CODE
+DTC P0487: UNKNOWN CODE
+DTC P0488: UNKNOWN CODE
+DTC P0489: UNKNOWN CODE
+DTC P0490: UNKNOWN CODE
+DTC P0491: UNKNOWN CODE
+DTC P0492: UNKNOWN CODE
+DTC P0493: UNKNOWN CODE
+DTC P0494: UNKNOWN CODE
+DTC P0495: UNKNOWN CODE
+DTC P0496: Evaporative Emission (EVAP) System Flow During Non-Purge
+DTC P0497: UNKNOWN CODE
+DTC P0498: UNKNOWN CODE
+DTC P0499: UNKNOWN CODE
 DTC P0500: Vehicle Speed Sensor Malfunction
+DTC P0501: Vehicle Speed Sensor Range/Performance
+DTC P0502: Vehicle Speed Sensor Low Input
+DTC P0503: Vehicle Speed Sensor Intermittent/Erratic/High
+DTC P0505: Idle Control System Malfunction
 DTC P0506: Idle Control System RPM Lower Than Expected
 DTC P0507: Idle Control System RPM Higher Than Expected
+DTC P0508: UNKNOWN CODE
+DTC P0509: UNKNOWN CODE
+DTC P0510: Closed Throttle Position Switch Malfunction
+DTC P0511: UNKNOWN CODE
+DTC P0512: Start Switch Circuit
 DTC P0513: Immobilizer Malfunction
-DTC P0551: Power Steering Pressure Switch Circuit Range/Perf
-DTC P0554: Power Steering Pressure Switch Circuit Intermitte
-DTC P0622: Generator FR Terminal Circuit Malfunction
+DTC P0514: UNKNOWN CODE
+DTC P0515: UNKNOWN CODE
+DTC P0516: UNKNOWN CODE
+DTC P0517: UNKNOWN CODE
+DTC P0518: UNKNOWN CODE
+DTC P0519: UNKNOWN CODE
+DTC P0520: Engine Oil Pressure Sensor/Switch Circuit Malfunction
+DTC P0521: Engine Oil Pressure Sensor/Switch Circuit Range/Performance
+DTC P0522: Engine Oil Pressure Sensor/Switch Circuit Low Voltage
+DTC P0523: Engine Oil Pressure Sensor/Switch Circuit High Voltage
+DTC P0524: UNKNOWN CODE
+DTC P0525: UNKNOWN CODE
+DTC P0526: UNKNOWN CODE
+DTC P0527: UNKNOWN CODE
+DTC P0528: UNKNOWN CODE
+DTC P0529: UNKNOWN CODE
+DTC P0530: A/C Refrigerant Pressure Sensor Circuit Malfunction
+DTC P0531: A/C Refrigerant Pressure Sensor Circuit Range/Performance
+DTC P0532: A/C Refrigerant Pressure Sensor Circuit Low Input
+DTC P0533: A/C Refrigerant Pressure Sensor Circuit High Input
+DTC P0534: Air Conditioner Refrigerant Charge Loss
+DTC P0535: UNKNOWN CODE
+DTC P0536: UNKNOWN CODE
+DTC P0537: UNKNOWN CODE
+DTC P0538: UNKNOWN CODE
+DTC P0539: UNKNOWN CODE
+DTC P0540: UNKNOWN CODE
+DTC P0541: UNKNOWN CODE
+DTC P0542: UNKNOWN CODE
+DTC P0543: UNKNOWN CODE
+DTC P0544: UNKNOWN CODE
+DTC P0545: UNKNOWN CODE
+DTC P0546: UNKNOWN CODE
+DTC P0547: UNKNOWN CODE
+DTC P0548: UNKNOWN CODE
+DTC P0549: UNKNOWN CODE
+DTC P0550: Power Steering Pressure Sensor Circuit Malfunction
+DTC P0551: Power Steering Pressure Sensor Circuit Range/Performance
+DTC P0552: Power Steering Pressure Sensor Circuit Low Input
+DTC P0553: Power Steering Pressure Sensor Circuit High Input
+DTC P0554: Power Steering Pressure Sensor Circuit Intermittent
+DTC P0555: UNKNOWN CODE
+DTC P0556: UNKNOWN CODE
+DTC P0557: UNKNOWN CODE
+DTC P0558: UNKNOWN CODE
+DTC P0559: UNKNOWN CODE
+DTC P0560: System Voltage Malfunction
+DTC P0561: System Voltage Unstable
+DTC P0562: System Voltage Low
+DTC P0563: System Voltage High
+DTC P0564: UNKNOWN CODE
+DTC P0565: CRUISE CONTROL ON SIGNAL MALFUNCTION
+DTC P0566: Cruise Control Off Signal Malfunction
+DTC P0567: Cruise Control Resume Signal Malfunction
+DTC P0568: Cruise Control Set Signal Malfunction
+DTC P0569: Cruise Control Coast Signal Malfunction
+DTC P0570: Cruise Control Accel Signal Malfunction
+DTC P0571: Cruise Control/Brake Switch A Circuit Malfunction
+DTC P0572: Cruise Control/Brake Switch A Circuit Low
+DTC P0573: Cruise Control/Brake Switch A Circuit High
+DTC P0574: Cruise Control Related Malfunction
+DTC P0575: Cruise Control Related Malfunction
+DTC P0576: Cruise Control Related Malfunction
+DTC P0577: Cruise Control Related Malfunction
+DTC P0578: Cruise Control Related Malfunction
+DTC P0579: Cruise Control Related Malfunction
+DTC P0580: Cruise Control Related Malfunction
+DTC P0581: UNKNOWN CODE
+DTC P0582: UNKNOWN CODE
+DTC P0583: UNKNOWN CODE
+DTC P0584: UNKNOWN CODE
+DTC P0585: UNKNOWN CODE
+DTC P0586: UNKNOWN CODE
+DTC P0587: UNKNOWN CODE
+DTC P0588: UNKNOWN CODE
+DTC P0589: UNKNOWN CODE
+DTC P0590: UNKNOWN CODE
+DTC P0591: UNKNOWN CODE
+DTC P0592: UNKNOWN CODE
+DTC P0593: UNKNOWN CODE
+DTC P0594: UNKNOWN CODE
+DTC P0595: UNKNOWN CODE
+DTC P0596: UNKNOWN CODE
+DTC P0597: UNKNOWN CODE
+DTC P0598: UNKNOWN CODE
+DTC P0599: UNKNOWN CODE
+DTC P0600: Serial Communication Link Malfunction
+DTC P0601: Internal Control Module Memory Check Sum Error
+DTC P0602: Control Module Programming Error
+DTC P0603: Internal Control Module Keep Alive Memory (KAM) Error
+DTC P0604: Internal Control Module Random Access Memory (RAM) Error
+DTC P0605: Internal Control Module Read Only Memory (ROM) ErroR
+DTC P0606: PCM Processor Fault (Control Module Internal Performance)
+DTC P0607: ECU Malfunction
+DTC P0608: Control Module VSS Output "A" Malfunction
+DTC P0609: Control Module VSS Output "B" Malfunction
+DTC P0610: Control Module Vehicle Options Incorrect
+DTC P0611: UNKNOWN CODE
+DTC P0612: UNKNOWN CODE
+DTC P0613: UNKNOWN CODE
+DTC P0614: UNKNOWN CODE
+DTC P0615: Starter Relay Control Circuit
+DTC P0616: Starter Relay Control Circuit Low Voltage
+DTC P0617: Starter Relay Control Circuit High Voltage
+DTC P0618: UNKNOWN CODE
+DTC P0619: UNKNOWN CODE
+DTC P0620: Generator Control Circuit Malfunction
+DTC P0621: Generator Lamp "L" Control Circuit Malfunction
+DTC P0622: Generator Field "F" Control Circuit Malfunction
+DTC P0623: UNKNOWN CODE
+DTC P0624: UNKNOWN CODE
+DTC P0625: Generator F-Terminal Circuit Low Voltage
+DTC P0626: Generator F-Terminal Circuit High Voltage
+DTC P0627: UNKNOWN CODE
+DTC P0628: Fuel Pump Relay Control Circuit Low Voltage
+DTC P0629: Fuel Pump Relay Control Circuit High Voltage
+DTC P0630: UNKNOWN CODE
+DTC P0631: UNKNOWN CODE
+DTC P0632: UNKNOWN CODE
+DTC P0633: UNKNOWN CODE
+DTC P0634: UNKNOWN CODE
+DTC P0635: UNKNOWN CODE
+DTC P0636: UNKNOWN CODE
+DTC P0637: UNKNOWN CODE
+DTC P0638: Throttle Actuator Control (TAC) Command Performance
+DTC P0639: UNKNOWN CODE
+DTC P0640: UNKNOWN CODE
+DTC P0641: UNKNOWN CODE
+DTC P0642: UNKNOWN CODE
+DTC P0643: UNKNOWN CODE
+DTC P0644: UNKNOWN CODE
+DTC P0645: A/C Clutch Relay Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P0646: Air Conditioning (A/C) Clutch Relay Control Circuit
+DTC P0647: Air Conditioning (A/C) Clutch Relay Control Circuit
+DTC P0648: UNKNOWN CODE
+DTC P0649: UNKNOWN CODE
+DTC P0650: Malfunction Indicator Lamp (MIL) Control Circuit Malfunction
+DTC P0651: UNKNOWN CODE
+DTC P0652: UNKNOWN CODE
+DTC P0653: UNKNOWN CODE
+DTC P0654: Engine RPM Output Circuit Malfunction
+DTC P0655: Engine Hot Lamp Output Control Circuit Malfucntion
+DTC P0656: Fuel Level Output Circuit Malfunction
+DTC P0657: UNKNOWN CODE
+DTC P0658: UNKNOWN CODE
+DTC P0659: UNKNOWN CODE
+DTC P0660: Intake Manifold Tuning (IMT) Valve Solenoid Control Circuit
+DTC P0661: Intake Manifold Tuning (IMT) Valve Solenoid Control Circuit Low Voltage
+DTC P0662: Intake Manifold Tuning (IMT) Valve Solenoid Control Circuit High Voltage
+DTC P0663: UNKNOWN CODE
+DTC P0664: UNKNOWN CODE
+DTC P0665: UNKNOWN CODE
+DTC P0666: UNKNOWN CODE
+DTC P0667: UNKNOWN CODE
+DTC P0668: UNKNOWN CODE
+DTC P0669: UNKNOWN CODE
+DTC P0670: UNKNOWN CODE
+DTC P0671: UNKNOWN CODE
+DTC P0672: UNKNOWN CODE
+DTC P0673: UNKNOWN CODE
+DTC P0674: UNKNOWN CODE
+DTC P0675: UNKNOWN CODE
+DTC P0676: UNKNOWN CODE
+DTC P0677: UNKNOWN CODE
+DTC P0678: UNKNOWN CODE
+DTC P0679: UNKNOWN CODE
+DTC P0680: UNKNOWN CODE
+DTC P0681: UNKNOWN CODE
+DTC P0682: UNKNOWN CODE
+DTC P0683: UNKNOWN CODE
+DTC P0684: UNKNOWN CODE
+DTC P0685: UNKNOWN CODE
+DTC P0686: UNKNOWN CODE
+DTC P0687: UNKNOWN CODE
+DTC P0688: UNKNOWN CODE
+DTC P0689: UNKNOWN CODE
+DTC P0690: UNKNOWN CODE
+DTC P0691: Cooling Fan Relay Control Circuit Low Voltage
+DTC P0692: Cooling Fan Relay Control Circuit High Voltage
+DTC P0693: Cooling Fan Relay Control Circuit Low Voltage
+DTC P0694: Cooling Fan Relay Control Circuit High Voltage
+DTC P0695: UNKNOWN CODE
+DTC P0696: UNKNOWN CODE
+DTC P0697: UNKNOWN CODE
+DTC P0698: UNKNOWN CODE
+DTC P0699: UNKNOWN CODE
+DTC P0700: Transmission Control System Malfunction
+DTC P0701: Transmission Control System Range/Performance
+DTC P0702: Transmission Control System Electrical
+DTC P0703: Torque Converter/Brake Switch B Circuit Malfunction
+DTC P0704: Clutch Switch Input Circuit Malfunction
+DTC P0705: Transmission Range Sensor Circuit malfunction (PRNDL Input)
+DTC P0706: Transmission Range Sensor Circuit Range/Performance
+DTC P0707: Transmission Range Sensor Circuit Low Input
+DTC P0708: Transmission Range Sensor Circuit High Input
+DTC P0709: Transmission Range Sensor Circuit Intermittent
+DTC P0710: Transmission Fluid Temperature Sensor Circuit Malfunction
+DTC P0711: Transmission Fluid Temperature Sensor Circuit Range/Performance
+DTC P0712: Transmission Fluid Temperature Sensor Circuit Low Input
+DTC P0713: Transmission Fluid Temperature Sensor Circuit High Input
+DTC P0714: Transmission Fluid Temperature Sensor Circuit Intermittent
+DTC P0715: Input/Turbine Speed Sensor Circuit Malfunction
+DTC P0716: Input/Turbine Speed Sensor Circuit Range/Performance
+DTC P0717: Input/Turbine Speed Sensor Circuit No Signal
+DTC P0718: Input/Turbine Speed Sensor Circuit Intermittent
+DTC P0719: Torque Converter/Brake Switch B Circuit Low
+DTC P0720: Output Speed Sensor Circuit Malfunction
+DTC P0721: Output Speed Sensor Range/Performance
+DTC P0722: Output Speed Sensor No Signal
+DTC P0723: Output Speed Sensor Intermittent
+DTC P0724: Torque Converter/Brake Switch B Circuit High
+DTC P0725: Engine Speed input Circuit Malfunction
+DTC P0726: Engine Speed Input Circuit Range/Performance
+DTC P0727: Engine Speed Input Circuit No Signal
+DTC P0728: Engine Speed Input Circuit Intermittent
+DTC P0729: UNKNOWN CODE
+DTC P0730: Incorrect Gear Ratio
+DTC P0731: Gear 1 Incorrect ratio
+DTC P0732: Gear 2 Incorrect ratio
+DTC P0733: Gear 3 Incorrect ratio
+DTC P0734: Gear 4 Incorrect ratio
+DTC P0735: Gear 5 Incorrect ratio
+DTC P0736: Reverse incorrect gear ratio
+DTC P0737: UNKNOWN CODE
+DTC P0738: UNKNOWN CODE
+DTC P0739: UNKNOWN CODE
+DTC P0740: Torque Converter Clutch Circuit Malfuction
+DTC P0741: Torque Converter Clutch Circuit Performance or Stuck Off
+DTC P0742: Torque Converter Clutch Circuit Stuck On
+DTC P0743: Torque Converter Clutch Circuit Electrical
+DTC P0744: Torque Converter Clutch Circuit Intermittent
+DTC P0745: Pressure Control Solenoid Malfunction
+DTC P0746: Pressure Control Solenoid Performance or Stuck Off
+DTC P0747: Pressure Control Solenoid Stuck On
+DTC P0748: Pressure Control Solenoid Electrical
+DTC P0749: Pressure Control Solenoid Intermittent
+DTC P0750: Shift Solenoid A Malfunction
+DTC P0751: Shift Solenoid A Performance or Stuck Off
+DTC P0752: Shift Solenoid A Stuck On
+DTC P0753: Shift Solenoid A Electrical
+DTC P0754: Shift Solenoid A Intermittent
+DTC P0755: Shift Solenoid B Malfunction
+DTC P0756: Shift Solenoid B Performance or Stuck Off
+DTC P0757: Shift Solenoid B Stuck On
+DTC P0758: Shift Solenoid B Electrical
+DTC P0759: Shift Solenoid B Intermittent
+DTC P0760: Shift Solenoid C Malfunction
+DTC P0761: Shift Solenoid C Performance or Stuck Off
+DTC P0762: Shift Solenoid C Stuck On
+DTC P0763: Shift Solenoid C Electrical
+DTC P0764: Shift Solenoid C Intermittent
+DTC P0765: Shift Solenoid D Malfunction
+DTC P0766: Shift Solenoid D Performance or Stuck Off
+DTC P0767: Shift Solenoid D Stuck On
+DTC P0768: Shift Solenoid D Electrical
+DTC P0769: Shift Solenoid D Intermittent
+DTC P0770: Shift Solenoid E Malfunction
+DTC P0771: Shift Solenoid E Performance or Stuck Off
+DTC P0772: Shift Solenoid E Stuck On
+DTC P0773: Shift Solenoid E Electrical
+DTC P0774: Shift Solenoid E Intermittent
+DTC P0775: UNKNOWN CODE
+DTC P0776: UNKNOWN CODE
+DTC P0777: UNKNOWN CODE
+DTC P0778: UNKNOWN CODE
+DTC P0779: UNKNOWN CODE
+DTC P0780: Shift Malfunction
+DTC P0781: 1-2 Shift Malfunction
+DTC P0782: 2-3 Shift Malfunction
+DTC P0783: 3-4 Shift Malfunction
+DTC P0784: 4-5 Shift Malfunction
+DTC P0785: Shift/Timing Solenoid Malfunction
+DTC P0786: Shift/Timing Solenoid Range/Performance
+DTC P0787: Shift/Timing Solenoid Low
+DTC P0788: Shift/Timing Solenoid High
+DTC P0789: Shift/Timing Solenoid Intermittent
+DTC P0790: Normal/Performance Switch Circuit Malfunction
+DTC P0791: UNKNOWN CODE
+DTC P0792: UNKNOWN CODE
+DTC P0793: UNKNOWN CODE
+DTC P0812: Reverse Switch Input Malfunction (***(May not be applicable for Honda / Acura)***)
 DTC P0830: Clutch Pedal Position Switch Circuit Range/Perfor
+DTC P0900: X
+DTC P0999: X
+DTC P1000: Monitor Testing Not Complete (***(May not be applicable for Honda / Acura)***)
+DTC P1000: Transmission Solenoid Malfunction - OBD II Test Incomplete (***(May not be applicable for Honda / Acura)
+DTC P1001: KOER Not Able To Complete, KOER Aborted (***(May not be applicable for Honda / Acura)***)
+DTC P1083: Fuel Control Mixture Lean (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1084: Fuel Control Mixture Rich (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1085: Fuel Control Mixture Lean (Bank 2 Sensor 1)
+DTC P1086: Fuel Control Mixture Rich (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1087: O2 Sensor Circuit Slow Response in Lean Control Range (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1088: O2 Sensor Circuit Slow Response in Rich Control Range (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1089: O2 Sensor Circuit Slow Response in Lean Control Range (Bank 1 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1090: Pre-Catalyst Fuel Trim Too Lean Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1091: Pre-Catalyst Fuel Trim Too Rich Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1092: Pre-Catalyst Fuel Trim Too Lean Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1093: Pre-Catalyst Fuel Trim Too Rich Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1094: O2 Sensor Circuit Slow Response in Rich Control Range (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1095: O2 Sensor Circuit Slow Switching From Lean to Rich (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1096: O2 Sensor Circuit Slow Switching From Lean to Rich (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1097: O2 Sensor Circuit Slow Response after Coast Down Fuel Cutoff (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1098: O2 Sensor Circuit Slow Response after Coast Down Fuel Cutoff (Bank 2 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1100: MAF Intermittant (***(May not be applicable for Honda / Acura)***)
+DTC P1100: Manifold Absolute Pressure (MAP) Sensor Malfunction (Open/Short) (***(May not be applicable for Honda / Acura)***)
+DTC P1101: MAF Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1102: Manifold Absolute Pressure (MAP) Sensor Malfunction - Low Voltage (***(May not be applicable for Honda / Acura) ***)
+DTC P1103: Manifold Absolute Pressure (MAP) Sensor Malfunction - High Voltage (***(May not be applicable for Honda / Acura) ***)
+DTC P1105: MAP/BARO Switch Solenoid Valve (***(May not be applicable for Honda / Acura)***)
+DTC P1106: Barometric pressure circuit problem
+DTC P1106: Manifold Absolute Pressure (MAP) sensor circuit intermittent high voltage
+DTC P1107: Barometric pressure circuit low input
+DTC P1107: Manifold Absolute Pressure (MAP) sensor circuit intermittent low voltage
+DTC P1108: BARO to MAP signal circuit comparison too high
+DTC P1108: Barometric pressure circuit high input
+DTC P1110: Atmospheric Pressure Sensor Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1110: Intake Valve Timing Control (Left Bank) (***(May not be applicable for Honda / Acura)***)
+DTC P1111: Atmospheric Pressure Sensor High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1111: Engine Coolant Temperature Radiator Outlet Sensor Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1111: Intake Air Temperature (IAT) sensor intermittent high voltage
+DTC P1112: Atmospheric Pressure Sensor Range/Performance Problem (***(May not be applicable for Honda / Acura)***)
+DTC P1112: Engine Coolant Temperature Radiator Outlet Sensor High Input (***(May not be applicable for Honda / Acura)
+DTC P1112: Intake Air Temperature (IAT) sensor intermittent low voltage
+DTC P1114: Engine Coolant Temperature (ECT) sensor circuit intermittent low voltage
+DTC P1114: Intake Air Temperature 2 Circuit Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1115: Coolant Temperature Sensor Plausibility (***(May not be applicable for Honda / Acura)***)
+DTC P1115: Engine Coolant Temperature (ECT) sensor circuit intermittent high voltage
+DTC P1115: Intake Air Temperature 2 Circuit High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1116: ECT Sensor Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1116: Mass Or Volume Air Flow Circuit Range/Performance Problem (Bank 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1117: ECT Intermittent (***(May not be applicable for Honda / Acura)***)
+DTC P1117: Mass Or Volume Air Flow Circuit Low Input (Bank 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1118: Mass Or Volume Air Flow Circuit High Input (Bank 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1120: Pedal Position Sensor Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1120: Secondary Throttle Position Sensor (Stps) (***(May not be applicable for Honda / Acura)***)
+DTC P1120: TPS Out Of Range Low (***(May not be applicable for Honda / Acura)***)
+DTC P1121: Pedal Position 1 Range/Performance Problem (*** (May not be applicable for Honda / Acura)***)
+DTC P1121: Throttle Position (TP) Sensor Inconsistent With MAF Sensor High Voltage
+DTC P1122: Pedal Position 1 Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1122: Throttle Position (TP) Sensor Inconsistent With MAF Sensor Low Voltage
+DTC P1123: Pedal Position 1 High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1124: TPS Out Of Self Test Range (***(May not be applicable for Honda / Acura)***)
+DTC P1125: TPS Intermittant (***(May not be applicable for Honda / Acura)***)
+DTC P1125: Tandem Throttle Position Sensor(***(May not be applicable for Honda / Acura)***)
+DTC P1126: Thermostat Function (***(May not be applicable for Honda / Acura)***)
+DTC P1127: Exhaust Not Warm Enough, Downstream Sensor Not Tested (***(May not be applicable for Honda / Acura)***)
+DTC P1128: MAP Lower Than Expected
+DTC P1129: Downstream O2 Sensors Swapped Bank To Bank (HO2S-12-22) (***(May not be applicable for Honda / Acura)
+DTC P1129: MAP Higher Than Expected
+DTC P1129: Upstream O2 Sensors Swapped Bank To Bank (HO2S- 11-21) (***(May not be applicable for Honda / Acura)***)
+DTC P1130: A/F Sensor Circuit Range/Performance (Bank 1 Sensor1) (***(May not be applicable for Honda / Acura)***)
+DTC P1130: Front Right Oxygen Sensor Circuit Open (***(May not be applicable for Honda / Acura)***)
+DTC P1130: Heated O2 Sensor (HO2S) 11 At Adaptive Limit (***(May not be applicable for Honda / Acura)***)
+DTC P1130: Lack Of HO2S-11, Fuel Trim At Limit (***(May not be applicable for Honda / Acura)***)
+DTC P1130: Swirl Control SOL/V (***(May not be applicable for Honda / Acura)***)
+DTC P1131: Front Right Oxygen Sensor Circuit Shorted (***(May not be applicable for Honda / Acura)***)
+DTC P1131: HO2S 11 Indicates Lean (***(May not be applicable for Honda / Acura)***)
+DTC P1132: HO2S 11 Indicates Rich (***(May not be applicable for Honda / Acura)***)
+DTC P1132: O2 Sensor Heater Control Circuit (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1133: A/F Sensor Circuit Response (Bank 1 Sensor 1) (*** (May not be applicable for Honda / Acura)***)
+DTC P1133: Heated Oxygen Sensor (HO2S) insufficient switching bank 1 sensor 1 (Rear Bank)
+DTC P1133: O2 Sensor Heater Control Circuit (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1134: Front Oxygen (A/F) Sensor Micro-Computer Problem (***(May not be applicable for Honda / Acura)***)
+DTC P1134: Heated Oxygen Sensor (HO2S) transition time ratio bank 1 sensor 1 (Rear Bank)
+DTC P1134: O2 Sensor Heater Circuit Signal Intermittent (Bank 1 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1135: A/F Sensor Heater Circuit Malfunction (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1135: Front Left Oxygen Sensor Circuit Open (***(May not be applicable for Honda / Acura)***)
+DTC P1135: Intake Valve Timing Control (Right Bank) (***(May not be applicable for Honda / Acura)***)
+DTC P1135: O2 Sensor Heater Circuit Low Voltage (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1136: Front Left Oxygen Sensor Curcuit Shorted (***(May not be applicable for Honda / Acura)***)
+DTC P1136: O2 Sensor Heater Circuit High Voltage (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1137: Lack Of HO2S-12 Switch Indicates Lean (***(May not be applicable for Honda / Acura)***)
+DTC P1137: O2 Sensor Heater Circuit Signal Intermittant (Bank 1 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1138: Lack Of HO2S-12 Switch Indicates Rich (***(May not be applicable for Honda / Acura)***)
+DTC P1138: O2 Sensor Heater Circuit Low Voltage (Bank 1 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1139: Front Right Oxygen Sensor Heater Circuit Range (*** (May not be applicable for Honda / Acura)***)
+DTC P1139: O2 Sensor Heater Circuit High Voltage (Bank 1 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1140: Front Left Oxygen Sensor Heater Circuit Range (*** (May not be applicable for Honda / Acura)***)
+DTC P1140: Intake Valve Timing Control Position Sensor (Left Bank) (***(May not be applicable for Honda / Acura)***)
+DTC P1140: Mass or Volume Air Flow Circuit Range/Performance Problem (***(May not be applicable for Honda / Acura)***)
+DTC P1142: TPS Circuit Range/Perf. Problem (Low Input) (***(May not be applicable for Honda / Acura)***)
+DTC P1144: Mass Air Flow Sensor Open/Short To Ground. (*** (May not be applicable for Honda / Acura)***)
+DTC P1145: Intake Valve Timing Control Position Sensor (Right Bank) (***(May not be applicable for Honda / Acura)***)
+DTC P1145: Mass Air Flow Sensor Short To Positive. (***(May not be applicable for Honda / Acura)***)
+DTC P1145: Solenoid Valve Running Losses Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1146: Mass Air Flow Sensor Supply Voltage. (***(May not be applicable for Honda / Acura)***)
+DTC P1146: Pressure Sensor Circuit Range/Perf. (High Input) (*** (May not be applicable for Honda / Acura)***)
+DTC P1147: ETS Sub Accel Position Sensor 1 Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1148: Closed Loop Control (Bank 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1150: A/F Sensor Circuit Range/Performance (Bank 2 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1150: Lack Of HO2S-21 Switch Fuel Trim At Limit (***(May not be applicable for Honda / Acura)***)
+DTC P1151: ETS Main Accel Position Sensor 2 Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1151: Lack Of HO2S-21 Switch Indicates Lean (***(May not be applicable for Honda / Acura)***)
+DTC P1151: O2 Sensor Heater Circuit Signal Intermittant (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1152: Lack Of HO2S-21 Switch Indicates Rich (***(May not be applicable for Honda / Acura)***)
+DTC P1152: O2 Sensor Heater Circuit Low Voltage (Bank 2 Sensor1) (***(May not be applicable for Honda / Acura)***)
+DTC P1153: A/F Sensor Circuit Response (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1153: Heated Oxygen Sensor (HO2S) insufficient switching bank 2 sensor 1 (Front Bank)
+DTC P1153: O2 Sensor Heater Circuit High Voltage (Bank 2 Sensor1) (***(May not be applicable for Honda / Acura)***)
+DTC P1154: Heated Oxygen Sensor (HO2S) transition time ratio bank 2 sensor 1 (Front Bank)
+DTC P1155: A/F Sensor Heater Circuit (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1155: ETS Limp Home Valve (***(May not be applicable for Honda / Acura)***)
+DTC P1155: Manifold Absolute Pressure Sensor Short To Positive.(***(May not be applicable for Honda / Acura)***)
+DTC P1155: O2 Sensor Heater Circuit Intermittant (Bank 2 Sensor2) (***(May not be applicable for Honda / Acura)***)
+DTC P1156: Manifold Absolute Pressure Sensor Open/Short To Ground. (***(May not be applicable for Honda / Acura)***)
+DTC P1156: O2 Sensor Heater Circuit Low Voltage (Bank 2 Sensor2) (***(May not be applicable for Honda / Acura)***)
+DTC P1157: Lack Of HO2S-22 Switch Indicates Lean (***(May not be applicable for Honda / Acura)***)
+DTC P1157: Manifold Absolute Pressure Sensor Supply Voltage. (***(May not be applicable for Honda / Acura)***)
+DTC P1157: O2 Sensor Heater Circuit High Voltage (Bank 2 Sensor2) (***(May not be applicable for Honda / Acura)***)
+DTC P1158: Fuel Trim Additve Bank 1 Low (***(May not be applicable for Honda / Acura)***)
+DTC P1158: Lack Of HO2S-22 Switch Indicates Rich (***(May not be applicable for Honda / Acura)***)
+DTC P1159: Fuel Trim Additve Bank 1 High (***(May not be applicable for Honda / Acura)***)
+DTC P1159: Variable Intake Motor Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1160: Fuel Trim Additve Bank 2 Low (***(May not beapplicable for Honda / Acura)***)
+DTC P1160: Intake Air Temperature Sensor Short To Ground. (***(May not be applicable for Honda / Acura)***)
+DTC P1161: Fuel Trim Additve Bank 2 High (***(May not be applicable for Honda / Acura)***)
+DTC P1161: Intake Air Temperature Sensor Open/Short To Positive. (***(May not be applicable for Honda / Acura)***)
+DTC P1162: Fuel Trim Additve Per Ignition Bank 1 Low (***(May not be applicable for Honda / Acura)***)
+DTC P1162: Intake Air Temperature Sensor Short To Ground. (*** (May not be applicable for Honda / Acura)***)
+DTC P1163: Fuel Temperature Sensor Open/Short To Positive. (*** (May not be applicable for Honda / Acura)***)
+DTC P1163: Fuel Trim Additve Per Ignition Bank 1 High (***(May not be applicable for Honda / Acura)***)
+DTC P1164: Fuel Temperature Sensor Implausible Signal. (*** (May not be applicable for Honda / Acura)***)
+DTC P1164: Fuel Trim Additve Per Ignition Bank 2 Low (***(May not be applicable for Honda / Acura)***)
+DTC P1165: Fuel Trim Additve Per Ignition Bank 2 High (***(May not be applicable for Honda / Acura)***)
+DTC P1165: Swirl Control Valve Control Vacuum Check Switch (*** (May not be applicable for Honda / Acura)***)
+DTC P1168: Closed Loop Control (Bank 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1168: FRP Sensor In Range But Low (***(May not be applicable for Honda / Acura)***)
+DTC P1169: FRP Sensor In Range But High (***(May not be applicable for Honda / Acura)***)
+DTC P1171: Electronic Throttle System Open (***(May not be applicable for Honda / Acura)***)
+DTC P1172: Electronic Throttle System Motor Current (***(May not be applicable for Honda / Acura)***)
+DTC P1173: Electronic Throttle System Rationality Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1174: Electronic Throttle System #1 Close Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1174: Fuel Trim Adaptation Additve Bank 1 Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1175: Electronic Throttle System #2 Close Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1175: Fuel Trim Adaptation Additve Bank 2 Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1176: ETS Motor Open/Short #1 (***(May not be applicable for Honda / Acura)***)
+DTC P1176: ETS Motor Open/Short #2 (***(May not be applicable for Honda / Acura)***)
+DTC P1176: O2 Sensor Slow Response Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1177: O2 Sensor Slow Response Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1178: ETS Motor Battery Voltage Open (***(May not be applicable for Honda / Acura)***)
+DTC P1178: O2 Sensor Signal Circuit Slow Switching From Rich to Lean (Bank 1 Sensor 1) (May not be applicable for Honda / Acura
+DTC P1179: O2 Sensor Signal Circuit Slow Switching From Rich to Lean (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1180: Fuel Delivery System Low (***(May not be applicable for Honda / Acura)***)
+DTC P1180: O2 Sensor Signal Circuit Slow Switching From Rich to Lean (Bank 1 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1181: Fuel Delivery System High (***(May not be applicable for Honda / Acura)***)
+DTC P1181: O2 Sensor Signal Circuit Slow Switching From Rich to Lean (Bank 2 Sensor 2) (***(May not be applicable for
+DTC P1182: O2 Sensor (Bank 1 Sensor 2) Open Circuit During Coast Down Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1183: EOT Sensor Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1183: O2 Sensor (Bank 2 Sensor 2) Open Circuit During Coast Down Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1184: EOT Sensor Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1186: O2 Sensor Heater Control Circuit (Bank 1 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1187: O2 Sensor Heater Control Circuit (Bank 2 Sensor 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1188: Fuel Control (Bank 1 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1189: Engine Oil Pressure Switch Circuit
+DTC P1189: Fuel Control (Bank 2 Sensor 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1190: Pre-catalyst Fuel Trim System Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1191: Pre-catalyst Fuel Trim System Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1192: Inlet Air Temp. Circuit Low (***(May not be applicable for Honda / Acura)***)
+DTC P1192: Post-catalyst Fuel Trim System Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1193: Inlet Air Temp. Circuit High (***(May not be applicable for Honda / Acura)***)
+DTC P1193: Post-catalyst Fuel Trim System Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1195: 1/1 O2 Sensor Slow During Catalyst Monitor (***(May not be applicable for Honda / Acura)***)
+DTC P1196: 2/1 O2 Sensor Slow During Catalyst Monitor (***(May not be applicable for Honda / Acura)***)
+DTC P1197: 1/2 O2 Sensor Slow During Catalyst Monitor (***(Maynot be applicable for Honda / Acura)***)
+DTC P1198: Radiator Temperature Sensor Volts Too High (***(Maynot be applicable for Honda / Acura)***)
+DTC P1199: Radiator Temperature Sensor Volts Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1210: Traction Control System (TCS) Signal Circuit (***(Maynot be applicable for Honda / Acura)***)
+DTC P1211: ABS/TCS Control Unit (***(May not be applicable for Honda / Acura)***)
+DTC P1212: ABS/TCS Communication Line (***(May not be applicable for Honda / Acura)***)
+DTC P1217: Engine Over Temperature (Overheat) (***(May not be applicable for Honda / Acura)***)
+DTC P1220: Fuel Pump Control Module (FPCM) (***(May not be applicable for Honda / Acura)***)
+DTC P1221: Pedal Position Sensor 2 Range/Performance Problem (***(May not be applicable for Honda / Acura)***)
+DTC P1222: Pedal Position Sensor 2 Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1223: Pedal Position Sensor 2 High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1229: Supercharger Intercooler Pump Not Working (***(May not be applicable for Honda / Acura)***)
+DTC P1232: Low Speed Fuel Pump Primary Circuit Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1233: Fuel System Disabled Or Offline (***(May not be applicable for Honda / Acura)***)
+DTC P1234: Fuel System Disabled Or Offline (***(May not be applicable for Honda / Acura)***)
+DTC P1235: Fuel Pump Control Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1236: Fuel Pump Control Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1237: Fuel Pump Secondary Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1238: Fuel Pump Secondary Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1244: Generator Load Input Low (***(May not be applicable for Honda / Acura)***)
+DTC P1245: Generator Load Input High (***(May not be applicable for Honda / Acura)***)
+DTC P1245: Needle Lift Sensor Short To Ground (***(May not be applicable for Honda / Acura)***)
+DTC P1246: Generator Load Input Failed (***(May not be applicable for Honda / Acura)***)
+DTC P1246: Needle Lift Implausible Signal (***(May not be applicable for Honda / Acura)***)
+DTC P1247: Needle Lift Sensor Open/Short To Positive (***(May not be applicable for Honda / Acura)***)
+DTC P1248: Start Of Cold Start Injector Control Difference (*** (May not be applicable for Honda / Acura)***)
+DTC P1251: Start Of Cold Start Injector Short To Positive (***(May not be applicable for Honda / Acura)***)
+DTC P1252: Start Of Cold Start Injector Open/Short To Ground (***(May not be applicable for Honda / Acura)***)
+DTC P1255: Engine Coolant Temperature Sensor Short To Ground (***(May not be applicable for Honda / Acura)***)
+DTC P1256: Engine Coolant Temperature Sensor Open/Short To Positive (***(May not be applicable for Honda / Acura)***)
+DTC P1258: Engine Metal Over Temperature Protection P1259 VTEC System Malfunction
+DTC P1260: Fuel Pump Speed Relay Control Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1260: Theft Detected - Engine Disabled (***(May not be applicable for Honda / Acura)***)
+DTC P1270: Control Module Self-Test, Torque Monitoring (***(May not be applicable for Honda / Acura)***)
+DTC P1270: Vehicle Speed Limiter Reached (***(May not be applicable for Honda / Acura)***)
+DTC P1271: Ambient Air Pressure Sensor Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1281: Engine Is Cold Too Long (***(May not be applicable for Honda / Acura)***)
+DTC P1282: Fuel Pump Relay Control Circuit(***(May not be applicable for Honda / Acura)***)
+DTC P1283: Switching Solenoid for Air Assisted Injection Valves Bank 1 Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1284: Switching Solenoid for Air Assisted Injection Valves Bank 1 Control Circuit Signal Low (***(May not be applicable for Honda / Acura)***)
+DTC P1285: Cylinder Head Over Temperature Sensed (***(May not be applicable for Honda / Acura)***)
+DTC P1285: Switching Solenoid for Air Assisted Injection Valves Bank 1 Control Circuit Signal High (***(May not be applicable for Honda / Acura)***)
+DTC P1287: Switching Solenoid for Air Assisted Injection Valves Bank 2 Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1288: CHT Sensor Out of Self-Test Range (***(May not be applicable for Honda / Acura)***)
+DTC P1288: Intake Manifold Short Runner Solenoid Circuit (*** (May not be applicable for Honda / Acura)***)
+DTC P1288: Switching Solenoid for Air Assisted Injection Valves Bank 2 Control Circuit Signal Low (***(May not be applicable for Honda / Acura)***)
+DTC P1289: CHT Sensor High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1289: Manifold Tune Valve Solenoid Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1289: Switching Solenoid for Air Assisted Injection Valves Bank 2 Control Circuit Signal High (***(May not be applicable for Honda / Acura)***)
+DTC P1290: CHT Sensor Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1290: CNG Fuel Pressure Too High (***(May not be applicable for Honda / Acura)***)
+DTC P1291: No Temp Rise Seen From Fuel Heaters (***(May not be applicable for Honda / Acura)***)
+DTC P1292: CNG Pressure Sensor Voltage Too High (***(May not be applicable for Honda / Acura)***)
+DTC P1293: CNG Pressure Sensor Voltage Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1294: Target Idle Not Reached (***(May not be applicable for Honda / Acura)***)
+DTC P1295: No 5 Volts To TP Sensor (***(May not be applicable for Honda / Acura)***)
+DTC P1296: No 5 Volts To MAP Sensor (***(May not be applicable for Honda / Acura)***)
+DTC P1297: Low Voltage ELD Circuit
+DTC P1297: No Change in MAP From Start To Run (***(May not be applicable for Honda / Acura)***)
+DTC P1298: High Voltage In ELD Circuit
+DTC P1298: Lean Operation At wide Open Throttle (***(May not be applicable for Honda / Acura)***)
+DTC P1299: Cylinder Head Over Temperature Protection Active (***(May not be applicable for Honda / Acura)***)
+DTC P1299: Vacuum Leak Found (IAC Fully Seated)(***(May not be applicable for Honda / Acura)***)
+DTC P1300: Igniter Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1300: Random Misfire
+DTC P1309: Misfire Monitor Disabled (***(May not be applicable for Honda / Acura)***)
+DTC P1313: "A" Camshaft Position Plausibility (***(May not be applicable for Honda / Acura)***)
+DTC P1317: "B" Camshaft Position Plausibility (***(May not be applicable for Honda / Acura)***)
+DTC P1320: Ignition Control (IC) Module 4x Reference Circuit Intermittent No Pulses
+DTC P1320: Ignition Signal (***(May not be applicable for Honda / Acura)***)
+DTC P1323: Ignition Control (IC) Module 24x Reference Circuit low frequency
+DTC P1327: Knock Sensor 2 (Bank 1) Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1328: Knock Sensor 2 (Bank 1) High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1330: Spark Timing Adjust Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1332: Knock Sensor 4 Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1333: Knock Sensor 4 High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1335: Crankshaft Position Sensor (REF) (***(May not be applicable for Honda / Acura)***)
+DTC P1335: Crankshaft Position Sensor Circuit Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1336: CKP and/or CMP Input Signal to PCM Concerns (*** (May not be applicable for Honda / Acura)***)
+DTC P1336: Crankshaft Position Sensor (CKPS) (***(May not be applicable for Honda / Acura)***)
+DTC P1336: Crankshaft Position System Variation Not Learned (***(May not be applicable for Honda / Acura)***)
+DTC P1336: Crankshaft Speed Fluctuation Sensor Intermittant Interruption
+DTC P1337: Crankshaft Speed Fluctuation Sensor No Signal
+DTC P1340: Multiple Cylinder Misfire During Start (***(May not be applicable for Honda / Acura)***)
+DTC P1341: Multiple Cylinder Misfire With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1342: Misfire During Start Cylinder 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1343: Misfire Cylinder 1 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1344: Misfire During Start Cylinder 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1345: Misfire Cylinder 2 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1346: Misfire During Start Cylinder 3 (***(May not be applicable for Honda / Acura)***)
+DTC P1347: Misfire Cylinder 3 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1348: Misfire During Start Cylinder 4 (***(May not be applicable for Honda / Acura)***)
+DTC P1349: Misfire Cylinder 4 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1350: Ignition Control System
+DTC P1350: Misfire During Start Cylinder 5 (***(May not be applicable for Honda / Acura)***)
+DTC P1351: Ignition Coil Control Circuit High Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1351: Misfire Cylinder 5 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1352: Ignition Bypass Circuit High Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1352: Misfire During Start Cylinder 6 (***(May not be applicable for Honda / Acura)***)
+DTC P1353: Misfire Cylinder 6 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1354: Misfire During Start Cylinder 7 (***(May not be applicable for Honda / Acura)***)
+DTC P1354: Modulating Piston Displacement Sensor Electrial Circuit Malfunction (***(May not be applicable for Honda /
+DTC P1355: Misfire Cylinder 7 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1356: Misfire During Start Cylinder 8 (***(May not be applicable for Honda / Acura)***)
+DTC P1357: Misfire Cylinder 8 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1358: Misfire During Start Cylinder 9 (***(May not be applicable for Honda / Acura)***)
+DTC P1359: Crankshaft Position/TDC/Cylinder Position Sensor Connector Disconnection
+DTC P1359: Misfire Cylinder 9 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1360: Misfire During Start Cylinder 10 (***(May not be applicable for Honda / Acura)***)
+DTC P1361: Ignition Control (IC) Circuit Low Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1361: Intermittent Interruption In TDC1 Sensor Circuit
+DTC P1361: Misfire Cylinder 10 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1362: Ignition Bypass Circuit Low Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1362: Misfire During Start Cylinder 11 (***(May not be applicable for Honda / Acura)***)
+DTC P1362: No Signal In TDC 1 Sensor Circuit
+DTC P1363: Misfire Cylinder 11 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1364: Misfire During Start Cylinder 12 (***(May not be applicable for Honda / Acura)***)
+DTC P1365: Misfire Cylinder 12 With Fuel Cut-off (***(May not be applicable for Honda / Acura)***)
+DTC P1366: Intermittent Interruption In TDC 2 Sensor Circuit
+DTC P1367: No Signal In TDC 2 Sensor Circuit
+DTC P1370: Ignition Control (IC) Module 4x Reference too many pulses
+DTC P1371: Ignition Control (IC) Module 4x Reference too few pulses
+DTC P1374: CKP High to Low Resolution Frequency Correlation (***(May not be applicable for Honda / Acura)***)
+DTC P1375: Ignition Control (IC) Module 24x Reference High Voltage
+DTC P1376: Ignition Ground Circuit
+DTC P1377: Ignition Control (IC) Module Cam Pulse to 4x Reference Pulse Comparison
+DTC P1380: EBTCM DTC Detected-Rough Data Unusable
+DTC P1380: Misfire Detected - Rough Road Data Not Available (*** (May not be applicable for Honda / Acura)***)
+DTC P1380: Variable Cam Timing Solenoid A Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1381: Cylinder Position Sensor Intermittant Inturruption
+DTC P1381: Misfire Detected - No Commun. W/ Brake Control Mod (***(May not be applicable for Honda / Acura)***)
+DTC P1381: Misfire Detected-No EBTCM/PCM Serial Data
+DTC P1381: Variable Cam Timing Over-advanced (Bank 1) (*** (May not be applicable for Honda / Acura)***)
+DTC P1382: Cylinder Position Sensor No Signal
+DTC P1383: Variable Cam Timing Over-retarded (Bank 1) (*** (May not be applicable for Honda / Acura)***)
+DTC P1384: Knock Sensor 3 Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1385: Knock Sensor 4 Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1386: Control Module Self-test, Knock Control Baseline Test Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1387: Engine Control Module Inoperative (***(May not be applicable for Honda / Acura)***)
+DTC P1388: Auto Shutdown Relay Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1389: No ASD Relay Output Voltage At PCM (***(May not be applicable for Honda / Acura)***)
+DTC P1390: Octane Adjust Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1390: Timing Belt Skipped One Tooth or More (***(May not be applicable for Honda / Acura)***)
+DTC P1391: Intermittent Loss of CMP or CKP (***(May not be applicable for Honda / Acura)***)
+DTC P1396: Crankshaft Position Sensor Segment Timing Plausibility (***(May not be applicable for Honda / Acura)***)
+DTC P1397: Camshaft Position Sensor "B" Circuit (Bank 1) (*** (May not be applicable for Honda / Acura)***)
+DTC P1398: Mis-Fire Adapter Numerator at Limit (***(May not be applicable for Honda / Acura)***)
+DTC P1399: Wait To Start Lamp Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1400: DPFE Sensor Low Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1400: EGRC-Solenoid Valve (***(May not be applicable for Honda / Acura)***)
+DTC P1400: Fuel Tank Pressure Control Solenoid Circuit Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1400: Heated Catalyst Battery Voltage or Current too Low During Heating (Bank 1)
 DTC P1400: Manifold Differential Pressure Sensor Circuit Mal
+DTC P1400: Manifold Differential Pressure Sensor Circuit Malfunction (***(May not be applicable for Honda / Acura)
+DTC P1401: DPFE Sensor High Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1401: EGR Temperature Sensor (***(May not be applicable for Honda / Acura)***)
+DTC P1401: Heated Catalyst Current too High During Heating (Bank 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1402: EGR Function (Open) (***(May not be applicable for Honda / Acura)***)
+DTC P1402: EGR Vacuum Regulator Solenoid Valve Short To Positive (***(May not be applicable for Honda / Acura)***)
+DTC P1402: Heated Catalyst Power Switch Overtemperature Condition (Bank 1) (***(May not be applicable for Honda /
+DTC P1403: Carbon Canister Shut Off valve Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1403: DPFE Hoses Reversed (***(May not be applicable for Honda / Acura)***)
+DTC P1403: EGR System Control Difference (***(May not be applicable for Honda / Acura)***)
+DTC P1403: No 5 Volts To EGR Sensor (***(May not be applicable for Honda / Acura)***)
+DTC P1404: EGR Closed Position Performance (***(May not be applicable for Honda / Acura)***)
+DTC P1404: Exhaust Gas Recirculation (EGR) Valve Pintle Stuck Open
+DTC P1404: Heated Catalyst Current too High During Heating (Bank 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1405: DPFE Upstream Hose Off Or Plugged (***(May not be applicable for Honda / Acura)***)
+DTC P1405: Heated Catalyst Power Switch Overtemperature Condition (Bank 2) (***(May not be applicable for Honda /
+DTC P1406: DPFE Downstream Hose Off Or Plugged (***(May not be applicable for Honda / Acura)***)
+DTC P1406: Heated Catalyst Internal Control Module Checksum/ROM Error (***(May not be applicable for Honda /
+DTC P1407: EGR No Flow Detected (***(May not be applicable for Honda / Acura)***)
+DTC P1408: EGR Out Of Self Test Range (***(May not be applicable for Honda / Acura)***)
+DTC P1409: EGR Vacuum Regulator Solenoid Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1410: EGR Valve Position Sensor Circuit Malfunction (*** (May not be applicable for Honda / Acura)***)
+DTC P1411: Secondary Air Injection System Downstream Flow (***(May not be applicable for Honda / Acura)***)
+DTC P1413: Secondary Air Injection Pump Relay Control Circuit Signal Low (***(May not be applicable for Honda / Acura)
+DTC P1413: Secondary Air Injection System Monitor Circuit Low (***(May not be applicable for Honda / Acura)***)
+DTC P1414: Secondary Air Injection System Monitor Circuit High (***(May not be applicable for Honda / Acura)***)
+DTC P1415: Secondary Air Injection (AIR) System Bank 1 (*** (May not be applicable for Honda / Acura)***)
+DTC P1416: Secondary Air Injection (AIR) System Bank 2 (*** (May not be applicable for Honda / Acura)***)
+DTC P1420: Fuel Tank Pressure Control Solenoid Circuit High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1420: Secondary Air Valve Control Circuit Electrical(***(May not be applicable for Honda / Acura)***)
+DTC P1421: 1423 Secondary Air System Bank 1 (***(May not be applicable for Honda / Acura)***) Those two codes are caused by the secondary air pump. The pump is only designed to run the first couple minutes on a cold start. If the pump is running (on a cold start) then it's likely that the small vacuum hose connected to the pump is cracked or broken.  So all you would need is a $2 vacuum hose to fix it. To check if the air pump is working or not you can either listen under the hood for it when first starting the car in the morning, or pulling off the big hose attached to it and feel if air is blowing out of it. It is a cylinder shaped thing near the washer fluid tank.
+DTC P1422: Secondary Air System Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1432: Secondary Air Injection System Incorrect Flow Detected (***(May not be applicable for Honda / Acura)***)
+DTC P1432: THTRC Circuit Failure (***(May not be applicable for Honda / Acura)***)
+DTC P1436: A/C Evaporator Temperature Circuit Low Input (*** (May not be applicable for Honda / Acura)***)
+DTC P1437: A/C Evaporator Temperature Circuit High Input (*** (May not be applicable for Honda / Acura)***)
+DTC P1438: Purge Control Valve Control Open Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1439: Purge Control Valve Control Circuit Signal Low(*** (May not be applicable for Honda / Acura)***)
+DTC P1440: EVAP Control System (Small Leak) (Positive Pressure)(***(May not be applicable for Honda / Acura)***)
+DTC P1440: Purge Control Valve Control Circuit Signal High(*** (May not be applicable for Honda / Acura)***)
+DTC P1441: EGR Vacuum Regulator Solenoid Valve Open/Short To Ground (***(May not be applicable for Honda / Acura)***)
+DTC P1441: Evaporative Emission System Flow During Non-Purge(***(May not be applicable for Honda / Acura)***)
+DTC P1441: Evaporative System Flow During Non-Purge
+DTC P1441: Leakage Diagnostic Pump Control Open Circuit(***(May not be applicable for Honda / Acura)***)
+DTC P1442: Leakage Diagnostic Pump Control Circuit Signal Low(***(May not be applicable for Honda / Acura)***)
+DTC P1443: EVAP System Vent Control Function Problem (***(May not be applicable for Honda / Acura)***)
+DTC P1443: Evaporative Emission Control System (***(May not be applicable for Honda / Acura)***)
+DTC P1443: Leakage Diagnostic Pump Control Circuit Signal High(***(May not be applicable for Honda / Acura)***)
+DTC P1443: Small Or No Purge Flow Condition (***(May not be applicable for Honda / Acura)***)
+DTC P1444: Canister Purge Volume Control Solenoid Valve (*** May not be applicable for Honda / Acura)***)
+DTC P1444: Diagnostic Module Tank Leakage (DM-TL) Pump Control Open Circuit (***(May not be applicable for Honda /
+DTC P1444: Purge Flow Sensor Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1445: Diagnostic Module Tank Leakage (DM-TL) Pump Control Circuit Signal Low
+DTC P1445: Purge Flow Sensor High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1446: Diagnostic Module Tank Leakage (DM-TL) Pump Control Circuit Signal High (***(May not be applicable for
+DTC P1446: EVAP Canister Vent Control Valve (Close) (***(May not be applicable for Honda / Acura)***)
+DTC P1447: Diagnostic Module Tank Leakage (DM-TL) Pump Too High During Switching (***(May not be applicable for
+DTC P1447: EVAP Control System Purge Flow Monitoring (***(May not be applicable for Honda / Acura)***)
+DTC P1448: Diagnostic Module Tank Leakage (DM-TL) Pump Too Low During Switching (***(May not be applicable for
+DTC P1448: EVAP Canister Vent Control Valve (Open) (***(May not be applicable for Honda / Acura)***)
+DTC P1449: Diagnostic Module Tank Leakage (DM-TL) Pump TooHigh (***(May not be applicable for Honda / Acura)***)
+DTC P1450: Diagnostic Module Tank Leakage (DM-TL) Switching Solenoid Open Circuit (***(May not be applicable for Honda
+DTC P1450: Unable To Bleed Up Fuel Tank Vacuum (***(May not be applicable for Honda / Acura)***)
+DTC P1451: Diagnostic Module Tank Leakage (DM-TL) Switching Solenoid Control Circuit Signal Low (***(May not be
+DTC P1451: EVAP Control System Canister Vent Solenoid Circuit Malfunction (***(May not be applicable for Honda / Acura)
+DTC P1452: Diagnostic Module Tank Leakage (DM-TL) Switching Solenoid Control Circuit Signal High (***(May not be
+DTC P1453: Secondary Air Injection Pump Relay Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1454: Secondary Air Injection Pump With Series Resistor Control Circuit Electrical (***(May not be applicable for
+DTC P1456: Heated Catalyst Heater Power Supply Open Circuit (Bank 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1456: Leak Detected In EVAP Control System
+DTC P1457: Heated Catalyst Heater Power Switch Temperature Sensor Electrical (Bank 1) (***(May not be applicable for
+DTC P1457: Leak Detected In EVAP Control System
+DTC P1459: Heated Catalyst Heater Power Supply Open Circuit (Bank 2) (***(May not be applicable for Honda / Acura)***)
+DTC P1460: Heated Catalyst Heater Power Switch Temperature Sensor Electrical (Bank 2) (***(May not be applicable for
+DTC P1460: WOT A/C Cutoff Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1461: ACP Sensor High Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1461: Heated Catalyst Gate Voltage Signal Low (***(May not be applicable for Honda / Acura)***)
+DTC P1462: ACP Sensor Low Voltage (***(May not be applicable for Honda / Acura)***)
+DTC P1462: Heated Catalyst Internal Control Module Checksum/ROM Error (***(May not be applicable for Honda /
+DTC P1463: ACP Sensor Insufficent Pressure Change (***(May not be applicable for Honda / Acura)***)
+DTC P1463: Heated Catalyst Battery Temperature Sensor 1Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1464: A/C Demand Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1464: Fuel Level Sensor Circuit (Ground Signal) (***(May not be applicable for Honda / Acura)***)
+DTC P1464: Heated Catalyst Battery Temperature Sensor 2 Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1465: Heated Catalyst Battery Temperature Sensor 1 or 2 Plausibility (***(May not be applicable for Honda / Acura)
+DTC P1466: Heated Catalyst Power Switch Temperature Sensor Plausibility (***(May not be applicable for Honda / Acura)
+DTC P1467: Heated Catalyst Comparison Battery Voltages of Power Switches Plausibility (***(May not be applicable for
+DTC P1468: Heated Catalyst Battery Disconnecting Switch Plausibility (***(May not be applicable for Honda / Acura)
+DTC P1469: Low A/C Cycling Period (***(May not be applicable for Honda / Acura)***)
+DTC P1470: Leakage Diagnostic Pump Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1472: Diagnostic Module Tank leakage (DM-TL) Switching Solenoid Control Circuit Electrical (***(May not be
+DTC P1473: Diagnostic Module Tank leakage (DM-TL) Pump Current Plausibility (***(May not be applicable for Honda /
+DTC P1474: HCF Primary Circuit Failure (***(May not be applicable for Honda / Acura)***)
+DTC P1474: LFC Primary Circuit Failure (***(May not be applicable for Honda / Acura)***)
+DTC P1475: Leakage Diagnostic Pump Reed Switch Did Not Close (***(May not be applicable for Honda / Acura)***)
+DTC P1476: Leakage Diagnostic Pump Clamped Tube (***(May not be applicable for Honda / Acura)***)
+DTC P1476: Too Little Secondary Air (***(May not be applicable for Honda / Acura)***)
+DTC P1477: Leakage Diagnostic Pump Reed Switch Did Not Open(***(May not be applicable for Honda / Acura)***)
+DTC P1477: MFC Primary Circuit Failure (***(May not be applicable for Honda / Acura)***)
+DTC P1477: Too Much Secondary Air (***(May not be applicable for Honda / Acura)***)
+DTC P1478: Battery Temp Sensor Volts Out of Limit (***(May not be applicable for Honda / Acura)***)
+DTC P1479: HFC Primary Circuit Failure (***(May not be applicable for Honda / Acura)***)
+DTC P1479: Transmission Fan Relay Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1480: Cooling Fan Relay 1 Circuit High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1480: PCV Solenoid Valve (***(May not be applicable for Honda / Acura)***)
+DTC P1482: Catalyst Temperature Sensor Circuit Shorted Low (*** (May not be applicable for Honda / Acura)***)
+DTC P1483: Catalyst Temperature Sensor Circuit Shorted High (***(May not be applicable for Honda / Acura)***)
+DTC P1483: Engine Cooling System Performance
+DTC P1484: Catalytic Converter Overheat Detected (***(May not be applicable for Honda / Acura)***)
+DTC P1485: Air Injection Solenoid Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1486: Evap Leak Monitor Pinched Hose (***(May not be applicable for Honda / Acura)***)
+DTC P1487: Hi Speed Rad Fan CTRL Relay Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1488: Auxiliary 5 Volt Supply Output Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1489: High Speed Fan CTRL Relay Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1490: Low Speed Fan CTRL Relay Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1490: Vacuum Cut Valve Bypass Valve (Circuit) (***(May not be applicable for Honda / Acura)***)
+DTC P1491: Malfunction In EGR System
+DTC P1491: Rad Fan Control Relay Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1491: Vacuum Cut Valve Bypass Valve (***(May not be applicable for Honda / Acura)***)
+DTC P1492: Ambient/Batt Temp Sen Volts Too High (***(May not be applicable for Honda / Acura)***)
+DTC P1492: EVAP Canister Purge Control/Solenoid Valve (Circuit)(***(May not be applicable for Honda / Acura)***)
+DTC P1493: Ambient/Batt Temp Sen Volts Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1493: EVAP Canister Purge Control Valve/Solenoid Valve (***(May not be applicable for Honda / Acura)***)
+DTC P1494: Leak Detection Pump Switch or Mechanical Fault (*** (May not be applicable for Honda / Acura)***)
+DTC P1495: Leak Detection Pump Solenoid Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1496: 5 Volt Supply Output Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1498: High speed Rad Fan Ground CTRL Rly Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1498: Voltage Problem In EGR Valve Position Sensor Circuit
+DTC P1500: Generator FR Terminal Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1500: Idle Speed Control Valve Stuck Open (***(May not be applicable for Honda / Acura)***)
+DTC P1500: Vehicle Speed Sensor (VSS) Intermittant (***(May not be applicable for Honda / Acura)***)
+DTC P1501: Idle Speed Control Valve Stuck Closed (***(May not be applicable for Honda / Acura)***)
+DTC P1501: Vehicle Speed Sensor (VSS) Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1502: Idle Speed Control Valve Closing Solenoid Control Circuit Signal High (***(May not be applicable for Honda /
+DTC P1502: Idle Speed Control Valve Closing Solenoid Control Circuit Signal Low (***(May not be applicable for Honda /
+DTC P1502: Vehicle Speed Sensor (VSS) Intermittant (***(May not be applicable for Honda / Acura)***)
+DTC P1503: Idle Speed Control Valve Closing Solenoid Control Circuit Signal Low (***(May not be applicable for Honda /
+DTC P1504: Idle Air Control (IAC) Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1504: Idle Speed Control Valve Closing Solenoid Control Open Circuit (***(May not be applicable for Honda / Acura)
+DTC P1505: Idle Air Control At Adaptive Clip (***(May not be applicable for Honda / Acura)***)
+DTC P1505: Idle Speed Control Valve Closing Solenoid Control Circuit Electrial (***(May not be applicable for Honda /
+DTC P1506: Idle Air Control System Overspeed Error (***(May not be applicable for Honda / Acura)***)
+DTC P1506: Idle Speed Control Valve Open Solenoid Control Circuit Signal High (***(May not be applicable for Honda /
+DTC P1507: Idle Air Control System Underspeed Error (***(Maynot be applicable for Honda / Acura)***)
+DTC P1507: Idle Control System Malfunction (Fail-Safe) (***(Maynot be applicable for Honda / Acura)***)
+DTC P1507: Idle Speed Control Valve Open Solenoid Control CircuitSignal Low (***(May not be applicable for Honda / Acura)
+DTC P1508: Idle Air Control (IAC) System - Low RPM
+DTC P1508: Idle Air Control Valve Circuit Failure
+DTC P1508: Idle Speed Control Valve Opening Solenoid ControlOpen Circuit (***(May not be applicable for Honda / Acura)
+DTC P1509: Idle Speed Control Valve Opening Solenoid Control Circuit Electrial (***(May not be applicable for Honda /
+DTC P1510: Idle Speed Control Valve Stuck (***(May not be applicable for Honda / Acura)***)
+DTC P1511: DISA Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1512: DISA Control Circuit Signal Low (***(May not be applicable for Honda / Acura)***)
+DTC P1513: DISA Control Circuit Signal High (***(May not be applicable for Honda / Acura)***)
+DTC P1516: Inlet Manifold Runner Control Input Error (Bank 1) (***(May not be applicable for Honda / Acura)***)
+DTC P1517: Inlet Manifold Runner Control Input Error (Bank 2)(***(May not be applicable for Honda / Acura)***)
+DTC P1518: Inlet Manifold Runner Control Stuck Open (***(Maynot be applicable for Honda / Acura)***)
+DTC P1518: Starter Switch Circuit Low Input (***(May not beapplicable for Honda / Acura)***)
+DTC P1519: "A" Camshaft Position Actuator Bank 1 (***(May notbe applicable for Honda / Acura)***)
+DTC P1519: Inlet Manifold Runner Control Stuck Closed (***(Maynot be applicable for Honda / Acura)***)
+DTC P1519: Malfunction In IAC Valve Circuit
+DTC P1520: "B" Camshaft Position Actuator Bank 1 (***(May notbe applicable for Honda / Acura)***)
+DTC P1520: Intake Manifold Runner Control (IMRC) circuit malfunction
+DTC P1520: Stop Light Switch Signal Malfunction (***(May not beapplicable for Honda / Acura)***)
+DTC P1521: Power Steering Switch Malfunction (***(May not beapplicable for Honda / Acura)***)
+DTC P1522: "A" Camshaft Position Actuator Bank 2 (***(May notbe applicable for Honda / Acura)***)
+DTC P1523: "A" Camshaft Position Actuator Signal Low Bank 1(***(May not be applicable for Honda / Acura)***)
+DTC P1524: "A" Camshaft Position Actuator Signal High Bank 1(***(May not be applicable for Honda / Acura)***)
+DTC P1524: Throttle Position (TP) Sensor Learned Closed Throttle Angle Degrees Out-Of-Range
+DTC P1525: "A" Camshaft Position Actuator Control Open Circuit Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1525: Throttle Position (TP) Sensor Learned Closed Throttle Angle Degrees Out-Of-Range
+DTC P1526: "A" Camshaft Position Actuator Control Open Circuit Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1527: "A" Camshaft Position Actuator Control Circuit Signal Low Bank 1 (***(May not be applicable for Honda / Acura)
+DTC P1527: Trans Range / Pressure Switch Comparison
+DTC P1528: "A" Camshaft Position Actuator Control Circuit Signal High Bank 1 (***(May not be applicable for Honda / Acura)
+DTC P1529: "B" Camshaft Position Actuator Control Circuit Signal Low Bank 1 (***(May not be applicable for Honda / Acura)
+DTC P1530: "B" Camshaft Position Actuator Control Circuit Signal High Bank 1 (***(May not be applicable for Honda / Acura)
+DTC P1531: "B" Camshaft Position Actuator Control Open Circuit Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1532: "B" Camshaft Position Actuator Control Open Circuit Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1533: "B" Camshaft Position Actuator Control Circuit Signal Low Bank 2 (***(May not be applicable for Honda / Acura)
+DTC P1534: "B" Camshaft Position Actuator Control Circuit Signal High Bank 2 (***(May not be applicable for Honda / Acura)
+DTC P1537: Fuel Cut-off Valve Incorrect Function (***(May not be applicable for Honda / Acura)***)
+DTC P1538: Fuel Cut-off Valve Open/Short To Ground (***(Maynot be applicable for Honda / Acura)***)
+DTC P1540: Pedal Position Sensor (***(May not be applicable forHonda / Acura)***)
+DTC P1540: VSS Signal Too High (***(May not be applicable forHonda / Acura)***)
+DTC P1541: Pedal Position Sensor Double Error (***(May not beapplicable for Honda / Acura)***)
+DTC P1542: Pedal Position Sensor Electrical (***(May not beapplicable for Honda / Acura)***)
+DTC P1543: Pedal Position Sensor (***(May not be applicable forHonda / Acura)***)
+DTC P1544: Pedal Position Sensor (***(May not be applicable forHonda / Acura)***)
+DTC P1545: Pedal Position Sensor (***(May not be applicable forHonda / Acura)***)
+DTC P1546: Air Conditioning (A/C) Clutch Relay Control Circuit(***(May not be applicable for Honda / Acura)***)
+DTC P1546: Pedal Position Sensor (***(May not be applicable forHonda / Acura)***)
+DTC P1546: Wastegate Bypass Regulator Valve Short To Positive(***(May not be applicable for Honda / Acura)***)
+DTC P1549: Intake Manifold Control Circuit Malfunction (***(Maynot be applicable for Honda / Acura)***)
+DTC P1549: Wastegate Bypass Regulator Valve Open/Short To Ground (***(May not be applicable for Honda / Acura)***)
+DTC P1550: Charge Pressure Control Difference (***(May not be applicable for Honda / Acura)***)
+DTC P1550: Idle Speed Control valve Closing Solenoid Control Circuit Electrical (***(May not be applicable for Honda /
+DTC P1550: PSP Sensor Malfunction (***(May not be applicable forHonda / Acura)***)
+DTC P1551: "A" Camshaft Position Actuator Control Open Circuit Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1552: "A" Camshaft Position Actuator Control Open Circuit Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1554: Cruise Engaged Circuit High Voltage
+DTC P1556: "A" Camshaft Position Actuator Control Open Circuit Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1560: "B" Camshaft Position Actuator Control Open Circuit Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1560: Back-Up Voltage Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1560: Cruise Control System-Transaxle Not in Drive
+DTC P1561: Quantity Adjuster Control Difference (***(May not be applicable for Honda / Acura)***)
+DTC P1562: Quantity Adjuster Upper Stop Value (***(May not be applicable for Honda / Acura)***)
+DTC P1563: Quantity Adjuster Lower Stop Value (***(May not beapplicable for Honda / Acura)***)
+DTC P1564: Control Module Selection (***(May not be applicablefor Honda / Acura)***)
+DTC P1564: Cruise Control System-Vehicle Acceleration too high
+DTC P1565: "B" Camshaft Position Actuator Control Open Circuit Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1566: Cruise Control System-Engine RPM Too High
+DTC P1567: Cruise Control- ABCS Active
+DTC P1569: "A" Camshaft Position Actuator Control Open Circuit Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1570: Cruise Control System - Traction Control Active
+DTC P1571: Traction Control System PWM Circuit No Frequency
+DTC P1572: Brake Pedal Switch Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1574: EBTCM System- Stop Lamp Switch Circuit High Voltage
+DTC P1575: Extended Travel Brake Switch Circuit High Voltage
+DTC P1579: Park/Neutral to Drive/Reverse At high Throttle Angle
+DTC P1580: Throttle Valve Mechanically Stuck (***(May not be applicable for Honda / Acura)***)
+DTC P1581: "B" Camshaft Position Actuator Control Open Circuit Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1585: Cruise Control Inhibit Output Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1589: Control Module Self Test, Knock Control Test Pulse Bank 1 (***(May not be applicable for Honda / Acura)***)
+DTC P1590: Neutral Position Switch Circuit High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1591: Neutral Position Switch Circuit Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1593: DISA Control Circuit Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1594: "B" Camshaft Position Actuator Control Open Circuit Bank 2 (***(May not be applicable for Honda / Acura)***)
+DTC P1594: AT Diagnosis Input Signal Circuit Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1594: Charging System Voltage Too High (***(May not be applicable for Honda / Acura)***)
+DTC P1595: AT Diagnosis Input Signal Circuit Low Input (***(May not be applicable for Honda / Acura)***)
+DTC P1595: Speed Control Solenoid Circuits (***(May not be applicable for Honda / Acura)***)
+DTC P1596: AT Diagnosis Input Signal Circuit High Input (***(May not be applicable for Honda / Acura)***)
+DTC P1596: Speed Control Switch always High (***(May not be applicable for Honda / Acura)***)
+DTC P1597: Speed Control Switch always Low (***(May not be applicable for Honda / Acura)***)
+DTC P1598: A/C Pressure Sensor Volts Too High (***(May not be applicable for Honda / Acura)***)
+DTC P1599: A/C Pressure Sensor Volts Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1599: Engine Stall or Near Stall Detected
+DTC P1600: Battery Voltage SRC High Exceeded (***(May not be applicable for Honda / Acura)***)
+DTC P1600: ECM BATT Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1600: Supply Voltage Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1602: Control Module Self Test, Control Module Defective (***(May not be applicable for Honda / Acura)***)
+DTC P1602: Loss of EBTCM Serial Data
+DTC P1602: PCM Not Programmed (***(May not be applicable for Honda / Acura)***)
 DTC P1603: Battery Backup Circuit Malfunction
+DTC P1603: Battery Backup Circuit Malfunction (***(May not beapplicable for Honda / Acura)***)
+DTC P1603: Control Module Self Test, Torque Monitoring (***(May not be applicable for Honda / Acura)***)
+DTC P1603: Loss of SDM Serial Data
+DTC P1604: Control Module Self Test, Speed Monitoring (***(Maynot be applicable for Honda / Acura)***)
+DTC P1604: Loss of IPC Serial Data
+DTC P1605: A/T Diagnosis Communication Line (***(May not beapplicable for Honda / Acura)***)
+DTC P1605: Keep Alive Memory Failure (***(May not be applicablefor Honda / Acura)***)
+DTC P1605: Loss of HVACC Serial Data
+DTC P1605: Powertrain Control Module (***(May not be applicablefor Honda / Acura)***)
+DTC P1607: CAN Version (***(May not be applicable for Honda /Acura)***)
+DTC P1607: Electronic Throttle System Communication Error (***(May not be applicable for Honda / Acura)***)
+DTC P1607: Malfunction In PCM Internal Circuit
+DTC P1608: Serial Communicating Link Control Module (***(Maynot be applicable for Honda / Acura)***)
+DTC P1609: Serial Communicating Link EML (***(May not be applicable for Honda / Acura)***)
+DTC P1610: Immobilizer Function (***(May not be applicable for Honda / Acura)***)
+DTC P1610: Loss of PZM Serial Data
+DTC P1611: Loss of CVRTD Serial Data
+DTC P1611: Serial Communicating Link Transmission Control Module (***(May not be applicable for Honda / Acura)***)
+DTC P1612: Engine Control Module Incorrectly Coded (***(May notbe applicable for Honda / Acura)***)
+DTC P1614: Electronic Throttle System Module Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1616: Glow Plug Indicator Lamp Short To Positive (***(Maynot be applicable for Honda / Acura)***)
+DTC P1617: Engine Oil Level Switch Circuit
+DTC P1617: Glow Plug Indicator Lamp Open/Short To Ground (***(May not be applicable for Honda / Acura)***)
+DTC P1618: Glow Plug Relay Short To Positive (***(May not beapplicable for Honda / Acura)***)
+DTC P1619: Glow Plug Relay Open/Short To Ground (***(May notbe applicable for Honda / Acura)***)
+DTC P1619: MAP Cooling Control Circuit Signal Low (***(May notbe applicable for Honda / Acura)***)
+DTC P1620: MAP Cooling Control Circuit Signal High (***(May notbe applicable for Honda / Acura)***)
+DTC P1621: PCM Memory Performance
+DTC P1622: MAP Cooling Control Circuit Electrical (***(May not beapplicable for Honda / Acura)***)
+DTC P1623: Pedal Position Sensor Potentiometer Supply (***(Maynot be applicable for Honda / Acura)***)
+DTC P1624: Customer Snapshot Requested - Data Available (***(May not be applicable for Honda / Acura)***)
+DTC P1624: Pedal Position Sensor Potentiometer Supply Channel 1 Electrical (***(May not be applicable for Honda /
+DTC P1625: Pedal Position Sensor Potentiometer Supply Channel 2 Electrical (***(May not be applicable for Honda /
+DTC P1626: Implausible Signal From Transmission Control Module (***(May not be applicable for Honda / Acura)***)
+DTC P1626: Theft Deterrent System - Fuel Enable Circuit
+DTC P1630: Theft Deterrent - PCM in Learn Mode
+DTC P1631: Theft Deterrent - Password Incorrect
+DTC P1631: Throttle Position Sensor Signal Too High (***(May notbe applicable for Honda / Acura)***)
+DTC P1632: Theft Deterrent - Fuel Disabled
+DTC P1632: Throttle Position Sensor Supply Voltage (***(May notbe applicable for Honda / Acura)***)
+DTC P1632: Throttle Valve Adaptation; Adaptation Condition Not Met (***(May not be applicable for Honda / Acura)***)
+DTC P1632: Traction Control System Malfunction (***(May not be applicable for Honda / Acura)***)
+DTC P1633: Ignition Supplement Power Circuit Low Voltage
+DTC P1633: Keep Alive Power Voltage Too Low (***(May not beapplicable for Honda / Acura)***)
+DTC P1633: Throttle Valve Adaptation; Limp Home Position (***(May not be applicable for Honda / Acura)***)
+DTC P1634: Ignition 1 Power Circuit Low Voltage
+DTC P1634: Throttle Valve Adaptation; Spring Test Failed (***(May not be applicable for Honda / Acura)***)
+DTC P1635: 5 Volt Reference Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1635: Throttle Valve Adaptation; Lower Mechanical Stop Not Adapted (***(May not be applicable for Honda / Acura)***)
+DTC P1635: Tire/Axle Out Of Acceptable Range (***(May not beapplicable for Honda / Acura)***)
+DTC P1636: Inductive Signiture Chip Communication Error (***(May not be applicable for Honda / Acura)***)
+DTC P1636: Throttle Valve Control Circuit (***(May not beapplicable for Honda / Acura)***)
+DTC P1637: Throttle Valve Position Control; Control Deviation (***(May not be applicable for Honda / Acura)***)
+DTC P1638: Throttle Valve Position Control; Throttle Stuck Temporarily (***(May not be applicable for Honda / Acura)
+DTC P1639: 5 Volt Reference 2 Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1639: Throttle Position Sensor Implausible Signal (***(Maynot be applicable for Honda / Acura)***)
+DTC P1639: Throttle Valve Position Control; Throttle Stuck Permanently (***(May not be applicable for Honda / Acura)
+DTC P1639: Vehicle ID Block Not Programmed Or Corrupt (***(May not be applicable for Honda / Acura)***)
+DTC P1640: DTC's Available In Another Module (***(May not beapplicable for Honda / Acura)***)
+DTC P1640: Driver 1 - Input High Voltage
+DTC P1640: Engine Control Module Inoperative (***(May not beapplicable for Honda / Acura)***)
+DTC P1640: Internal Control Module (ROM/RAM) Error (***(Maynot be applicable for Honda / Acura)***)
+DTC P1641: Malfunction Indicator Lamp (MIL) Control Circuit
+DTC P1642: Vehicle Speed Output Circuit
+DTC P1644: Delivered Torque Output Circuit
+DTC P1645: EVAP Solenoid Output Circuit
+DTC P1646: EVAP Vent Valve Output Circuit
+DTC P1648: CAN-Bus System Component Failure (***(May not beapplicable for Honda / Acura)***)
+DTC P1649: Implausible Signal From ABS Control Module (***(Maynot be applicable for Honda / Acura)***)
+DTC P1650: Driver 2 - Input High Voltage
+DTC P1650: Power Steering Pressure Switch Malfunction (***(Maynot be applicable for Honda / Acura)***)
+DTC P1650: Power Steering Pressure Switch Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1651: Power Steering Pressure Switch Input Malfunction(***(May not be applicable for Honda / Acura)***)
+DTC P1651: Power Steering Pressure Switch Signal Malfunction(***(May not be applicable for Honda / Acura)***)
+DTC P1652: Lift/Dive Circuit
+DTC P1654: Cruise Disable Output Circuit
+DTC P1656: Automatic Transaxle
+DTC P1660: A/T FI Data Line Failure
+DTC P1660: Cooling Fan Control Circuits
+DTC P1670: ODM has Detected a Voltage greater than 33 volts(***(May not be applicable for Honda / Acura)***)
+DTC P1676: FPTDR Signal Failure
+DTC P1678: FPTDR Signal Line Failure
+DTC P1680: Clutch Released Switch Circuit (***(May not beapplicable for Honda / Acura)***)
+DTC P1681: A/T FI Signal A Low Input
+DTC P1681: No I/P Cluster CCD/J1850 Messages Received (***(May not be applicable for Honda / Acura)***)
+DTC P1682: A/T FI Signal A High Input
+DTC P1682: Charging System Voltage Too Low (***(May not be applicable for Honda / Acura)***)
+DTC P1683: Speed Control Power Relay or S/C 12V Driver Circuit(***(May not be applicable for Honda / Acura)***)
+DTC P1684: Battery Disconnected Within Last 50 Starts (***(Maynot be applicable for Honda / Acura)***)
+DTC P1685: Skim Invalid Key (***(May not be applicable forHonda / Acura)***)
+DTC P1686: A/T FI Signal B Low Input
+DTC P1686: No SKIM Bus Message Received (***(May not be applicable for Honda / Acura)***)
+DTC P1687: A/T FI Signal B High Input
+DTC P1687: No Cluster Bus Message (***(May not be applicable for Honda / Acura)***)
+DTC P1689: Traction Control Delivered Torque Output Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1690: Malfunction Indicator Lamp (MIL) Electrical (***(Maynot be applicable for Honda / Acura)***)
+DTC P1693: DTC Detected In Companion Mode (***(May not beapplicable for Honda / Acura)***)
+DTC P1694: Fault In Companion Mode (***(May not be applicablefor Honda / Acura)***)
+DTC P1695: No CCD/J185O Message From BCM (***(May not beapplicable for Honda / Acura)***)
+DTC P1696: PCM Failure EEPROM Write Denied (***(May not beapplicable for Honda / Acura)***)
+DTC P1697: PCM Failure SRI Mile Not Stored (***(May not beapplicable for Honda / Acura)***)
+DTC P1698: Engine Torque Control Cut Signal Circuit Low Input(***(May not be applicable for Honda / Acura)***)
+DTC P1698: No Bus Message From TCM (***(May not be applicablefor Honda / Acura)***)
+DTC P1699: Engine Torque Control Cut Signal Circuit High Input(***(May not be applicable for Honda / Acura)***)
+DTC P1700: TPS Circuit Malfunction For AT (***(May not be applicable for Honda / Acura)***)
+DTC P1701: Cruise Control Set Signal Circuit Malfunction For AT(***(May not be applicable for Honda / Acura)***)
+DTC P1701: Transmission Solenoid Malfunction (***(May not bepplicable for Honda / Acura)***)
+DTC P1703: Brake On/Off Switch (***(May not be applicable forHonda / Acura)***)
+DTC P1703: Brake On/Off Switch Out Of Range (***(May not beapplicable for Honda / Acura)***)
+DTC P1703: Low Clutch Timing Control Solenoid Circuit Malfunction(***(May not be applicable for Honda / Acura)***)
+DTC P1705: Automatic Transaxle
+DTC P1705: Throttle Position Sensor ((***(May not be applicablefor Honda / Acura)***))
+DTC P1705: Transmisson Range Sensor (***(May not be applicablefor Honda / Acura)***)
+DTC P1705: Transmisson Range Sensor Out Of Range (***(Maynot be applicable for Honda / Acura)***)
+DTC P1706: Automatic Transaxle
+DTC P1706: Park/Neutral Position (PNP) Switch (***(May not beapplicable for Honda / Acura)***)
+DTC P1709: Automatic Transaxle
+DTC P1709: Park/Neutral Position Switch Out Of Range (***(Maynot be applicable for Honda / Acura)***)
+DTC P1710: Automatic Transaxle
+DTC P1711: Engine Torque Control Signal 1 Circuit Malfunction(***(May not be applicable for Honda / Acura)***)
+DTC P1711: Transmission Fluid Temperature Sensor (***(May notbe applicable for Honda / Acura)***)
+DTC P1712: Engine Torque Control Signal 2 Circuit Malfunction(***(May not be applicable for Honda / Acura)***)
+DTC P1713: Automatic Transaxle
+DTC P1719: Skip Shift Solenoid Circuit (***(May not be applicablefor Honda / Acura)***)
+DTC P1729: 4x4 Low Switch Malfunction (***(May not beapplicable for Honda / Acura)***)
+DTC P1734: Pressure Control Solenoid "B" Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1738: Automatic Transaxle
+DTC P1738: Pressure Control Solenoid "C" Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1739: Automatic Transaxle
+DTC P1740: Automatic Transaxle
+DTC P1743: Pressure Control Solenoid "E" Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1744: Pressure Control Solenoid "A" Electrical (***(May not be applicable for Honda / Acura)***)
+DTC P1746: EPC Solenoid Failed Low (***(May not be applicablefor Honda / Acura)***)
+DTC P1746: Transmission Control Module Output Stage (***(May not be applicable for Honda / Acura)***)
+DTC P1747: CAN Bus Monitoring (***(May not be applicable for Honda / Acura)***)
+DTC P1747: EPC Solenoid Short Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1748: Transmission Control Module Self Test (***(May not be applicable for Honda / Acura)***)
+DTC P1749: EPC Solenoid Open Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1749: Secondary Pressure Solenoid Communication Error (***(May not be applicable for Honda / Acura)***)
+DTC P1750: Secondary Pressure Solenoid Circuit Range/Performance (***(May not be applicable for Honda /
+DTC P1751: A/T Control Relay Malfunction (***(May not beapplicable for Honda / Acura)***)
+DTC P1751: Secondary Pressure Solenoid Open Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1751: Shift Solenoid #1 (SS1) (***(May not be applicable for Honda / Acura)***)
+DTC P1753: Automatic Transaxle
+DTC P1754: Coast Clutch Solenoid (***(May not be applicable forHonda / Acura)***)
+DTC P1756: GOV Press Not Equal To Target @ 15-20 PSI (***(Maynot be applicable for Honda / Acura)***)
+DTC P1756: Shift Solenoid #2 (SS2) (***(May not be applicablefor Honda / Acura)***)
+DTC P1757: GOV Press Not Equal To Target @ 15-20 PSI (***(Maynot be applicable for Honda / Acura)***)
+DTC P1758: Automatic Transaxle
+DTC P1760: Overrun Clutch Solenoid Valve (***(May not beapplicable for Honda / Acura)***)
+DTC P1761: Shift Solenoid #3 (SS3) (***(May not be applicablefor Honda / Acura)***)
+DTC P1761: Shift Solenoid Malfunction (***(May not be applicablefor Honda / Acura)***)
+DTC P1762: Gov Press Sen Offset Volts Too Low or high(***(Maynot be applicable for Honda / Acura)***)
+DTC P1763: Governor Pressure Sensor Volts Too High (***(May not be applicablefor Honda / Acura)***)
+DTC P1764: Governor Pressure Sensor Volts Too Low (***(May notbe applicable for Honda / Acura)***)
+DTC P1765: CAN Throttle Valve (***(May not be applicable forHonda / Acura)***)
+DTC P1765: Trans 12 Volt Supply Relay CTRL Circuit (***(May notbe applicable for Honda / Acura)***)
+DTC P1768: Automatic Transaxle
+DTC P1770: CAN Torque Interface (***(May not be applicable forHonda / Acura)***)
+DTC P1773: Automatic Transaxle
+DTC P1778: Automatic Transaxle
+DTC P1780: CAN Torque Reduction (***(May not be applicable forHonda / Acura)***)
+DTC P1780: Park/Neutral Position Switch Malfunction (Only For A/T) (***(May not be applicable for Honda / Acura)***)
+DTC P1780: Transmission Control Switch (***(May not beapplicable for Honda / Acura)***)
+DTC P1780: Transmission Control Switch Out Of Range(***(Maynot be applicable for Honda / Acura)***)
+DTC P1781: 4x4 Switch Out Of Range (***(May not be applicable for Honda / Acura)***)
+DTC P1783: Transmission Over Temperature Condition (***(Maynot be applicable for Honda / Acura)***)
+DTC P1786: Automatic Transaxle
+DTC P1790: Automatic Transaxle
+DTC P1791: Automatic Transaxle
+DTC P1792: Automatic Transaxle
+DTC P1794: Automatic Transaxle
+DTC P1810: TFP Valve Position Switch Circuit (***(May not beapplicable for Honda / Acura)***)
+DTC P1811: Maximum Adapt and Long Shift (***(May not beapplicable for Honda / Acura)***)
+DTC P1819: Internal Mode Switch - No Start/Wrong Range (***(May not be applicable for Honda / Acura)***)
+DTC P1820: Internal Mode Switch Circuit A Low (***(May not beapplicable for Honda / Acura)***)
+DTC P1822: Internal Mode Switch Circuit B High (***(May not beapplicable for Honda / Acura)***)
+DTC P1823: Internal Mode Switch Circuit P Low (***(May not beapplicable for Honda / Acura)***)
+DTC P1825: Internal Mode Switch - Invalid Range (***(May not beapplicable for Honda / Acura)***)
+DTC P1826: Internal Mode Switch Circuit C High (***(May not beapplicable for Honda / Acura)***)
+DTC P1851: Implausible Signal From ABS Control Module (***(Maynot be applicable for Honda / Acura)***)
+DTC P1854: Drive Train CAN-Bus Inoperative (***(May not beapplicable for Honda / Acura)***)
+DTC P1860: TCC PWM Solenoid Circuit Electrical (***(May not beapplicable for Honda / Acura)***)
+DTC P1887: TCC Release Switch Circuit (***(May not be applicable for Honda / Acura)***)
+DTC P1899: Park/Neutral Position Switch Stuck In Park or In Gear (***(May not be applicable for Honda / Acura)***)
+DTC P1900: Output Shaft Speed Sensor Circuit Failure (***(May not be applicable for Honda / Acura)***)
+DTC P2008: Intake Manifold Runner Control (IMRC) Solenoid Control Circuit
+DTC P2009: Intake Manifold Runner Control (IMRC) Solenoid Control Circuit Low Voltage
+DTC P2010: Intake Manifold Runner Control (IMRC) Solenoid Control Circuit High Voltage
+DTC P2066: Fuel Level Sensor 2 Performance
 DTC P2066: Fuel Level Sensor Circuit Range/Performance
+DTC P2067: Fuel Level Sensor 2 Circuit Low Voltage
+DTC P2068: Fuel Level Sensor 2 Circuit High Voltage
+DTC P2096: or P2098 Post Catalyst Fuel Trim System Low Limit
+DTC P2097: or P2099 Post Catalyst Fuel Trim System High Limit
+DTC P2100: Throttle Actuator Control (TAC) Motor Control Circuit
+DTC P2101: Control Module Throttle Actuator Position Performance
+DTC P2105: Throttle Actuator Control (TAC) System Forced Engine Shutdown
+DTC P2107: Throttle Actuator Control (TAC) Module Internal Circuit
+DTC P2119: Throttle Closed Position Performance
+DTC P2122: Accelerator Pedal Position (APP) Sensor 1 Circuit Low Voltage
+DTC P2123: Accelerator Pedal Position (APP) Sensor 1 Circuit High Voltage
+DTC P2127: Accelerator Pedal Position (APP) Sensor 2 Circuit Low Voltage
+DTC P2128: Accelerator Pedal Position (APP) Sensor 2 Circuit High Voltage
+DTC P2135: Throttle Position (TP) Sensor 1-2 Correlation
+DTC P2138: Accelerator Pedal Position (APP) Sensor 1-2 Correlation
+DTC P2176: Minimum Throttle Position Not Learned
 DTC P2263: Intake Charge System Malfunction 
+DTC P2500: Generator L-Terminal Circuit Low Voltage
