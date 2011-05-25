@@ -1,0 +1,18 @@
+<rom>
+	<romid>
+		<xmlid>EM2349</xmlid>
+		<internalidaddress>1fefa</internalidaddress>
+		<internalidstring>EM2349</internalidstring>
+		<caseid>MD360216</caseid>
+		<ecuid/>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Lancer</model>
+		<submodel>EVO5</submodel>
+		<transmission>Manual</transmission>
+		<year>1998</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539F</memmodel>
+	</romid>
+	<include>evo5base</include>
+</rom>

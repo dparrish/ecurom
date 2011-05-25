@@ -1,0 +1,34 @@
+<rom>
+  <romid>
+    <xmlid>A8DK100E</xmlid>
+    <internalidaddress>2000</internalidaddress>
+    <internalidstring>A8DK100E</internalidstring>
+    <ecuid>4EA2504007</ecuid>
+    <year>07</year>
+    <market>SADM</market>
+    <make>Subaru</make>
+    <model>Forester</model>
+    <submodel>XT</submodel>
+    <transmission>AT</transmission>
+    <memmodel>SH7058</memmodel>
+    <flashmethod>subarucan</flashmethod>
+    <checksummodule>subarudbw</checksummodule>
+  </romid>
+  <include>A8DK100P</include>
+  <table name="Manifold Pressure Sensor CEL Delays" address="c345c" />
+  <table name="Base Timing" address="cb5d0">
+    <table name="X" address="cb54c" />
+    <table name="Y" address="cb588" />
+  </table>
+  <table name="Timing Compensation A (Intake Temp)" address="cafc0">
+    <table name="Y" address="caf80" />
+  </table>
+  <table name="Timing Compensation A (Intake Temp) Activation" address="cb720">
+    <table name="X" address="cb6e0" />
+    <table name="Y" address="cb700" />
+  </table>
+  <table name="Timing Compensation (Coolant Temp)" address="caf6d">
+    <table name="Y" address="cabcc" />
+  </table>
+  <table name="Speed Limiting C (Throttle)" address="c27c8" />
+</rom>

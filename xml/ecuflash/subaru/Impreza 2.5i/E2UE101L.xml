@@ -1,0 +1,37 @@
+<rom>
+  <romid>
+    <xmlid>E2UE101L</xmlid>
+    <internalidaddress>2000</internalidaddress>
+    <internalidstring>E2UE101L</internalidstring>
+    <ecuid>4D12044006</ecuid>
+    <year>07</year>
+    <market>USDM</market>
+    <make>Subaru</make>
+    <model>Impreza</model>
+    <submodel>2.5i</submodel>
+    <transmission>AT</transmission>
+    <memmodel>SH7058</memmodel>
+    <flashmethod>sti05</flashmethod>
+    <checksummodule>subarudbw</checksummodule>
+  </romid>
+  <include>E2UE102L</include>
+  <table name="Manifold Pressure Sensor CEL Delays" address="c405d" />
+  <table name="Idle Speed A (Coolant Temp)" address="ce6f0">
+    <table name="Y" address="ce12c" />
+  </table>
+  <table name="Idle Speed B (Coolant Temp)" address="ce730">
+    <table name="Y" address="ce12c" />
+  </table>
+  <table name="Idle Speed C (Coolant Temp)" address="ce770">
+    <table name="Y" address="ce12c" />
+  </table>
+  <table name="Idle Speed D (Coolant Temp)" address="ce7b0">
+    <table name="Y" address="ce12c" />
+  </table>
+  <table name="Idle Speed E (Coolant Temp)" address="ce7f0">
+    <table name="Y" address="ce12c" />
+  </table>
+  <table name="Idle Speed F (Coolant Temp)" address="ce830">
+    <table name="Y" address="ce12c" />
+  </table>
+</rom>

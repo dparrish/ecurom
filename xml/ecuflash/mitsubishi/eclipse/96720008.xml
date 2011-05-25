@@ -1,0 +1,174 @@
+<rom>
+	<romid>
+		<xmlid>96720008</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>96720008</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse</model>
+		<submodel>GT</submodel>
+		<transmission>Manual</transmission>
+		<year>2001</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>evo7base</include>
+
+	<table name="High Octane Fuel Map" address="35b7">
+		<table name="Load" address="587a" elements="12"/>
+		<table name="RPM" address="5852" elements="15"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="3677">
+		<table name="Load" address="587a" elements="12"/>
+		<table name="RPM" address="5852" elements="15"/>
+	</table>
+
+	<table name="High Octane Ignition Map 1" address="3a99">
+		<table name="Load" address="58cc" elements="12"/>
+		<table name="RPM" address="589c" elements="19"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" address="3b89">
+		<table name="Load" address="58cc" elements="12"/>
+		<table name="RPM" address="589c" elements="19"/>
+	</table>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="3864">
+		<table name="Battery Voltage" address="57ba" elements="7"/>
+	</table>
+
+	<table name="Rev Limit" address="156a"/>
+
+	<table name="Accel Enrichment" address="3908">
+		<table name="RPM" address="55da" elements="12"/>
+	</table>
+
+	<table name="Open Loop Load # 2" address="376c">
+		<table name="RPM" address="55fc" elements="12"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Neutral" address="3e42">
+		<table name="Engine Temp" address="5a2c" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Drive" address="3e50">
+		<table name="Engine Temp" address="5a2c" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC on-Neutral" address="3e5e">
+		<table name="Engine Temp" address="5a2c" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Neutral" address="3e26">
+		<table name="Engine Temp" address="5a2c" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Drive" address="3e34">
+		<table name="Engine Temp" address="5a2c" elements="8"/>
+	</table>
+
+	<table name="Open Loop Load # 1" address="375a">
+		<table name="RPM" address="55fc" elements="12"/>
+	</table>
+
+	<table name="Stationary Rev Limit" level="1"/>
+
+	<table name="Boost Control Load Offset" level="1"/>
+
+	<table name="Turbo Boost Error Correction" level="1">
+		<table name="Boost Error"/>
+	</table>
+
+	<table name="Boost Desired Engine Load # 1" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Boost Desired Engine Load  # 2" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Boost Desired Engine Load # 3" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Boost Desired Engine Load # 4" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 1" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 2" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 3" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 4" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Open Loop Throttle Low Load" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Open Loop Throttle High Load" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="IC Relay Timer ON Mode Switch Time" level="1"/>
+
+	<table name="IC Relay Timer Control RPM" level="1"/>
+
+	<table name="IC Relay Timer Control Water Temp" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="IC Relay Control Vehicle Speed" level="1"/>
+
+	<table name="IC Relay Control EV" level="1"/>
+
+	<table name="IC Relay Timer Time" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="IC Relay Timer Control Judgement" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="IC Relay Timer Air Temp" level="1"/>
+
+	<table name="Desired Idle RPM with AC on" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp Idle Speed Target" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp ISCV Increase" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="Min Coolant Temp for Closed Loop" address="1588"/>
+
+	<table name="Boost Limit" level="1">
+		<table name="RPM"/>
+	</table>
+
+	<table name="Lean Spool Enable RPM" level="1"/>
+
+	<table name="Injector Scaling" address="1506"/>
+
+	<table name="Boost Cut Delay Timer" level="1"/>
+
+	<table name="Speed Limit" address="156c">
+		<table name="Condition"/>
+	</table>
+
+</rom>

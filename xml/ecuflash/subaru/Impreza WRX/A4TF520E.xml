@@ -1,0 +1,19 @@
+<rom>
+	<romid>
+		<xmlid>A4TF520E</xmlid>
+		<internalidaddress>200</internalidaddress>
+		<internalidstring>A4TF520E</internalidstring>
+		<caseid></caseid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Impreza</model>
+		<submodel>WRX</submodel>
+		<transmission>Auto</transmission>
+		<year>2004</year>
+		<flashmethod>wrx04</flashmethod>
+		<memmodel>68HC16Y5</memmodel>
+	</romid>
+
+	<include>A4TF520F</include>
+
+</rom>
