@@ -364,7 +364,7 @@
 		<table name="Throttle" address="512ee" type="Y Axis" elements="6" scaling="ThrottlePercentage"/>
 	</table>
 
-	<table name="== EDIT THE TABLES BELOW FOR LOAD OR PSI BOOST TARGETING ==" category="Global Boost Control 'TYPE' (Choose LOAD or PSI Targeted Boost Control)" address="0" type="1D"/>
+	<table name="== EDIT THE TABLES BELOW FOR LOAD OR PSI BOOST TARGETING ==" category="Global Boost Control 'TYPE' (Choose LOAD or PSI Targeted Boost Control)" type="1D"/>
 
 	<table name="Variable for Boost Control (LOAD=0x6B48 PSI=0x6AEC)" category="Global Boost Control 'TYPE' (Choose LOAD or PSI Targeted Boost Control)" address="41e12" type="1D" scaling="Hex16"/>
 

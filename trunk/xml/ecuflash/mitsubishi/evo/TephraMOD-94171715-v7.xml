@@ -25,24 +25,12 @@
 
 	<table name="SD Set Baro Value" category="Speed Density Tuning" address="aa4a" type="1D" scaling="Baro16"/>
 
-	<table name="Stutter Fix Option #1 (Set Over/Under Flag for MAF Signal Averaging Val)" category="Speed Density Programming" address="162c" type="2D" level="2" scaling="uint16">
-		<table type="Static Y Axis" elements="1">
-			<data>Stock = 205                   For Fix Option #1, Set = 255</data>
-		</table>
-	</table>
+	<table name="Jitter Fix 1: Scaling Factor for Transition Load (205 -> 255)" category="Speed Density Programming" address="162c" type="1D" level="1" scaling="uint16"/>
 
-	<table name="Stutter Fix Option #2 (Set Scaling Factor for Transition Load)" category="Speed Density Programming" address="1630" type="2D" level="2" scaling="uint16">
-		<table type="Static Y Axis" elements="1">
-			<data>Stock = 112                   For Fix Option #2, Set = 0</data>
-		</table>
-	</table>
+	<table name="Jitter Fix 2: Scaling Factor for Transition Load (112 -> 0)" category="Speed Density Programming" address="1630" type="1D" level="1" scaling="uint16"/>
 
-	<table name="Stutter Fix Option #3 (BT -> NOP for DeltaMasterLoadPos/Neg Threshold)" category="Speed Density Programming" address="26778" type="2D" level="2" scaling="Hex16">
-		<table type="Static Y Axis" elements="1">
-			<data>Stock = 0x8909                   For Fix Option #3, Set = 0x0009</data>
-		</table>
-	</table>
-	
+	<table name="Jitter Fix 3: BT -> NOP for Static DeltaMasterLoadPos/Neg Threshold (8909 -> 0009)" category="Speed Density Programming" address="27a0a" type="1D" level="1" scaling="Hex16"/>
+
 	<table name="SD Change to mul r0,r1:sts macl,r0:shlr8 r0:nops" category="Speed Density Programming" address="1131a" type="2D" level="1" scaling="Hex16">
 		<table type="Y Axis" elements="18"/>
 	</table>

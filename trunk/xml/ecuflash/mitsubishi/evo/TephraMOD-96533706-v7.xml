@@ -12,9 +12,9 @@
 		<flashmethod>mitsukernel</flashmethod>
 		<memmodel>SH7052</memmodel>
 	</romid>
-	<include>TephraMOD-96530706-v7</include>
+
 	<include>TephraMOD-96531706-v7</include>
-	
+
 	<table name="RAM SD MAP VE" category="Speed Density Tuning" address="382c8" type="2D" level="1" scaling="MAP VE load">
 		<table name="MAP" address="382b0" type="Y Axis" elements="8" scaling="MAP 16bit"/>
 	</table>
@@ -204,6 +204,65 @@
 			<data>Main Cranking IPW Main ROM</data>
 			<data>???</data>
 		</table>
+	</table>
+
+	<table name="ECU Periphery0 (FAA) Bits">
+		<table name="Periphery Bit Number">
+			<data>bit.15</data>
+			<data>bit.14: Front o2 sensor heater circuit</data>
+			<data>bit.13</data>
+			<data>bit.12</data>
+			<data>bit.11: Enable EGR Duty = 100% when CTS Less Than 68C</data>
+			<data>bit.10: Timing knockdown on light acceleration and less than 3000rpm</data>
+			<data>bit.9: Enable Warmup Ign Retard</data>
+			<data>bit.8</data>
+			<data>bit.7: Enable High Oct Ign Map Lookup (and many other subroutines)</data>
+			<data>bit.6: Enable Speed Limit Test</data>
+			<data>bit.5</data>
+			<data>bit.4: Allow closed loop</data>
+			<data>bit.3: Enable immobilizer</data>
+			<data>bit.2</data>
+			<data>bit.1: Rear o2</data>
+			<data>bit.0</data>
+		</table>
+	</table>
+
+	<table name="MUT Table" scaling="Hex16">
+		<table name="X" elements="32">
+			<data>-</data>
+			<data>0</data>
+			<data>-</data>
+			<data>1</data>
+			<data>-</data>
+			<data>2</data>
+			<data>-</data>
+			<data>3</data>
+			<data>-</data>
+			<data>4</data>
+			<data>-</data>
+			<data>5</data>
+			<data>-</data>
+			<data>6</data>
+			<data>-</data>
+			<data>7</data>
+			<data>-</data>
+			<data>8</data>
+			<data>-</data>
+			<data>9</data>
+			<data>-</data>
+			<data>A</data>
+			<data>-</data>
+			<data>B</data>
+			<data>-</data>
+			<data>C</data>
+			<data>-</data>
+			<data>D</data>
+			<data>-</data>
+			<data>E</data>
+			<data>-</data>
+			<data>F</data>
+		</table>
+		<table name="Y" elements="30"/>
 	</table>
 
 </rom>
