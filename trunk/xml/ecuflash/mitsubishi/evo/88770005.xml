@@ -1,0 +1,257 @@
+<rom>
+	<romid>
+		<xmlid>88770005</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>88770005</internalidhex>
+		<caseid>MR988331</caseid>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Lancer</model>
+		<submodel>Evolution</submodel>
+		<transmission>Auto</transmission>
+		<year>2002</year>
+		<flashmethod>mitsukernelocp</flashmethod>
+		<memmodel>SH7055</memmodel>
+	</romid>
+
+	<include>89960000</include>
+	<scaling name="AFR Axis" units="units" toexpr="14.7*128/x" frexpr="14.7*128/x" format="%.2f" min="5" max="20" inc="0.1" storagetype="uint16" endian="little"/>
+
+	<table name="Idle Timing Control" address="4169"/>
+
+	<table name="Idle RPM Unknown" address="158c" scaling="RPMTarget"/>
+
+	<table name="idle_Unknown" address="1e0a"/>
+
+	<table name="Lean spool Target AFR" address="1283"/>
+
+	<table name="Lean Spool Load Threshold" address="3596"/>
+
+	<table name="Min Temp for Lean Spool" address="127e"/>
+
+	<table name="Lean Spool Enable Load Hysteresis" address="127c"/>
+
+	<table name="Lean Spool Trailing Time (Lean Side)" address="3582"/>
+
+	<table name="Close loop target" address="3540"/>
+
+	<table name="Closed Loop Enrich/Enlean Map 2" address="3ff5"/>
+
+	<table name="Closed Loop Enrich/Enlean Map 1" address="3e81"/>
+
+	<table name="ISCV steps Neutral - AC OFF" address="42cc"/>
+
+	<table name="ISCV steps Drive- AC OFF" address="42da"/>
+
+	<table name="Idling Timing" address="4169"/>
+
+	<table name="rpm adjustment value" address="15c8"/>
+
+	<table name="idle start rpm" address="158c"/>
+
+	<table name="Drive-ISCV Initial Start AC ON high water temp" address="42b0"/>
+
+	<table name="Drive-ISCV Initial AC ON"/>
+
+	<table name="Neutral-ISCV Intial AC ON" address="42cc"/>
+
+	<table name="Cruise timing modifier warmup" address="35c9"/>
+
+	<table name="Cruise timing modifier" address="3a25"/>
+
+	<table name="hi octane warmup fuel map" address="2dbd"/>
+
+	<table name="hi octane normal fuel map" address="2ed7"/>
+
+	<table name="Lo octane warmup fuel map" address="2ef5"/>
+
+	<table name="lo octane normal fuel map" address="310b"/>
+
+	<table name="Hi timing Warmup" address="373d"/>
+
+	<table name="Hi timing map" address="38b1"/>
+
+	<table name="Lo timing warmup" address="3b99"/>
+
+	<table name="Lo timing map" address="3d0d"/>
+
+	<table name="Lean spool AFR correction" address="35aa"/>
+
+	<table name="Lean Spool Trailing Time (Rich Side)" address="356e" scaling="uint8"/>
+
+	<table name="Desired ISCV initial step position with AC on - Drive" address="4f66" scaling="ISCVSteps"/>
+
+	<table name="Lean spool enable" address="1280"/>
+
+	<table name="Lean spool Disable" address="1284"/>
+
+	<table name="Desired ISCV intial step position with AC off-Drive" address="42f6"/>
+
+	<table name="Desired Idle RPM with AC on" address="146c"/>
+
+	<table name="High Intake Air Temp Idle Speed Target" address="1e0a"/>
+
+	<table name="High Intake Air Temp ISCV Increase" address="1e0a" scaling="RPMTarget"/>
+
+	<table name="Boost Limit #1" address="3248"/>
+
+	<table name="Injector Scaling" address="1106"/>
+
+	<table name="Boost Cut Delay Timer" address="119a"/>
+
+	<table name="Idle Stepper Look-up Table" address="43ef"/>
+
+	<table name="MUT table" address="35c7c"/>
+
+	<table name="Boost Enhancement (Anti Lag) Table" address="35aa" scaling="ThrottleVoltage"/>
+
+	<table name="Boost Limit #2" address="3258"/>
+
+	<table name="newTable idle 4e70" address="46a9"/>
+
+	<table name="Boost Desired Engine Load # 4" address="4590"/>
+
+	<table name="Max Wastegate Duty # 4" address="4538"/>
+
+	<table name="High Octane Ignition Map 4">
+		<table name="Engine Load" address="632a"/>
+		<table name="RPM" address="62fa"/>
+	</table>
+
+	<table name="High Octane Fuel Map" address="2dbd">
+		<table name="Engine Load" address="62c8"/>
+		<table name="RPM" address="62a0"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="2ef5">
+		<table name="Engine Load" address="62c8"/>
+		<table name="RPM" address="62a0"/>
+	</table>
+
+	<table name="High Octane Ignition Map 1" address="33c1">
+		<table name="Engine Load" address="632a"/>
+		<table name="RPM" address="62fa"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" address="355b">
+		<table name="Engine Load" address="632a"/>
+		<table name="RPM" address="62fa"/>
+	</table>
+
+	<table name="High Octane Ignition Map 2" address="4737">
+		<table name="Engine Load" address="632a"/>
+		<table name="RPM" address="62fa"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 2" address="48d1">
+		<table name="Engine Load" address="632a"/>
+		<table name="RPM" address="62fa"/>
+	</table>
+
+	<table name="High Octane Ignition Map 3" address="4c05">
+		<table name="Engine Load" address="632a"/>
+		<table name="RPM" address="62fa"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 3" address="4d9f">
+		<table name="Engine Load" address="632a"/>
+		<table name="RPM" address="62fa"/>
+	</table>
+
+	<table name="VVT Map 1 (Main)" address="5d33">
+		<table name="Engine Load" address="6e04"/>
+		<table name="RPM" address="6e36"/>
+	</table>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="31ac">
+		<table name="Battery Voltage" address="6208"/>
+	</table>
+
+	<table name="Accel Enrichment" address="3250">
+		<table name="RPM" address="603a" elements="15"/>
+	</table>
+
+	<table name="Rev Limit" address="118c"/>
+
+	<table name="Boost Desired Engine Load # 1" address="454e">
+	</table>
+
+	<table name="Boost Desired Engine Load  # 2" address="4564">
+		<table name="RPM" address="5ccc"/>
+	</table>
+
+	<table name="Boost Desired Engine Load # 3" address="457a">
+		<table name="RPM" address="5ccc"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 1" address="44f6">
+	</table>
+
+	<table name="Max Wastegate Duty # 2" address="450c">
+		<table name="RPM" address="5ccc"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 3" address="4522">
+		<table name="RPM" address="5ccc"/>
+	</table>
+
+	<table name="Open Loop Load # 1" address="3060">
+		<table name="RPM" address="5fac"/>
+	</table>
+
+	<table name="Open Loop Load # 2" address="3076">
+		<table name="RPM" address="5fac"/>
+	</table>
+
+	<table name="Open Loop Throttle Low Load" address="3092">
+		<table name="RPM" address="5fac"/>
+	</table>
+
+	<table name="Open Loop Throttle High Load" address="30a8">
+		<table name="RPM" address="5fac"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Neutral" address="42e8">
+		<table name="Engine Temp" address="5bce"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC on-Neutral" address="4f58">
+		<table name="Engine Temp" address="5bce"/>
+	</table>
+
+	<table name="Desired Idle RPM-Neutral" address="42b0">
+		<table name="Engine Temp"/>
+	</table>
+
+	<table name="Desired Idle RPM-Drive" address="42be">
+		<table name="Engine Temp"/>
+	</table>
+
+	<table name="Boost Limit" address="3050">
+		<table name="RPM" address="6a50"/>
+	</table>
+
+	<table name="MAF Scaling" address="2d06">
+		<table name="Load" address="61b8" scaling="ISCVSteps16"/>
+	</table>
+
+	<table name="MAF Smoothing Table" address="2d22">
+		<table name="Load" address="61b8"/>
+	</table>
+
+	<table name="Air Temperature Compensation" address="2d3e">
+		<table name="Degrees" address="65b6"/>
+	</table>
+
+	<table name="Barometric Pressure Compensation" address="2d51">
+		<table name="Atmosphere Pressure" address="61a6"/>
+		<table name="RPM" address="61ec"/>
+	</table>
+
+	<table name="MAF Size" address="110c"/>
+
+	<table name="Speed Limit" address="118e">
+		<table name="Condition"/>
+	</table>
+
+</rom>

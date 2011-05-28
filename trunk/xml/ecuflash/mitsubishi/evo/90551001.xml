@@ -1,0 +1,27 @@
+<rom>
+	<romid>
+		<xmlid>90551001</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>90551001</internalidhex>
+		<caseid>RA560649R1</caseid>
+		<make>Mitsubishi</make>
+		<market>EDM</market>
+		<model>Lancer</model>
+		<submodel>EVO7</submodel>
+		<transmission>5MT</transmission>
+		<year>2001</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>90550001</include>
+
+	<table name="SD MAP sensor VE and calibration" category="SD" address="3428" type="2D" level="1" scaling="MAP VE load">
+		<table name="MAP" address="340a" type="X Axis" elements="8" scaling="MAP 16bit"/>
+	</table>
+
+	<table name="SD RPM VE" category="SD" address="357c" type="2D" level="1" scaling="Percent (128)">
+		<table name="RPM" address="4d22" type="X Axis" elements="17" scaling="RPM"/>
+	</table>
+
+</rom>

@@ -1,0 +1,65 @@
+<rom>
+	<romid>
+		<xmlid>88571008</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>88571008</internalidhex>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Lancer</model>
+		<submodel>EVO9</submodel>
+		<transmission>Manual</transmission>
+		<year>2005</year>
+		<flashmethod>mitsukernelocp</flashmethod>
+		<memmodel>SH7055</memmodel>
+	</romid>
+
+	<include>88570008</include>
+	
+	<scaling name="MAP 16bit" units="kPa" toexpr="x/3" frexpr="x*3" format="%.1f" min="0" max="400" inc="0.3333" storagetype="uint16" endian="big"/>
+	<scaling name="MAP VE load" units="Load (%)" toexpr="x*(5/32*0.596)" frexpr="x/(5/32*0.596)" format="%.1f" min="0" max="600" inc="0.093125" storagetype="uint16" endian="big"/>
+
+	<table name="SD change to preptable" category="SD programming" address="120d4" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD change to mul r0,r1:sts macl,r0:shlr8 r0:nops" category="SD programming" address="120e4" type="2D" level="1" scaling="Hex16">
+		<table type="X Axis" elements="18"/>
+	</table>
+
+	<table name="SD NOP 2" category="SD programming" address="263ec" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD NOP 3" category="SD programming" address="265e2" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD MAP sensor VE and calibration" category="SD" address="29d4" type="2D" level="1" scaling="MAP VE load">
+		<table name="MAP" address="29ee" type="X Axis" elements="8" scaling="MAP 16bit"/>
+	</table>
+
+	<table name="SD RPM VE" category="SD" address="2a7c" type="2D" level="1" scaling="Percent (128)">
+		<table name="RPM" address="5cee" type="X Axis" elements="17" scaling="RPM"/>
+	</table>
+
+	<table name="SD Map calibration header 1" category="SD programming" address="29e4" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="X Axis" elements="5"/>
+	</table>
+
+	<table name="SD Map calibration pointer" category="SD programming" address="1225e" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD disable MAF error main" category="SD programming" address="11f5e" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD MAT to IAT change to 0E" category="SD programming" address="b215" type="1D" level="1" scaling="Hex8"/>
+
+	<table name="SD Set Baro Value" category="SD programming" address="b23c" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="Y Axis" elements="6"/>
+	</table>
+
+	<table name="SD default baro value" category="SD programming" address="b3ea" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD disable MAF error OBDII CEL" category="SD programming" address="208a4" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD Change to E02 for 16 bit lookup" category="SD programming" address="1225a" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="SD map calibration header for data" category="SD programming" address="29cc" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="X Axis" elements="4"/>
+	</table>
+
+	<table name="SD Map data pointer" category="SD programming" address="12256" type="1D" level="1" scaling="Hex16"/>
+
+</rom>

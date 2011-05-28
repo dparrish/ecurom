@@ -1,0 +1,403 @@
+<rom>
+	<romid>
+		<xmlid>89960000</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>89960000</internalidhex>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Lancer</model>
+		<submodel>EVO9</submodel>
+		<transmission>Manual</transmission>
+		<year>2005</year>
+		<flashmethod>mitsukernelocp</flashmethod>
+		<memmodel>SH7055</memmodel>
+	</romid>
+
+	<include>evo9base</include>
+	<scaling name="Timesecbyte" units="s" toexpr="x/10" frexpr="x*10" format="%.1f" min="0" max="25.5" inc="1" storagetype="uint8" endian="big"/>
+
+	<table name="High Octane Fuel Map" address="2abd">
+		<table name="Engine Load" address="5fa8" elements="20"/>
+		<table name="RPM" address="5f80" elements="15"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="2bf5">
+		<table name="Engine Load" address="5fa8" elements="20"/>
+		<table name="RPM" address="5f80" elements="15"/>
+	</table>
+
+	<table name="High Octane Ignition Map 1" address="30c1">
+		<table name="Engine Load" address="600a" elements="21"/>
+		<table name="RPM" address="5fda" elements="19"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" address="325b">
+		<table name="Engine Load" address="600a" elements="21"/>
+		<table name="RPM" address="5fda" elements="19"/>
+	</table>
+
+	<table name="High Octane Ignition Map 2" address="4437">
+		<table name="Engine Load" address="600a" elements="21"/>
+		<table name="RPM" address="5fda" elements="19"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 2" address="45d1">
+		<table name="Engine Load" address="600a" elements="21"/>
+		<table name="RPM" address="5fda" elements="19"/>
+	</table>
+
+	<table name="High Octane Ignition Map 3" address="4905">
+		<table name="Engine Load" address="600a" elements="21"/>
+		<table name="RPM" address="5fda" elements="19"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 3" address="4a9f">
+		<table name="Engine Load" address="600a" elements="21"/>
+		<table name="RPM" address="5fda" elements="19"/>
+	</table>
+
+	<table name="High Octane Ignition Map 4" category="Timing" address="55a9" type="3D" level="1" swapxy="true" scaling="Timing">
+		<table name="Engine Load" address="600a" type="X Axis" elements="21" scaling="Load"/>
+		<table name="RPM" address="5fda" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="2eac">
+		<table name="Battery Voltage" address="5ee8" elements="7"/>
+	</table>
+
+	<table name="Accel Enrichment" address="2f50">
+		<table name="RPM" address="5d1a" elements="15"/>
+	</table>
+
+	<table name="Rev Limit" address="118c"/>
+
+	<table name="Stationary Rev Limit" address="274a"/>
+
+	<table name="Boost Delay Timer" address="119a"/>
+
+	<table name="Injector size scaling" address="1106"/>
+
+	<table name="Boost Control Load Offset" address="1670"/>
+
+	<table name="Turbo Boost Error Correction" address="3894">
+		<table name="Boost Error" address="62e0" elements="17"/>
+	</table>
+
+	<table name="Boost Desired Engine Load # 1" address="3946">
+		<table name="RPM" address="62b6" elements="16"/>
+	</table>
+
+	<table name="Boost Desired Engine Load  # 2" address="395c">
+		<table name="RPM" address="62b6" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Boost Desired Engine Load # 3" address="3972">
+		<table name="RPM" address="62b6" elements="16"/>
+	</table>
+
+	<table name="Boost Desired Engine Load # 4" category="Turbo" address="3988" type="2D" scaling="Load8">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 1" address="38ac">
+		<table name="RPM" address="62b6" elements="16"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 2" address="38c2">
+		<table name="RPM" address="62b6" elements="16"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 3" address="38d8">
+		<table name="RPM" address="62b6" elements="16"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 4" category="Turbo" address="38ee" type="2D" scaling="WGDuty">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 5" category="Turbo" address="3904" type="2D" scaling="WGDuty">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 6" category="Turbo" address="391a" type="2D" scaling="WGDuty">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 7" category="Turbo" address="3930" type="2D" scaling="WGDuty">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Open Loop Load # 1" address="2d60">
+		<table name="RPM" address="5c8c" elements="16"/>
+	</table>
+
+	<table name="Open Loop Load # 2" address="2d76">
+		<table name="RPM" address="5c8c" elements="16"/>
+	</table>
+
+	<table name="Open Loop Throttle Low Load" address="2d92" scaling="ThrottleVoltage">
+		<table name="RPM" address="5c8c" elements="16"/>
+	</table>
+
+	<table name="Open Loop Throttle High Load" address="2da8">
+		<table name="RPM" address="5c8c" elements="16"/>
+	</table>
+
+	<table name="Boost Limit" address="2d50">
+		<table name="RPM" address="66f4" elements="9"/>
+	</table>
+
+	<table name="VVT Map 1 (Main)" address="5a33">
+		<table name="Engine Load" address="6aa8"/>
+		<table name="RPM" address="6ada"/>
+	</table>
+
+	<table name="Lean spool enable RPM" address="1280" type="1D" level="1" scaling="RPMStatLimit"/>
+
+	<table name="Lean spool disable RPM" address="1284" type="1D" level="1" scaling="RPMStatLimit"/>
+
+	<table name="RequestID00" category="Misc" address="35922" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="RequestID01" category="Misc" address="35926" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="RequestID02" category="Misc" address="3592a" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="RequestID03" category="Misc" address="3592e" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="RequestID04" category="Misc" address="35932" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="Wastegate Solenoid Activation RPM-Active" address="1668" scaling="RPMStatLimit"/>
+
+	<table name="Wastegate Solenoid Activation RPM-De-activate" address="166a" scaling="RPMStatLimit"/>
+
+	<table name="Wastegate Solenoid De-activation RPM-De-activate" address="166c" scaling="RPMStatLimit"/>
+
+	<table name="Wastegate Solenoid De-activation RPM-Re-activate" address="166e" scaling="RPMStatLimit"/>
+
+	<table name="MAP sensor scaling" address="5902" type="2D" level="1" scaling="uint8">
+		<table name="X" address="70f8" type="X Axis" elements="9" scaling="uint16"/>
+	</table>
+
+	<table name="MAP baro comp" address="5c04" type="2D" level="1" scaling="uint8">
+		<table name="X" address="728e" type="X Axis" elements="6" scaling="uint16"/>
+	</table>
+
+	<table name="Manifold temp comp" address="5c5c" type="2D" level="1" scaling="uint8">
+		<table name="X" address="72bc" type="X Axis" elements="8" scaling="uint16"/>
+	</table>
+
+	<table name="MAP sensor CEL threshold" category="Turbo" address="2958" type="1D" level="1" scaling="uint16"/>
+
+	<table name="Manifold temp calibration" address="a53a" type="2D" level="1" scaling="uint8">
+		<table name="ADC" address="a554" type="X Axis" elements="16" scaling="uint16"/>
+	</table>
+
+	<table name="MAP check" category="Misc" address="3f4a" type="2D" level="1" scaling="uint8">
+		<table name="RPM" address="652c" type="Y Axis" elements="9" scaling="uint16"/>
+	</table>
+
+	<table name="ALS minimum vehicle speed to trigger" category="Turbo" address="1e12" type="1D" level="1" scaling="VehicleSpeed"/>
+
+	<table name="ALS minimum coolant temperature to trigger" category="Turbo" address="1e14" type="1D" level="1" scaling="Temp"/>
+
+	<table name="ALS minimum RPM to trigger" category="Turbo" address="1e16" type="1D" level="1" scaling="RPMStatLimit"/>
+
+	<table name="ALS minimum load to trigger" category="Turbo" address="1e18" type="1D" level="1" scaling="Load16"/>
+
+	<table name="ALS minimum time to trigger" category="Turbo" address="1e1a" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS trigger valid time" category="Turbo" address="1e1c" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Load below which active" category="Turbo" address="1e1e" type="1D" level="1" scaling="Load16"/>
+
+	<table name="ALS active time limit" category="Turbo" address="1e20" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Delay before air injection" category="Turbo" address="1e22" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Delay before fuel injection" category="Turbo" address="1e24" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Fuel injector time" category="Turbo" address="1e26" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Air injection time" category="Turbo" address="3fe0" type="2D" level="1" scaling="Timesecbyte">
+		<table name="RPM" address="66d8" type="X Axis" elements="9" scaling="RPM"/>
+	</table>
+
+	<table name="IC Relay Timer ON Mode Switch Time" address="207e"/>
+
+	<table name="IC Relay Timer Control Water Temp Hi" address="2082"/>
+
+	<table name="IC Relay Timer Control Water Temp Lo" address="2084"/>
+
+	<table name="IC Relay Control Vehicle Speed" address="2086"/>
+
+	<table name="IC Relay Control EV" address="2088"/>
+
+	<table name="IC Relay Timer On Time" address="208a"/>
+
+	<table name="IC Relay Timer Off Time" address="208c"/>
+
+	<table name="IC Relay Timer Control Judgement Hi" address="2098"/>
+
+	<table name="IC Relay Timer Control Judgement Lo" address="209a"/>
+
+	<table name="IC Relay Timer Air Temp" address="209c"/>
+
+	<table name="Desired ISCV intial step position with AC off-Neutral" address="3692">
+		<table name="Engine Temp" address="6182" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Drive" address="36a6">
+		<table name="Engine Temp" address="6182" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC on-Neutral" address="36ba">
+		<table name="Engine Temp" address="6182" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Neutral" address="367e">
+		<table name="Engine Temp" address="6182" elements="8"/>
+	</table>
+
+	<table name="IC Relay Timer Control RPM" address="2080" scaling="RPMStatLimit"/>
+
+	<table name="Min Temp for Full Boost Control" address="274c"/>
+
+	<table name="MAF Size" address="110c"/>
+
+	<table name="Boost Enhancement (Anti-Lag) Start RPM" address="1280"/>
+
+	<table name="Boost Enhancement (Anti-lag) Stop RPM" address="1284"/>
+
+	<table name="Boost Control Limiting Vehicle Speed" address="118e" scaling="VehicleSpeed">
+		<table name="Condition"/>
+	</table>
+
+	<table name="Speed Limit" address="118e">
+		<table name="Condition"/>
+	</table>
+
+	<table name="Idle Stepper Lookup Table" address="37a5">
+		<table name="Throttle Postion" address="61ec"/>
+		<table name="RPM" address="6206"/>
+	</table>
+
+	<table name="Desired Idle RPM-Drive">
+		<table name="Engine Temp" address="6182" elements="8"/>
+	</table>
+
+	<table name="MAF Scaling" address="2a06">
+		<table name="Load" address="5e98"/>
+	</table>
+
+	<table name="MAF Smoothing Table" address="2a22">
+		<table name="Load" address="5e98"/>
+	</table>
+
+	<table name="Air Temperature Compensation" address="2a3e">
+		<table name="Degrees" address="614e"/>
+	</table>
+
+	<table name="Barometric Pressure Compensation" address="2a51">
+		<table name="Atmosphere Pressure" address="5e86"/>
+		<table name="RPM" address="5ecc"/>
+	</table>
+
+	<table name="MAF Sensor Filtering" address="1108">
+		<table name="Load"/>
+	</table>
+
+	<table name="Hi oct ign 1 RAM offset hi word" category="Misc" address="74d0" type="1D" scaling="Hex16"/>
+
+	<table name="Hi oct ign 1 RAM offset lo word" category="Misc" address="74d2" type="1D" scaling="Hex16"/>
+
+	<table name="Hi oct ign 2 RAM offset hi word" category="Misc" address="76d0" type="1D" scaling="Hex16"/>
+
+	<table name="Hi oct ign 2 RAM offset lo word" category="Misc" address="76d2" type="1D" scaling="Hex16"/>
+
+	<table name="Hi oct ign 3 RAM offset hi word" category="Misc" address="76b0" type="1D" scaling="Hex16"/>
+
+	<table name="Hi oct ign 3 RAM offset lo word" category="Misc" address="76b2" type="1D" scaling="Hex16"/>
+
+	<table name="Hi oct fuel RAM offset hi word" category="Misc" address="7350" type="1D" scaling="Hex16"/>
+
+	<table name="Hi oct fuel RAM offset lo word" category="Misc" address="7352" type="1D" scaling="Hex16"/>
+
+	<table name="Injector scaling" address="1106"/>
+<scaling name="1bytefactor" units="units" toexpr="x/((32/10)*100)" frexpr="x*((32/10)*100)" format="%.1f" min="1" max="2" inc="0.1" storagetype="uint16" endian="big"/>
+	<scaling name="ECUTime" units="ms" toexpr="1000*x/102" frexpr="102*x/1000" format="%.0f" min="0" max="100000" inc="1" storagetype="uint16" endian="big"/>
+
+	<table name="Tephra Mod Options" category="Mods" address="481f0" type="3D" scaling="uint16">
+		<table name="X" type="Static X Axis" elements="1">
+			<data>Value</data>
+		</table>
+		<table name="Y" type="Static Y Axis" elements="11">
+			<data>Restore ICS State on Ignition?</data>
+			<data>Flash ICS when on Alternate Map?</data>
+			<data>Enable Alternate Maps Master? ADC0F=1, AutoICS=2</data>
+			<data>Enable Valet Mode?</data>
+			<data>Flash CEL on Knock?</data>
+			<data>Enable Manual ICS Linger?</data>
+			<data>Enable Spray ICS on Knock?</data>
+			<data>Enable No Lift to Shift?</data>
+			<data>Enable Auto-Valet on Fresh Ignition?</data>
+			<data>Enable RearO2 Simulator?</data>
+			<data>Enable MAP Averaging?</data>
+		</table>
+	</table>
+
+	<table name="KnockSum Required for Slow CEL" category="Mods" address="48206" type="1D" scaling="uint16"/>
+	<table name="KnockSum Required for Fast CEL" category="Mods" address="48208" type="1D" scaling="uint16"/>
+	<table name="Load Required for CEL on Knock" category="Mods" address="4820a" type="1D" scaling="Load"/>
+	<table name="CEL on Knock flash time" category="Mods" address="4820c" type="1D" scaling="ECUTime"/>
+
+	<table name="Valet Rev Limit" category="Mods" address="4820e" type="1D" scaling="RPMLimit"/>
+	<table name="Valet Rev Limit Time to Activate" category="Mods" address="48210" type="1D" scaling="ECUTime"/>
+	<table name="Valet Rev Limit Flash Time" category="Mods" address="48212" type="1D" scaling="ECUTime"/>
+
+	<table name="Manual ICS Linger Time" category="Mods" address="48214" type="1D" scaling="ECUTime"/>
+
+	<table name="KnockSum Required for Spray" category="Mods" address="48216" type="1D" scaling="uint16"/>
+	<table name="Load Required for Spray on Knock" category="Mods" address="48218" type="1D" scaling="Load"/>
+	<table name="Spray on Knock time" category="Mods" address="4821a" type="1D" scaling="ECUTime"/>
+
+	<table name="NLTS RPM Drop" category="Mods" address="4821c" type="1D" scaling="uint16"/>
+	<table name="NLTS TPS Threshold" category="Mods" address="4821e" type="1D" scaling="ThrottlePercentage"/>
+	<table name="NLTS Speed Threshold" category="Mods" address="48220" type="1D" scaling="VehicleSpeed"/>
+	<table name="NLTS Load Threshold" category="Mods" address="48222" type="1D" scaling="Load"/>
+
+	<table name="Alternate Map Time to Activate" category="Mods" address="48224" type="1D" scaling="ECUTime"/>
+	<table name="Alternate Map Load Threshold" category="Mods" address="48226" type="1D" scaling="Load"/>
+	<table name="Alternate Map ADC0F Threshold" category="Mods" address="48228" type="1D" scaling="Volts16"/>
+
+	<table name="2byte to 1Byte Load Factor" category="Mods" address="4822a" type="1D" scaling="1bytefactor"/>
+
+	<table name="Alternate Injector Scaling" category="Mods" address="37b40" type="1D" scaling="InjectorScaling"/>
+
+	<table name="Alternate Hi Octane Fuel Map" category="Mods" address="37b4d" type="3D" swapxy="true" scaling="AFR">
+		<table name="Engine Load" address="5fa8" type="X Axis" elements="20" scaling="Load"/>
+		<table name="RPM" address="5f80" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+	<table name="Alternate Lo Octane Fuel Map" category="Mods" address="37c8d" type="3D" swapxy="true" scaling="AFR">
+		<table name="Engine Load" address="5fa8" type="X Axis" elements="20" scaling="Load"/>
+		<table name="RPM" address="5f80" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Alternate Hi Octane Ignition Map #123" category="Mods" address="37dcd" type="3D" swapxy="true" scaling="Timing">
+		<table name="Engine Load" address="600a" type="X Axis" elements="21" scaling="Load"/>
+		<table name="RPM" address="5fda" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+	<table name="Alternate Lo Octane Ignition Map #123" category="Mods" address="37fcd" type="3D" swapxy="true" scaling="Timing">
+		<table name="Engine Load" address="600a" type="X Axis" elements="21" scaling="Load"/>
+		<table name="RPM" address="5fda" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Alternate Base Wastegate Duty #1" category="Mods" address="381c8" type="2D" scaling="WGDuty">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+	<table name="Alternate Base Wastegate Duty #2" category="Mods" address="381e8" type="2D" scaling="WGDuty">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>	
+	<table name="Alternate Boost Desired Engine Load" category="Mods" address="38208" type="2D" scaling="Load8">
+		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+</rom>
