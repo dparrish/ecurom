@@ -3,10 +3,12 @@
 		<xmlid>25580000</xmlid>
 		<internalidaddress>1021a</internalidaddress>
 		<internalidhex>25580000</internalidhex>
+		<caseid>MR420994</caseid>
+		<ecuid>Evo6 RSII</ecuid>
 		<make>Mitsubishi</make>
 		<market>JDM</market>
 		<model>Evo</model>
-		<submodel>6</submodel>
+		<submodel>6 RSII</submodel>
 		<transmission>Manual</transmission>
 		<year>1999</year>
 		<flashmethod>mitsukernel</flashmethod>
@@ -18,6 +20,7 @@
 	<scaling name="Percent (128)" units="%" toexpr="x/1.28" frexpr="x*1.28" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="Percent (256)" units="Trim %" toexpr="x/2.55" frexpr="x*2.55" format="%.0f" min="0" max="100" inc="0.39" storagetype="uint8" endian="big"/>
 	<scaling name="TPS Percent" units="%" toexpr="x*100/255" frexpr="x*255/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="Timing Retard" units="units" toexpr="61-(90*x/256)" frexpr="(61-x)/90*256" format="%.0f" min="0" max="255" inc="1" storagetype="uint16" endian="big"/>
 
 	<table name="Idle Stability Timing Control" category="Timing" address="10a4e" type="2D" level="2" scaling="uint16">
 		<table name="Settings" type="Static X Axis" elements="3">
@@ -156,6 +159,36 @@
 		<table name="TPS" address="2d1f4" type="X Axis" elements="9" scaling="TPS Percent"/>
 	</table>
 
+	<table name="ALS minimum vehicle speed to trigger" category="ALS" address="11524" type="1D" level="1" scaling="VehicleSpeed"/>
+
+	<table name="ALS minimum coolant temperature to trigger" category="ALS" address="11526" type="1D" level="1" scaling="Temp"/>
+
+	<table name="ALS minimum RPM to trigger" category="ALS" address="11528" type="1D" level="1" scaling="RPMStatLimit"/>
+
+	<table name="ALS minimum load to trigger" category="ALS" address="1152a" type="1D" level="1" scaling="Load16"/>
+
+	<table name="ALS minimum time to trigger" category="ALS" address="1152c" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS trigger valid time" category="ALS" address="1152e" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Load below which active" category="ALS" address="11530" type="1D" level="1" scaling="Load16"/>
+
+	<table name="ALS active time limit" category="ALS" address="11532" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Delay before air injection" category="ALS" address="11534" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Delay before fuel injection" category="ALS" address="11536" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Fuel injector time" category="ALS" address="11538" type="1D" level="1" scaling="TimeSec"/>
+
+	<table name="ALS Air injection time" category="ALS" address="128c8" type="2D" level="1" scaling="Timesecbyte">
+		<table name="RPM" address="2d13a" type="X Axis" elements="9" scaling="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 4" address="13648"/>
+
+	<table name="Boost Desired Engine Load # 4" address="1368a"/>
+
 	<table name="High Octane Fuel Map" address="118a9" level="4">
 		<table name="Load" address="2d158" elements="18"/>
 		<table name="RPM" address="2d134" elements="15"/>
@@ -182,7 +215,7 @@
 
 	<table name="Rev Limit" address="1088c"/>
 
-	<table name="Stationary Rev Limit" address="10878"/>
+	<table name="Stationary Rev Limit"/>
 
 	<table name="Accel Enrichment" address="11abe">
 		<table name="RPM" address="2d134"/>
@@ -194,36 +227,32 @@
 		<table name="Boost Error" address="2d3ca" type="Y Axis" elements="16" scaling="BoostError"/>
 	</table>
 
-	<table name="Max Wastegate Duty # 1" address="13606">
+	<table name="Max Wastegate Duty # 1" address="12506">
 		<table name="RPM" address="2d184"/>
 	</table>
 
-	<table name="Max Wastegate Duty # 2" address="1361c">
+	<table name="Max Wastegate Duty # 2" address="1251a">
 		<table name="RPM" address="2d184"/>
 	</table>
 
-	<table name="Max Wastegate Duty # 3" address="13632">
+	<table name="Max Wastegate Duty # 3" address="1252e">
 		<table name="RPM" address="2d184"/>
 	</table>
 
-	<table name="Max Wastegate Duty # 4" address="13648">
-		<table name="RPM" address="2d184"/>
-	</table>
-
-	<table name="Open Loop Load # 1" address="1193c">
+	<table name="Open Loop Load # 1" address="11b06">
 		<table name="RPM" address="2d134"/>
 	</table>
 
-	<table name="Open Loop Load # 2" address="1194c">
+	<table name="Open Loop Load # 2" address="11b1a">
 		<table name="RPM" address="2d134"/>
 	</table>
 
 	<table name="Open Loop Throttle Low Load" address="12b56">
-		<table name="RPM" address="2d134"/>
+		<table name="RPM" address="2cea0"/>
 	</table>
 
 	<table name="Open Loop Throttle High Load" address="12b6c">
-		<table name="RPM" address="2d134"/>
+		<table name="RPM" address="2cea0"/>
 	</table>
 
 	<table name="Desired ISCV intial step position with AC off-Neutral" address="12314">
@@ -296,7 +325,9 @@
 		<table name="RPM" address="2d304"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 1" address="1377b">
+	<table name="Knock Sensor Filter Map 1" address="125ed">
+		<table name="TAR" address="2d498"/>
+		<table name="RPM" address="2d46a"/>
 	</table>
 
 	<table name="MAF Sensor Filtering" address="10808">
@@ -320,25 +351,21 @@
 		<table name="RPM" address="2d182" elements="19"/>
 	</table>
 
-	<table name="Timing Retard Limit" address="10a3e" scaling="uint16"/>
+	<table name="Timing Retard Limit" address="10a3e"/>
 
 	<table name="Lean Spool Start RPM" address="10980"/>
 
 	<table name="Lean Spool Stop RPM" address="10984"/>
 
-	<table name="Boost Desired Engine Load # 1" address="13648">
+	<table name="Boost Desired Engine Load # 1" address="12542">
 		<table name="RPM" address="2d184"/>
 	</table>
 
-	<table name="Boost Desired Engine Load # 2" address="1365e">
+	<table name="Boost Desired Engine Load # 2" address="12556">
 		<table name="RPM" address="2d184"/>
 	</table>
 
-	<table name="Boost Desired Engine Load # 3" address="13674">
-		<table name="RPM" address="2d184"/>
-	</table>
-
-	<table name="Boost Desired Engine Load # 4" address="1368a">
+	<table name="Boost Desired Engine Load # 3" address="1256a">
 		<table name="RPM" address="2d184"/>
 	</table>
 
@@ -349,8 +376,26 @@
 	<table name="Boost Control RPM/MPH Crossover" address="12f84"/>
 
 	<table name="Warmup Retard">
-		<table name="Load" address="2d1ae"/>
-		<table name="RPM" address="2d182"/>
 	</table>
+
+	<table name="Knock Load Table 1" address="122c8">
+		<table name="X" address="2d134"/>
+	</table>
+
+	<table name="Knock Load Table 2" address="122d6">
+		<table name="Engine Speed" address="2d134"/>
+	</table>
+
+	<table name="Knock Load Table 3" address="122f0">
+		<table name="Engine Speed" address="2d134"/>
+	</table>
+
+	<table name="Knock Multiplier - Low RPM" address="10a7a"/>
+
+	<table name="Knock Multiplier - High RPM" address="114f2"/>
+
+	<table name="Knock Adder - Single Gain" address="10a80"/>
+
+	<table name="Knock Adder - Triple Gain" address="10a7c"/>
 
 </rom>
