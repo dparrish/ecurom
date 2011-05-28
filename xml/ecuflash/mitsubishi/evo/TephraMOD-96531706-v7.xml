@@ -12,8 +12,14 @@
 		<flashmethod>mitsukernel</flashmethod>
 		<memmodel>SH7052</memmodel>
 	</romid>
+
 	<include>TephraMOD-96530706-v7</include>
-	
+
+	<table name="New VE Table" category="Speed Density Tuning" address="39a48" type="3D" level="4" swapxy="true" scaling="Percent (128)">
+		<table name="X" address="3795a" type="X Axis" elements="30" scaling="Load"/>
+		<table name="Y" address="3790a" type="Y Axis" elements="25" scaling="RPM"/>
+	</table>
+
 	<table name="SD MAP Sensor VE and Calibration" category="Speed Density Tuning" address="32e8" type="2D" level="2" scaling="MAP VE load">
 		<table name="MAP" address="32c6" type="Y Axis" elements="8" scaling="kPa OMNI4barMAP"/>
 	</table>
@@ -79,5 +85,58 @@
 	<table name="SD MAP 11 Bit ADC RAM Address" category="Speed Density Programming" address="a8b8" type="2D" level="1" scaling="Hex16">
 		<table name="X" type="Y Axis" elements="2"/>
 	</table>
-	
+
+	<table name="v7 Table" category="Speed Density Programming 3d VE" address="39342" type="3D" level="1" scaling="Hex16">
+		<table name="X" type="Static X Axis" elements="16">
+		</table>
+		<table name="Y" type="Static Y Axis" elements="24">
+		</table>
+	</table>
+
+	<table name="New VE Table" category="Speed Density Programming 3d VE" address="39a3d" type="3D" level="1" scaling="Hex16">
+		<table name="X" type="Static X Axis" elements="16">
+		</table>
+		<table name="Y" type="Static Y Axis" elements="24">
+		</table>
+	</table>
+
+	<table name="VE Lookup Hook" category="Speed Density Programming 3d VE" address="f9a8" type="2D" level="1" scaling="Hex16">
+		<table name="X" type="Static X Axis" elements="2">
+		</table>
+	</table>
+
+	<table name="VE Axis Table" category="Speed Density Programming 3d VE" address="7cfc" type="3D" level="1" scaling="Hex16">
+		<table name="X" type="Static X Axis" elements="2">
+		</table>
+		<table name="Y" type="Static Y Axis" elements="8">
+		</table>
+	</table>
+
+	<table name="VE Lookup Mov NOP" category="Speed Density Programming 3d VE" address="f85c" type="1D" level="1" scaling="Hex16"/>
+
+
+	<table name="MAP Test 1: Mid VE Max Voltage" category="MAPSensor" address="2048" type="1D" level="1" scaling="Volts16"/>
+
+	<table name="MAP Test 1: Mid VE Min Voltage" category="MAPSensor" address="2046" type="1D" level="1" scaling="Volts16"/>
+
+	<table name="MAP Test 2: Low VE Max Voltage" category="MAPSensor" address="204c" type="1D" level="1" scaling="Volts16"/>
+
+	<table name="MAP Test 3: High VE Min Voltage" category="MAPSensor" address="2050" type="1D" level="1" scaling="Volts16"/>
+
+	<table name="MAP Test 4: Max Minus Min" category="MAPSensor" address="2054" type="1D" level="1" scaling="Volts16"/>
+
+	<table name="EGR MAP Check 1" category="MAPSensor" address="4eec" type="2D" level="1" scaling="uint8">
+		<table name="RPM" address="6d84" type="Y Axis" elements="9" scaling="RPM"/>
+	</table>
+
+	<table name="EGR MAP Check 2" category="MAPSensor" address="4efc" type="2D" level="1" scaling="uint8">
+		<table name="RPM" address="6d84" type="Y Axis" elements="9" scaling="RPM"/>
+	</table>
+
+	<table name="MAP Scaling for Baro" category="MAPSensor" address="12059" type="1D" level="1" scaling="uint8"/>
+
+	<table name="EGR Pressure Diff" category="MAPSensor" address="1f62" type="1D" level="1" scaling="Volts16"/>
+
+	<table name="ECU Periphery2" category="ECUPeriphery" address="fca" type="1D" level="1" scaling="Hex16"/>
+
 </rom>

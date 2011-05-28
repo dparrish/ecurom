@@ -12,7 +12,9 @@
 		<flashmethod>mitsukernel</flashmethod>
 		<memmodel>SH7052</memmodel>
 	</romid>
+
 	<include>TephraMOD-96530706-v7</include>
+	<scaling name="IgnTimingECUa" units="deg" toexpr="61-x*90/256" frexpr="(61-x)*256/90" format="%.1f" min="-30" max="50" inc="1" storagetype="uint16" endian="big"/>
 
 	<table name="DMAC3 DEI3 Interrupt (DMA End)" category="DMA Logging/Mapping" address="138" type="2D" scaling="Hex16">
 		<table name="Pre-patch ROM data" type="Static X Axis" elements="2">
