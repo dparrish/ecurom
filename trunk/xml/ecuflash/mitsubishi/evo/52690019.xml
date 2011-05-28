@@ -1,18 +1,19 @@
 <rom>
-	<romid>
-		<xmlid>52690019</xmlid>
-		<internalidaddress>5002A</internalidaddress>
-		<internalidhex>52690019</internalidhex>
-		<make>Mitsubishi</make>
-		<market>USDM</market>
-		<model>Lancer</model>
-		<submodel>Evolution X</submodel>
-		<transmission>6MT</transmission>
-		<year>2008</year>
-		<flashmethod>mitsucan</flashmethod>
-		<checksummodule>mitsucan</checksummodule>
-		<memmodel>M32186F8</memmodel>
-	</romid>
-	
-	<include>52680015</include>
+  <romid>
+    <xmlid>52690019</xmlid>
+    <internalidaddress>5002a</internalidaddress>
+    <internalidhex>52690019</internalidhex>
+    <make>Mitsubishi</make>
+    <market>USDM</market>
+    <model>Lancer</model>
+    <submodel>Evolution X</submodel>
+    <transmission>SST</transmission>
+    <year>2008</year>
+    <flashmethod>mitsucan</flashmethod>
+    <memmodel>M32186F8</memmodel>
+    <checksummodule>mitsucan</checksummodule>
+  </romid>
+
+  <include>52690021</include>
+
 </rom>
