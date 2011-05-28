@@ -1,9 +1,8 @@
 <rom>
 	<romid>
-		<xmlid>98720010</xmlid>
+		<xmlid>98720012</xmlid>
 		<internalidaddress>f52</internalidaddress>
-		<internalidhex>98720010</internalidhex>
-		<caseid>MR578519</caseid>
+		<internalidhex>98720012</internalidhex>
 		<make>Mitsubishi</make>
 		<market>USDM</market>
 		<model>Lancer</model>
@@ -60,6 +59,12 @@
 
 	<!--  *** Air ***  -->
 
+	<table name="MAF Sensor Filtering" category="Air" address="1508">
+		<table name="Load"/>
+	</table>
+
+	<table name="MAF Size" category="Air" address="150c"/>
+
 	<table name="MAF Scaling" category="Air" address="3506">
 		<table name="Load" address="602a"/>
 	</table>
@@ -77,12 +82,6 @@
 		<table name="RPM" address="605e"/>
 	</table>
 
-	<table name="MAF Sensor Filtering" category="Air" address="1508">
-		<table name="Load"/>
-	</table>
-
-	<table name="MAF Size" category="Air" address="150c"/>
-
 	<!-- *** Timing *** -->
 
 	<table name="High Octane Ignition Map 1" category="Timing" address="39f1">
@@ -94,7 +93,7 @@
 		<table name="Load" address="6184" elements="12"/>
 		<table name="RPM" address="6156" elements="18"/>
 	</table>
-	
+
 	<!-- *** ALS *** -->
 
 	<!-- *** SD *** -->
@@ -145,7 +144,7 @@
 		<table name="Condition" elements="2"/>
 	</table>
 
-	<table name="Idle Stepper Lookup Table" category="ISCV Control" type="3D" address="3df1" scaling="ISCVSteps">
+	<table name="Idle Stepper Lookup Table" category="ISCV Control" address="3df1" type="3D" scaling="ISCVSteps">
 		<table name="Coolant Temp" type="X Axis" elements="8" address="627a" scaling="Temp"/>
 		<table name="ISCV Demand" type="Y Axis" elements="27"  address="6302" scaling="ISCV_AX2_16"/>
 	</table>

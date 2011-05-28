@@ -1,13 +1,13 @@
 <rom>
 	<romid>
-		<xmlid>90920009</xmlid>
+		<xmlid>90920006</xmlid>
 		<internalidaddress>f52</internalidaddress>
-		<internalidhex>90920009</internalidhex>
+		<internalidhex>90920006</internalidhex>
 		<caseid>MR578582</caseid>
 		<make>Mitsubishi</make>
 		<market>USDM</market>
 		<model>Eclipse</model>
-		<submodel>RS</submodel>
+		<submodel>GS</submodel>
 		<transmission>Manual</transmission>
 		<year>2003</year>
 		<flashmethod>mitsukernel</flashmethod>
@@ -22,35 +22,35 @@
 
 	<table name="High Octane Fuel Map" category="Fuel" address="35cb" level="2">
 		<table name="Load" address="64a0" elements="10"/>
-		<table name="RPM" address="6d68" elements="14"/>
+		<table name="RPM" address="609a" elements="14"/>
 	</table>
 
 	<table name="Low Octane Fuel Map" category="Fuel" address="3663" level="2">
 		<table name="Load" address="64a0" elements="10"/>
-		<table name="RPM" address="6d68" elements="14"/>
+		<table name="RPM" address="609a" elements="14"/>
 	</table>
 
 	<table name="Injector Battery Voltage Latency Compensation" category="Fuel" address="4266" level="3">
-		<table name="Battery Voltage" address="5f56" elements="7"/>
+		<table name="Battery Voltage" address="5f56"/>
 	</table>
 
 	<table name="Accel Enrichment" category="Fuel" address="38dc" level="2">
 		<table name="RPM" address="6466" elements="10"/>
 	</table>
 
-	<table name="Open Loop Load # 1" category="Fuel" address="373a" level="2">
+	<table name="Open Loop Load # 1" category="Fuel" address="3750" level="2">
 		<table name="RPM" address="609a" elements="14"/>
 	</table>
 
-	<table name="Open Loop Load # 2" category="Fuel" address="3750" level="2">
+	<table name="Open Loop Load # 2" category="Fuel" address="373a" level="2">
 		<table name="RPM" address="609a" elements="14"/>
 	</table>
 
-	<table name="Open Loop Throttle Low Load" category="Fuel" address="376c" level="2">
+	<table name="Open Loop Throttle Low Load" category="Fuel" address="376c" level="1">
 		<table name="RPM" address="609a" elements="14"/>
 	</table>
 
-	<table name="Open Loop Throttle High Load" category="Fuel" address="3782" level="2">
+	<table name="Open Loop Throttle High Load" category="Fuel" address="3782" level="1">
 		<table name="RPM" address="609a" elements="14"/>
 	</table>
 
@@ -125,15 +125,15 @@
 		<table name="Engine Temp" address="61ea" elements="8"/>
 	</table>
 
-	<table name="Desired Idle RPM-Neutral" category="ISCV Control" address="4eae" level="2">
+	<table name="Desired Idle RPM-Neutral" category="ISCV Control" address="3e0c" level="2">
 		<table name="Engine Temp" address="61ea" elements="8"/>
 	</table>
 
 	<table name="Desired Idle RPM-Drive" category="ISCV Control" address="3e44" level="1">
 		<table name="Engine Temp" address="61ea" elements="8"/>
 	</table>
-	
-	<table name="Idle Stepper Lookup Table" category="ISCV Control" address="3f11" type="3D" scaling="ISCVSteps">
+
+	<table name="Idle Stepper Lookup Table" category="ISCV Control" type="3D" address="3f11" scaling="ISCVSteps">
 		<table name="Coolant Temp" type="X Axis" elements="8" address="62b8" scaling="Temp"/>
 		<table name="ISCV Demand" type="Y Axis" elements="27" address="62d2"  scaling="ISCV_AX2_16"/>
 	</table>
@@ -162,32 +162,32 @@
 		<table name="RPM" address="6464"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 3" category="Knock Control" address="441d">
+	<table name="Knock Sensor Filter Map 3" category="Knock Control" address="448b">
 		<table name="TAR" address="6484" elements="9"/>
 		<table name="RPM" address="6464"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 4" category="Knock Control" address="448b">
+	<table name="Knock Sensor Filter Map 4" category="Knock Control" address="44f9">
 		<table name="TAR" address="6484" elements="9"/>
 		<table name="RPM" address="6464"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 5" category="Knock Control" address="44f9">
+	<table name="Knock Sensor Filter Map 5" category="Knock Control" address="46f3">
 		<table name="TAR" address="6484" elements="9"/>
 		<table name="RPM" address="6464"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 6" category="Knock Control" address="46f3">
+	<table name="Knock Sensor Filter Map 6" category="Knock Control" address="4761">
 		<table name="TAR" address="6484" elements="9"/>
 		<table name="RPM" address="6464"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 7" category="Knock Control" address="4761">
+	<table name="Knock Sensor Filter Map 7" category="Knock Control" address="47cf">
 		<table name="TAR" address="6484" elements="9"/>
 		<table name="RPM" address="6464"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 8" category="Knock Control" address="47cf">
+	<table name="Knock Sensor Filter Map 8" category="Knock Control" address="48ab">
 		<table name="TAR" address="6484" elements="9"/>
 		<table name="RPM" address="6464"/>
 	</table>

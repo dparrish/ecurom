@@ -1,8 +1,8 @@
 <rom>
 	<romid>
-		<xmlid>96720008</xmlid>
+		<xmlid>96720009</xmlid>
 		<internalidaddress>f52</internalidaddress>
-		<internalidhex>96720008</internalidhex>
+		<internalidhex>96720009</internalidhex>
 		<make>Mitsubishi</make>
 		<market>USDM</market>
 		<model>Eclipse</model>
@@ -46,11 +46,11 @@
 	</table>
 
 	<table name="Open Loop Throttle Low Load" category="Fuel" level="1">
-		<table name="RPM" address="5814" elements="12"/>
+		<table name="RPM" address="5814"/>
 	</table>
 
 	<table name="Open Loop Throttle High Load" category="Fuel" address="378c" level="1">
-		<table name="RPM" address="5814" elements="12"/>
+		<table name="RPM" address="5814" elements="14"/>
 	</table>
 
 	<table name="Min Coolant Temp for Closed Loop" category="Fuel" address="1588"/>
@@ -74,7 +74,7 @@
 	</table>
 
 	<table name="Air Temperature Compensation" category="Air" address="353e">
-		<table name="Degrees" address="5986" elements="7"/>
+		<table name="Degrees" address="5a2c" elements="7"/>
 	</table>
 
 	<table name="Barometric Pressure Compensation" category="Air" address="3551">
@@ -133,15 +133,24 @@
 
 	<table name="Idle Stepper Lookup Table" category="ISCV Control" type="3D" address="3f97" scaling="ISCVSteps">
 		<table name="Coolant Temp" type="X Axis" elements="8" address="59fa" scaling="Temp"/>
-		<table name="ISCV Demand" type="Y Axis" elements="26"  address="5a46" scaling="ISCV_AX2_16"/>
+		<table name="ISCV Demand" type="Y Axis" elements="26" address="5a46" scaling="ISCV_AX2_16"/>
 	</table>
 		
 	<table name="Desired Idle RPM with AC on" category="ISCV Control" address="181e" level="1">
 		<table name="Condition"/>
 	</table>
 
+	<table name="High Intake Air Temp Idle Speed Target" category="ISCV Control" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp ISCV Increase" category="ISCV Control" level="1">
+		<table name="Condition"/>
+	</table>
+
 	<!-- *** Knock Control *** -->
 	
+
 	<table name="Knock Sensor Filter Map 1" category="Knock Control" address="44d9">
 		<table name="TAR" address="5d4c" elements="9"/>
 		<table name="RPM" address="5d12" elements="9"/>
