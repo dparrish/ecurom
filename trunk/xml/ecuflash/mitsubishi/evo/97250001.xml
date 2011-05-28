@@ -15,281 +15,331 @@
 
 	<include>evo7base</include>
 
-	<table name="High Octane Fuel Map" address="33bd">
+	<!--  *** Mods ***  -->
+
+	<!--  *** Fuel ***  -->
+	
+	<table name="High Octane Fuel Map" category="Fuel" address="33bd">
 		<table name="Load" address="5b40" elements="18"/>
 		<table name="RPM" address="5b18" elements="15"/>
 	</table>
 
-	<table name="Low Octane Fuel Map" address="34d7">
+	<table name="Low Octane Fuel Map" category="Fuel" address="34d7">
 		<table name="Load" address="5b40" elements="18"/>
 		<table name="RPM" address="5b18" elements="15"/>
 	</table>
 
-	<table name="High Octane Ignition Map 1" address="3985">
-		<table name="Load" address="5b9e" elements="19"/>
-		<table name="RPM" address="5b6e" elements="19"/>
-	</table>
+	<table name="Injector Scaling" category="Fuel" address="1506"/>
 
-	<table name="Low Octane Ignition Map 1" address="3af9">
-		<table name="Load" address="5b9e" elements="19"/>
-		<table name="RPM" address="5b6e" elements="19"/>
-	</table>
-
-	<table name="Injector Battery Voltage Latency Compensation" address="3770">
+	<table name="Injector Battery Voltage Latency Compensation" category="Fuel" address="3770">
 		<table name="Battery Voltage" address="5a80" elements="7"/>
 	</table>
 
-	<table name="Rev Limit" address="158c"/>
+	<table name="Min Coolant Temp for Closed Loop" category="Fuel" address="15aa"/>
 
-	<table name="Stationary Rev Limit" address="2b4a"/>
-
-	<table name="Accel Enrichment" address="3814">
+	<table name="Accel Enrichment" category="Fuel" address="3814">
 		<table name="RPM" address="58b2" elements="15"/>
 	</table>
 
-	<table name="Boost Control Load Offset" address="1a70"/>
-
-	<table name="Turbo Boost Error Correction" address="40fe">
-		<table name="Boost Error" address="5e70" elements="17"/>
+	<table name="Open Loop Load # 1" category="Fuel" address="3624">
+		<table name="RPM" address="58b2" elements="15"/>
 	</table>
 
-	<table name="Boost Desired Engine Load # 1" address="41b0">
-		<table name="RPM" address="5e46" elements="16"/>
+	<table name="Open Loop Load # 2" category="Fuel" address="363a">
+		<table name="RPM" address="58b2" elements="15"/>
 	</table>
 
-	<table name="Boost Desired Engine Load  # 2" address="41c6">
-		<table name="RPM" address="5e46" elements="16"/>
+	<table name="Open Loop Throttle Low Load" category="Fuel" address="3656">
+		<table name="RPM" address="58b2" elements="15"/>
 	</table>
 
-	<table name="Boost Desired Engine Load # 3" address="41dc">
-		<table name="RPM" address="5e46" elements="16"/>
+	<table name="Open Loop Throttle High Load" category="Fuel" address="366c">
+		<table name="RPM" address="58b2" elements="15"/>
 	</table>
 
-	<table name="Boost Desired Engine Load # 4" address="41f2">
-		<table name="RPM" address="5e46" elements="16"/>
+	<!--  *** Air ***  -->
+
+	<table name="MAF Sensor Filtering" category="Air" address="1508">
+		<table name="Load"/>
 	</table>
 
-	<table name="Max Wastegate Duty # 1" address="4116">
-		<table name="RPM" address="5e46" elements="16"/>
-	</table>
+	<table name="MAF Size" category="Air" address="150c"/>
 
-	<table name="Max Wastegate Duty # 2" address="4142">
-		<table name="RPM" address="5e46" elements="16"/>
-	</table>
-
-	<table name="Max Wastegate Duty # 3" address="4158">
-		<table name="RPM" address="5e46" elements="16"/>
-	</table>
-
-	<table name="Max Wastegate Duty # 4" address="4184">
-		<table name="RPM" address="5e46" elements="16"/>
-	</table>
-
-	<table name="Open Loop Load # 1" address="3624">
-		<table name="RPM" address="5824" elements="15"/>
-	</table>
-
-	<table name="Open Loop Load # 2" address="363a">
-		<table name="RPM" address="5824" elements="15"/>
-	</table>
-
-	<table name="Open Loop Throttle Low Load" address="3656">
-		<table name="RPM" address="5824" elements="15"/>
-	</table>
-
-	<table name="Open Loop Throttle High Load" address="366c">
-		<table name="RPM" address="5824" elements="15"/>
-	</table>
-
-	<table name="IC Relay Timer Time" address="2498">
-		<table name="Condition"/>
-	</table>
-
-	<table name="IC Relay Timer Control Judgement" address="209e">
-		<table name="Condition"/>
-	</table>
-
-	<table name="IC Relay Timer Air Temp" address="20a2"/>
-
-	<table name="IC Relay Timer ON Mode Switch Time" address="247e"/>
-
-	<table name="IC Relay Timer Control RPM" address="2480"/>
-
-	<table name="IC Relay Timer Control Water Temp" address="2482">
-		<table name="Condition"/>
-	</table>
-
-	<table name="IC Relay Control Vehicle Speed" address="2486"/>
-
-	<table name="IC Relay Control EV" address="2488"/>
-
-	<table name="Desired ISCV intial step position with AC off-Neutral" address="3eec">
-		<table name="Engine Temp" address="5d12" elements="8"/>
-	</table>
-
-	<table name="Desired ISCV intial step position with AC off-Drive" address="3efa">
-		<table name="Engine Temp" address="5d12" elements="8"/>
-	</table>
-
-	<table name="Desired ISCV intial step position with AC on-Neutral" address="3f08">
-		<table name="Engine Temp" address="5d12" elements="8"/>
-	</table>
-
-	<table name="Desired Idle RPM-Neutral" address="3ed0">
-		<table name="Engine Temp" address="5d12" elements="8"/>
-	</table>
-
-	<table name="Desired Idle RPM-Drive" address="3ede">
-		<table name="Engine Temp" address="5d12" elements="8"/>
-	</table>
-
-	<table name="High Intake Air Temp ISCV Increase" address="220e">
-		<table name="Condition" elements="2"/>
-	</table>
-
-	<table name="Boost Limit" address="3614">
-		<table name="RPM" address="6b52" elements="9"/>
-	</table>
-
-	<table name="Desired Idle RPM with AC on" address="186c">
-		<table name="Condition"/>
-	</table>
-
-	<table name="High Intake Air Temp Idle Speed Target" address="220a">
-		<table name="Condition"/>
-	</table>
-
-	<table name="Wastgate Solenoid Activation RPM" address="1668">
-		<table name="Condition"/>
-	</table>
-
-	<table name="Speed Limit" address="158e">
-		<table name="Condition"/>
-	</table>
-
-	<table name="Injector Scaling" address="1506"/>
-
-	<table name="Min Coolant Temp for Closed Loop" address="15aa"/>
-
-	<table name="Boost Cut Delay Timer" address="159a" elements="2"/>
-
-	<table name="MAF Scaling" address="3306" scaling="AirFlow8">
+	<table name="MAF Scaling" category="Air" address="3306" scaling="AirFlow8">
 		<table name="Load" address="5a30" elements="21"/>
 	</table>
 
-	<table name="MAF Smoothing Table" address="3322">
+	<table name="MAF Smoothing Table" category="Air" address="3322">
 		<table name="Load" address="5a30" elements="21"/>
 	</table>
 
-	<table name="Air Temperature Compensation" address="333e" scaling="uint8">
-		<table name="Degrees" address="5d7c" elements="8"/>
+	<table name="Air Temperature Compensation" category="Air" address="333e" scaling="uint8">
+		<table name="Degrees" address="5c4c" elements="8"/>
 	</table>
 
-	<table name="Barometric Pressure Compensation" address="3351">
+	<table name="Barometric Pressure Compensation" category="Air" address="3351">
 		<table name="Atmosphere Pressure" address="5a1e" elements="4"/>
 		<table name="RPM" address="5a64" elements="9"/>
 	</table>
 
-	<table name="Idle Stepper Look-up Table" address="400f">
+	<!-- *** Timing *** -->
+
+	<table name="High Octane Ignition Map 1" category="Timing" address="3985">
+		<table name="Load" address="5b9e" elements="19"/>
+		<table name="RPM" address="5b6e" elements="19"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" category="Timing" address="3af9">
+		<table name="Load" address="5b9e" elements="19"/>
+		<table name="RPM" address="5b6e" elements="19"/>
+	</table>
+	
+	<!-- *** ALS *** -->
+
+	<!-- *** Limits *** -->
+
+	<table name="Rev Limit" category="Limits" address="158c"/>
+
+	<table name="Stationary Rev Limit" category="Limits" address="2b4a"/>
+
+	<table name="Boost Limit" category="Limits" address="3614">
+		<table name="RPM" address="6284" elements="9"/>
+	</table>
+
+	<table name="Speed Limit" category="Limits" address="158e">
+		<table name="Condition"/>
+	</table>
+
+	<!-- *** IC Spray *** -->
+	
+	<table name="IC Relay Timer Time" category="IC Spray" address="248a">
+		<table name="Condition"/>
+	</table>
+
+	<table name="IC Relay Timer Control Judgement" category="IC Spray" address="2098">
+		<table name="Condition"/>
+	</table>
+
+	<table name="IC Relay Timer Air Temp" category="IC Spray" address="249c"/>
+
+	<table name="IC Relay Timer ON Mode Switch Time" category="IC Spray" address="247e"/>
+
+	<table name="IC Relay Timer Control RPM" category="IC Spray" address="2480"/>
+
+	<table name="IC Relay Timer Control Water Temp" category="IC Spray" address="2482">
+		<table name="Condition"/>
+	</table>
+
+	<table name="IC Relay Control Vehicle Speed" category="IC Spray" address="2486"/>
+
+	<table name="IC Relay Control EV" category="IC Spray" address="2488"/>
+
+	<!-- *** ISCV Control *** -->
+	
+	<table name="Desired ISCV intial step position with AC off-Neutral" category="ISCV Control" address="3eec">
+		<table name="Engine Temp" address="5d12" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Drive" category="ISCV Control" address="3efa">
+		<table name="Engine Temp" address="5d12" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC on-Neutral" category="ISCV Control" address="3f08">
+		<table name="Engine Temp" address="5d12" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Neutral" category="ISCV Control" address="3ed0">
+		<table name="Engine Temp" address="5d12" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Drive" category="ISCV Control" address="3ede">
+		<table name="Engine Temp" address="5d12" elements="8"/>
+	</table>
+
+	<table name="High Intake Air Temp ISCV Increase" category="ISCV Control" address="220e">
+		<table name="Condition" elements="2"/>
+	</table>
+
+	<table name="Desired Idle RPM with AC on" category="ISCV Control" address="186c">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp Idle Speed Target" category="ISCV Control" address="220a">
+		<table name="Condition"/>
+	</table>
+
+	<table name="Idle Stepper Lookup Table" category="ISCV Control" address="400f" type="3D" scaling="ISCVSteps">
 		<table name="Throttle Position" address="5d7c" elements="8"/>
 		<table name="RPM" address="5d96" elements="27"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 1" address="42fb">
+	<!-- *** Knock Control *** -->
+	
+	<table name="Knock Sensor Filter Map 1" category="Knock Control" address="42fb">
 		<table name="TAR" address="5f5e" elements="9"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 2" address="4381">
+	<table name="Knock Sensor Filter Map 2" category="Knock Control" address="4381">
 		<table name="TAR" address="5f5e" elements="8"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 3" address="43dd">
+	<table name="Knock Sensor Filter Map 3" category="Knock Control" address="43dd">
 		<table name="TAR" address="5f5e" elements="8"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 4" address="44cb">
+	<table name="Knock Sensor Filter Map 4" category="Knock Control" address="44cb">
 		<table name="TAR" address="5f46" elements="7"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 5" address="4529">
+	<table name="Knock Sensor Filter Map 5" category="Knock Control" address="4529">
 		<table name="TAR" address="5f46" elements="7"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 6" address="4609">
+	<table name="Knock Sensor Filter Map 6" category="Knock Control" address="4609">
 		<table name="TAR" address="5f46" elements="7"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 7" address="465b">
+	<table name="Knock Sensor Filter Map 7" category="Knock Control" address="465b">
 		<table name="TAR" address="5f5e" elements="10"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 8" address="46cb">
-		<table name="TAR" address="5f46" elements="7"/>
-		<table name="RPM" address="5f28" elements="10"/>
+	<table name="Knock Sensor Filter Map 8" category="Knock Control" address="46cb">
+		<table name="TAR" address="5f5e" elements="10"/>
+		<table name="RPM" address="5f28" elements="7"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 9" address="471d">
+	<table name="Knock Sensor Filter Map 9" category="Knock Control" address="471d">
 		<table name="TAR" address="5f5e" elements="10"/>
 		<table name="RPM" address="5f28" elements="10"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 10">
+	<table name="Knock Sensor Filter Map 10" category="Knock Control">
 		<table name="TAR" address="5f46" elements="12"/>
 		<table name="RPM" address="5f28" elements="11"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 11">
+	<table name="Knock Sensor Filter Map 11" category="Knock Control">
 		<table name="TAR" address="5f46" elements="12"/>
 		<table name="RPM" address="5f28" elements="11"/>
 	</table>
 
-	<table name="Knock Sensor Filter Map 12">
+	<table name="Knock Sensor Filter Map 12" category="Knock Control">
 		<table name="TAR" address="5f46" elements="12"/>
 		<table name="RPM" address="5f28" elements="11"/>
 	</table>
 
-	<table name="Immobilizer"/>
+	<!-- *** Lean Spool *** -->
 
-	<table name="Boost Enhancement (Anti-Lag) Start RPM" address="1680"/>
+	<!-- *** Turbo *** -->
 
-	<table name="MAF Sensor Filtering" address="1508">
-		<table name="Load"/>
+	<table name="Boost Control Load Offset" category="Turbo" address="1a70"/>
+
+	<table name="Turbo Boost Error Correction" category="Turbo" address="40fe">
+		<table name="Boost Error" address="5e70" elements="17"/>
 	</table>
 
-	<table name="MAF Size" address="150c"/>
+	<table name="Boost Desired Engine Load # 1" category="Turbo" address="41b0">
+		<table name="RPM" address="5b12" elements="16"/>
+	</table>
 
-	<table name="Boost Enhancement (Anti-lag) Stop RPM" address="1682"/>
+	<table name="Boost Desired Engine Load  # 2" category="Turbo" address="41c6">
+		<table name="RPM" address="5886" elements="16"/>
+	</table>
 
-	<table name="Min Temp for Full Boost Control" address="2200"/>
+	<table name="Boost Desired Engine Load # 3" category="Turbo" address="41dc">
+		<table name="RPM" address="5886" elements="16"/>
+	</table>
 
-	<table name="Boost Control Limiting Vehicle Speed" address="2204">
+	<table name="Boost Desired Engine Load # 4" category="Turbo" address="41f2">
+		<table name="RPM" address="5886" elements="16"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 1" category="Turbo" address="4116">
+		<table name="RPM" address="5b12" elements="16"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 2" category="Turbo" address="412c">
+		<table name="RPM" address="5886" elements="16"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 3" category="Turbo" address="4142">
+		<table name="RPM" address="5886" elements="16"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 4" category="Turbo" address="4158">
+		<table name="RPM" address="5886" elements="16"/>
+	</table>
+
+	<table name="Wastgate Solenoid Activation RPM" category="Turbo" address="1668">
 		<table name="Condition"/>
 	</table>
 
-	<table name="Boost Enhancement (Anti-lag) Table" address="3966">
+	<table name="Boost Cut Delay Timer" category="Turbo" address="159a" elements="2"/>
+
+	<table name="Boost Enhancement (Anti-Lag) Start RPM" category="Turbo" address="1680"/>
+
+	<table name="Boost Enhancement (Anti-lag) Stop RPM" category="Turbo" address="1682"/>
+
+	<table name="Min Temp for Full Boost Control" category="Turbo" address="2200"/>
+
+	<table name="Boost Control Limiting Vehicle Speed" category="Turbo" address="2204">
+		<table name="Condition"/>
+	</table>
+
+	<table name="Boost Enhancement (Anti-lag) Table" category="Turbo" address="3966">
 		<table name="RPM" address="5b00"/>
 	</table>
 
-	<table name="Boost Enhancement Enrich/Enlean (Anti-lag) Map" address="3c6d">
+	<table name="Boost Enhancement Enrich/Enlean (Anti-lag) Map" category="Turbo" address="3c6d">
 		<table name="Load" address="5b9e"/>
 		<table name="RPM" address="5b6e" elements="19"/>
 	</table>
 
-	<table name="Boost Enhancement Adv/Ret Map 1 (Anti-lag)">
+	<table name="Boost Enhancement Adv/Ret Map 1 (Anti-lag)" category="Turbo">
 		<table name="Load" address="5b9e"/>
 		<table name="RPM" address="5b6e"/>
 	</table>
 
-	<table name="Boost Enhancement Adv/Ret Map 2 (Anti-lag)">
+	<table name="Boost Enhancement Adv/Ret Map 2 (Anti-lag)" category="Turbo">
 		<table name="Load" address="5b9e"/>
 		<table name="RPM" address="5b6e"/>
 	</table>
+
+	<table name="Max Wastegate Duty # 5" category="Turbo" address="416e" type="2D" level="4" scaling="WGDuty">
+		<table name="RPM" address="5886" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 6" category="Turbo" address="4184" type="2D" level="4" scaling="WGDuty">
+		<table name="RPM" address="5886" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Max Wastegate Duty # 7" category="Turbo" address="419a" type="2D" level="4" scaling="WGDuty">
+		<table name="RPM" address="5886" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<!-- *** TURBO BOOST SINGLE SOLENOID ***  -->
+
+	<!-- *** TURBO BOOST DUAL SOLENOID***  -->
+
+	<!-- *** MISC ***  -->
+
+	<!-- *** OBD-II ***  -->
+
+	<!-- *** OBD-II EVAP ***  -->
+
+	<!-- *** EMISSIONS EGR ***  -->
+
+	<!-- *** ECU *** -->
+
+	<!-- *** ECU Periphery *** -->
+
+	<!-- *** MUT ***  -->
 
 </rom>

@@ -17,7 +17,7 @@
 
     <!--  *** <include>96940011_mods</include> ***  -->
 
-
+<table name="Rear O2 Heater Patch" category="Front/Rear_O2" address="2e72e" type="1D" scaling="Hex16" />
 
     <!--  *** FUEL ***  -->
 
@@ -238,7 +238,78 @@
         <table name="Load" address="5efc"/>
     </table>
 
+<table name="Target Idle ISCV Trim Adjust Frequency" category="ISCV Control" address="14c2" type="1D" level="2" scaling="Time"/>
 
+<table name="ISCV Demand Below 500 RPM Idle Recovery Adder (sub_1E2C8)" category="ISCV Control" address="1516" type="1D" level="2" scaling="ISCV_AX2_16"/>
+
+<table name="ISCV Demand CTS Adder #1** (sub_1F1F8, sub_1EA0C, sub_1F596) [sub_1EFC0]" category="ISCV Control" type="2D" address="393C" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="5e5e" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand CTS Adder #1b*** (sub_1F2C6) [sub_1EFC0]" category="ISCV Control" type="2D" address="3950" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="5e5e" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand Startup CTS Adder (sub_1EBB8)" category="ISCV Control" type="2D" address="3964" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="5d96" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand Baro Adder (FFFF6E98) (sub_1E1EE)" category="ISCV Control" type="2D" address="39de" level="2" scaling="ISCV_AX2_8">
+<table name="Baro" type="Y Axis" address="5bfc" elements="5" scaling="Baro16"/>
+</table>
+
+<table name="ISCV Demand Target Idle Trim (sub_1ECF6)" category="ISCV Control" type="2D" address="39f0" level="2" scaling="ISCV_AX2_8">
+<table name="Target Idle Deviation" type="Y Axis" address="5a72" elements="9" scaling="RPMTarget"/>
+</table>
+
+<table name="ISCV Demand General CTS Subtractor (sub_1EBE6)" category="ISCV Control" type="2D" address="3a0e" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="5d96" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand RPM Adder* (sub_1EFC0)" category="ISCV Control" type="2D" address="3de4" level="2" scaling="ISCV_AX2_8">
+<table name="RPM" type="Y Axis" address="594e" elements="10" scaling="RPM"/>
+</table>
+
+<table name="ISCV Demand CTS Adder #1a*** (sub_1F2C6, 1F596) [sub_1EFC0]" category="ISCV Control" type="2D" address="4d70" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="5e5e" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand CTS Adder #2** (Post WOT) (sub_1F1F8) [sub_1EFC0]" category="ISCV Control" type="2D" address="4ff6" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="5e0e" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand CTS Adder #2*** (Post WOT) (sub_1F2C6) [sub_1EFC0]" category="ISCV Control" type="2D" address="5012" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="5e0e" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand RPM Adder [rpm > 4500, load > 170, speed > 12 mph] (sub_1EFC0)" category="ISCV Control" type="2D" address="56e0" level="2" scaling="ISCV_AX2_8">
+<table name="RPM" type="Y Axis" address="6e92" elements="10" scaling="RPM"/>
+</table>
+
+<table name="ISCV Demand Baro Adder**** (FFFF7C0E) (sub_1F6E6) [sub_1EFC0]" category="ISCV Control" type="2D" address="57d2" level="2" scaling="ISCV_AX2_8">
+<table name="Baro" type="Y Axis" address="5bfc" elements="5" scaling="Baro16"/>
+</table>
+
+<table name="ISCV Demand IATS Adder**** (FFFF7C0E) (sub_1F6E6) [sub_1EFC0]" category="ISCV Control" type="2D" address="57e2" level="2" scaling="ISCV_AX2_8">
+<table name="Intake Air Temp" type="Y Axis" address="5ec8" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand RPM Adder (Moderated by Baro, IATS) (FFFF6EA8) (sub_204B6) [sub_1EFC0]" category="ISCV Control" type="2D" address="57f0" level="2" scaling="ISCV_AX2_8">
+<table name="RPM" type="Y Axis" address="6ef0" elements="10" scaling="RPM"/>
+</table>
+
+<table name="ISCV Demand TPS Adder, AC off (FFFF6E84) (mattjin fuel cut delay)" category="Idle" address="3972" type="2D" level="1" scaling="ISCV_AX2_8">
+<table name="TPS" address="5d52" type="Y Axis" elements="7" scaling="ThrottlePercentage"/>
+</table>
+
+<table name="ISCV Demand TPS Adder, AC on (FFFF6E84) (mattjin fuel cut delay)" category="Idle" address="3986" type="2D" level="1" scaling="ISCV_AX2_8">
+<table name="TPS" address="5d52" type="Y Axis" elements="7" scaling="ThrottlePercentage"/>
+</table>
+
+<table name="Idle Stepper Lookup Table" category="ISCV Control" type="3D" address="3a35" scaling="ISCVSteps">
+<table name="Coolant Temp" type="X Axis" elements="8" address="5ee2" scaling="Temp"/>
+<table name="ISCV Demand" type="Y Axis" elements="27" address="5efc" scaling="ISCV_AX2_16"/>
+</table>
 
     <!--  *** MISC LIMITS ***  -->
 
