@@ -13,10 +13,11 @@
     <memmodel>SH7055</memmodel>
   </romid>
 
-  <include>evo9base_20081101</include>
+  <include>evo9base</include>
   
 <!--  <include>88890013_mods</include>  -->
   
+  <table name="ODBII Circuit Test Bypass (Stock 0x4A0B -> NOP 0x9)" category="Test" address="10B12" type="1D" level="1" scaling="Hex16"/>
   
 
 <!--  *** FUEL ***  -->
@@ -78,11 +79,11 @@
 
   <table name="MAF Size" address="110c"/>
 
-  <table name="Open Loop Load #1" address="3060">
+  <table name="Open Loop Load # 1" address="3060">
     <table name="RPM" address="6ca0"/>
   </table>
 
-  <table name="Open Loop Load #2" address="3076">
+  <table name="Open Loop Load # 2" address="3076">
     <table name="RPM" address="6ca0"/>
   </table>
 
@@ -301,7 +302,47 @@
     <table name="Load" address="7286"/>
   </table>
 
+<scaling name="ISCV_AX2_8" units="% Demand" toexpr="x*100/255" frexpr="x*255/100" format="%.1f" min="0" max="200" inc="0.5" storagetype="uint8" endian="big"/>
+<scaling name="ISCV_AX2_16" units="% Demand" toexpr="x*100/255" frexpr="x*255/100" format="%.1f" min="0" max="200" inc="0.5" storagetype="uint16" endian="big"/>
 
+<table name="ISCV Demand Target Idle Trim (sub_1ECF6)" category="ISCV Control" type="2D" address="3e10" level="2" scaling="ISCV_AX2_8">
+<table name="Target Idle Deviation" type="Y Axis" address="6da6" elements="9" scaling="RPMTarget"/>
+</table>
+
+<table name="ISCV Demand General CTS Subtractor (sub_1EBE6)" category="ISCV Control" type="2D" address="3e2e" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="70e6" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand Baro Adder (FFFF6E98) (sub_1E1EE)" category="ISCV Control" type="2D" address="3dfe" level="2" scaling="ISCV_AX2_8">
+<table name="Baro" type="Y Axis" address="6f30" elements="5" scaling="Baro16"/>
+</table>
+
+<table name="ISCV Demand RPM Adder* (sub_1EFC0)" category="ISCV Control" type="2D" address="41fc" level="2" scaling="ISCV_AX2_8">
+<table name="RPM" type="Y Axis" address="6fa8" elements="10" scaling="RPM"/>
+</table>
+
+<table name="ISCV Demand Startup CTS Adder (sub_1EBB8)" category="ISCV Control" type="2D" address="3d84" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="70e6" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand CTS Adder #1** (sub_1F1F8, sub_1EA0C, sub_1F596) [sub_1EFC0]" category="ISCV Control" type="2D" address="3d5c" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="71ca" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand CTS Adder #1b*** (sub_1F2C6) [sub_1EFC0]" category="ISCV Control" type="2D" address="3d70" level="2" scaling="ISCV_AX2_8">
+<table name="Coolant Temp" type="Y Axis" address="71ca" elements="8" scaling="Temp"/>
+</table>
+
+<table name="ISCV Demand Baro Adder**** (FFFF7C0E) (sub_1F6E6) [sub_1EFC0]" category="ISCV Control" type="2D" address="6b00" level="2" scaling="ISCV_AX2_8">
+<table name="Baro" type="Y Axis" address="6f30" elements="5" scaling="Baro16"/>
+</table>
+
+<table name="Idle Stability Timing Control" category="ISCV Control" address="1d6e" type="2D" scaling="uint16">
+<table name="Settings" type="Static X Axis" elements="2">
+<data>Sensitivity 0-255</data>
+<data>TimingLimit above 53*C</data>
+</table>
+</table>
 
 <!--  *** KNOCK CONTROL ***  -->
 
@@ -407,20 +448,6 @@
 
 <!-- *** FOR IDLE SECTION *** -->
 
-  <scaling name="Timesecbyte" units="s" toexpr="x/10" frexpr="x*10" format="%.1f" min="0" max="25.5" inc="1" storagetype="uint8" endian="big"/>
-  <table name="ALS minimum vehicle speed to trigger" category="Turbo" address="1e12" type="1D" level="1" scaling="VehicleSpeed"/>
-  <table name="ALS minimum coolant temperature to trigger" category="Turbo" address="1e14" type="1D" level="1" scaling="Temp"/>
-  <table name="ALS minimum RPM to trigger" category="Turbo" address="1e16" type="1D" level="1" scaling="RPMStatLimit"/>
-  <table name="ALS minimum load to trigger" category="Turbo" address="1e18" type="1D" level="1" scaling="Load16"/>
-  <table name="ALS minimum time to trigger" category="Turbo" address="1e1a" type="1D" level="1" scaling="TimeSec"/>
-  <table name="ALS trigger valid time" category="Turbo" address="1e1c" type="1D" level="1" scaling="TimeSec"/>
-  <table name="ALS Load below which active" category="Turbo" address="1e1e" type="1D" level="1" scaling="Load16"/>
-  <table name="ALS active time limit" category="Turbo" address="1e20" type="1D" level="1" scaling="TimeSec"/>
-  <table name="ALS Delay before air injection" category="Turbo" address="1e22" type="1D" level="1" scaling="TimeSec"/>
-  <table name="ALS Delay before fuel injection" category="Turbo" address="1e24" type="1D" level="1" scaling="TimeSec"/>
-  <table name="ALS Fuel injector time" category="Turbo" address="1e26" type="1D" level="1" scaling="TimeSec"/>
-  <table name="ALS Air injection time" category="Turbo" address="4e3a" type="2D" level="1" scaling="Timesecbyte">
-    <table name="RPM" address="7792" type="X Axis" elements="9" scaling="RPM"/>
-  </table>
+
 
 </rom>
