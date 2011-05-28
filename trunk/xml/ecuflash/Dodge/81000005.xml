@@ -1,0 +1,235 @@
+<rom>
+	<romid>
+		<xmlid>81000005</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>81000005</internalidhex>
+		<make>Dodge</make>
+		<market>USDM</market>
+		<model>Stratus</model>
+		<submodel>RT</submodel>
+		<transmission>Auto</transmission>
+		<year>2003</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>evo7base</include>
+
+
+
+	<!--  *** Mods ***  -->
+
+	<!--  *** Fuel ***  -->
+
+	<table name="High Octane Fuel Map" category="Fuel" address="35b7">
+		<table name="Load" address="6a5e" elements="12"/>
+		<table name="RPM" address="6a36" elements="15"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" category="Fuel" address="3677">
+		<table name="Load" address="6a5e" elements="12"/>
+		<table name="RPM" address="6a36" elements="15"/>
+	</table>
+
+	<table name="Injector Battery Voltage Latency Compensation" category="Fuel" address="3864">
+		<table name="Battery Voltage" address="699e" elements="7"/>
+	</table>
+
+	<table name="Accel Enrichment" category="Fuel" address="391c">
+		<table name="RPM" address="67be" elements="12"/>
+	</table>
+
+	<table name="Open Loop Load # 1" category="Fuel" address="375a">
+		<table name="RPM" address="69f8" elements="12"/>
+	</table>
+
+	<table name="Open Loop Load # 2" category="Fuel" address="376c">
+		<table name="RPM" address="69f8" elements="12"/>
+	</table>
+
+	<table name="Open Loop Throttle Low Load" category="Fuel" address="378c" level="1">
+		<table name="RPM" address="69f8" elements="12"/>
+	</table>
+
+	<table name="Open Loop Throttle High Load" category="Fuel" level="1">
+		<table name="RPM" address="69f8" elements="12"/>
+	</table>
+
+	<table name="Min Coolant Temp for Closed Loop" category="Fuel" address="1588"/>
+
+	<table name="Injector Scaling" category="Fuel" address="1506"/>
+
+	<!--  *** Air ***  -->
+
+	<table name="MAF Sensor Filtering" category="Air" address="1508">
+		<table name="Load"/>
+	</table>
+
+	<table name="MAF Size" category="Air" address="150c"/>
+
+	<table name="MAF Scaling" category="Air" address="3506">
+		<table name="Load" address="694e"/>
+	</table>
+
+	<table name="MAF Smoothing Table" category="Air" address="3522">
+		<table name="Load" address="694e"/>
+	</table>
+
+	<table name="Air Temperature Compensation" category="Air" address="353e">
+		<table name="Degrees" address="6b6a" elements="7"/>
+	</table>
+
+	<table name="Barometric Pressure Compensation" category="Air" address="3551">
+		<table name="Atmosphere Pressure" address="693c"/>
+		<table name="RPM" address="6982"/>
+	</table>
+
+	<!-- *** Timing *** -->
+
+	<table name="High Octane Ignition Map 1" category="Timing" address="3aad">
+		<table name="Load" address="6ab0" elements="12"/>
+		<table name="RPM" address="6a80" elements="19"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" category="Timing" address="3b9d">
+		<table name="Load" address="6ab0" elements="12"/>
+		<table name="RPM" address="6a80" elements="19"/>
+	</table>
+
+	<!-- *** ALS *** -->
+
+	<!-- *** SD *** -->
+	
+	<!-- *** DMA *** -->
+
+	<!-- *** Limits *** -->
+
+	<table name="Rev Limit" category="Limits" address="156a"/>
+
+	<table name="Speed Limit" category="Limits" address="156c">
+		<table name="Condition"/>
+	</table>
+
+	<!-- *** IC Spray *** -->
+	
+	<!-- *** ISCV Control *** -->
+
+	<table name="Desired ISCV intial step position with AC off-Neutral" category="ISCV Control" address="3e56">
+		<table name="Engine Temp" address="6b6a" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Drive" category="ISCV Control" address="3e64">
+		<table name="Engine Temp" address="6b6a" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC on-Neutral" category="ISCV Control" address="3e72">
+		<table name="Engine Temp" address="6b6a" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Neutral" category="ISCV Control" address="3e3a">
+		<table name="Engine Temp" address="6b6a" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Drive" category="ISCV Control" address="3e48">
+		<table name="Engine Temp" address="6b6a" elements="8"/>
+	</table>
+
+	<table name="Idle Stepper Lookup Table" category="ISCV Control" type="3D" address="3fab" scaling="ISCVSteps">
+		<table name="Coolant Temp" type="X Axis" elements="8" address="6bde" scaling="Temp"/>
+		<table name="ISCV Demand" type="Y Axis" elements="26"  address="6c2a" scaling="ISCV_AX2_16"/>
+	</table>
+		
+	<table name="Desired Idle RPM with AC on" category="ISCV Control" address="181e" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp Idle Speed Target" category="ISCV Control" address="24a0" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp ISCV Increase" category="ISCV Control" address="24a4" level="1">
+		<table name="Condition" elements="2"/>
+	</table>
+
+	<!-- *** Knock Control *** -->
+	
+	<table name="Knock Sensor Filter Map 1" category="Knock Control" address="44ed">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 2" category="Knock Control" address="4549">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 3" category="Knock Control" address="45a5">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 4" category="Knock Control" address="4601">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 5" category="Knock Control" address="465d">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 6" category="Knock Control" address="498d">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 7" category="Knock Control" address="49e9">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 8" category="Knock Control" address="4a75">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 9" category="Knock Control" address="4ad1">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 10" category="Knock Control" address="4b2d">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<table name="Knock Sensor Filter Map 11" category="Knock Control" address="4b89">
+		<table name="TAR" address="6f30" elements="8"/>
+		<table name="RPM" address="6856" elements="10"/>
+	</table>
+
+	<!-- *** Lean Spool *** -->
+
+	<!-- *** Turbo *** -->
+
+	<!-- *** TURBO BOOST SINGLE SOLENOID ***  -->
+
+	<!-- *** TURBO BOOST DUAL SOLENOID***  -->
+
+	<!-- *** MISC ***  -->
+
+	<!-- *** OBD-II ***  -->
+
+	<!-- *** OBD-II EVAP ***  -->
+
+	<!-- *** EMISSIONS EGR ***  -->
+
+	<!-- *** ECU *** -->
+
+	<!-- *** ECU Periphery *** -->
+
+	<!-- *** MAT *** -->
+
+	<!-- *** MUT ***  -->
+
+</rom>
