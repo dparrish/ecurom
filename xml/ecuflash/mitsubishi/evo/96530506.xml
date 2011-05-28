@@ -1,0 +1,99 @@
+<rom>
+	<romid>
+		<xmlid>96530006</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>96530006</internalidhex>
+		<ecuid>96530006</ecuid>
+		<make>Mitsubishi</make>
+		<market>AUS/SA</market>
+		<model>Lancer</model>
+		<submodel>EVO8</submodel>
+		<transmission>Manual</transmission>
+		<year>2005</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>96530006</include>
+
+	<table name="Tephra Mod Options" category="Mods" address="3f1f0" type="3D" scaling="uint16">
+		<table name="X" type="Static X Axis" elements="1">
+			<data>Value</data>
+		</table>
+		<table name="Y" type="Static Y Axis" elements="11">
+			<data>Restore ICS State on Ignition?</data>
+			<data>Flash ICS when on Alternate Map?</data>
+			<data>Enable Alternate Maps Master? ADC0F=1, AutoICS=2</data>
+			<data>Enable Valet Mode?</data>
+			<data>Flash CEL on Knock?</data>
+			<data>Enable Manual ICS Linger?</data>
+			<data>Enable Spray ICS on Knock?</data>
+			<data>Enable No Lift to Shift?</data>
+			<data>Enable Auto-Valet on Fresh Ignition?</data>
+			<data>Enable RearO2 Simulator?</data>
+			<data>Enable MAP Averaging?</data>
+		</table>
+	</table>
+
+	<table name="KnockSum Required for Slow CEL" category="Mods" address="3f206" type="1D" scaling="uint16"/>
+
+	<table name="KnockSum Required for Fast CEL" category="Mods" address="3f208" type="1D" scaling="uint16"/>
+
+	<table name="Load Required for CEL on Knock" category="Mods" address="3f20a" type="1D" scaling="Load"/>
+
+	<table name="CEL on Knock flash time" category="Mods" address="3f20c" type="1D" scaling="ECUTime"/>
+
+	<table name="Valet Rev Limit" category="Mods" address="3f20e" type="1D" scaling="RPMLimit"/>
+
+	<table name="Valet Rev Limit Time to Activate" category="Mods" address="3f210" type="1D" scaling="ECUTime"/>
+
+	<table name="Valet Rev Limit Flash Time" category="Mods" address="3f212" type="1D" scaling="ECUTime"/>
+
+	<table name="Manual ICS Linger Time" category="Mods" address="3f214" type="1D" scaling="ECUTime"/>
+
+	<table name="KnockSum Required for Spray" category="Mods" address="3f216" type="1D" scaling="uint16"/>
+
+	<table name="Load Required for Spray on Knock" category="Mods" address="3f218" type="1D" scaling="Load"/>
+
+	<table name="Spray on Knock time" category="Mods" address="3f21a" type="1D" scaling="ECUTime"/>
+
+	<table name="NLTS RPM Drop" category="Mods" address="3f21c" type="1D" scaling="uint16"/>
+
+	<table name="NLTS TPS Threshold" category="Mods" address="3f21e" type="1D" scaling="ThrottlePercentage"/>
+
+	<table name="NLTS Speed Threshold" category="Mods" address="3f220" type="1D" scaling="VehicleSpeed"/>
+
+	<table name="NLTS Load Threshold" category="Mods" address="3f222" type="1D" scaling="Load"/>
+
+	<table name="Alternate Map Time to Activate" category="Mods" address="3f224" type="1D" scaling="ECUTime"/>
+
+	<table name="Alternate Map Load Threshold" category="Mods" address="3f226" type="1D" scaling="Load"/>
+
+	<table name="Alternate Map ADC0F Threshold" category="Mods" address="3f228" type="1D" scaling="Volts16"/>
+
+	<table name="2byte to 1Byte Load Factor" category="Mods" address="3f22a" type="1D" scaling="1bytefactor"/>
+
+	<table name="LoadSourceVariable" category="Mods" address="3f612" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="Alternate Injector Scaling" category="Fuel" address="38b40" type="1D" scaling="InjectorScaling"/>
+
+	<table name="Alternate Hi Octane Fuel Map" category="Fuel" address="38b4d" type="3D" swapxy="true" scaling="AFR">
+		<table name="Load" address="68b0" type="X Axis" elements="18" scaling="Load"/>
+		<table name="RPM" address="6888" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Alternate Lo Octane Fuel Map" category="Fuel" address="38c8d" type="3D" swapxy="true" scaling="AFR">
+		<table name="Load" address="68b0" type="X Axis" elements="18" scaling="Load"/>
+		<table name="RPM" address="6888" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Alternate Base Wastegate Duty" category="Turbo" address="391c8" type="2D" scaling="WGDuty">
+		<table name="RPM" address="6bd4" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+	<table name="Alternate Boost Desired Engine Load" category="Turbo" address="391e8" type="2D" scaling="Load8">
+		<table name="RPM" address="6bd4" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
+
+
+</rom>
