@@ -17,6 +17,20 @@
 #define SH_ROM_START   0x0400
 #define M32R_ROM_START 0x0080
 
+
+// Locations of well-known functions
+#define BYTE_TABLE_LOOKUP_FUNC 0x00000C28
+#define AXIS_LOOKUP_FUNC       0x00000CC6
+#define WORD_TABLE_LOOKUP_FUNC 0x00000E02
+
+
+static HasName(ea) {
+  if (Name(ea) == "" || strstr(Name(ea), "off_") == 0 || strstr(Name(ea), "unk_") == 0 || strstr(Name(ea), "sub_") == 0)
+    return 0;
+  return 1;
+}
+
+
 static FixH8500() {
   auto ea, end;
 
@@ -328,29 +342,15 @@ static SegmentsSH7052F() {
 }
 
 static SegmentsSA4B() {
-  AddSeg(0x00000000, 0x00040000, 0x0, 2, saAbs, scPriv);
-  SegRename(0x00000000, "OnChipROM");
+  Message("Creating segments... ");
+  AddSeg(0x00000000, 0x00040000, 0x0, 1, saAbs, scPriv);
+  SegRename(0x00000000, "ROM");
   SegClass(0x00000000, "CODE");
   SegDefReg(0x00000000, "br", 0x0);
   SegDefReg(0x00000000, "dp", 0x1);
-  AddSeg(0x00040000, 0x00040000, 0x0, 2, saAbs, scPriv);
-  SegRename(0x00040000, "Reserved 1");
-  AddSeg(0x00200000, 0x00400000, 0x0, 2, saAbs, scPriv);
-  SegRename(0x00200000, "CS0");
-  AddSeg(0x00400000, 0x00800000, 0x0, 2, saAbs, scPriv);
-  SegRename(0x00400000, "CS1");
-  AddSeg(0x00800000, 0x00C00000, 0x0, 2, saAbs, scPriv);
-  SegRename(0x00800000, "CS2");
-  AddSeg(0x00C00000, 0x01000000, 0x0, 2, saAbs, scPriv);
-  SegRename(0x00C00000, "CS3");
-  AddSeg(0x01000000, 0x01000000, 0x0, 2, saAbs, scPriv);
-  SegRename(0x01000000, "Reserved 2");
-  SegCreate(0xFFFF6000, 0xFFFFFFFF, 0, 1, saRelWord, 0);
-  AddSeg(0xFFFF8000, 0xFFFFE000, 0x0, 2, saAbs, scPriv);
+  AddSeg(0xFFFF8000, 0xFFFFE000, 0x0, 1, saAbs, scStack);
   SegRename(0xFFFF8000, "RAM");
-  AddSeg(0xFFFFE000, 0xFFFFFFFF, 0x0, 2, saAbs, scPriv);
-  SegRename(0xFFFFE000, "On-chip peripheral module");
-  Message("Segments created\n");
+  Message("Done\n");
 }
 
 static FixSH7052F() {
@@ -373,6 +373,7 @@ static FixSH7052F() {
 }
 
 static FixSH4B() {
+  CreateStructures();
   FixConstants();
   Wait();
   Fixup_VT(0x0000, SH_ROM_START);
@@ -387,6 +388,12 @@ static FixSH4B() {
   FixDataOffsets();
   Wait();
   SH7052RegisterNames();
+  Wait();
+  LabelKnownFuncs();
+  Wait();
+  LocateAxisTables();
+  Wait();
+  LocateMaps();
   Wait();
   Message("SH4B Mitsubishi ECU autoanalysis finished\n");
 }
@@ -447,140 +454,6 @@ static SH7052RegisterNames() {
   WordRegister(0xFFFFED16, "IPRL", "");
   WordRegister(0xFFFFED18, "ICR", "");
   WordRegister(0xFFFFED1A, "ISR", "");
-
-  MakeComm(0x0000002C, "Interrupt Exception Processing Vectors");
-  LongRegister(0x0000002C, "NMI", "");
-  LongRegister(0x00000030, "UBC", "");
-  LongRegister(0x00000100, "IRQ0", "");
-  LongRegister(0x00000104, "IRQ1", "");
-  LongRegister(0x00000108, "IRQ2", "");
-  LongRegister(0x0000010C, "IRQ3", "");
-  LongRegister(0x00000120, "DMAC0", "");
-  LongRegister(0x00000128, "DMAC1", "");
-  LongRegister(0x00000130, "DMAC2", "");
-  LongRegister(0x00000138, "DMAC3", "");
-  LongRegister(0x000002F0, "CMTI0", "");
-  LongRegister(0x000002F8, "ADI0", "");
-  LongRegister(0x00000300, "CMTI1", "");
-  LongRegister(0x00000308, "ADI1", "");
-  LongRegister(0x00000380, "ITI", "");
-  // ATU0
-  LongRegister(0x00000140, "ITV1", "");
-  LongRegister(0x00000150, "ICI0A", "");
-  LongRegister(0x00000158, "ICI0B", "");
-  LongRegister(0x00000160, "ICI0C", "");
-  LongRegister(0x00000168, "ICI0D", "");
-  LongRegister(0x00000170, "OVI0", "");
-  // ATU1
-  LongRegister(0x00000180, "IMI1A", "");
-  LongRegister(0x00000184, "IMI1B", "");
-  LongRegister(0x00000188, "IMI1C", "");
-  LongRegister(0x0000018C, "IMI1D", "");
-  LongRegister(0x00000190, "IMI1E", "");
-  LongRegister(0x00000194, "IMI1F", "");
-  LongRegister(0x00000198, "IMI1G", "");
-  LongRegister(0x0000019C, "IMI1H", "");
-  LongRegister(0x000001A0, "OVI1A", "");
-  // ATU2
-  LongRegister(0x000001B0, "IMI2A", "");
-  LongRegister(0x000001B4, "IMI2B", "");
-  LongRegister(0x000001B8, "IMI2C", "");
-  LongRegister(0x000001BC, "IMI2D", "");
-  LongRegister(0x000001C0, "IMI2E", "");
-  LongRegister(0x000001C4, "IMI2F", "");
-  LongRegister(0x000001C8, "IMI2G", "");
-  LongRegister(0x000001CC, "IMI2H", "");
-  LongRegister(0x000001D0, "OVI2A", "");
-  // ATU3
-  LongRegister(0x000001E0, "IMI3A", "");
-  LongRegister(0x000001E4, "IMI3B", "");
-  LongRegister(0x000001E8, "IMI3C", "");
-  LongRegister(0x000001EC, "IMI3D", "");
-  LongRegister(0x000001F0, "OVI3", "");
-  // ATU4
-  LongRegister(0x00000200, "IMI4A", "");
-  LongRegister(0x00000204, "IMI4B", "");
-  LongRegister(0x00000208, "IMI4C", "");
-  LongRegister(0x0000020C, "IMI4D", "");
-  LongRegister(0x00000210, "OVI4", "");
-  // ATU5
-  LongRegister(0x00000220, "IMI5A", "");
-  LongRegister(0x00000224, "IMI5B", "");
-  LongRegister(0x00000228, "IMI5C", "");
-  LongRegister(0x0000022C, "IMI5D", "");
-  LongRegister(0x00000230, "OVI5", "");
-  // ATU6
-  LongRegister(0x00000240, "CMI6A", "");
-  LongRegister(0x00000244, "CMI6B", "");
-  LongRegister(0x00000248, "CMI6C", "");
-  LongRegister(0x0000024C, "CMI6D", "");
-  // ATU7
-  LongRegister(0x00000250, "CMI7A", "");
-  LongRegister(0x00000254, "CMI7B", "");
-  LongRegister(0x00000258, "CMI7C", "");
-  LongRegister(0x0000025C, "CMI7D", "");
-  // ATU8
-  LongRegister(0x00000260, "OSI8A", "");
-  LongRegister(0x00000264, "OSI8B", "");
-  LongRegister(0x00000268, "OSI8C", "");
-  LongRegister(0x0000026C, "OSI8D", "");
-  LongRegister(0x00000270, "OSI8E", "");
-  LongRegister(0x00000274, "OSI8F", "");
-  LongRegister(0x00000278, "OSI8G", "");
-  LongRegister(0x0000027C, "OSI8H", "");
-  LongRegister(0x00000280, "OSI8I", "");
-  LongRegister(0x00000284, "OSI8J", "");
-  LongRegister(0x00000288, "OSI8K", "");
-  LongRegister(0x0000028C, "OSI8L", "");
-  LongRegister(0x00000290, "OSI8M", "");
-  LongRegister(0x00000294, "OSI8N", "");
-  LongRegister(0x00000298, "OSI8O", "");
-  LongRegister(0x0000029C, "OSI8P", "");
-  // ATU9
-  LongRegister(0x000002A0, "CMI9A", "");
-  LongRegister(0x000002A4, "CMI9B", "");
-  LongRegister(0x000002A8, "CMI9C", "");
-  LongRegister(0x000002AC, "CMI9D", "");
-  LongRegister(0x000002B0, "CMI9E", "");
-  LongRegister(0x000002B8, "CMI9F", "");
-  // ATU10
-  LongRegister(0x000002C0, "CMI10A", "");
-  LongRegister(0x000002C8, "CMI10B", "");
-  LongRegister(0x000002D0, "ICI10A", "");
-  // ATU11
-  LongRegister(0x000002E0, "IMI11A", "");
-  LongRegister(0x000002E8, "IMI11B", "");
-  LongRegister(0x000002EC, "OVI11", "");
-  // SCI0
-  LongRegister(0x00000320, "ERI0", "");
-  LongRegister(0x00000324, "RXI0", "");
-  LongRegister(0x00000328, "TXI0", "");
-  LongRegister(0x0000032C, "TEI0", "");
-  // SCI1
-  LongRegister(0x00000330, "ERI1", "");
-  LongRegister(0x00000334, "RXI1", "");
-  LongRegister(0x00000338, "TXI1", "");
-  LongRegister(0x0000033C, "TEI1", "");
-  // SCI2
-  LongRegister(0x00000340, "ERI2", "");
-  LongRegister(0x00000344, "RXI2", "");
-  LongRegister(0x00000348, "TXI2", "");
-  LongRegister(0x0000034C, "TEI2", "");
-  // SCI3
-  LongRegister(0x00000350, "ERI3", "");
-  LongRegister(0x00000354, "RXI3", "");
-  LongRegister(0x00000358, "TXI3", "");
-  LongRegister(0x0000035C, "TEI3", "");
-  // SCI4
-  LongRegister(0x00000360, "ERI4", "");
-  LongRegister(0x00000364, "RXI4", "");
-  LongRegister(0x00000368, "TXI4", "");
-  LongRegister(0x0000036C, "TEI4", "");
-  // HCAN
-  LongRegister(0x00000370, "ERS", "");
-  LongRegister(0x00000374, "OVR", "");
-  LongRegister(0x00000378, "RM", "");
-  LongRegister(0x0000037C, "SLE", "");
 
 
   // User Break Controller (UBC)
@@ -843,25 +716,6 @@ static SH7052RegisterNames() {
 
   // Advanced Pulse Controller (APC)
   WordRegister(0xFFFFF700, "POPCR", "Pulse output port control register");
-  id = AddEnum(-1, "APCPINS", 0x2260000);
-  SetEnumBf(id, 1);
-  AddConstEx(id, "PULS0SOE", 0x01, 0x01);
-  AddConstEx(id, "PULS1SOE", 0x02, 0x02);
-  AddConstEx(id, "PULS2SOE", 0x04, 0x04);
-  AddConstEx(id, "PULS3SOE", 0x08, 0x08);
-  AddConstEx(id, "PULS4SOE", 0x10, 0x10);
-  AddConstEx(id, "PULS5SOE", 0x20, 0x20);
-  AddConstEx(id, "PULS6SOE", 0x40, 0x40);
-  AddConstEx(id, "PULS7SOE", 0x80, 0x80);
-
-  AddConstEx(id, "PULS0ROE", 0x01, 0x100);
-  AddConstEx(id, "PULS1ROE", 0x02, 0x200);
-  AddConstEx(id, "PULS2ROE", 0x04, 0x400);
-  AddConstEx(id, "PULS3ROE", 0x08, 0x800);
-  AddConstEx(id, "PULS4ROE", 0x10, 0x1000);
-  AddConstEx(id, "PULS5ROE", 0x20, 0x2000);
-  AddConstEx(id, "PULS6ROE", 0x40, 0x4000);
-  AddConstEx(id, "PULS7ROE", 0x80, 0x8000);
 
 
   // Watchdog Timer (WDT)
@@ -944,38 +798,38 @@ static SH7052RegisterNames() {
   WordRegister(0xFFFFE41C, "LAFML", "Local acceptance filter mask L");
   WordRegister(0xFFFFE41E, "LAFMH", "Local acceptance filter mask H");
 
-  RegisterArray(WordRegister(0xFFFFE420, "MC0", "Message control 0"), 4);
-  RegisterArray(WordRegister(0xFFFFE428, "MC1", "Message control 1"), 4);
-  RegisterArray(WordRegister(0xFFFFE430, "MC2", "Message control 2"), 4);
-  RegisterArray(WordRegister(0xFFFFE438, "MC3", "Message control 3"), 4);
-  RegisterArray(WordRegister(0xFFFFE440, "MC4", "Message control 4"), 4);
-  RegisterArray(WordRegister(0xFFFFE448, "MC5", "Message control 5"), 4);
-  RegisterArray(WordRegister(0xFFFFE450, "MC6", "Message control 6"), 4);
-  RegisterArray(WordRegister(0xFFFFE458, "MC7", "Message control 7"), 4);
-  RegisterArray(WordRegister(0xFFFFE460, "MC8", "Message control 8"), 4);
-  RegisterArray(WordRegister(0xFFFFE468, "MC9", "Message control 9"), 4);
-  RegisterArray(WordRegister(0xFFFFE470, "MC10", "Message control 10"), 4);
-  RegisterArray(WordRegister(0xFFFFE478, "MC11", "Message control 11"), 4);
-  RegisterArray(WordRegister(0xFFFFE480, "MC12", "Message control 12"), 4);
-  RegisterArray(WordRegister(0xFFFFE488, "MC13", "Message control 13"), 4);
-  RegisterArray(WordRegister(0xFFFFE490, "MC14", "Message control 14"), 4);
-  RegisterArray(WordRegister(0xFFFFE498, "MC15", "Message control 15"), 4);
-  RegisterArray(WordRegister(0xFFFFE4B0, "MD0", "Message data 0"), 4);
-  RegisterArray(WordRegister(0xFFFFE4B8, "MD1", "Message data 1"), 4);
-  RegisterArray(WordRegister(0xFFFFE4C0, "MD2", "Message data 2"), 4);
-  RegisterArray(WordRegister(0xFFFFE4C8, "MD3", "Message data 3"), 4);
-  RegisterArray(WordRegister(0xFFFFE4D0, "MD4", "Message data 4"), 4);
-  RegisterArray(WordRegister(0xFFFFE4D8, "MD5", "Message data 5"), 4);
-  RegisterArray(WordRegister(0xFFFFE4E0, "MD6", "Message data 6"), 4);
-  RegisterArray(WordRegister(0xFFFFE4E8, "MD7", "Message data 7"), 4);
-  RegisterArray(WordRegister(0xFFFFE4F0, "MD8", "Message data 8"), 4);
-  RegisterArray(WordRegister(0xFFFFE4F8, "MD9", "Message data 9"), 4);
-  RegisterArray(WordRegister(0xFFFFE500, "MD10", "Message data 10"), 4);
-  RegisterArray(WordRegister(0xFFFFE508, "MD11", "Message data 11"), 4);
-  RegisterArray(WordRegister(0xFFFFE510, "MD12", "Message data 12"), 4);
-  RegisterArray(WordRegister(0xFFFFE518, "MD13", "Message data 13"), 4);
-  RegisterArray(WordRegister(0xFFFFE520, "MD14", "Message data 14"), 4);
-  RegisterArray(WordRegister(0xFFFFE528, "MD15", "Message data 15"), 4);
+  RegisterArray(ByteRegister(0xFFFFE420, "MC0", "Message control 0"), 8);
+  RegisterArray(ByteRegister(0xFFFFE428, "MC1", "Message control 1"), 8);
+  RegisterArray(ByteRegister(0xFFFFE430, "MC2", "Message control 2"), 8);
+  RegisterArray(ByteRegister(0xFFFFE438, "MC3", "Message control 3"), 8);
+  RegisterArray(ByteRegister(0xFFFFE440, "MC4", "Message control 4"), 8);
+  RegisterArray(ByteRegister(0xFFFFE448, "MC5", "Message control 5"), 8);
+  RegisterArray(ByteRegister(0xFFFFE450, "MC6", "Message control 6"), 8);
+  RegisterArray(ByteRegister(0xFFFFE458, "MC7", "Message control 7"), 8);
+  RegisterArray(ByteRegister(0xFFFFE460, "MC8", "Message control 8"), 8);
+  RegisterArray(ByteRegister(0xFFFFE468, "MC9", "Message control 9"), 8);
+  RegisterArray(ByteRegister(0xFFFFE470, "MC10", "Message control 10"), 8);
+  RegisterArray(ByteRegister(0xFFFFE478, "MC11", "Message control 11"), 8);
+  RegisterArray(ByteRegister(0xFFFFE480, "MC12", "Message control 12"), 8);
+  RegisterArray(ByteRegister(0xFFFFE488, "MC13", "Message control 13"), 8);
+  RegisterArray(ByteRegister(0xFFFFE490, "MC14", "Message control 14"), 8);
+  RegisterArray(ByteRegister(0xFFFFE498, "MC15", "Message control 15"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4B0, "MD0", "Message data 0"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4B8, "MD1", "Message data 1"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4C0, "MD2", "Message data 2"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4C8, "MD3", "Message data 3"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4D0, "MD4", "Message data 4"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4D8, "MD5", "Message data 5"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4E0, "MD6", "Message data 6"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4E8, "MD7", "Message data 7"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4F0, "MD8", "Message data 8"), 8);
+  RegisterArray(ByteRegister(0xFFFFE4F8, "MD9", "Message data 9"), 8);
+  RegisterArray(ByteRegister(0xFFFFE500, "MD10", "Message data 10"), 8);
+  RegisterArray(ByteRegister(0xFFFFE508, "MD11", "Message data 11"), 8);
+  RegisterArray(ByteRegister(0xFFFFE510, "MD12", "Message data 12"), 8);
+  RegisterArray(ByteRegister(0xFFFFE518, "MD13", "Message data 13"), 8);
+  RegisterArray(ByteRegister(0xFFFFE520, "MD14", "Message data 14"), 8);
+  RegisterArray(ByteRegister(0xFFFFE528, "MD15", "Message data 15"), 8);
 
 
   // A/D Converter
@@ -1115,14 +969,18 @@ static Fixup_VT_M32R(segoffset, romstart, increment) {
 }
 
 
-static AddVTEntry(ea, name) {
-  auto j, errcode;
+static AddVTEntry(ea, name, funcname) {
+  auto j;
   MakeDword(ea);
   OpOff(ea, 0, 0);
-  MakeNameEx(ea, "e" + name, SN_NOLIST);
+  if (!HasName(ea))
+    MakeNameEx(ea, "e" + name, SN_NOLIST);
   j = Dword(ea);
-  errcode = AddEntryPoint(j, j, "f" + name, 1);
-  MakeCode(j);
+  if (funcname != "" && (GetFunctionName(j) == "" || strstr(GetFunctionName(j), "sub_") == 0)) {
+    MakeName(j, funcname);
+    //AddEntryPoint(j, j, funcname, 1);
+  }
+  MakeFunction(j, BADADDR);
   AutoMark(j, AU_PROC);
 }
 
@@ -1134,28 +992,161 @@ static Fixup_VT(segoffset, romstart) {
   for (i = (segoffset + IVT_START); i < (segoffset + romstart); i = i + 4) {
     MakeDword(i);
     OpOff(i, 0, 0);
+    // These are stack pointers, not code
+    if (i == 0x04 || i == 0x0C)
+      continue;
     j = Dword(i);
     errcode = AddEntryPoint(j, j, "", 1);
     MakeCode(j);
     AutoMark(j, AU_PROC);
   }
 
-  // Define known specific VT entries
-  AddVTEntry(0x00000000, "PowerOn");
-  AddVTEntry(0x00000008, "Reset");
-  AddVTEntry(0x00000010, "GeneralIllegal");
-  AddVTEntry(0x00000018, "SlotIllegal");
-  AddVTEntry(0x00000024, "CPUAddrErr");
-  AddVTEntry(0x00000028, "DMACAddrErr");
-  AddVTEntry(0x0000002C, "NMI");
-  AddVTEntry(0x00000030, "UserBreak");
-  for (i = 32; i <= 63; i++) {
-    AddVTEntry(0x00000080 + ((i - 32) * 4), form("Trap%d", i - 32));
+  // Define known VT entries
+  AddVTEntry(0x00000000, "v_power_on_pc", "init");
+  AddVTEntry(0x00000004, "v_power_on_sp", "stack");
+  AddVTEntry(0x00000008, "v_reset_pc", "reset_pc");
+  AddVTEntry(0x0000000C, "v_reset_sp", "");
+  AddVTEntry(0x00000010, "v_gen_ill_inst", "reset");
+  AddVTEntry(0x00000018, "v_slot_ill_inst", "slot_ill_inst");
+  AddVTEntry(0x00000024, "v_cpu_addr_err", "cpu_addr_err");
+  AddVTEntry(0x00000028, "v_dmac_addr_err", "dmac_addr_err");
+  AddVTEntry(0x0000002C, "NMI", "nmi");
+  AddVTEntry(0x00000030, "UBC", "userbreak");
+  AddVTEntry(0x00000080, "TRAP0", "trap");
+  for (i = 33; i <= 63; i++) {
+    AddVTEntry(0x00000080 + ((i - 32) * 4), form("TRAP%d", i - 32), "");
   }
-  AddVTEntry(0x00000100, "IRQ0");
-  AddVTEntry(0x00000104, "IRQ1");
-  AddVTEntry(0x00000108, "IRQ2");
-  AddVTEntry(0x0000010C, "IRQ3");
+  AddVTEntry(0x00000100, "IRQ0", "irq0");
+  AddVTEntry(0x00000104, "IRQ1", "irq1");
+  AddVTEntry(0x00000108, "IRQ2", "irq2");
+  AddVTEntry(0x0000010C, "IRQ3", "irq3");
+  AddVTEntry(0x00000120, "DMAC0", "dmac0");
+  AddVTEntry(0x00000128, "DMAC1", "dmac1");
+  AddVTEntry(0x00000130, "DMAC2", "dmac2");
+  AddVTEntry(0x00000138, "DMAC3", "dmac3");
+  AddVTEntry(0x000002F0, "CMTI0", "cmti0");
+  AddVTEntry(0x000002F8, "ADI0", "adi0");
+  AddVTEntry(0x00000300, "CMTI1", "cmti1");
+  AddVTEntry(0x00000308, "ADI1", "adi1");
+  AddVTEntry(0x00000380, "ITI", "wdt_iti");
+  // ATU0
+  AddVTEntry(0x00000140, "ITV1", "atu0_itv1");
+  AddVTEntry(0x00000150, "ICI0A", "atu0_ici0a");
+  AddVTEntry(0x00000158, "ICI0B", "atu0_ici0b");
+  AddVTEntry(0x00000160, "ICI0C", "atu0_ici0c");
+  AddVTEntry(0x00000168, "ICI0D", "atu0_ici0d");
+  AddVTEntry(0x00000170, "OVI0", "atu0_ovi0");
+  // ATU1
+  AddVTEntry(0x00000180, "IMI1A", "atu1_imi1a");
+  AddVTEntry(0x00000184, "IMI1B", "atu1_imi1b");
+  AddVTEntry(0x00000188, "IMI1C", "atu1_imi1c");
+  AddVTEntry(0x0000018C, "IMI1D", "atu1_imi1d");
+  AddVTEntry(0x00000190, "IMI1E", "atu1_imi1e");
+  AddVTEntry(0x00000194, "IMI1F", "atu1_imi1f");
+  AddVTEntry(0x00000198, "IMI1G", "atu1_imi1g");
+  AddVTEntry(0x0000019C, "IMI1H", "atu1_imi1h");
+  AddVTEntry(0x000001A0, "OVI1A", "atu1_ovi1a");
+  // ATU2
+  AddVTEntry(0x000001B0, "IMI2A", "atu2_imi2a");
+  AddVTEntry(0x000001B4, "IMI2B", "atu2_imi2b");
+  AddVTEntry(0x000001B8, "IMI2C", "atu2_imi2c");
+  AddVTEntry(0x000001BC, "IMI2D", "atu2_imi2d");
+  AddVTEntry(0x000001C0, "IMI2E", "atu2_imi2e");
+  AddVTEntry(0x000001C4, "IMI2F", "atu2_imi2f");
+  AddVTEntry(0x000001C8, "IMI2G", "atu2_imi2g");
+  AddVTEntry(0x000001CC, "IMI2H", "atu2_imi2h");
+  AddVTEntry(0x000001D0, "OVI2A", "atu2_ovi2a");
+  // ATU3
+  AddVTEntry(0x000001E0, "IMI3A", "atu3_imi3a");
+  AddVTEntry(0x000001E4, "IMI3B", "atu3_imi3b");
+  AddVTEntry(0x000001E8, "IMI3C", "atu3_imi3c");
+  AddVTEntry(0x000001EC, "IMI3D", "atu3_imi3d");
+  AddVTEntry(0x000001F0, "OVI3", "atu3_ovi3");
+  // ATU4
+  AddVTEntry(0x00000200, "IMI4A", "atu4_imi4a");
+  AddVTEntry(0x00000204, "IMI4B", "atu4_imi4b");
+  AddVTEntry(0x00000208, "IMI4C", "atu4_imi4c");
+  AddVTEntry(0x0000020C, "IMI4D", "atu4_imi4d");
+  AddVTEntry(0x00000210, "OVI4", "atu4_ovi4");
+  // ATU5
+  AddVTEntry(0x00000220, "IMI5A", "atu5_imi5a");
+  AddVTEntry(0x00000224, "IMI5B", "atu5_imi5b");
+  AddVTEntry(0x00000228, "IMI5C", "atu5_imi5c");
+  AddVTEntry(0x0000022C, "IMI5D", "atu5_imi5d");
+  AddVTEntry(0x00000230, "OVI5", "atu5_ovi5");
+  // ATU6
+  AddVTEntry(0x00000240, "CMI6A", "atu6_cmi6a");
+  AddVTEntry(0x00000244, "CMI6B", "atu6_cmi6b");
+  AddVTEntry(0x00000248, "CMI6C", "atu6_cmi6c");
+  AddVTEntry(0x0000024C, "CMI6D", "atu6_cmi6d");
+  // ATU7
+  AddVTEntry(0x00000250, "CMI7A", "atu7_cmi7a");
+  AddVTEntry(0x00000254, "CMI7B", "atu7_cmi7b");
+  AddVTEntry(0x00000258, "CMI7C", "atu7_cmi7c");
+  AddVTEntry(0x0000025C, "CMI7D", "atu7_cmi7d");
+  // ATU8
+  AddVTEntry(0x00000260, "OSI8A", "atu8_osi8a");
+  AddVTEntry(0x00000264, "OSI8B", "atu8_osi8b");
+  AddVTEntry(0x00000268, "OSI8C", "atu8_osi8c");
+  AddVTEntry(0x0000026C, "OSI8D", "atu8_osi8d");
+  AddVTEntry(0x00000270, "OSI8E", "atu8_osi8e");
+  AddVTEntry(0x00000274, "OSI8F", "atu8_osi8f");
+  AddVTEntry(0x00000278, "OSI8G", "atu8_osi8g");
+  AddVTEntry(0x0000027C, "OSI8H", "atu8_osi8h");
+  AddVTEntry(0x00000280, "OSI8I", "atu8_osi8i");
+  AddVTEntry(0x00000284, "OSI8J", "atu8_osi8j");
+  AddVTEntry(0x00000288, "OSI8K", "atu8_osi8k");
+  AddVTEntry(0x0000028C, "OSI8L", "atu8_osi8l");
+  AddVTEntry(0x00000290, "OSI8M", "atu8_osi8m");
+  AddVTEntry(0x00000294, "OSI8N", "atu8_osi8n");
+  AddVTEntry(0x00000298, "OSI8O", "atu8_osi8o");
+  AddVTEntry(0x0000029C, "OSI8P", "atu8_osi8p");
+  // ATU9
+  AddVTEntry(0x000002A0, "CMI9A", "atu9_cmi9a");
+  AddVTEntry(0x000002A4, "CMI9B", "atu9_cmi9b");
+  AddVTEntry(0x000002A8, "CMI9C", "atu9_cmi9c");
+  AddVTEntry(0x000002AC, "CMI9D", "atu9_cmi9d");
+  AddVTEntry(0x000002B0, "CMI9E", "atu9_cmi9e");
+  AddVTEntry(0x000002B8, "CMI9F", "atu9_cmi9f");
+  // ATU10
+  AddVTEntry(0x000002C0, "CMI10A", "atu10_cmi10a");
+  AddVTEntry(0x000002C8, "CMI10B", "atu10_cmi10b");
+  AddVTEntry(0x000002D0, "ICI10A", "atu10_ici10a");
+  // ATU11
+  AddVTEntry(0x000002E0, "IMI11A", "atu11_imi11a");
+  AddVTEntry(0x000002E8, "IMI11B", "atu11_imi11b");
+  AddVTEntry(0x000002EC, "OVI11", "atu11_ovi11");
+  // SCI0
+  AddVTEntry(0x00000320, "ERI0", "sci0_eri0");
+  AddVTEntry(0x00000324, "RXI0", "sci0_rxi0");
+  AddVTEntry(0x00000328, "TXI0", "sci0_txi0");
+  AddVTEntry(0x0000032C, "TEI0", "sci0_tei0");
+  // SCI1
+  AddVTEntry(0x00000330, "ERI1", "sci1_eri1");
+  AddVTEntry(0x00000334, "RXI1", "sci1_rxi1");
+  AddVTEntry(0x00000338, "TXI1", "sci1_txi1");
+  AddVTEntry(0x0000033C, "TEI1", "sci1_tei1");
+  // SCI2
+  AddVTEntry(0x00000340, "ERI2", "sci2_eri2");
+  AddVTEntry(0x00000344, "RXI2", "sci2_rxi2");
+  AddVTEntry(0x00000348, "TXI2", "sci2_txi2");
+  AddVTEntry(0x0000034C, "TEI2", "sci2_tei2");
+  // SCI3
+  AddVTEntry(0x00000350, "ERI3", "sci3_eri3");
+  AddVTEntry(0x00000354, "RXI3", "sci3_rxi3");
+  AddVTEntry(0x00000358, "TXI3", "sci3_txi3");
+  AddVTEntry(0x0000035C, "TEI3", "sci3_tei3");
+  // SCI4
+  AddVTEntry(0x00000360, "ERI4", "sci4_eri4");
+  AddVTEntry(0x00000364, "RXI4", "sci4_rxi4");
+  AddVTEntry(0x00000368, "TXI4", "sci4_txi4");
+  AddVTEntry(0x0000036C, "TEI4", "sci4_tei4");
+  // HCAN
+  AddVTEntry(0x00000370, "ERS", "hcan_ers");
+  AddVTEntry(0x00000374, "OVR", "hcan_ovr");
+  AddVTEntry(0x00000378, "RM", "hcan_rm");
+  AddVTEntry(0x0000037C, "SLE", "hcan_sle");
+
   Message("VT Entry Point Fixups Performed\n", j);
 }
 
@@ -1323,6 +1314,286 @@ static FixConstants(void) {
   Message("done\n");
 }
 
+static CreateStructures() {
+  auto id, mem;
+  if (GetStrucIdByName("map_3d_byte") < 0) {
+    id = AddStrucEx(-1, "map_3d_byte", 0);
+    AddStrucMember(id, "dimensions", -1, FF_BYTE | FF_0NUMD, 0, 1);
+    AddStrucMember(id, "adder", -1, FF_BYTE | FF_0NUMD, 0, 1);
+    AddStrucMember(id, "index_x", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "index_y", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "nrows", -1, FF_BYTE | FF_0NUMD, 0, 1);
+    AddStrucMember(id, "data", -1, FF_BYTE | FF_0NUMD, 0, 0);
+  }
+  if (GetStrucIdByName("map_3d_word") < 0) {
+    id = AddStrucEx(-1, "map_3d_word", 0);
+    AddStrucMember(id, "dimensions", -1, FF_WORD | FF_0NUMD, 0, 2);
+    AddStrucMember(id, "adder", -1, FF_WORD | FF_0NUMD, 0, 2);
+    AddStrucMember(id, "index_x", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "index_y", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "nrows", -1, FF_WORD | FF_0NUMD, 0, 2);
+    AddStrucMember(id, "data", -1, FF_BYTE | FF_0NUMD, 0, 0);
+  }
+  if (GetStrucIdByName("map_2d_byte") < 0) {
+    id = AddStrucEx(-1, "map_2d_byte", 0);
+    AddStrucMember(id, "dimensions", -1, FF_BYTE | FF_0NUMD, 0, 1);
+    AddStrucMember(id, "adder", -1, FF_BYTE | FF_0NUMD, 0, 1);
+    AddStrucMember(id, "index_x", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "data", -1, FF_BYTE | FF_0NUMD, 0, 0);
+  }
+  if (GetStrucIdByName("map_2d_word") < 0) {
+    id = AddStrucEx(-1, "map_2d_word", 0);
+    AddStrucMember(id, "dimensions", -1, FF_WORD | FF_0NUMD, 0, 2);
+    AddStrucMember(id, "adder", -1, FF_WORD | FF_0NUMD, 0, 2);
+    AddStrucMember(id, "index_x", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "data", -1, FF_BYTE | FF_0NUMD, 0, 0);
+  }
+  if (GetStrucIdByName("axis_table") < 0) {
+    id = AddStrucEx(-1, "axis_table", 0);
+    AddStrucMember(id, "output", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "input", -1, FF_DWRD, 0, 4);
+    AddStrucMember(id, "length", -1, FF_WORD | FF_0NUMD, 0, 2);
+    AddStrucMember(id, "data", -1, FF_WORD | FF_0NUMD, 0, 0);
+  }
+}
+
+static LabelKnownFuncs() {
+  MakeName(BYTE_TABLE_LOOKUP_FUNC, "table_lookup_byte");
+  MakeName(WORD_TABLE_LOOKUP_FUNC, "table_lookup_word");
+  MakeName(AXIS_LOOKUP_FUNC, "axis_lookup");
+}
+
+
+static LocateAxisTables() {
+  auto i, ea, code, table, counter, found;
+
+  Message("Locating axis tables... ");
+  counter = 1;
+  for (i = RfirstB(AXIS_LOOKUP_FUNC); i > 0; i = RnextB(AXIS_LOOKUP_FUNC, i)) {
+    if (i == BADADDR || i == 0)
+      continue;
+    found = 0;
+    // Look back at most 16 instructions for r4 being set
+    for (ea = i; ea > 0 && ea > (i - 32); ea = ea - 2) {
+      code = GetDisasm(ea);
+      if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+        for (table = Dfirst(ea); table != BADADDR; table = Dnext(ea, table)) {
+          if (!(Dword(table) & 0xFFFF0000) || !(Dword(table + 4) & 0xFFFF0000) || Word(table + 8) == 0)
+            continue;
+          // First 2 dwords of the table are pointers to RAM, and it has a length, it's probably valid
+          if (!HasName(table))
+            MakeName(table, form("unknown_axis_%d", counter));
+          MakeComm(table, "lookup result pointer");
+          MakeDword(table);
+          MakeDword(table + 4);
+          MakeComm(table + 4, "lookup input pointer");
+          MakeWord(table + 8);
+          MakeComm(table + 8, "axis length");
+          if (Word(table + 8) > 0) {
+            MakeWord(table + 10);
+            MakeArray(table + 10, Word(table + 8));
+            MakeComm(table + 8, "axis data");
+            SetArrayFormat(table + 11, 0, Word(table + 8), -1);
+          }
+          OpDecimal(table + 8, 0);
+          OpDecimal(table + 10, 0);
+          counter++;
+          found = 1;
+          break;
+        }
+        if (found)
+          break;
+      }
+    }
+    if (!found)
+      Message("Couldn't find axis table searching back from %x\n", i);
+  }
+  Message("Done\n");
+}
+
+static LocateMapsHelper(base) {
+  auto i, ea, ea2, ea3, code, table, counter, found, xaxisloc, yaxisloc, mapheight, mapwidth, ref, dimensions, datastart;
+  Message("Locating maps from %x... \n", base);
+  counter = 1;
+  for (i = RfirstB(base); i > 0; i = RnextB(base, i)) {
+    if (i == BADADDR || i == 0)
+      continue;
+    found = 0;
+    // Look back at most 16 instructions for r4 being set
+    for (ea = i; ea > 0 && ea > (i - 32); ea = ea - 2) {
+      code = GetDisasm(ea);
+      if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+        for (table = Dfirst(ea); table != BADADDR; table = Dnext(ea, table)) {
+          if (base == BYTE_TABLE_LOOKUP_FUNC)
+            dimensions = Byte(table);
+          else
+            dimensions = Word(table);
+
+          if (dimensions == 3) {
+            if (base == BYTE_TABLE_LOOKUP_FUNC) {
+              if (!HasName(table))
+                MakeName(table, form("unknown_3d_byte_table_%d", counter));
+              MakeByte(table);
+              MakeComm(table, "number of dimensions");
+              OpDecimal(table, 0);
+              MakeByte(table + 1);
+              MakeComm(table + 1, "adder");
+              OpDecimal(table + 1, 0);
+              MakeDword(table + 2);
+              MakeComm(table + 2, "x axis position");
+              MakeDword(table + 6);
+              MakeComm(table + 6, "y axis position");
+              MakeByte(table + 10);
+              MakeComm(table + 10, "num columns");
+              OpDecimal(table + 10, 0);
+              MakeByte(table + 11);
+              OpDecimal(table + 11, 0);
+              MakeComm(table + 11, "map data");
+              yaxisloc = Dword(table + 2);
+              xaxisloc = Dword(table + 6);
+              datastart = table + 11;
+            } else {
+              if (!HasName(table))
+                MakeName(table, form("unknown_3d_word_table_%d", counter));
+              MakeWord(table);
+              MakeComm(table, "number of dimensions");
+              OpDecimal(table, 0);
+              MakeWord(table + 2);
+              MakeComm(table + 2, "adder");
+              OpDecimal(table + 2, 0);
+              MakeDword(table + 4);
+              MakeComm(table + 4, "x axis position");
+              MakeDword(table + 8);
+              MakeComm(table + 8, "y axis position");
+              MakeWord(table + 12);
+              MakeComm(table + 12, "num columns");
+              OpDecimal(table + 12, 0);
+              MakeWord(table + 14);
+              OpDecimal(table + 14, 0);
+              MakeComm(table + 14, "map data");
+              yaxisloc = Dword(table + 4);
+              xaxisloc = Dword(table + 8);
+              datastart = table + 14;
+            }
+
+            // Search back from the map lookup call to find the axis lookup
+            // calls. Multiply the size of both axes to work out how many items are
+            // in this map.
+            mapheight = 0;
+            mapwidth = 0;
+            for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
+              code = GetDisasm(ea2);
+              if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
+                for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
+                  code = GetDisasm(ea3);
+                  if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+                    // This is an axis table, look for the map's x or y input in the output of this axis table
+                    for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
+                      if (!mapheight && Dword(ref) == xaxisloc)
+                        mapheight = Word(ref + 8);
+                      if (!mapwidth && Dword(ref) == yaxisloc)
+                        mapwidth = Word(ref + 8);
+                    }
+                  }
+                  if (mapheight && mapwidth)
+                    break;
+                }
+              }
+            }
+            if (!mapheight || !mapwidth) {
+              Message("Couldn't detect size for 3d map starting at %x\n", table);
+              mapheight = 1;
+              mapwidth = 1;
+            } else if (mapwidth != Byte(table + 10)) {
+              Message("Detected axis lookup for 3d map starting at %x found mismatching width\n", table);
+              mapheight = 1;
+              mapwidth = 1;
+            }
+
+            MakeArray(datastart, mapheight * mapwidth);
+            SetArrayFormat(datastart, 0, mapwidth, 0);
+          } else if (dimensions == 2) {
+            if (base == BYTE_TABLE_LOOKUP_FUNC) {
+              if (!HasName(table))
+                MakeName(table, form("unknown_2d_byte_table_%d", counter));
+              MakeByte(table);
+              MakeComm(table, "number of dimensions");
+              OpDecimal(table, 0);
+              MakeByte(table + 1);
+              MakeComm(table + 1, "adder");
+              OpDecimal(table + 1, 0);
+              MakeDword(table + 2);
+              MakeComm(table + 2, "input position");
+              MakeByte(table + 6);
+              OpDecimal(table + 6, 0);
+              MakeComm(table + 6, "map data");
+              xaxisloc = Dword(table + 2);
+              datastart = table + 6;
+            } else {
+              if (!HasName(table))
+                MakeName(table, form("unknown_2d_word_table_%d", counter));
+              MakeWord(table);
+              MakeComm(table, "number of dimensions");
+              OpDecimal(table, 0);
+              MakeWord(table + 2);
+              MakeComm(table + 2, "adder");
+              OpDecimal(table + 2, 0);
+              MakeDword(table + 4);
+              MakeComm(table + 4, "input position");
+              MakeWord(table + 8);
+              OpDecimal(table + 8, 0);
+              MakeComm(table + 8, "map data");
+              xaxisloc = Dword(table + 4);
+              datastart = table + 8;
+            }
+
+            // Search back from the map lookup call to find the axis lookup
+            // call.
+            mapwidth = 0;
+            for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
+              code = GetDisasm(ea2);
+              if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
+                for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
+                  code = GetDisasm(ea3);
+                  if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+                    // This is an axis table, look for the map's x or y input in the output of this axis table
+                    for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
+                      if (!mapwidth && Dword(ref) == xaxisloc)
+                        mapwidth = Word(ref + 8);
+                    }
+                  }
+                  if (mapwidth)
+                    break;
+                }
+              }
+            }
+            if (!mapwidth) {
+              Message("Couldn't detect size for 2d map starting at %x (code at %x)\n", table, i);
+              mapwidth = 1;
+            }
+
+            MakeArray(datastart, mapwidth);
+            SetArrayFormat(datastart, 0, mapwidth, -1);
+          }
+          counter++;
+          found = 1;
+          break;
+        }
+        if (found)
+          break;
+      }
+    }
+    //if (!found)
+    //  Message("Couldn't find axis table searching back from %x\n", i);
+  }
+  Message("Done\n");
+}
+
+static LocateMaps() {
+  LocateMapsHelper(BYTE_TABLE_LOOKUP_FUNC);
+  LocateMapsHelper(WORD_TABLE_LOOKUP_FUNC);
+}
+
 //-----------------------------------------------------------------------
 // Get name of the current processor
 
@@ -1341,7 +1612,13 @@ static get_processor(void) {
 
 
 static main() {
-  auto end, ea_rebase, processor, user_message;
+  auto processor;
+
+  Indent(22);
+  CmtIndent(70);
+  TailDepth(0x10);
+  SetShortPrm(INF_MARGIN, 120);
+
   processor = get_processor();
   if (processor == "h8500")
     FixH8500();
