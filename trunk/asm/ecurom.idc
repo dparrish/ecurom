@@ -338,9 +338,6 @@ static H8RegisterNames() {
   MakeName(0xFFBF, "MULT_(MMR)");
 }
 
-static SegmentsSH7052F() {
-}
-
 static SegmentsSA4B() {
   Message("Creating segments... ");
   AddSeg(0x00000000, 0x00040000, 0x0, 1, saAbs, scPriv);
@@ -400,7 +397,8 @@ static FixSH4B() {
 
 static ByteRegister(ea, name, comment) {
   MakeByte(ea);
-  MakeNameEx(ea, name, SN_NOLIST);
+  if (!HasName(ea))
+    MakeNameEx(ea, name, SN_NOLIST);
   if (comment != "")
     MakeComm(ea, comment);
   return ea;
@@ -408,7 +406,8 @@ static ByteRegister(ea, name, comment) {
 
 static WordRegister(ea, name, comment) {
   MakeWord(ea);
-  MakeNameEx(ea, name, SN_NOLIST);
+  if (!HasName(ea))
+    MakeNameEx(ea, name, SN_NOLIST);
   if (comment != "")
     MakeComm(ea, comment);
   return ea;
@@ -416,7 +415,8 @@ static WordRegister(ea, name, comment) {
 
 static LongRegister(ea, name, comment) {
   MakeDword(ea);
-  MakeNameEx(ea, name, SN_NOLIST);
+  if (!HasName(ea))
+    MakeNameEx(ea, name, SN_NOLIST);
   if (comment != "")
     MakeComm(ea, comment);
   return ea;
@@ -1263,7 +1263,8 @@ static Fix_MUT_Table(void) {
     if (Dword(ea) != 0xFFFFFFFF) {
       MakeDword(ea);
       mutname = form("MUT_%X", i++);
-      MakeName(Dword(ea), mutname);
+      if (!HasName(ea))
+        MakeName(Dword(ea), mutname);
     } else {
       break;
     }
@@ -1358,9 +1359,17 @@ static CreateStructures() {
 }
 
 static LabelKnownFuncs() {
-  MakeName(BYTE_TABLE_LOOKUP_FUNC, "table_lookup_byte");
-  MakeName(WORD_TABLE_LOOKUP_FUNC, "table_lookup_word");
-  MakeName(AXIS_LOOKUP_FUNC, "axis_lookup");
+  if (!HasName(BYTE_TABLE_LOOKUP_FUNC))
+    MakeName(BYTE_TABLE_LOOKUP_FUNC, "table_lookup_byte");
+  SetFunctionFlags(BYTE_TABLE_LOOKUP_FUNC, 0);
+
+  if (!HasName(WORD_TABLE_LOOKUP_FUNC))
+    MakeName(WORD_TABLE_LOOKUP_FUNC, "table_lookup_word");
+  SetFunctionFlags(WORD_TABLE_LOOKUP_FUNC, 0);
+
+  if (!HasName(AXIS_LOOKUP_FUNC))
+    MakeName(AXIS_LOOKUP_FUNC, "axis_lookup");
+  SetFunctionFlags(AXIS_LOOKUP_FUNC, 0);
 }
 
 
@@ -1392,7 +1401,7 @@ static LocateAxisTables() {
           if (Word(table + 8) > 0) {
             MakeWord(table + 10);
             MakeArray(table + 10, Word(table + 8));
-            MakeComm(table + 8, "axis data");
+            MakeComm(table + 10, "axis data");
             SetArrayFormat(table + 11, 0, Word(table + 8), -1);
           }
           OpDecimal(table + 8, 0);
@@ -1422,169 +1431,189 @@ static LocateMapsHelper(base) {
     // Look back at most 16 instructions for r4 being set
     for (ea = i; ea > 0 && ea > (i - 32); ea = ea - 2) {
       code = GetDisasm(ea);
-      if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
-        for (table = Dfirst(ea); table != BADADDR; table = Dnext(ea, table)) {
-          if (base == BYTE_TABLE_LOOKUP_FUNC)
-            dimensions = Byte(table);
-          else
-            dimensions = Word(table);
+      if (strstr(code, "mov.l ") == -1 || strstr(code, ", r4") == -1)
+        continue;
+      for (table = Dfirst(ea); table != BADADDR; table = Dnext(ea, table)) {
+        if (base == BYTE_TABLE_LOOKUP_FUNC)
+          dimensions = Byte(table);
+        else
+          dimensions = Word(table);
 
-          if (dimensions == 3) {
-            if (base == BYTE_TABLE_LOOKUP_FUNC) {
-              if (!HasName(table))
-                MakeName(table, form("unknown_3d_byte_table_%d", counter));
-              MakeByte(table);
-              MakeComm(table, "number of dimensions");
-              OpDecimal(table, 0);
-              MakeByte(table + 1);
-              MakeComm(table + 1, "adder");
-              OpDecimal(table + 1, 0);
-              MakeDword(table + 2);
-              MakeComm(table + 2, "x axis position");
-              MakeDword(table + 6);
-              MakeComm(table + 6, "y axis position");
-              MakeByte(table + 10);
-              MakeComm(table + 10, "num columns");
-              OpDecimal(table + 10, 0);
-              MakeByte(table + 11);
-              OpDecimal(table + 11, 0);
-              MakeComm(table + 11, "map data");
-              yaxisloc = Dword(table + 2);
-              xaxisloc = Dword(table + 6);
-              datastart = table + 11;
-            } else {
-              if (!HasName(table))
-                MakeName(table, form("unknown_3d_word_table_%d", counter));
-              MakeWord(table);
-              MakeComm(table, "number of dimensions");
-              OpDecimal(table, 0);
-              MakeWord(table + 2);
-              MakeComm(table + 2, "adder");
-              OpDecimal(table + 2, 0);
-              MakeDword(table + 4);
-              MakeComm(table + 4, "x axis position");
-              MakeDword(table + 8);
-              MakeComm(table + 8, "y axis position");
-              MakeWord(table + 12);
-              MakeComm(table + 12, "num columns");
-              OpDecimal(table + 12, 0);
-              MakeWord(table + 14);
-              OpDecimal(table + 14, 0);
-              MakeComm(table + 14, "map data");
-              yaxisloc = Dword(table + 4);
-              xaxisloc = Dword(table + 8);
-              datastart = table + 14;
-            }
-
-            // Search back from the map lookup call to find the axis lookup
-            // calls. Multiply the size of both axes to work out how many items are
-            // in this map.
-            mapheight = 0;
-            mapwidth = 0;
-            for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
-              code = GetDisasm(ea2);
-              if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
-                for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
-                  code = GetDisasm(ea3);
-                  if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
-                    // This is an axis table, look for the map's x or y input in the output of this axis table
-                    for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
-                      if (!mapheight && Dword(ref) == xaxisloc)
-                        mapheight = Word(ref + 8);
-                      if (!mapwidth && Dword(ref) == yaxisloc)
-                        mapwidth = Word(ref + 8);
-                    }
-                  }
-                  if (mapheight && mapwidth)
-                    break;
-                }
-              }
-            }
-            if (!mapheight || !mapwidth) {
-              Message("Couldn't detect size for 3d map starting at %x\n", table);
-              mapheight = 1;
-              mapwidth = 1;
-            } else if (mapwidth != Byte(table + 10)) {
-              Message("Detected axis lookup for 3d map starting at %x found mismatching width\n", table);
-              mapheight = 1;
-              mapwidth = 1;
-            }
-
-            MakeArray(datastart, mapheight * mapwidth);
-            SetArrayFormat(datastart, 0, mapwidth, 0);
-          } else if (dimensions == 2) {
-            if (base == BYTE_TABLE_LOOKUP_FUNC) {
-              if (!HasName(table))
-                MakeName(table, form("unknown_2d_byte_table_%d", counter));
-              MakeByte(table);
-              MakeComm(table, "number of dimensions");
-              OpDecimal(table, 0);
-              MakeByte(table + 1);
-              MakeComm(table + 1, "adder");
-              OpDecimal(table + 1, 0);
-              MakeDword(table + 2);
-              MakeComm(table + 2, "input position");
-              MakeByte(table + 6);
-              OpDecimal(table + 6, 0);
-              MakeComm(table + 6, "map data");
-              xaxisloc = Dword(table + 2);
-              datastart = table + 6;
-            } else {
-              if (!HasName(table))
-                MakeName(table, form("unknown_2d_word_table_%d", counter));
-              MakeWord(table);
-              MakeComm(table, "number of dimensions");
-              OpDecimal(table, 0);
-              MakeWord(table + 2);
-              MakeComm(table + 2, "adder");
-              OpDecimal(table + 2, 0);
-              MakeDword(table + 4);
-              MakeComm(table + 4, "input position");
-              MakeWord(table + 8);
-              OpDecimal(table + 8, 0);
-              MakeComm(table + 8, "map data");
-              xaxisloc = Dword(table + 4);
-              datastart = table + 8;
-            }
-
-            // Search back from the map lookup call to find the axis lookup
-            // call.
-            mapwidth = 0;
-            for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
-              code = GetDisasm(ea2);
-              if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
-                for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
-                  code = GetDisasm(ea3);
-                  if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
-                    // This is an axis table, look for the map's x or y input in the output of this axis table
-                    for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
-                      if (!mapwidth && Dword(ref) == xaxisloc)
-                        mapwidth = Word(ref + 8);
-                    }
-                  }
-                  if (mapwidth)
-                    break;
-                }
-              }
-            }
-            if (!mapwidth) {
-              Message("Couldn't detect size for 2d map starting at %x (code at %x)\n", table, i);
-              mapwidth = 1;
-            }
-
-            MakeArray(datastart, mapwidth);
-            SetArrayFormat(datastart, 0, mapwidth, -1);
+        if (dimensions == 3) {
+          if (base == BYTE_TABLE_LOOKUP_FUNC) {
+            if (!HasName(table))
+              MakeName(table, form("unknown_3d_byte_table_%d", counter));
+            MakeByte(table);
+            MakeComm(table, "number of dimensions");
+            OpDecimal(table, 0);
+            MakeByte(table + 1);
+            MakeComm(table + 1, "adder");
+            OpDecimal(table + 1, 0);
+            MakeDword(table + 2);
+            MakeComm(table + 2, "x axis position");
+            MakeDword(table + 6);
+            MakeComm(table + 6, "y axis position");
+            MakeByte(table + 10);
+            MakeComm(table + 10, "num columns");
+            OpDecimal(table + 10, 0);
+            MakeByte(table + 11);
+            OpDecimal(table + 11, 0);
+            MakeComm(table + 11, "map data");
+            yaxisloc = Dword(table + 2);
+            xaxisloc = Dword(table + 6);
+            datastart = table + 11;
+          } else {
+            if (!HasName(table))
+              MakeName(table, form("unknown_3d_word_table_%d", counter));
+            MakeWord(table);
+            MakeComm(table, "number of dimensions");
+            OpDecimal(table, 0);
+            MakeWord(table + 2);
+            MakeComm(table + 2, "adder");
+            OpDecimal(table + 2, 0);
+            MakeDword(table + 4);
+            MakeComm(table + 4, "x axis position");
+            MakeDword(table + 8);
+            MakeComm(table + 8, "y axis position");
+            MakeWord(table + 12);
+            MakeComm(table + 12, "num columns");
+            OpDecimal(table + 12, 0);
+            MakeWord(table + 14);
+            OpDecimal(table + 14, 0);
+            MakeComm(table + 14, "map data");
+            yaxisloc = Dword(table + 4);
+            xaxisloc = Dword(table + 8);
+            datastart = table + 14;
           }
-          counter++;
-          found = 1;
-          break;
+
+          // Search back from the map lookup call to find the axis lookup
+          // calls. Multiply the size of both axes to work out how many items are
+          // in this map.
+          mapheight = 0;
+          mapwidth = 0;
+          for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
+            code = GetDisasm(ea2);
+            if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
+              for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
+                code = GetDisasm(ea3);
+                if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+                  // This is an axis table, look for the map's x or y input in the output of this axis table
+                  for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
+                    if (!mapheight && Dword(ref) == xaxisloc)
+                      mapheight = Word(ref + 8);
+                    if (!mapwidth && Dword(ref) == yaxisloc)
+                      mapwidth = Word(ref + 8);
+                  }
+                }
+                if (mapheight && mapwidth)
+                  break;
+              }
+            }
+          }
+          if (!mapheight || !mapwidth) {
+            Message("Couldn't detect size for 3d map starting at %x\n", table);
+            mapheight = 1;
+            mapwidth = 1;
+          } else if (mapwidth != Byte(table + 10)) {
+            Message("Detected axis lookup for 3d map starting at %x found mismatching width\n", table);
+            mapheight = 1;
+            mapwidth = 1;
+          }
+
+          MakeArray(datastart, mapheight * mapwidth);
+          SetArrayFormat(datastart, 0, mapwidth, 0);
+        } else if (dimensions == 2) {
+          if (base == BYTE_TABLE_LOOKUP_FUNC) {
+            if (!HasName(table))
+              MakeName(table, form("unknown_2d_byte_table_%d", counter));
+            MakeByte(table);
+            MakeComm(table, "number of dimensions");
+            OpDecimal(table, 0);
+            MakeByte(table + 1);
+            MakeComm(table + 1, "adder");
+            OpDecimal(table + 1, 0);
+            MakeDword(table + 2);
+            MakeComm(table + 2, "input position");
+            MakeByte(table + 6);
+            OpDecimal(table + 6, 0);
+            MakeComm(table + 6, "map data");
+            xaxisloc = Dword(table + 2);
+            datastart = table + 6;
+          } else {
+            if (!HasName(table))
+              MakeName(table, form("unknown_2d_word_table_%d", counter));
+            MakeWord(table);
+            MakeComm(table, "number of dimensions");
+            OpDecimal(table, 0);
+            MakeWord(table + 2);
+            MakeComm(table + 2, "adder");
+            OpDecimal(table + 2, 0);
+            MakeDword(table + 4);
+            MakeComm(table + 4, "input position");
+            MakeWord(table + 8);
+            OpDecimal(table + 8, 0);
+            MakeComm(table + 8, "map data");
+            xaxisloc = Dword(table + 4);
+            datastart = table + 8;
+          }
+
+          // Search back from the map lookup call to find the axis lookup
+          // call.
+          mapwidth = 0;
+          for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
+            code = GetDisasm(ea2);
+            if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
+              for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
+                code = GetDisasm(ea3);
+                if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+                  // This is an axis table, look for the map's x or y input in the output of this axis table
+                  for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
+                    if (!mapwidth && Dword(ref) == xaxisloc)
+                      mapwidth = Word(ref + 8);
+                  }
+                }
+                if (mapwidth)
+                  break;
+              }
+            }
+          }
+
+          // Couldn't find the axis by searching through the code, attempt to
+          // find it from references to the input.
+          if (!mapwidth) {
+            auto good;
+            good = 1;
+            for (ref = DfirstB(xaxisloc); ref && ref != BADADDR; ref = DnextB(xaxisloc, ref)) {
+              if (strstr(CommentEx(ref, 0), "lookup result pointer") != -1) {
+                // This is an axis
+                if (Word(ref + 8) == 0)
+                  continue;
+                if (mapwidth && Word(ref + 8) == mapwidth)
+                  continue;
+                if (mapwidth) {
+                  Message("Multiple length axes found referencing %x for map %x\n", xaxisloc, table);
+                  good = 0;
+                  break;
+                }
+                mapwidth = Word(ref + 8);
+              }
+            }
+            if (!good)
+              mapwidth = 0;
+          }
+          if (!mapwidth) {
+            Message("Couldn't detect size for 2d map starting at %x (code at %x)\n", table, i);
+            mapwidth = 1;
+          }
+
+          MakeArray(datastart, mapwidth);
+          SetArrayFormat(datastart, 0, mapwidth, -1);
         }
-        if (found)
-          break;
+        counter++;
+        found = 1;
+        break;
       }
     }
-    //if (!found)
-    //  Message("Couldn't find axis table searching back from %x\n", i);
   }
   Message("Done\n");
 }
