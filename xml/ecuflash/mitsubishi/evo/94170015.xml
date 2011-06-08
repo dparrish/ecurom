@@ -297,4 +297,5 @@
 		<table name="RPM" address="66c2"/>
 	</table>
 
+        <table name="MUT Table" address="38158" />
 </rom>

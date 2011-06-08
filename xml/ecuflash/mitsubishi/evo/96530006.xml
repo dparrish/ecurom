@@ -508,60 +508,7 @@
 
 	<table name="BAUDRATE3_unknown" category="ECU" address="d459" type="1D" level="1" scaling="BAUDRATE"/>
 
-	<table name="MUT" category="MUT" address="36200" type="3D" level="1" scaling="Hex16">
-		<table name="X" type="Static X Axis" elements="32">
-			<data>-</data>
-			<data>0</data>
-			<data>-</data>
-			<data>1</data>
-			<data>-</data>
-			<data>2</data>
-			<data>-</data>
-			<data>3</data>
-			<data>-</data>
-			<data>4</data>
-			<data>-</data>
-			<data>5</data>
-			<data>-</data>
-			<data>6</data>
-			<data>-</data>
-			<data>7</data>
-			<data>-</data>
-			<data>8</data>
-			<data>-</data>
-			<data>9</data>
-			<data>-</data>
-			<data>A</data>
-			<data>-</data>
-			<data>B</data>
-			<data>-</data>
-			<data>C</data>
-			<data>-</data>
-			<data>D</data>
-			<data>-</data>
-			<data>E</data>
-			<data>-</data>
-			<data>F</data>
-		</table>
-		<table name="Y" type="Static Y Axis" elements="16">
-			<data>0</data>
-			<data>1</data>
-			<data>2</data>
-			<data>3</data>
-			<data>4</data>
-			<data>5</data>
-			<data>6</data>
-			<data>7</data>
-			<data>8</data>
-			<data>9</data>
-			<data>A</data>
-			<data>B</data>
-			<data>C</data>
-			<data>D</data>
-			<data>E</data>
-			<data>F</data>
-		</table>
-	</table>
+        <table name="MUT Table" address="36200" />
 
 	<table name="Alternator Charge Current" category="Alternator" address="4655" type="3D" swapxy="true" scaling="ChargeCurrent">
 		<table name="Load" address="695E" type="X Axis" elements="9" scaling="Load16"/>

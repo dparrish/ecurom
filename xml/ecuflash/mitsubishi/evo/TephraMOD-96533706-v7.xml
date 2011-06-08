@@ -206,27 +206,6 @@
 		</table>
 	</table>
 
-	<table name="ECU Periphery0 (FAA) Bits">
-		<table name="Periphery Bit Number">
-			<data>bit.15</data>
-			<data>bit.14: Front o2 sensor heater circuit</data>
-			<data>bit.13</data>
-			<data>bit.12</data>
-			<data>bit.11: Enable EGR Duty = 100% when CTS Less Than 68C</data>
-			<data>bit.10: Timing knockdown on light acceleration and less than 3000rpm</data>
-			<data>bit.9: Enable Warmup Ign Retard</data>
-			<data>bit.8</data>
-			<data>bit.7: Enable High Oct Ign Map Lookup (and many other subroutines)</data>
-			<data>bit.6: Enable Speed Limit Test</data>
-			<data>bit.5</data>
-			<data>bit.4: Allow closed loop</data>
-			<data>bit.3: Enable immobilizer</data>
-			<data>bit.2</data>
-			<data>bit.1: Rear o2</data>
-			<data>bit.0</data>
-		</table>
-	</table>
-
 	<table name="MUT Table" scaling="Hex16">
 		<table name="X" elements="32">
 			<data>-</data>

@@ -437,19 +437,14 @@
     <table name="RPM" address="6b7a"/>
   </table>
 
-	<!-- *** ECU *** -->
+  <!-- *** ECU *** -->
 
-	<!-- *** ECU Periphery *** -->
+  <!-- *** MAT *** -->
 
-	<!-- *** MAT *** -->
+  <!-- *** MUT ***  -->
 
-	<!-- *** MUT ***  -->
+  <table name="MUT Table" address="3ee84" />
 
-  <table name="MUT" catergory="MUT" address="3ee84">
-    <table name="X"/>
-    <table name="Y"/>
-  </table>
-
-<table name="Rear O2 Heater Patch" category="Front/Rear_O2" address="2db04" type="1D" scaling="Hex16" />
+  <table name="Rear O2 Heater Patch" category="Front/Rear_O2" address="2db04" type="1D" scaling="Hex16" />
 
 </rom>

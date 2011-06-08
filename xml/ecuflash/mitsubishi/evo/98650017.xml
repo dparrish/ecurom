@@ -54,7 +54,7 @@
 	<scaling name="RPMStatLimit" units="units" toexpr="x*31.25" frexpr="x/31.25" format="%.0f" min="0" max="7969" inc="31.25" storagetype="uint16" endian="big"/>
 	<scaling name="RPMTarget" units="RPM" toexpr="x*125/16" frexpr="x*16/125" format="%.0f" min="0" max="2000" inc="50" storagetype="uint16" endian="big"/>
 	<scaling name="RPMstatbyte" units="units" toexpr="x*31.25" frexpr="x/31.25" format="%.0f" min="0" max="11000" inc="1" storagetype="uint8" endian="big"/>
-	<scaling name="RamAdress" units="hex" toexpr="x-4294901760" frexpr="x+4294901760" format="%04X" min="0" max="65535" inc="1" storagetype="uint32" endian="big"/>
+	<scaling name="RamAddress" units="hex" toexpr="x-4294901760" frexpr="x+4294901760" format="%04X" min="0" max="65535" inc="1" storagetype="uint32" endian="big"/>
 	<scaling name="StartupIPWTime" units="ms" toexpr="x*0.008" frexpr="x/0.008" format="%.1f" min="0" max="500" inc="1" storagetype="uint16" endian="big"/>
 	<scaling name="Temp" units="Celsius" toexpr="x-40" frexpr="x+40" format="%.0f" min="-40" max="215" inc="1" storagetype="uint16" endian="big"/>
 	<scaling name="ThrottlePercentage" units="%" toexpr="x*100/255" frexpr="x*255/100" format="%.1f" min="0" max="100" inc="0.392" storagetype="uint16" endian="big"/>
@@ -195,127 +195,7 @@
 
 	<table name="BAUDRATE3_unknown" address="ce81" type="1D" level="1" scaling="BAUDRATE"/>
 
-	<table name="MUT Table" category="Misc" address="2e9e0" type="3D" level="1" scaling="RamAdress">
-		<table name="X" type="Static X Axis" elements="16">
-			<data>0</data>
-			<data>1</data>
-			<data>2</data>
-			<data>3</data>
-			<data>4</data>
-			<data>5</data>
-			<data>6</data>
-			<data>7</data>
-			<data>8</data>
-			<data>9</data>
-			<data>A</data>
-			<data>B</data>
-			<data>C</data>
-			<data>D</data>
-			<data>E</data>
-			<data>F</data>
-		</table>
-		<table name="Y" type="Static Y Axis" elements="30">
-			<data>MUT0X</data>
-			<data>MUT1X</data>
-			<data>MUT2X</data>
-			<data>MUT3X</data>
-			<data>MUT4X</data>
-			<data>MUT5X</data>
-			<data>MUT6X</data>
-			<data>MUT7X</data>
-			<data>MUT8X</data>
-			<data>MUT9X</data>
-			<data>MUTAX</data>
-			<data>MUTBX</data>
-			<data>MUTCX</data>
-			<data>MUTDX</data>
-			<data>MUTEX</data>
-			<data>MUTFX</data>
-			<data>MUT10X</data>
-			<data>MUT11X</data>
-			<data>MUT12X</data>
-			<data>MUT13X</data>
-			<data>MUT14X</data>
-			<data>MUT15X</data>
-			<data>MUT16X</data>
-			<data>MUT17X</data>
-			<data>MUT18X</data>
-			<data>MUT19X</data>
-			<data>MUT1AX</data>
-			<data>MUT1BX</data>
-			<data>MUT1CX</data>
-			<data>MUT1DX</data>
-		</table>
-	</table>
-
-	<table name="MUT table" category="Misc" address="2e9e0" type="3D" level="1" scaling="Hex16">
-		<table name="X" type="Static X Axis" elements="32" scaling="Hex16">
-			<data>-</data>
-			<data>0</data>
-			<data>-</data>
-			<data>1</data>
-			<data>-</data>
-			<data>2</data>
-			<data>-</data>
-			<data>3</data>
-			<data>-</data>
-			<data>4</data>
-			<data>-</data>
-			<data>5</data>
-			<data>-</data>
-			<data>6</data>
-			<data>-</data>
-			<data>7</data>
-			<data>-</data>
-			<data>8</data>
-			<data>-</data>
-			<data>9</data>
-			<data>-</data>
-			<data>A</data>
-			<data>-</data>
-			<data>B</data>
-			<data>-</data>
-			<data>C</data>
-			<data>-</data>
-			<data>D</data>
-			<data>-</data>
-			<data>E</data>
-			<data>-</data>
-			<data>F</data>
-		</table>
-		<table name="Y" type="Static Y Axis" elements="30">
-			<data>MUT0X</data>
-			<data>MUT1X</data>
-			<data>MUT2X</data>
-			<data>MUT3X</data>
-			<data>MUT4X</data>
-			<data>MUT5X</data>
-			<data>MUT6X</data>
-			<data>MUT7X</data>
-			<data>MUT8X</data>
-			<data>MUT9X</data>
-			<data>MUTAX</data>
-			<data>MUTBX</data>
-			<data>MUTCX</data>
-			<data>MUTDX</data>
-			<data>MUTEX</data>
-			<data>MUTFX</data>
-			<data>MUT10X</data>
-			<data>MUT11X</data>
-			<data>MUT12X</data>
-			<data>MUT13X</data>
-			<data>MUT14X</data>
-			<data>MUT15X</data>
-			<data>MUT16X</data>
-			<data>MUT17X</data>
-			<data>MUT18X</data>
-			<data>MUT19X</data>
-			<data>MUT1AX</data>
-			<data>MUT1BX</data>
-			<data>MUT1CX</data>
-			<data>MUT1DX</data>
-		</table>
-	</table>
+        <table name="MUT Table" address="2e9e0" />
 
 	<table name="Min Load for Boost Control" category="Turbo" address="6156" type="2D" scaling="Load8">
 		<table name="RPM" address="5278" type="Y Axis" elements="16" scaling="RPM"/>
@@ -348,8 +228,6 @@
 	<table name="Knock Adder - Single Gain" category="Knock Control" address="1780" type="1D" level="1" scaling="uint16"/>
 
 	<table name="Knock Adder - Triple Gain" category="Knock Control" address="177c" type="1D" level="1" scaling="uint16"/>
-
-	<table name="ECU Periphery (FAA) Bits"/>
 
 	<table name="Set to 9 to remove load limit" address="22014" type="1D" level="1" scaling="Hex16"/>
 

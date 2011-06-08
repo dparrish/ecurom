@@ -394,8 +394,6 @@
 
 	<table name="Immobilizer" category="ECU" address="3ffce" type="1D" level="3" scaling="Hex16"/>
 
-	<!-- *** ECU Periphery *** -->
-
 	<!-- *** MUT ***  -->
 
 	<table name="MUT" category="MUT" address="3212c" type="3D" level="1" scaling="Hex16">

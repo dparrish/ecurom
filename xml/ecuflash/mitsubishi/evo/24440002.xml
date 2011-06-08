@@ -428,8 +428,6 @@
 	<table name="Internal ID (Rom Code)" category="ECU" address="1021a">
 	</table>
 
-	<!-- *** ECU Periphery *** -->
-
 	<!-- *** MAT *** -->
 
 	<!-- *** MUT ***  -->

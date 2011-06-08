@@ -99,7 +99,7 @@
 	<scaling name="RPMStatLimit8" units="RPM" toexpr="x*31.25" frexpr="x/31.25" format="%.0f" min="0" max="9000" inc="31.25" storagetype="uint8" endian="big"/>
 	<scaling name="RPMTarget" units="RPM" toexpr="x*125/16" frexpr="x*16/125" format="%.0f" min="0" max="2000" inc="50" storagetype="uint16" endian="big"/>
 	<scaling name="RPMperMPH Gear" units="Gear" toexpr="x" frexpr="x" format="%.0f" min="0" max="65535" inc="1" storagetype="int8" endian="big"/>
-	<scaling name="RamAdress" units="hex" toexpr="x-4294901760" frexpr="x+4294901760" format="%4.1X" min="10000" max="10005" inc="1" storagetype="uint32" endian="big"/>
+	<scaling name="RamAddress" units="hex" toexpr="x-4294901760" frexpr="x+4294901760" format="%4.1X" min="10000" max="10005" inc="1" storagetype="uint32" endian="big"/>
 	<scaling name="Temp" units="Fahrenheit" toexpr="(9/5)*(x-40)+32" frexpr="(5/9)*(x-32)+40" format="%.0f" min="-30" max="900" inc="1" storagetype="uint16" endian="big"/>
 	<scaling name="Temp8" units="Fahrenheit" toexpr="(9/5)*(x-40)+32" frexpr="(5/9)*(x-32)+40" format="%.0f" min="-30" max="900" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="TempScale" units="Fahrenheit" toexpr="(9/5)*x+32" frexpr="(5/9)*(x-32)" format="%.0f" min="-30" max="900" inc="1" storagetype="int8" endian="big"/>
@@ -123,6 +123,10 @@
 	<scaling name="WGDC" units="%WGDC" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint8" endian="big"/>
 	<scaling name="WGDuty" units="%" toexpr="x/2" frexpr="x*2" format="%.1f" min="-150" max="150" inc="0.5" storagetype="uint8" endian="big"/>
 	<scaling name="WGDuty16" units="%" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint16" endian="big"/>
+  	<scaling name="blobbits" storagetype="bloblist" storagebits="1">
+		<data name="0" value="00"/>
+		<data name="1" value="01"/>
+	</scaling>
 	<scaling name="kPa GM3barMAP" units="kPa" toexpr="x*0.3014" frexpr="x/0.3014" format="%.1f" min="0" max="350" inc="0.3014" storagetype="uint16" endian="big"/>
 	<scaling name="kPa JDM3barMAP" units="kPa" toexpr="x/3" frexpr="x*3" format="%.1f" min="0" max="350" inc="0.3333" storagetype="uint16" endian="big"/>
 	<scaling name="kPa Kavlico3.5barMAP" units="kPa" toexpr="x*0.4213-43.1" frexpr="(x+43.1)/0.4213" format="%.1f" min="0" max="400" inc="0.4213" storagetype="uint16" endian="big"/>
@@ -1185,183 +1189,185 @@
 		</table>
 	</table>
 
-	<table name="ECU Periphery00 (F9A) Bits" category="Periphery" address="f9a" type="2D" level="2" scaling="Blobbits">
-		<table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
-			<data>bit.15</data>
-			<data>bit.14</data>
-			<data>bit.13</data>
-			<data>bit.12</data>
-			<data>bit.11</data>
-			<data>bit.10</data>
-			<data>bit.9</data>
-			<data>bit.8</data>
-			<data>bit.7</data>
-			<data>bit.6</data>
-			<data>bit.5</data>
-			<data>bit.4</data>
-			<data>bit.3</data>
-			<data>bit.2</data>
-			<data>bit.1</data>
-			<data>bit.0</data>
-		</table>
-	</table>
+	<!-- *** ECU Periphery *** -->
+        <table name="ECU Periphery00 Hex" category="ECUPeriphery" address="f9a" type="1D" level="2" scaling="Hex16"/>
+        <table name="ECU Periphery0 Hex" category="ECUPeriphery" address="faa" type="1D" level="2" scaling="Hex16"/>
+        <table name="ECU Periphery1 Hex" category="ECUPeriphery" address="fba" type="1D" level="2" scaling="Hex16"/>
+        <table name="ECU Periphery2 Hex" category="ECUPeriphery" address="fca" type="1D" level="2" scaling="Hex16"/>
+        <table name="ECU Periphery3 Hex" category="ECUPeriphery" address="fda" type="1D" level="2" scaling="Hex16"/>
+        <table name="ECU Periphery4 Hex" category="ECUPeriphery" address="fea" type="1D" level="2" scaling="Hex16"/>
+        <table name="ECU Periphery00 (F9A) Bits" category="ECUPeriphery" address="f9a" type="2D" level="2" scaling="blobbits">
+                <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+                        <data>bit.15:                        -</data>
+                        <data>bit.14:                        -</data>
+                        <data>bit.13:                        -</data>
+                        <data>bit.12:                        -</data>
+                        <data>bit.11:                        -</data>
+                        <data>bit.10:                        -</data>
+                        <data>bit.09:                        -</data>
+                        <data>bit.08:                        -</data>
+                        <data>bit.07:                        -</data>
+                        <data>bit.06:                        -</data>
+                        <data>bit.05:                        -</data>
+                        <data>bit.04:                        -</data>
+                        <data>bit.03:                        -</data>
+                        <data>bit.02:                        -</data>
+                        <data>bit.01:                        -</data>
+                        <data>bit.00:                        -</data>
+                </table>
+        </table>
+        <table name="ECU Periphery0 (FAA) Bits" category="ECUPeriphery" address="faa" type="2D" level="2" scaling="blobbits">
+                <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+                        <data>bit.15:                                                              -</data>
+                        <data>bit.14: Front o2 sensor heater circuit                               -</data>
+                        <data>bit.13:                                                              -</data>
+                        <data>bit.12:                                                              -</data>
+                        <data>bit.11: Enable EGR Duty = 100% when CTS Less Than 68C                -</data>
+                        <data>bit.10: Timing knockdown on light acceleration and less than 3000rpm -</data>
+                        <data>bit.09: Enable Warmup Ign Retard                                     -</data>
+                        <data>bit.08:                                                              -</data>
+                        <data>bit.07: Enable High Oct Ign Map Lookup (and many other subroutines)  -</data>
+                        <data>bit.06: Enable Speed Limit Test                                      -</data>
+                        <data>bit.05:                                                              -</data>
+                        <data>bit.04: Allow closed loop                                            -</data>
+                        <data>bit.02: Enable immobilizer                                           -</data>
+                        <data>bit.02:                                                              -</data>
+                        <data>bit.01: Rear o2                                                      -</data>
+                        <data>bit.00:                                                              -</data>
+                </table>
+        </table>
+        <table name="ECU Periphery1 (FBA) Bits" category="ECUPeriphery" address="fba" type="2D" level="2" scaling="blobbits">
+                <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+                        <data>bit.15:                      -</data>
+                        <data>bit.14:                      -</data>
+                        <data>bit.13:                      -</data>
+                        <data>bit.12:                      -</data>
+                        <data>bit.11:                      -</data>
+                        <data>bit.10:                      -</data>
+                        <data>bit.09:                      -</data>
+                        <data>bit.08:                      -</data>
+                        <data>bit.07:                      -</data>
+                        <data>bit.06:                      -</data>
+                        <data>bit.05: 2nd thermo fan table -</data>
+                        <data>bit.04:                      -</data>
+                        <data>bit.03:                      -</data>
+                        <data>bit.02:                      -</data>
+                        <data>bit.01:                      -</data>
+                        <data>bit.00: Lean Spool           -</data>
+                </table>
+        </table>
+        <table name="ECU Periphery2 (FCA) Bits" category="ECUPeriphery" address="fca" type="2D" level="2" scaling="blobbits">
+                <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+                        <data>bit.15: P0443, P0446, P0403, P0243, P0090, P2263   -</data>
+                        <data>bit.14: P0450, P0451, P0452, P0453 Evap            -</data>
+                        <data>bit.13: P0441, P0442 Evap                          -</data>
+                        <data>bit.12:                                            -</data>
+                        <data>bit.11: P0031, P0032, P0037, P0038                 -</data>
+                        <data>bit.10: P1400 MAP Sensor                           -</data>
+                        <data>bit.09: P0401 EGR Test                             -</data>
+                        <data>bit.08: P0506, P0507 Idle Test                     -</data>
+                        <data>bit.07: P0170 (P0171, P0172)                       -</data>
+                        <data>bit.06: P0134 Front O2                             -</data>
+                        <data>bit.05: P0300; set bit.4 and bit.5 to 0 to disable -</data>
+                        <data>bit.04: P0300; set bit.4 and bit.5 to 0 to disable -</data>
+                        <data>bit.03: P0132, P0136 O2                            -</data>
+                        <data>bit.02: P0133, P0159                               -</data>
+                        <data>bit.01: P0421 not in FSM                           -</data>
+                        <data>bit.00:                                            -</data>
+                </table>
+        </table>
+        <table name="ECU Periphery3 (FDA) Bits" category="ECUPeriphery" address="fda" type="2D" level="2" scaling="blobbits">
+                <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+                        <data>bit.15: P0128 CT Below Reg                       -</data>
+                        <data>bit.14: P1603 Battery Backup                     -</data>
+                        <data>bit.13:                                          -</data>
+                        <data>bit.12:                                          -</data>
+                        <data>bit.11: P0180 - P0183, P0461, P2066 Fuel Sensors -</data>
+                        <data>bit.10:                                          -</data>
+                        <data>bit.09:                                          -</data>
+                        <data>bit.08:                                          -</data>
+                        <data>bit.07: P0551 PS Pressure                        -</data>
+                        <data>bit.06: P0500 Speed Sens                         -</data>
+                        <data>bit.05:                                          -</data>
+                        <data>bit.04:                                          -</data>
+                        <data>bit.03:                                          -</data>
+                        <data>bit.02: P0234, P0243, P2263                      -</data>
+                        <data>bit.01: P0510 not in FSM                         -</data>
+                        <data>bit.00: P1715, P1750, etc                        -</data>
+                </table>
+        </table>
+        <table name="ECU Periphery4 (FEA) Bits" category="ECUPeriphery" address="fea" type="2D" level="2" scaling="blobbits">
+                <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+                        <data>bit.15: P0140 Rear O2 No Act        -</data>
+                        <data>bit.14: P0069 MAP vs Baro           -</data>
+                        <data>bit.13: P0111 IAT Circuit           -</data>
+                        <data>bit.12: P0554 PS Press Sensor       -</data>
+                        <data>bit.11: P1530 A/C1 Switch           -</data>
+                        <data>bit.10:                             -</data>
+                        <data>bit.09:                             -</data>
+                        <data>bit.08: P0830 Clutch Pedal Circuit  -</data>
+                        <data>bit.07: P0090 Fuel Pressure Circuit -</data>
+                        <data>bit.06:                             -</data>
+                        <data>bit.05:                             -</data>
+                        <data>bit.04:                             -</data>
+                        <data>bit.03:                             -</data>
+                        <data>bit.02:                             -</data>
+                        <data>bit.01:                             -</data>
+                        <data>bit.00:                             -</data>
+                </table>
+        </table>
 
-	<table name="ECU Periphery0 (FAA) Bits" category="Periphery" address="faa" type="2D" level="2" scaling="Blobbits">
-		<table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
-			<data>bit.15</data>
-			<data>front o2 sensor heater circuit</data>
-			<data>bit.13</data>
-			<data>bit.12</data>
-			<data>Disable EGR / Enabled Ign Adv (set bit=1)</data>
-			<data>timing knockdown on light acceleration and less than 3000rpm</data>
-			<data>Enable Warmup Ign Retard</data>
-			<data>bit.8</data>
-			<data>Enable High Oct Ign Map Lookup (and many other subroutines)</data>
-			<data>"WG solenoid? Enable Speed Limit Test"</data>
-			<data>bit.5</data>
-			<data>for full time open loop set to 0</data>
-			<data>for immobilizer function disable set to 0</data>
-			<data>bit.2</data>
-			<data>rear o2</data>
-			<data>bit.0</data>
-		</table>
-	</table>
-
-	<table name="ECU Periphery1 (FBA) Bits" category="Periphery" address="fba" type="2D" level="2" scaling="Blobbits">
-		<table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
-			<data>bit.15</data>
-			<data>bit.14</data>
-			<data>bit.13</data>
-			<data>bit.12</data>
-			<data>bit.11</data>
-			<data>bit.10</data>
-			<data>bit.9</data>
-			<data>bit.8</data>
-			<data>bit.7</data>
-			<data>bit.6</data>
-			<data>2nd thermo fan table</data>
-			<data>bit.4</data>
-			<data>bit.3</data>
-			<data>bit.2</data>
-			<data>bit.1</data>
-			<data>Lean Spool (1=enable 0=diasble)</data>
-		</table>
-	</table>
-
-	<table name="ECU Periphery2 (FCA) Bits" category="Periphery" address="fca" type="2D" level="2" scaling="Blobbits">
-		<table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
-			<data>P0443, P0446, P0403, P0243, P0090, P2263</data>
-			<data>P0450, P0451, P0452, P0453 Evap</data>
-			<data>P0441, P0442 Evap</data>
-			<data>bit.12</data>
-			<data>P0031, P0032, P0037, P0038</data>
-			<data>P1400 MAP Sensor</data>
-			<data>P0401 EGR Test</data>
-			<data>P0506, P0507 Idle Test</data>
-			<data>P0170 (P0171, P0172)</data>
-			<data>P0134 Front O2</data>
-			<data>P0300; set bit.4 and bit.5 to 0 to disable</data>
-			<data>P0300; set bit.4 and bit.5 to 0 to disable</data>
-			<data>P0132, P0136 O2</data>
-			<data>P0133, P0159</data>
-			<data>P0421 not in FSM</data>
-			<data>bit.0</data>
-		</table>
-	</table>
-
-	<table name="ECU Periphery3 (FDA) Bits" category="Periphery" address="fda" type="2D" level="2" scaling="Blobbits">
-		<table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
-			<data>P0128 CT Below Reg</data>
-			<data>P1603 Battery Backup</data>
-			<data>bit.13</data>
-			<data>bit.12</data>
-			<data>P0180 - P0183, P0461, P2066 Fuel Sensors</data>
-			<data>bit.10</data>
-			<data>bit.9</data>
-			<data>bit.8</data>
-			<data>P0551 PS Pressure</data>
-			<data>P0500 Speed Sens</data>
-			<data>bit.5</data>
-			<data>bit.4</data>
-			<data>bit.3</data>
-			<data>P0234, P0243, P2263</data>
-			<data>P0510 not in FSM</data>
-			<data>P1715, P1750, etc</data>
-		</table>
-	</table>
-
-	<table name="ECU Periphery4 (FEA) Bits" category="Periphery" address="fea" type="2D" level="2" scaling="Blobbits">
-		<table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
-			<data>P0140 Rear O2 No Act</data>
-			<data>P0069 MAP vs Baro</data>
-			<data>P0111 IAT Circuit</data>
-			<data>P0554 PS Press Sens</data>
-			<data>P1530 A/C1 Switch</data>
-			<data>bit.10</data>
-			<data>bit.9</data>
-			<data>P0830 Clutch Pedal Circuit</data>
-			<data>P0090 Fuel Pressure Circuit</data>
-			<data>bit.6</data>
-			<data>bit.5</data>
-			<data>bit.4</data>
-			<data>bit.3</data>
-			<data>bit.2</data>
-			<data>bit.1</data>
-			<data>bit.0</data>
-		</table>
-	</table>
-
-	<table name="MUT Table" category="Miscellaneous" address="38158" type="3D" level="2" scaling="Hex16">
-		<table name="X" type="Static X Axis" elements="16">
-			<data>0</data>
-			<data>1</data>
-			<data>2</data>
-			<data>3</data>
-			<data>4</data>
-			<data>5</data>
-			<data>6</data>
-			<data>7</data>
-			<data>8</data>
-			<data>9</data>
-			<data>A</data>
-			<data>B</data>
-			<data>C</data>
-			<data>D</data>
-			<data>E</data>
-			<data>F</data>
-		</table>
-		<table name="Y" type="Static Y Axis" elements="16">
-			<data>MUT0X</data>
-			<data>MUT1X</data>
-			<data>MUT2X</data>
-			<data>MUT3X</data>
-			<data>MUT4X</data>
-			<data>MUT5X</data>
-			<data>MUT6X</data>
-			<data>MUT7X</data>
-			<data>MUT8X</data>
-			<data>MUT9X</data>
-			<data>MUTAX</data>
-			<data>MUTBX</data>
-			<data>MUTCX</data>
-			<data>MUTDX</data>
-			<data>MUTEX</data>
-			<data>MUTFX</data>
-			<data>MUT10X</data>
-			<data>MUT11X</data>
-			<data>MUT12X</data>
-			<data>MUT13X</data>
-			<data>MUT14X</data>
-			<data>MUT15X</data>
-			<data>MUT16X</data>
-			<data>MUT17X</data>
-			<data>MUT18X</data>
-			<data>MUT19X</data>
-			<data>MUT1AX</data>
-			<data>MUT1BX</data>
-			<data>MUT1CX</data>
-			<data>MUT1DX</data>
-		</table>
-	</table>
+        <table name="MUT Table" category="MUT Table" address="38158" type="3D" level="1" scaling="RamAddress">
+                <table name="X" type="Static X Axis" elements="16">
+                        <data>0</data>
+                        <data>1</data>
+                        <data>2</data>
+                        <data>3</data>
+                        <data>4</data>
+                        <data>5</data>
+                        <data>6</data>
+                        <data>7</data>
+                        <data>8</data>
+                        <data>9</data>
+                        <data>A</data>
+                        <data>B</data>
+                        <data>C</data>
+                        <data>D</data>
+                        <data>E</data>
+                        <data>F</data>
+                </table>
+                <table name="Y" type="Static Y Axis" elements="16">
+                        <data>MUT0X</data>
+                        <data>MUT1X</data>
+                        <data>MUT2X</data>
+                        <data>MUT3X</data>
+                        <data>MUT4X</data>
+                        <data>MUT5X</data>
+                        <data>MUT6X</data>
+                        <data>MUT7X</data>
+                        <data>MUT8X</data>
+                        <data>MUT9X</data>
+                        <data>MUTAX</data>
+                        <data>MUTBX</data>
+                        <data>MUTCX</data>
+                        <data>MUTDX</data>
+                        <data>MUTEX</data>
+                        <data>MUTFX</data>
+                        <data>MUT10X</data>
+                        <data>MUT11X</data>
+                        <data>MUT12X</data>
+                        <data>MUT13X</data>
+                        <data>MUT14X</data>
+                        <data>MUT15X</data>
+                        <data>MUT16X</data>
+                        <data>MUT17X</data>
+                        <data>MUT18X</data>
+                        <data>MUT19X</data>
+                        <data>MUT1AX</data>
+                        <data>MUT1BX</data>
+                        <data>MUT1CX</data>
+                        <data>MUT1DX</data>
+                </table>
+        </table>
 
 </rom>

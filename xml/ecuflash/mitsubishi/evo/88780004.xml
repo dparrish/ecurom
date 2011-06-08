@@ -114,8 +114,6 @@
 		<table name="Battery" address="5940" type="Y Axis" elements="9" scaling="BatteryVoltage"/>
 	</table>
 
-	<table name="ecu periphery 3" category="Misc" address="fda" type="1D" level="1" scaling="Hex16"/>
-
 	<table name="Boost Limit  N,1,2 Gear" category="Limits" address="3248" type="2D" level="4" scaling="LoadBoost">
 		<table name="Engine Speed" address="616a" type="Y Axis" elements="9" scaling="RPM"/>
 	</table>
@@ -226,60 +224,7 @@
 		<table name="Engine Speed" address="5782" type="Y Axis" elements="10" scaling="RPM"/>
 	</table>
 
-	<table name="MUT Table" category="Misc" address="3597c" type="3D" level="2" scaling="Hex16">
-		<table name="X" type="Static X Axis" elements="32">
-			<data>-</data>
-			<data>- 0 -</data>
-			<data>-</data>
-			<data>- 1 -</data>
-			<data>-</data>
-			<data>- 2 -</data>
-			<data>-</data>
-			<data>- 3 -</data>
-			<data>-</data>
-			<data>- 4 -</data>
-			<data>-</data>
-			<data>- 5 -</data>
-			<data>-</data>
-			<data>- 6 -</data>
-			<data>-</data>
-			<data>- 7 -</data>
-			<data>-</data>
-			<data>- 8 -</data>
-			<data>-</data>
-			<data>- 9 -</data>
-			<data>-</data>
-			<data>- A -</data>
-			<data>-</data>
-			<data>- B -</data>
-			<data>-</data>
-			<data>- C -</data>
-			<data>-</data>
-			<data>- D -</data>
-			<data>-</data>
-			<data>- E -</data>
-			<data>-</data>
-			<data>- F -</data>
-		</table>
-		<table name="Y" type="Static Y Axis" elements="13">
-			<data>0</data>
-			<data>1</data>
-			<data>2</data>
-			<data>3</data>
-			<data>4</data>
-			<data>5</data>
-			<data>6</data>
-			<data>7</data>
-			<data>8</data>
-			<data>9</data>
-			<data>A</data>
-			<data>B</data>
-			<data>C</data>
-			<data>D</data>
-			<data>E</data>
-			<data>F</data>
-		</table>
-	</table>
+        <table name="MUT Table" category="Misc" address="3597c" />
 
 	<table name="Decel Fuel Cut Resume RPM Offset" category="Fuel" address="3228" type="2D" level="3" scaling="RPM8">
 		<table name="Engine Temp" address="5b08" type="Y Axis" elements="8" scaling="Temp"/>

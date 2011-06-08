@@ -428,23 +428,23 @@
 
 	<!-- *** ECU Periphery *** -->
 
-	<table name="ECU_PEREPHERY 00" category="ECU Periphery" address="10262" type="1D" level="4" scaling="Hex16"/>
+	<table name="ECU_PERIPHERY 00" category="ECU Periphery" address="10262" type="1D" level="4" scaling="Hex16"/>
 
-	<table name="ECU_PEREPHERY" category="ECU Periphery" address="10272" type="1D" level="4" scaling="Hex16"/>
+	<table name="ECU_PERIPHERY" category="ECU Periphery" address="10272" type="1D" level="4" scaling="Hex16"/>
 
-	<table name="ECU_PEREPHERY1" category="ECU Periphery" address="282" type="1D" level="4" scaling="Hex16"/>
+	<table name="ECU_PERIPHERY1" category="ECU Periphery" address="282" type="1D" level="4" scaling="Hex16"/>
 
-	<table name="ECU_PEREPHERY2" category="ECU Periphery" address="10292" type="1D" level="4" scaling="Hex16"/>
+	<table name="ECU_PERIPHERY2" category="ECU Periphery" address="10292" type="1D" level="4" scaling="Hex16"/>
 
-	<table name="ECU_PEREPHERY3" category="ECU Periphery" address="102a2" type="1D" level="4" scaling="Hex16"/>
+	<table name="ECU_PERIPHERY3" category="ECU Periphery" address="102a2" type="1D" level="4" scaling="Hex16"/>
 
-	<table name="ECU_PEREPHERY4" category="ECU Periphery" address="102b2" type="1D" level="1" scaling="Hex16"/>
+	<table name="ECU_PERIPHERY4" category="ECU Periphery" address="102b2" type="1D" level="1" scaling="Hex16"/>
 
 	<!-- *** MAT *** -->
 
 	<!-- *** MUT ***  -->	
 
-	<table name="MUT" category="MUT" address="2fad0" type="3D" level="1" scaling="Hex16">
+	<table name="MUT Table" category="Diagnostics" type="3D" level="4" scaling="Hex16">
 		<table name="X" type="Static X Axis" elements="16">
 			<data>0</data>
 			<data>1</data>
@@ -464,22 +464,22 @@
 			<data>F</data>
 		</table>
 		<table name="Y" type="Static Y Axis" elements="16">
-			<data>0X</data>
-			<data>1X</data>
-			<data>2X</data>
-			<data>3X</data>
-			<data>4X</data>
-			<data>5X</data>
-			<data>6X</data>
-			<data>7X</data>
-			<data>8X</data>
-			<data>9X</data>
-			<data>AX</data>
-			<data>BX</data>
-			<data>CX</data>
-			<data>DX</data>
-			<data>EX</data>
-			<data>FX</data>
+                        <data>MUT0X</data>
+			<data>MUT1X</data>
+			<data>MUT2X</data>
+			<data>MUT3X</data>
+			<data>MUT4X</data>
+			<data>MUT5X</data>
+			<data>MUT6X</data>
+			<data>MUT7X</data>
+			<data>MUT8X</data>
+			<data>MUT9X</data>
+			<data>MUTAX</data>
+			<data>MUTBX</data>
+			<data>MUTCX</data>
+			<data>MUTDX</data>
+			<data>MUTEX</data>
+			<data>MUTFX</data>
 		</table>
 	</table>
 
