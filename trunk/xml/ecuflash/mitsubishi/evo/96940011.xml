@@ -15,8 +15,6 @@
 
     <include>evo7base_20081101</include>
 
-    <!--  *** <include>96940011_mods</include> ***  -->
-
 <table name="Rear O2 Heater Patch" category="Front/Rear_O2" address="2e72e" type="1D" scaling="Hex16" />
 
     <!--  *** FUEL ***  -->
@@ -372,9 +370,6 @@
 
     <!--  *** MUT ***  -->
 
-    <table name="MUT Table" address="3f314">
-        <table name="X"/>
-        <table name="Y"/>
-    </table>
+    <table name="MUT Table" address="3f314" />
 
 </rom>

@@ -15,9 +15,6 @@
 
   <include>evo9base_20081101</include>
 
-<!--  <include>88840017_mods</include>  -->
-
-
 
 <!--  *** FUEL ***  -->
 
@@ -395,10 +392,7 @@
 
 <!--  *** MUT ***  -->
 
-  <table name="MUT Table" address="37944">
-    <table name="X"/>
-    <table name="Y"/>
-  </table>
+  <table name="MUT Table" address="37944" />
 
 
 

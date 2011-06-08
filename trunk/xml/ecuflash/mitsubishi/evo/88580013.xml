@@ -15,8 +15,6 @@
 
   <include>evo9base</include>
   
-<!--  <include>88890013_mods</include>  -->
-  
   <table name="ODBII Circuit Test Bypass (Stock 0x4A0B -> NOP 0x9)" category="Test" address="10B12" type="1D" level="1" scaling="Hex16"/>
   
 
@@ -428,11 +426,7 @@
 
 <!--  *** MUT ***  -->
 
-  <table name="MUT Table" address="373c4">
-    <table name="X"/>
-    <table name="Y"/>
-  </table>
-
+  <table name="MUT Table" address="373c4" />
 
 
 <!-- *** NEW TABLES FOR UPCOMING ECUFLASH RELEASE *** -->

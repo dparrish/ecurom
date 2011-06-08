@@ -487,20 +487,6 @@
 
 	<table name="RequestID04" category="ECU" address="35932" type="1D" level="1" scaling="Hex16"/>
 
-	<!-- *** ECU Periphery *** -->
-
-	<table name="ECU Periphery00 Hex" category="ECUPeriphery" address="f9a" type="1D" level="4" scaling="Hex16"/>
-
-	<table name="ECU Periphery0 Hex" category="ECUPeriphery" address="faa" type="1D" level="4" scaling="Hex16"/>
-
-	<table name="ECU Periphery1 Hex" category="ECUPeriphery" address="fba" type="1D" level="4" scaling="Hex16"/>
-
-	<table name="ECU Periphery2 Hex" category="ECUPeriphery" address="fca" type="1D" level="4" scaling="Hex16"/>
-
-	<table name="ECU Periphery3 Hex" category="ECUPeriphery" address="fda" type="1D" level="4" scaling="Hex16"/>
-
-	<table name="ECU Periphery4 Hex" category="ECUPeriphery" address="fea" type="1D" level="1" scaling="Hex16"/>
-
 	<!-- *** MAT *** -->
 
 	<!-- *** MUT ***  -->

@@ -268,4 +268,5 @@
 
 	<table name="Boost Enhancement (Anti-lag) Stop RPM" address="1682"/>
 
+        <table name="MUT Table" address="3a0bc" />
 </rom>

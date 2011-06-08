@@ -392,7 +392,6 @@
 	<table name="Internal ID (Rom Code)" category="ECU" address="1021a">
 	</table>
 
-	<table name="MUT" category="MUT" address="2fad0">
-	</table>
+        <table name="MUT Table" address="2fad0" />
 
 </rom>

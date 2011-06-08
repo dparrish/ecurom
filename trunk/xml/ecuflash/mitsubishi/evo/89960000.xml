@@ -400,4 +400,6 @@
 	<table name="Alternate Boost Desired Engine Load" category="Mods" address="38208" type="2D" scaling="Load8">
 		<table name="RPM" address="62b6" type="Y Axis" elements="16" scaling="RPM"/>
 	</table>
+
+        <table name="MUT Table" address="35920" />
 </rom>

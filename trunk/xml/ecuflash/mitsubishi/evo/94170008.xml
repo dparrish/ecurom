@@ -276,4 +276,5 @@
 		<table name="Condition"/>
 	</table>
 
+        <table name="MUT Table" address="38060" />
 </rom>

@@ -137,6 +137,4 @@
 
 	<table name="EGR Pressure Diff" category="MAPSensor" address="1f62" type="1D" level="1" scaling="Volts16"/>
 
-	<table name="ECU Periphery2" category="ECUPeriphery" address="fca" type="1D" level="1" scaling="Hex16"/>
-
 </rom>

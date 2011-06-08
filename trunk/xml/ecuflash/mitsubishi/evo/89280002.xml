@@ -366,11 +366,10 @@
 
 	<!-- *** ECU *** -->
 
-	<!-- *** ECU Periphery *** -->
-
 	<!-- *** MAT *** -->
 
 	<!-- *** MUT ***  -->
+        <table name="MUT Table" address="35920" />
 
 
 

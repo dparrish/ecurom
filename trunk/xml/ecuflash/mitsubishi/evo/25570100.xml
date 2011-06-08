@@ -14,6 +14,8 @@
 		<memmodel>H8539F</memmodel>
 	</romid>
 
+        <include>evo5base</include>
+
 	<scaling name="AFR_16bit" units="AFR" toexpr="128/x*14.7" frexpr="128/x*14.7" format="%.1f" min="1" max="20" inc="0.1" storagetype="uint16" endian="big"/>
 	<scaling name="AFR_8bit" units="AFR" toexpr="128/x*14.7" frexpr="128/x*14.7" format="%.1f" min="7.4" max="20" inc="0.1" storagetype="uint8" endian="big"/>
 	<scaling name="AirFlowGrams16_16bit" units="g/s" toexpr="x*600/65536" frexpr="x*65536/600" format="%.1f" min="0" max="500" inc="0.00915527" storagetype="uint16" endian="big"/>
@@ -639,60 +641,7 @@
 		<table name="PN1" address="10232" type="Y Axis" elements="1" scaling="CaseAlphaNumeric"/>
 	</table>
 
-	<table name="MUT3 Table" category="Diagnostics" address="2fad0" type="3D" level="4" scaling="Hex16">
-		<table name="X" type="Static X Axis" elements="16">
-			<data>0</data>
-			<data>1</data>
-			<data>2</data>
-			<data>3</data>
-			<data>4</data>
-			<data>5</data>
-			<data>6</data>
-			<data>7</data>
-			<data>8</data>
-			<data>9</data>
-			<data>A</data>
-			<data>B</data>
-			<data>C</data>
-			<data>D</data>
-			<data>E</data>
-			<data>F</data>
-		</table>
-		<table name="Y" type="Static Y Axis" elements="16">
-			<data>. MUT00X .</data>
-			<data>MUT01X</data>
-			<data>MUT02X</data>
-			<data>MUT03X</data>
-			<data>MUT04X</data>
-			<data>MUT05X</data>
-			<data>MUT06X</data>
-			<data>MUT07X</data>
-			<data>MUT08X</data>
-			<data>MUT09X</data>
-			<data>MUT0AX</data>
-			<data>MUT0BX</data>
-			<data>MUT0CX</data>
-			<data>MUT0DX</data>
-			<data>MUT0EX</data>
-			<data>MUT0FX</data>
-			<data>MUT10X</data>
-			<data>MUT11X</data>
-			<data>MUT12X</data>
-			<data>MUT13X</data>
-			<data>MUT14X</data>
-			<data>MUT15X</data>
-			<data>MUT16X</data>
-			<data>MUT17X</data>
-			<data>MUT18X</data>
-			<data>MUT19X</data>
-			<data>MUT1AX</data>
-			<data>MUT1BX</data>
-			<data>MUT1CX</data>
-			<data>MUT1DX</data>
-			<data>MUT1EX</data>
-			<data>MUT1FX</data>
-		</table>
-	</table>
+        <table name="MUT Table" address="2fad0" />
 
 	<table name="Protocol OBD2 Baud" category="Diagnostics" address="1658a" type="1D" level="4" scaling="BaudRate"/>
 
