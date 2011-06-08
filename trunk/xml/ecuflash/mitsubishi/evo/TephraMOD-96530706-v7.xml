@@ -150,8 +150,6 @@
 	<scaling name="uint8" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="x54d16" units="Uncomp Load" toexpr="x*54/16*0.1862" frexpr="x/(54/16*0.1862)" format="%.0f" min="0" max="160" inc="1" storagetype="uint8" endian="big"/>
 
-    <table name="ODBII Circuit Test Bypass (Stock 0x4A0B -> NOP 0x9)" category="Test" address="EF0E" type="1D" level="1" scaling="Hex16"/>
-
 	<table name="Tephra Mod Options" category="Enable/Disable 'Tephra Mod Options' List" address="3e21c" type="3D" scaling="uint16">
 		<table name="X" type="Static X Axis" elements="1">
 			<data>Value</data>
@@ -368,6 +366,10 @@
 		<table name="RPM" address="68de" type="Y Axis" elements="20" scaling="RPM"/>
 	</table>
 
+	<table name="Ignition Unknown Control (warm-up?)" category="Timing" address="61b6" type="2D" level="2" scaling="uint8">
+		<table name="Engine Temp" address="6a36" type="X Axis" elements="8" scaling="Temp"/>
+	</table>
+
 	<table name="High Octane Fuel Map" category="Main Map Fuel Settings" address="3874d" type="3D" swapxy="true" scaling="AFR">
 		<table name="Engine Load" address="3795a" type="X Axis" elements="30" scaling="Load"/>
 		<table name="RPM" address="3790a" type="Y Axis" elements="25" scaling="RPM"/>
@@ -454,10 +456,6 @@
 		<table name="MAF Hz" address="67a0" type="Y Axis" elements="21" scaling="MAFHz"/>
 	</table>
 
-	<table name="MAF Compensation" category="Global Fuel Settings" address="3322" type="2D" level="3" scaling="AirFlow8">
-		<table name="MAF Hz" address="67a0" type="Y Axis" elements="21" scaling="MAFHz"/>
-	</table>
-
 	<table name="MAF Sensor Filtering" category="Global Fuel Settings" address="1508" type="2D" level="3" scaling="uint16">
 		<table name="Load" type="Static Y Axis" elements="2">
 			<data>Hi</data>
@@ -525,6 +523,79 @@
 	<table name="MAF Comp vs Coolant Temp #2" category="Global Fuel Settings" address="3712" type="2D" level="2" scaling="Mult128-8">
 		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
 	</table>
+
+	<table name="Airflow/Hz Offset Raw" category="Global Fuel Settings" address="1512" type="1D" level="2" scaling="uint16"/>
+	
+	<table name="MAF Adder" category="Global Fuel Settings" address="1512" type="1D" level="3" scaling="uint16"/>
+
+	<table name="MAF Compensation" category="Global Fuel Settings" address="3322" type="2D" level="2" scaling="uint8">
+		<table name="MAF Hz" address="67a0" type="Y Axis" elements="21" scaling="MAFHz"/>
+	</table>
+
+	<table name="Ceiling Load vs RPM for Sync Load Accel/Decel Contributions" category="Global Fuel Settings" address="391e" type="2D" level="1" scaling="x54d16">
+		<table name="RPM" address="6576" type="Y Axis" elements="10" scaling="RPM"/>
+	</table>
+
+	<table name="Sync Load Accel DeltaMasterLoadPos Ceiling Value" category="Global Fuel Settings" address="163a" type="1D" level="1" scaling="LoadMaster16"/>
+	<table name="Sync Load Decel DeltaMasterLoadNeg Ceiling Value" category="Global Fuel Settings" address="163c" type="1D" level="1" scaling="LoadMaster16"/>
+
+	<table name="Decel IPW Subtraction Comp vs RPM" category="Global Fuel Settings" address="393c" type="2D" level="2" scaling="Mult128">
+		<table name="RPM" address="6576" type="Y Axis" elements="10" scaling="RPM"/>
+	</table>
+
+	<table name="Decel IPW Subtraction Comp vs Load" category="Global Fuel Settings" address="394c" type="2D" level="2" scaling="Mult128">
+		<table name="Load" address="66b6" type="Y Axis" elements="14" scaling="Load"/>
+	</table>
+
+	<table name="Decel IPW Subtraction Comp vs Coolant Temp" category="Global Fuel Settings" address="392e" type="2D" level="2" scaling="Mult128">
+		<table name="Coolant Temp" address="69be" type="Y Axis" elements="8" scaling="Temp"/>
+	</table>
+
+	<table name="Closed Loop - LT Trim Control Ranges" category="Global Fuel Settings" address="35e5" type="2D" level="1" scaling="LT Trim Hz">
+		<table name="Conditions" type="Static Y Axis" elements="4">
+			<data>Low -> Mid</data>
+			<data>Mid -> Low</data>
+			<data>Mid -> High</data>
+			<data>High -> Mid</data>
+		</table>
+	</table>
+
+	<table name="Min Uncomp Load Change at Steady Throttle for SyndLoadAccel/Decel Contribution" category="Global Fuel Settings" address="3888" type="2D" level="1" scaling="LoadUncompDelta">
+		<table name="Uncompensated Load" type="Static Y Axis" elements="13">
+			<data>0</data>
+			<data>24</data>
+			<data>48</data>
+			<data>72</data>
+			<data>95</data>
+			<data>119</data>
+			<data>143</data>
+			<data>167</data>
+			<data>191</data>
+			<data>215</data>
+			<data>238</data>
+			<data>262</data>
+			<data>286</data>
+		</table>
+	</table>
+
+	<table name="Min Uncomp Load Change at Changing Throttle for SyncLoadAccel/Decel Contribution" category="Global Fuel Settings" address="3895" type="2D" level="1" scaling="LoadUncompDelta">
+		<table name="Uncompensated Load" type="Static Y Axis" elements="13">
+			<data>0</data>
+			<data>24</data>
+			<data>48</data>
+			<data>72</data>
+			<data>95</data>
+			<data>119</data>
+			<data>143</data>
+			<data>167</data>
+			<data>191</data>
+			<data>215</data>
+			<data>238</data>
+			<data>262</data>
+			<data>286</data>
+		</table>
+	</table>
+
 
 	<table name="Sync Load Accel Compensation vs RPM" category="Global Fuel Settings - Accel Enrich" address="3864" type="2D" level="2" scaling="Mult128-8">
 		<table name="RPM" address="6622" type="Y Axis" elements="15" scaling="RPM"/>
@@ -821,32 +892,10 @@
 		</table>
 	</table>
 
-	<table name="ISCV Demand Target Idle Trim (sub_1ECF6)" category="ISCV Control" type="2D" address="435c" level="2" scaling="ISCV_AX2_8">
-	<table name="Target Idle Deviation" type="Y Axis" address="669a" elements="9" scaling="RPMTarget"/>
-	</table>
+	<table name="Target Idle Deviation" category="Idle" type="Y Axis" address="669a" elements="9" scaling="RPMTarget"/>
 
 	<table name="Target Idle ISCV Trim Adjust Frequency" category="ISCV Control" address="18c2" type="1D" level="2" scaling="Time"/>
 
-	<table name="ISCV Demand Below 500 RPM Idle Recovery Adder (sub_1E2C8)" category="ISCV Control" address="1916" type="1D" level="2" scaling="ISCV_AX2_16"/>
-
-
-	<table name="ISCV Demand Startup CTS Adder (sub_1EBB8)" category="ISCV Control" type="2D" address="42c0" level="2" scaling="ISCV_AX2_8">
-	<table name="Coolant Temp" type="Y Axis" address="69be" elements="8" scaling="Temp"/>
-	</table>
-
-
-	<table name="ISCV Demand General CTS Subtractor (sub_1EBE6)" category="ISCV Control" type="2D" address="4384" level="2" scaling="ISCV_AX2_8">
-	<table name="Coolant Temp" type="Y Axis" address="69be" elements="8" scaling="Temp"/>
-	</table>
-
-
-	<table name="ISCV Demand Baro Adder (FFFF6E98) (sub_1E1EE)" category="ISCV Control" type="2D" address="434a" level="2" scaling="ISCV_AX2_8">
-	<table name="Baro" type="Y Axis" address="6824" elements="5" scaling="Baro16"/>
-	</table>
-
-	<table name="ISCV Demand RPM Adder* (sub_1EFC0)" category="ISCV Control" type="2D" address="47e8" level="2" scaling="ISCV_AX2_8">
-	<table name="RPM" type="Y Axis" address="6576" elements="10" scaling="RPM"/>
-	</table>
 
 	<!-- can't seem to find this one in 96530006
 
@@ -856,41 +905,6 @@
 
 	-->
 
-	<table name="ISCV Demand RPM Adder [rpm > 4500, load > 170, speed > 12 mph] (sub_1EFC0)" category="ISCV Control" type="2D" address="605c" level="2" scaling="ISCV_AX2_8">
-	<table name="RPM" type="Y Axis" address="7af6" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="ISCV Demand CTS Adder #1** (sub_1F1F8, sub_1EA0C, sub_1F596) [sub_1EFC0]" category="ISCV Control" type="2D" address="4288" level="2" scaling="ISCV_AX2_8">
-	<table name="Coolant Temp" type="Y Axis" address="6aa0" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="ISCV Demand CTS Adder #2** (Post WOT) (sub_1F1F8) [sub_1EFC0]" category="ISCV Control" type="2D" address="5a54" level="2" scaling="ISCV_AX2_8">
-	<table name="Coolant Temp" type="Y Axis" address="6a50" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="ISCV Demand CTS Adder #1a*** (sub_1F2C6, 1F596) [sub_1EFC0]" category="ISCV Control" type="2D" address="5786" level="2" scaling="ISCV_AX2_8">
-	<table name="Coolant Temp" type="Y Axis" address="6aa0" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="ISCV Demand CTS Adder #1b*** (sub_1F2C6) [sub_1EFC0]" category="ISCV Control" type="2D" address="42a4" level="2" scaling="ISCV_AX2_8">
-	<table name="Coolant Temp" type="Y Axis" address="6aa0" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="ISCV Demand CTS Adder #2*** (Post WOT) (sub_1F2C6) [sub_1EFC0]" category="ISCV Control" type="2D" address="5a70" level="2" scaling="ISCV_AX2_8">
-	<table name="Coolant Temp" type="Y Axis" address="6a50" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="ISCV Demand RPM Adder (Moderated by Baro, IATS) (FFFF6EA8) (sub_204B6) [sub_1EFC0]" category="ISCV Control" type="2D" address="651c" level="2" scaling="ISCV_AX2_8">
-	<table name="RPM" type="Y Axis" address="7b70" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="ISCV Demand Baro Adder**** (FFFF7C0E) (sub_1F6E6) [sub_1EFC0]" category="ISCV Control" type="2D" address="64fe" level="2" scaling="ISCV_AX2_8">
-	<table name="Baro" type="Y Axis" address="6824" elements="5" scaling="Baro16"/>
-	</table>
-
-	<table name="ISCV Demand IATS Adder**** (FFFF7C0E) (sub_1F6E6) [sub_1EFC0]" category="ISCV Control" type="2D" address="650e" level="2" scaling="ISCV_AX2_8">
-	<table name="Intake Air Temp" type="Y Axis" address="6af0" elements="8" scaling="Temp"/>
-	</table>
 
 
 	<table name="Idle Stepper Lookup Table" category="ISCV Control" type="3D" address="43ab" scaling="ISCVSteps">
@@ -1219,6 +1233,8 @@
 		</table>
 	</table>
 
+        <table name="ODBII Circuit Test Bypass (Stock 0x4A0B -> NOP 0x9)" category="Test" address="EF0E" type="1D" level="1" scaling="Hex16"/>
+
 	<table name="Non-Continuous Monitor Availability Patch Part 1" category="OBD Inspection" address="34c4e" type="2D" level="1" scaling="Hex16">
 		<table type="Static Y Axis" elements="1">
 			<data>Stock Setting= 0x4019            Forced PASS Inpection Setting= 0xE000      :</data>
@@ -1356,461 +1372,8 @@
 		</table>
 	</table>
 
-	<table name="Cranking Primer Initial Pulse" category="Fuel" address="58d0" type="2D" level="2" scaling="TimeInjCranking">
-		<table name="Coolant Temperature" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="Initial Cranking IPW vs Coolant Temp" category="Fuel" address="5b3a" type="2D" level="2" scaling="TimeTCOMPCrankingHack">
-		<table name="Engine Temp" address="69f4" type="Y Axis" elements="11" scaling="Temp"/>
-	</table>
-
-	<table name="Cranking IPW Compensation vs Time" category="Fuel" address="382a" type="2D" level="2" scaling="Percent (128)">
-		<table name="Time Since Engaging Starter (sec)" type="Static Y Axis" elements="20">
-			<data>0.000</data>
-			<data>0.022</data>
-			<data>0.044</data>
-			<data>0.066</data>
-			<data>0.088</data>
-			<data>0.110</data>
-			<data>0.132</data>
-			<data>0.154</data>
-			<data>0.176</data>
-			<data>0.198</data>
-			<data>0.220</data>
-			<data>0.242</data>
-			<data>0.264</data>
-			<data>0.286</data>
-			<data>0.308</data>
-			<data>0.330</data>
-			<data>0.352</data>
-			<data>0.374</data>
-			<data>0.396</data>
-			<data>0.418</data>
-		</table>
-	</table>
-
-	<table name="Airflow/Hz Raw Scaling" category="Fuel" address="3306" type="2D" level="2" scaling="uint8">
-		<table name="MAF Hz" address="67a0" type="Y Axis" elements="21" scaling="MAFHz"/>
-	</table>
-
-	<table name="Airflow/Hz Offset Raw" category="Fuel" address="1512" type="1D" level="2" scaling="uint16"/>
-	
-	<table name="MAF Adder" category="Fuel" address="1512" type="1D" level="3" scaling="uint16"/>
-
-	<table name="MAF Smoothing Table" category="Fuel" address="3322" type="2D" scaling="uint8">
-		<table name="Load" address="67a0" type="Y Axis" elements="21" scaling="AirFlow Hz"/>
-	</table>
-
-	<table name="MAF Compensation" category="Fuel" address="3322" type="2D" level="2" scaling="uint8">
-		<table name="MAF Hz" address="67a0" type="Y Axis" elements="21" scaling="MAFHz"/>
-	</table>
-
-	<table name="Airflow/Hz Baro and Air Temp Compensation" category="Fuel" address="3351" type="3D" level="2" swapxy="true" scaling="AirTempBaroCorrection">
-		<table name="Rel Air Volume (20C, 1 bar)" address="6870" type="X Axis" elements="4" scaling="AirTempBaroFactor"/>
-		<table name="MAF Hz" address="6808" type="Y Axis" elements="9" scaling="MAFHz"/>
-	</table>
-
-	<table name="Injector Size Scaling" category="Fuel" address="1506" type="1D" scaling="InjectorScaling"/>
-
-	<table name="BFPW Startup Comp vs Coolant Temp #1" category="Fuel" address="3732" type="2D" level="2" scaling="Percent64(8-bit)">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="BFPW Startup Comp vs Coolant Temp #2" category="Fuel" address="3742" type="2D" level="2" scaling="Percent64(8-bit)">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="MAF Comp vs Coolant Temp #1" category="Fuel" address="3722" type="2D" level="1" scaling="uint8">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="MAF Comp vs Coolant Temp #2" category="Fuel" address="3712" type="2D" level="1" scaling="uint8">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="Air Density Compensation for Load And IPW" category="Misc" address="36dc" type="2D" level="2" scaling="AirDensComp">
+	<table name="Air Density Compensation for Load And IPW" category="Gloabl Fuel Settings" address="36dc" type="2D" level="2" scaling="AirDensComp">
 		<table name="MAF Air Temp" address="6af0" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Closed Loop - LT Trim Control Ranges" category="Fuel" address="35e5" type="2D" level="1" scaling="LT Trim Hz">
-		<table name="Conditions" type="Static Y Axis" elements="4">
-			<data>Low -> Mid</data>
-			<data>Mid -> Low</data>
-			<data>Mid -> High</data>
-			<data>High -> Mid</data>
-		</table>
-	</table>
-
-	<table name="Sync Load Accel Compensation vs RPM" category="Fuel" address="3864" type="2D" level="2" scaling="Mult128">
-		<table name="RPM" address="6622" type="Y Axis" elements="15" scaling="RPM"/>
-	</table>
-
-	<table name="Sync Load Accel Compensation vs Coolant Temp Table #1" category="Fuel" address="3856" type="2D" level="2" scaling="Mult128">
-		<table name="Coolant Temp" address="69be" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Min Uncomp Load Change at Steady Throttle for SyndLoadAccel/Decel Contribution" category="Fuel" address="3888" type="2D" level="1" scaling="LoadUncompDelta">
-		<table name="Uncompensated Load" type="Static Y Axis" elements="13">
-			<data>0</data>
-			<data>24</data>
-			<data>48</data>
-			<data>72</data>
-			<data>95</data>
-			<data>119</data>
-			<data>143</data>
-			<data>167</data>
-			<data>191</data>
-			<data>215</data>
-			<data>238</data>
-			<data>262</data>
-			<data>286</data>
-		</table>
-	</table>
-
-	<table name="Min Uncomp Load Change at Changing Throttle for SyncLoadAccel/Decel Contribution" category="Fuel" address="3895" type="2D" level="1" scaling="LoadUncompDelta">
-		<table name="Uncompensated Load" type="Static Y Axis" elements="13">
-			<data>0</data>
-			<data>24</data>
-			<data>48</data>
-			<data>72</data>
-			<data>95</data>
-			<data>119</data>
-			<data>143</data>
-			<data>167</data>
-			<data>191</data>
-			<data>215</data>
-			<data>238</data>
-			<data>262</data>
-			<data>286</data>
-		</table>
-	</table>
-
-	<table name="Ceiling Load vs RPM for Sync Load Accel/Decel Contributions" category="Fuel" address="391e" type="2D" level="1" scaling="x54d16">
-		<table name="RPM" address="6576" type="Y Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Sync Load Accel DeltaMasterLoadPos Ceiling Value" category="Fuel" address="163a" type="1D" level="1" scaling="LoadMaster16"/>
-
-	<table name="Decel IPW Subtraction Comp vs RPM" category="Fuel" address="393c" type="2D" level="2" scaling="Mult128">
-		<table name="RPM" address="6576" type="Y Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Decel IPW Subtraction Comp vs Load" category="Fuel" address="394c" type="2D" level="2" scaling="Mult128">
-		<table name="Load" address="66b6" type="Y Axis" elements="14" scaling="Load"/>
-	</table>
-
-	<table name="Decel IPW Subtraction Comp vs Coolant Temp" category="Fuel" address="392e" type="2D" level="2" scaling="Mult128">
-		<table name="Coolant Temp" address="69be" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Sync Load Decel DeltaMasterLoadNeg Ceiling Value" category="Fuel" address="163c" type="1D" level="1" scaling="LoadMaster16"/>
-
-	<table name="Async Accel Pause Period" category="Fuel" address="1654" type="1D" level="2" scaling="uint16"/>
-
-	<table name="Async Accel Min TPS Delta" category="Fuel" address="1656" type="1D" level="2" scaling="ThrottlePercentage"/>
-
-	<table name="Async Accel Max Pulsewidth" category="Fuel" address="1658" type="1D" level="2" scaling="AsyncAccelMaxFPW"/>
-
-	<table name="Async Accel Max Total Contribution During Accel Period" category="Fuel" address="165a" type="1D" level="2" scaling="Mult128-16"/>
-
-	<table name="Async Accel Mult to Coolant Temp Adder During 5 Sec After Startup" category="Fuel" address="165c" type="1D" level="2" scaling="Mult128-16"/>
-
-	<table name="Async Accel Above TPS Enrichment Cutoff vs RPM" category="Fuel" address="38b2" type="2D" level="2" scaling="ThrottlePercentage8">
-		<table name="RPM" address="6622" type="Y Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Async Accel Multiplier vs TPS Delta" category="Fuel" address="38a2" type="2D" level="2" scaling="Mult128">
-		<table name="TPS Delta" type="Static Y Axis" elements="9">
-			<data>0.0%</data>
-			<data>1.6%</data>
-			<data>3.1%</data>
-			<data>4.7%</data>
-			<data>6.3%</data>
-			<data>7.8%</data>
-			<data>9.4%</data>
-			<data>11.0%</data>
-			<data>12.5%</data>
-		</table>
-	</table>
-
-	<table name="Async Accel vs RPM Adder" category="Fuel" address="38d0" type="2D" level="2" scaling="uint8">
-		<table name="RPM" address="6622" type="Y Axis" elements="15" scaling="RPM"/>
-	</table>
-
-	<table name="Async Accel vs Coolant Temp Adder (Main)" category="Fuel" address="38c2" type="2D" level="2" scaling="uint8">
-		<table name="Coolant Temp" address="69be" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Ignition Unknown Map (warm-up?)" category="Timing" address="61c9" type="3D" swapxy="true" scaling="Timing">
-		<table name="Load" address="6910" type="X Axis" elements="19" scaling="Load"/>
-		<table name="RPM" address="68de" type="Y Axis" elements="20" scaling="RPM"/>
-	</table>
-
-	<table name="Ignition Unknown Control (warm-up?)" category="Timing" address="61b6" type="2D" level="2" scaling="uint8">
-		<table name="Engine Temp" address="6a36" type="X Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Ignition Trim vs Engine Temp" category="Timing" address="41a4" type="2D" level="2" scaling="uint8">
-		<table name="Engine Temp" address="6aa0" type="X Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Ignition Trim vs Air Temp" category="Timing" address="41b2" type="2D" level="2" scaling="uint8">
-		<table name="Air Temp" address="6aa0" type="X Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Ignition Trim Unknown" category="Timing" address="41c0" type="2D" level="2" scaling="uint8">
-		<table name="Unknown" address="6824" type="X Axis" elements="5" scaling="Temp"/>
-	</table>
-
-	<table name="Ignition Trim vs Air Temp Above Load" category="Timing" address="41cc" type="2D" level="2" scaling="Load8">
-		<table name="Engine Speed" address="6576" type="X Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Warmup Retard Control" category="Timing" address="41dc" type="2D" level="2" scaling="uint8">
-		<table name="Engine Temp" address="7b12" type="X Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Decel Fuel Cut Delay #1" category="Fuel" address="42ce" type="2D" level="2" scaling="uint8">
-		<table name="Load" address="697a" type="X Axis" elements="7" scaling="Load"/>
-	</table>
-
-	<table name="Decel Fuel Cut Delay #2" category="Fuel" address="42dc" type="2D" level="2" scaling="uint8">
-		<table name="Load" address="697a" type="X Axis" elements="7" scaling="Load"/>
-	</table>
-
-	<table name="Decel Fuel Cut Delay #3" category="Fuel" address="42ea" type="2D" level="2" scaling="uint8">
-		<table name="Load" address="697a" type="X Axis" elements="7" scaling="Load"/>
-	</table>
-
-	<table name="Decel Fuel Cut Delay #4" category="Fuel" address="42f8" type="2D" level="2" scaling="uint8">
-		<table name="Load" address="697a" type="X Axis" elements="7" scaling="Load"/>
-	</table>
-
-	<table name="Decel Fuel Cut Retard" category="Fuel" address="4312" type="2D" level="2" scaling="Timing">
-		<table name="Engine Speed" address="6576" type="X Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Ignition Coil Charge Time" category="Timing" address="41ea" type="2D" level="2" scaling="uint8">
-		<table name="Battery" address="6808" type="X Axis" elements="9" scaling="BatteryVoltage"/>
-	</table>
-
-	<table name="Ignition Coil Charge Time (Unknown 1)" category="Timing" address="41fa" type="2D" level="2" scaling="uint8">
-		<table name="Battery" address="6808" type="X Axis" elements="9" scaling="BatteryVoltage"/>
-	</table>
-
-	<table name="Ignition Coil Charge Time (Unknown 2)" category="Timing" address="420a" type="2D" level="2" scaling="uint8">
-		<table name="Battery" address="6808" type="X Axis" elements="9" scaling="BatteryVoltage"/>
-	</table>
-
-	<table name="Cranking Primer Initial Pulse" category="Fuel" address="58d0" type="2D" level="2" scaling="TimeInjCranking">
-		<table name="Coolant Temperature" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="Initial Cranking IPW vs Coolant Temp" category="Fuel" address="5b3a" type="2D" level="2" scaling="TimeTCOMPCrankingHack">
-		<table name="Engine Temp" address="69f4" type="Y Axis" elements="11" scaling="Temp"/>
-	</table>
-
-	<table name="Cranking IPW Compensation vs Time" category="Fuel" address="382a" type="2D" level="2" scaling="Percent (128)">
-		<table name="Time Since Engaging Starter (sec)" type="Static Y Axis" elements="20">
-			<data>0.000</data>
-			<data>0.022</data>
-			<data>0.044</data>
-			<data>0.066</data>
-			<data>0.088</data>
-			<data>0.110</data>
-			<data>0.132</data>
-			<data>0.154</data>
-			<data>0.176</data>
-			<data>0.198</data>
-			<data>0.220</data>
-			<data>0.242</data>
-			<data>0.264</data>
-			<data>0.286</data>
-			<data>0.308</data>
-			<data>0.330</data>
-			<data>0.352</data>
-			<data>0.374</data>
-			<data>0.396</data>
-			<data>0.418</data>
-		</table>
-	</table>
-
-	<table name="Airflow/Hz Raw Scaling" category="Fuel" address="3306" type="2D" level="2" scaling="uint8">
-		<table name="MAF Hz" address="67a0" type="Y Axis" elements="21" scaling="MAFHz"/>
-	</table>
-
-	<table name="Airflow/Hz Offset Raw" category="Fuel" address="1512" type="1D" level="2" scaling="uint16"/>
-
-	<table name="MAF Compensation" category="Fuel" address="3322" type="2D" level="2" scaling="uint8">
-		<table name="MAF Hz" address="67a0" type="Y Axis" elements="21" scaling="MAFHz"/>
-	</table>
-
-	<table name="Airflow/Hz Baro and Air Temp Compensation" category="Fuel" address="3351" type="3D" level="2" swapxy="true" scaling="AirTempBaroCorrection">
-		<table name="Rel Air Volume (20C, 1 bar)" address="6870" type="X Axis" elements="4" scaling="AirTempBaroFactor"/>
-		<table name="MAF Hz" address="6808" type="Y Axis" elements="9" scaling="MAFHz"/>
-	</table>
-
-	<table name="Injector Size Scaling" category="Fuel" address="1506" type="1D" scaling="InjectorScaling"/>
-
-	<table name="BFPW Startup Comp vs Coolant Temp #1" category="Fuel" address="3732" type="2D" level="2" scaling="Percent64(8-bit)">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="BFPW Startup Comp vs Coolant Temp #2" category="Fuel" address="3742" type="2D" level="2" scaling="Percent64(8-bit)">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="MAF Comp vs Coolant Temp #1" category="Fuel" address="3722" type="2D" level="1" scaling="uint8">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="MAF Comp vs Coolant Temp #2" category="Fuel" address="3712" type="2D" level="1" scaling="uint8">
-		<table name="Coolant Temp" address="69d8" type="Y Axis" elements="9" scaling="Temp"/>
-	</table>
-
-	<table name="Air Density Compensation for Load And IPW" category="Misc" address="36dc" type="2D" level="2" scaling="AirDensComp">
-		<table name="MAF Air Temp" address="6af0" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Closed Loop - LT Trim Control Ranges" category="Fuel" address="35e5" type="2D" level="1" scaling="LT Trim Hz">
-		<table name="Conditions" type="Static Y Axis" elements="4">
-			<data>Low -> Mid</data>
-			<data>Mid -> Low</data>
-			<data>Mid -> High</data>
-			<data>High -> Mid</data>
-		</table>
-	</table>
-
-	<table name="Sync Load Accel Compensation vs RPM" category="Fuel" address="3864" type="2D" level="2" scaling="Mult128">
-		<table name="RPM" address="6622" type="Y Axis" elements="15" scaling="RPM"/>
-	</table>
-
-	<table name="Sync Load Accel Compensation vs Coolant Temp Table #1" category="Fuel" address="3856" type="2D" level="2" scaling="Mult128">
-		<table name="Coolant Temp" address="69be" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Min Uncomp Load Change at Steady Throttle for SyndLoadAccel/Decel Contribution" category="Fuel" address="3888" type="2D" level="1" scaling="LoadUncompDelta">
-		<table name="Uncompensated Load" type="Static Y Axis" elements="13">
-			<data>0</data>
-			<data>24</data>
-			<data>48</data>
-			<data>72</data>
-			<data>95</data>
-			<data>119</data>
-			<data>143</data>
-			<data>167</data>
-			<data>191</data>
-			<data>215</data>
-			<data>238</data>
-			<data>262</data>
-			<data>286</data>
-		</table>
-	</table>
-
-	<table name="Min Uncomp Load Change at Changing Throttle for SyncLoadAccel/Decel Contribution" category="Fuel" address="3895" type="2D" level="1" scaling="LoadUncompDelta">
-		<table name="Uncompensated Load" type="Static Y Axis" elements="13">
-			<data>0</data>
-			<data>24</data>
-			<data>48</data>
-			<data>72</data>
-			<data>95</data>
-			<data>119</data>
-			<data>143</data>
-			<data>167</data>
-			<data>191</data>
-			<data>215</data>
-			<data>238</data>
-			<data>262</data>
-			<data>286</data>
-		</table>
-	</table>
-
-	<table name="Ceiling Load vs RPM for Sync Load Accel/Decel Contributions" category="Fuel" address="391e" type="2D" level="1" scaling="x54d16">
-		<table name="RPM" address="6576" type="Y Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Sync Load Accel DeltaMasterLoadPos Ceiling Value" category="Fuel" address="163a" type="1D" level="1" scaling="LoadMaster16"/>
-
-	<table name="Decel IPW Subtraction Comp vs RPM" category="Fuel" address="393c" type="2D" level="2" scaling="Mult128">
-		<table name="RPM" address="6576" type="Y Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Decel IPW Subtraction Comp vs Load" category="Fuel" address="394c" type="2D" level="2" scaling="Mult128">
-		<table name="Load" address="66b6" type="Y Axis" elements="14" scaling="Load"/>
-	</table>
-
-	<table name="Decel IPW Subtraction Comp vs Coolant Temp" category="Fuel" address="392e" type="2D" level="2" scaling="Mult128">
-		<table name="Coolant Temp" address="69be" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Sync Load Decel DeltaMasterLoadNeg Ceiling Value" category="Fuel" address="163c" type="1D" level="1" scaling="LoadMaster16"/>
-
-	<table name="Async Accel Pause Period" category="Fuel" address="1654" type="1D" level="2" scaling="uint16"/>
-
-	<table name="Async Accel Min TPS Delta" category="Fuel" address="1656" type="1D" level="2" scaling="ThrottlePercentage"/>
-
-	<table name="Async Accel Max Pulsewidth" category="Fuel" address="1658" type="1D" level="2" scaling="AsyncAccelMaxFPW"/>
-
-	<table name="Async Accel Max Total Contribution During Accel Period" category="Fuel" address="165a" type="1D" level="2" scaling="Mult128-16"/>
-
-	<table name="Async Accel Mult to Coolant Temp Adder During 5 Sec After Startup" category="Fuel" address="165c" type="1D" level="2" scaling="Mult128-16"/>
-
-	<table name="Async Accel Above TPS Enrichment Cutoff vs RPM" category="Fuel" address="38b2" type="2D" level="2" scaling="ThrottlePercentage8">
-		<table name="RPM" address="6622" type="Y Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Async Accel Multiplier vs TPS Delta" category="Fuel" address="38a2" type="2D" level="2" scaling="Mult128">
-		<table name="TPS Delta" type="Static Y Axis" elements="9">
-			<data>0.0%</data>
-			<data>1.6%</data>
-			<data>3.1%</data>
-			<data>4.7%</data>
-			<data>6.3%</data>
-			<data>7.8%</data>
-			<data>9.4%</data>
-			<data>11.0%</data>
-			<data>12.5%</data>
-		</table>
-	</table>
-
-	<table name="Async Accel vs RPM Adder" category="Fuel" address="38d0" type="2D" level="2" scaling="uint8">
-		<table name="RPM" address="6622" type="Y Axis" elements="15" scaling="RPM"/>
-	</table>
-
-	<table name="Async Accel vs Coolant Temp Adder (Main)" category="Fuel" address="38c2" type="2D" level="2" scaling="uint8">
-		<table name="Coolant Temp" address="69be" type="Y Axis" elements="8" scaling="Temp"/>
-	</table>
-
-	<table name="Asynch_Acell_Enrichment" category="Fuel" address="1654" type="2D" level="1" scaling="uint16">
-		<table name="X" type="Static Y Axis" elements="5">
-			<data>pause_period</data>
-			<data>min_TPSdelta</data>
-			<data>Max_pulsewidth</data>
-			<data>idle_TPSRange</data>
-			<data>after_engine_start_addition</data>
-		</table>
-	</table>
-
-	<table name="Asynch_VS_TPSDELTA" category="Fuel" address="38a2" type="2D" level="1" scaling="uint8">
-		<table name="X" type="Static Y Axis" elements="9">
-			<data>0</data>
-			<data>1</data>
-			<data>2</data>
-			<data>3</data>
-			<data>4</data>
-			<data>5</data>
-			<data>6</data>
-			<data>7</data>
-			<data>8</data>
-		</table>
-	</table>
-
-	<table name="Asynch_TPS(Rpm) Limit" category="Fuel" address="38b2" type="2D" level="1" scaling="WGDuty">
-		<table name="X" address="6622" type="Y Axis" elements="10" scaling="RPM"/>
-	</table>
-
-	<table name="Asynch_Accel_vsRPM" category="Fuel" address="38d0" type="2D" level="1" scaling="uint8">
-		<table name="X" address="6622" type="Y Axis" elements="15" scaling="RPM"/>
 	</table>
 
 	<table name="Alternator Charge Current" category="Alternator" address="4655" type="3D" swapxy="true" scaling="ChargeCurrent">
@@ -1821,7 +1384,7 @@
 	<table name="Alternator G Terminal Dead Zone" category="Alternator" address="46B6" type="2D" scaling="AltDeadZone">
 		<table name="RPM" address="664A" type="X Axis" elements="10" scaling="RPM"/>
 	</table>
-<table name="MAP Test 1: Mid VE Max Voltage" category="MAPSensor" address="2048" type="1D" level="1" scaling="Volts16"/>
+	<table name="MAP Test 1: Mid VE Max Voltage" category="MAPSensor" address="2048" type="1D" level="1" scaling="Volts16"/>
 
 	<table name="MAP Test 1: Mid VE Min Voltage" category="MAPSensor" address="2046" type="1D" level="1" scaling="Volts16"/>
 
