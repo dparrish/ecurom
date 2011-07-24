@@ -1372,7 +1372,7 @@
 		</table>
 	</table>
 
-	<table name="Air Density Compensation for Load And IPW" category="Gloabl Fuel Settings" address="36dc" type="2D" level="2" scaling="AirDensComp">
+	<table name="Air Density Compensation for Load And IPW" category="Global Fuel Settings" address="36dc" type="2D" level="2" scaling="AirDensComp">
 		<table name="MAF Air Temp" address="6af0" type="Y Axis" elements="8" scaling="Temp"/>
 	</table>
 
