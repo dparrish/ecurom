@@ -983,7 +983,7 @@
                         <data>bit.06: Enable Speed Limit Test                                      -</data>
                         <data>bit.05:                                                              -</data>
                         <data>bit.04: Allow closed loop                                            -</data>
-                        <data>bit.02: Enable immobilizer                                           -</data>
+                        <data>bit.03: Enable immobilizer                                           -</data>
                         <data>bit.02:                                                              -</data>
                         <data>bit.01: Rear o2                                                      -</data>
                         <data>bit.00:                                                              -</data>
