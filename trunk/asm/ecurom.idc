@@ -4,6 +4,13 @@
 //
 // vim:foldmethod=syntax foldnestmax=1 sw=2 et smarttab smartindent ft=c
 //
+// ----------------------------- WARNING --------------------------------------
+// This will NOT work with IDA Pro v6.0, but it should work with any other
+// version, including 6.1, as long as you switch off the "Convert Immediate
+// Loads" option. You can find it in Options -> General -> Analysis ->
+// Processor specific analysis options.
+// ----------------------------- WARNING --------------------------------------
+//
 // STEP-BY-STEP TO DISASSEMBLING YOUR ROM IMAGE:
 //
 // Run "idaw -psh4b <rom image filename>" (use "udal" on Linux). (Another
@@ -50,290 +57,288 @@
 #define AXIS_LOOKUP_FUNC            0x00000CC6
 #define WORD_TABLE_LOOKUP_FUNC      0x00000E02
 
-
-static HasName(ea) {
-  if (Name(ea) == "" || strstr(Name(ea), "off_") == 0 || strstr(Name(ea), "unk_") == 0 || strstr(Name(ea), "sub_") == 0)
-    return 0;
-  return 1;
-}
+// Set a name for a location if there is not already a manual name set.
+#define SafeMakeName(ea, name) SafeMakeNameEx(ea, name, SN_NOWARN)
+#define SafeMakeNameEx(ea, name, opts) if (ea != BADADDR && !HasName(ea)) MakeNameEx(ea, name, opts);
+#define HasName(ea) !(Name(ea) == "" || strstr(Name(ea), "off_") == 0 || strstr(Name(ea), "unk_") == 0 || strstr(Name(ea), "sub_") == 0 || strstr(Name(ea), "byte_") == 0 || strstr(Name(ea), "word_") == 0 || strstr(Name(ea), "dword_") == 0)
 static MakeNameSequence(ea, name) {
   auto i, fullname;
   for (i = 1; i < 5000; i++) {
     fullname = form("%s_%d", name, i);
     if (LocByName(fullname) == BADADDR) {
-      MakeName(ea, fullname);
+      SafeMakeName(ea, fullname);
       return;
     }
   }
 }
 
 static H8RegisterNames() {
-  MakeName(0xFEC0, "SCI3_SMR");
-  MakeName(0xFEC1, "SCI3_BRR");
-  MakeName(0xFEC2, "SCI3_SCR");
-  MakeName(0xFEC3, "SCI3_TDR");
-  MakeName(0xFEC4, "SCI3_SSR");
-  MakeName(0xFEC5, "SCI3_RDR");
+  SafeMakeName(0xFEC0, "SCI3_SMR");
+  SafeMakeName(0xFEC1, "SCI3_BRR");
+  SafeMakeName(0xFEC2, "SCI3_SCR");
+  SafeMakeName(0xFEC3, "SCI3_TDR");
+  SafeMakeName(0xFEC4, "SCI3_SSR");
+  SafeMakeName(0xFEC5, "SCI3_RDR");
 
-  MakeName(0xFEC8, "SCI1_SMR");
-  MakeName(0xFEC9, "SCI1_BRR");
-  MakeName(0xFECA, "SCI1_SCR");
-  MakeName(0xFECB, "SCI1_TDR");
-  MakeName(0xFECC, "SCI1_SSR");
-  MakeName(0xFECD, "SCI1_RDR");
+  SafeMakeName(0xFEC8, "SCI1_SMR");
+  SafeMakeName(0xFEC9, "SCI1_BRR");
+  SafeMakeName(0xFECA, "SCI1_SCR");
+  SafeMakeName(0xFECB, "SCI1_TDR");
+  SafeMakeName(0xFECC, "SCI1_SSR");
+  SafeMakeName(0xFECD, "SCI1_RDR");
 
-  MakeName(0xFED0, "SCI2_SMR");
-  MakeName(0xFED1, "SCI2_BRR");
-  MakeName(0xFED2, "SCI2_SCR");
-  MakeName(0xFED3, "SCI2_TDR");
-  MakeName(0xFED4, "SCI2_SSR");
-  MakeName(0xFED5, "SCI2_RDR");
+  SafeMakeName(0xFED0, "SCI2_SMR");
+  SafeMakeName(0xFED1, "SCI2_BRR");
+  SafeMakeName(0xFED2, "SCI2_SCR");
+  SafeMakeName(0xFED3, "SCI2_TDR");
+  SafeMakeName(0xFED4, "SCI2_SSR");
+  SafeMakeName(0xFED5, "SCI2_RDR");
 
-  MakeName(0xFE80, "P1DDR");
-  MakeName(0xFE81, "P2DDR");
-  MakeName(0xFE82, "P1DR");
-  MakeName(0xFE83, "P2DR");
-  MakeName(0xFE84, "P3DDR");
-  MakeName(0xFE85, "P4DDR");
-  MakeName(0xFE86, "P3DR");
-  MakeName(0xFE87, "P4DR");
-  MakeName(0xFE88, "P5DDR");
-  MakeName(0xFE89, "P6DDR");
-  MakeName(0xFE8A, "P5DR");
-  MakeName(0xFE8B, "P6DR");
-  MakeName(0xFE8C, "P7DDR");
-  MakeName(0xFE8E, "P7DR");
-  MakeName(0xFE8F, "P8DR");
+  SafeMakeName(0xFE80, "P1DDR");
+  SafeMakeName(0xFE81, "P2DDR");
+  SafeMakeName(0xFE82, "P1DR");
+  SafeMakeName(0xFE83, "P2DR");
+  SafeMakeName(0xFE84, "P3DDR");
+  SafeMakeName(0xFE85, "P4DDR");
+  SafeMakeName(0xFE86, "P3DR");
+  SafeMakeName(0xFE87, "P4DR");
+  SafeMakeName(0xFE88, "P5DDR");
+  SafeMakeName(0xFE89, "P6DDR");
+  SafeMakeName(0xFE8A, "P5DR");
+  SafeMakeName(0xFE8B, "P6DR");
+  SafeMakeName(0xFE8C, "P7DDR");
+  SafeMakeName(0xFE8E, "P7DR");
+  SafeMakeName(0xFE8F, "P8DR");
 
-  MakeName(0xFE91, "PADDR");
-  MakeName(0xFE92, "P9DR");
-  MakeName(0xFE93, "PADR");
-  MakeName(0xFE94, "PBDDR");
-  MakeName(0xFE95, "PCDDR");
-  MakeName(0xFE96, "PBDR");
-  MakeName(0xFE97, "PCDR");
-  MakeName(0xFE98, "PBPCR");
-  MakeName(0xFE99, "PCPCR");
-  MakeName(0xFE9A, "oCR");
+  SafeMakeName(0xFE91, "PADDR");
+  SafeMakeName(0xFE92, "P9DR");
+  SafeMakeName(0xFE93, "PADR");
+  SafeMakeName(0xFE94, "PBDDR");
+  SafeMakeName(0xFE95, "PCDDR");
+  SafeMakeName(0xFE96, "PBDR");
+  SafeMakeName(0xFE97, "PCDR");
+  SafeMakeName(0xFE98, "PBPCR");
+  SafeMakeName(0xFE99, "PCPCR");
+  SafeMakeName(0xFE9A, "oCR");
 
-  MakeName(0xFEA0, "ADDR0H");
-  MakeName(0xFEA1, "ADDR0L");
-  MakeName(0xFEA2, "ADDR1H");
-  MakeName(0xFEA3, "ADDR1L");
-  MakeName(0xFEA4, "ADDR2H");
-  MakeName(0xFEA5, "ADDR2L");
-  MakeName(0xFEA6, "ADDR3H");
-  MakeName(0xFEA7, "ADDR3L");
-  MakeName(0xFEA8, "ADDR4H");
-  MakeName(0xFEA9, "ADDR4L");
-  MakeName(0xFEAA, "ADDR5H");
-  MakeName(0xFEAB, "ADDR5L");
-  MakeName(0xFEAC, "ADDR6H");
-  MakeName(0xFEAD, "ADDR6L");
-  MakeName(0xFEAE, "ADDR7H");
-  MakeName(0xFEAF, "ADDR7L");
+  SafeMakeName(0xFEA0, "ADDR0H");
+  SafeMakeName(0xFEA1, "ADDR0L");
+  SafeMakeName(0xFEA2, "ADDR1H");
+  SafeMakeName(0xFEA3, "ADDR1L");
+  SafeMakeName(0xFEA4, "ADDR2H");
+  SafeMakeName(0xFEA5, "ADDR2L");
+  SafeMakeName(0xFEA6, "ADDR3H");
+  SafeMakeName(0xFEA7, "ADDR3L");
+  SafeMakeName(0xFEA8, "ADDR4H");
+  SafeMakeName(0xFEA9, "ADDR4L");
+  SafeMakeName(0xFEAA, "ADDR5H");
+  SafeMakeName(0xFEAB, "ADDR5L");
+  SafeMakeName(0xFEAC, "ADDR6H");
+  SafeMakeName(0xFEAD, "ADDR6L");
+  SafeMakeName(0xFEAE, "ADDR7H");
+  SafeMakeName(0xFEAF, "ADDR7L");
 
-  MakeName(0xFEB0, "ADDR8H");
-  MakeName(0xFEB1, "ADDR8L");
-  MakeName(0xFEB2, "ADDR9H");
-  MakeName(0xFEB3, "ADDR9L");
-  MakeName(0xFEB4, "ADDRAH");
-  MakeName(0xFEB5, "ADDRAL");
-  MakeName(0xFEB6, "ADDRBH");
-  MakeName(0xFEB7, "ADDRBL");
-  MakeName(0xFEB8, "ADCSR");
-  MakeName(0xFEB9, "ADCR");
+  SafeMakeName(0xFEB0, "ADDR8H");
+  SafeMakeName(0xFEB1, "ADDR8L");
+  SafeMakeName(0xFEB2, "ADDR9H");
+  SafeMakeName(0xFEB3, "ADDR9L");
+  SafeMakeName(0xFEB4, "ADDRAH");
+  SafeMakeName(0xFEB5, "ADDRAL");
+  SafeMakeName(0xFEB6, "ADDRBH");
+  SafeMakeName(0xFEB7, "ADDRBL");
+  SafeMakeName(0xFEB8, "ADCSR");
+  SafeMakeName(0xFEB9, "ADCR");
 
-  MakeName(0xFEDA, "PACR");
-  MakeName(0xFEDB, "P67CR");
-  MakeName(0xFEDC, "ADTRGR");
-  MakeName(0xFEDE, "IRQFR");
-  MakeName(0xFEDF, "BCR");
+  SafeMakeName(0xFEDA, "PACR");
+  SafeMakeName(0xFEDB, "P67CR");
+  SafeMakeName(0xFEDC, "ADTRGR");
+  SafeMakeName(0xFEDE, "IRQFR");
+  SafeMakeName(0xFEDF, "BCR");
 
-  MakeName(0xFEE0, "FLMCR");
-  MakeName(0xFEE1, "FLM_EBR1");
-  MakeName(0xFEE2, "FLM_EBR2");
-  MakeName(0xFEEC, "FLMER");
-  MakeName(0xFEED, "FLMSR");
+  SafeMakeName(0xFEE0, "FLMCR");
+  SafeMakeName(0xFEE1, "FLM_EBR1");
+  SafeMakeName(0xFEE2, "FLM_EBR2");
+  SafeMakeName(0xFEEC, "FLMER");
+  SafeMakeName(0xFEED, "FLMSR");
 
-  MakeName(0xFEF0, "PWM1_TCR");
-  MakeName(0xFEF1, "PWM1_DTR");
-  MakeName(0xFEF2, "PWM1_TCNT");
-  MakeName(0xFEF4, "PWM2_TCR");
-  MakeName(0xFEF5, "PWM2_DTR");
-  MakeName(0xFEF6, "PWM2_TCNT");
-  MakeName(0xFEF8, "PWM3_TCR");
-  MakeName(0xFEF9, "PWM3_DTR");
-  MakeName(0xFEFA, "PWM3_TCNT");
+  SafeMakeName(0xFEF0, "PWM1_TCR");
+  SafeMakeName(0xFEF1, "PWM1_DTR");
+  SafeMakeName(0xFEF2, "PWM1_TCNT");
+  SafeMakeName(0xFEF4, "PWM2_TCR");
+  SafeMakeName(0xFEF5, "PWM2_DTR");
+  SafeMakeName(0xFEF6, "PWM2_TCNT");
+  SafeMakeName(0xFEF8, "PWM3_TCR");
+  SafeMakeName(0xFEF9, "PWM3_DTR");
+  SafeMakeName(0xFEFA, "PWM3_TCNT");
 
-  MakeName(0xFF00, "INTC_IPRA");
-  MakeName(0xFF01, "INTC_IPRB");
-  MakeName(0xFF02, "INTC_IPRC");
-  MakeName(0xFF03, "INTC_IPRD");
-  MakeName(0xFF04, "INTC_IPRE");
-  MakeName(0xFF05, "INTC_IPRF");
-  MakeName(0xFF08, "DTC_DTEA");
-  MakeName(0xFF09, "DTC_DTEB");
-  MakeName(0xFF0A, "DTC_DTEC");
-  MakeName(0xFF0B, "DTC_DTED");
-  MakeName(0xFF0C, "DTC_DTEE");
-  MakeName(0xFF0D, "DTC_DTEF");
+  SafeMakeName(0xFF00, "INTC_IPRA");
+  SafeMakeName(0xFF01, "INTC_IPRB");
+  SafeMakeName(0xFF02, "INTC_IPRC");
+  SafeMakeName(0xFF03, "INTC_IPRD");
+  SafeMakeName(0xFF04, "INTC_IPRE");
+  SafeMakeName(0xFF05, "INTC_IPRF");
+  SafeMakeName(0xFF08, "DTC_DTEA");
+  SafeMakeName(0xFF09, "DTC_DTEB");
+  SafeMakeName(0xFF0A, "DTC_DTEC");
+  SafeMakeName(0xFF0B, "DTC_DTED");
+  SafeMakeName(0xFF0C, "DTC_DTEE");
+  SafeMakeName(0xFF0D, "DTC_DTEF");
 
-  MakeName(0xFF10, "WDT__TCSR");
-  MakeName(0xFF11, "WDT_TCNT");
-  MakeName(0xFF14, "WSC_WCR");
-  MakeName(0xFF15, "RAMCR");
-  MakeName(0xFF16, "BSC_ARBT");
-  MakeName(0xFF17, "BSC_AR3T");
-  MakeName(0xFF19, "SYSC_MDCR");
-  MakeName(0xFF1A, "SYSC_SBYCR");
-  MakeName(0xFF1B, "SYSC_BRCR");
-  MakeName(0xFF1C, "SYSC_NMICR");
-  MakeName(0xFF1D, "SYSC_IRQCR");
-  MakeName(0xFF1E, "SYSC_writeCR");
-  MakeName(0xFF1F, "SYSC_RSTCSR");
+  SafeMakeName(0xFF10, "WDT__TCSR");
+  SafeMakeName(0xFF11, "WDT_TCNT");
+  SafeMakeName(0xFF14, "WSC_WCR");
+  SafeMakeName(0xFF15, "RAMCR");
+  SafeMakeName(0xFF16, "BSC_ARBT");
+  SafeMakeName(0xFF17, "BSC_AR3T");
+  SafeMakeName(0xFF19, "SYSC_MDCR");
+  SafeMakeName(0xFF1A, "SYSC_SBYCR");
+  SafeMakeName(0xFF1B, "SYSC_BRCR");
+  SafeMakeName(0xFF1C, "SYSC_NMICR");
+  SafeMakeName(0xFF1D, "SYSC_IRQCR");
+  SafeMakeName(0xFF1E, "SYSC_writeCR");
+  SafeMakeName(0xFF1F, "SYSC_RSTCSR");
 
-  MakeName(0xFF20, "T1CRH");
-  MakeName(0xFF21, "T1CRL");
-  MakeName(0xFF22, "T1SRAH");
-  MakeName(0xFF23, "T1SRAL");
-  MakeName(0xFF24, "T1OERA");
-  MakeName(0xFF25, "TMDRA");
-  MakeName(0xFF26, "T1CNTH");
-  MakeName(0xFF27, "T1CNTL");
-  MakeName(0xFF28, "T1GR1H");
-  MakeName(0xFF29, "T1GR1L");
-  MakeName(0xFF2A, "T1GR2H");
-  MakeName(0xFF2B, "T1GR2L");
-  MakeName(0xFF2C, "T1DR1H");
-  MakeName(0xFF2D, "T1DR1L");
-  MakeName(0xFF2E, "T1DR2H");
-  MakeName(0xFF2F, "T1DR2L");
+  SafeMakeName(0xFF20, "T1CRH");
+  SafeMakeName(0xFF21, "T1CRL");
+  SafeMakeName(0xFF22, "T1SRAH");
+  SafeMakeName(0xFF23, "T1SRAL");
+  SafeMakeName(0xFF24, "T1OERA");
+  SafeMakeName(0xFF25, "TMDRA");
+  SafeMakeName(0xFF26, "T1CNTH");
+  SafeMakeName(0xFF27, "T1CNTL");
+  SafeMakeName(0xFF28, "T1GR1H");
+  SafeMakeName(0xFF29, "T1GR1L");
+  SafeMakeName(0xFF2A, "T1GR2H");
+  SafeMakeName(0xFF2B, "T1GR2L");
+  SafeMakeName(0xFF2C, "T1DR1H");
+  SafeMakeName(0xFF2D, "T1DR1L");
+  SafeMakeName(0xFF2E, "T1DR2H");
+  SafeMakeName(0xFF2F, "T1DR2L");
 
-  MakeName(0xFF30, "TSTR");
-  MakeName(0xFF31, "T1CRA");
-  MakeName(0xFF32, "T1SRBH");
-  MakeName(0xFF33, "T1SRBL");
-  MakeName(0xFF34, "T1OERB");
-  MakeName(0xFF35, "TMDRB");
-  MakeName(0xFF38, "T1GR3H");
-  MakeName(0xFF39, "T1GR3L");
-  MakeName(0xFF3A, "T1GR4H");
-  MakeName(0xFF3B, "T1GR4L");
-  MakeName(0xFF3C, "T1DR3H");
-  MakeName(0xFF3D, "T1DR3L");
-  MakeName(0xFF3E, "T1DR4H");
-  MakeName(0xFF3F, "T1DR4L");
+  SafeMakeName(0xFF30, "TSTR");
+  SafeMakeName(0xFF31, "T1CRA");
+  SafeMakeName(0xFF32, "T1SRBH");
+  SafeMakeName(0xFF33, "T1SRBL");
+  SafeMakeName(0xFF34, "T1OERB");
+  SafeMakeName(0xFF35, "TMDRB");
+  SafeMakeName(0xFF38, "T1GR3H");
+  SafeMakeName(0xFF39, "T1GR3L");
+  SafeMakeName(0xFF3A, "T1GR4H");
+  SafeMakeName(0xFF3B, "T1GR4L");
+  SafeMakeName(0xFF3C, "T1DR3H");
+  SafeMakeName(0xFF3D, "T1DR3L");
+  SafeMakeName(0xFF3E, "T1DR4H");
+  SafeMakeName(0xFF3F, "T1DR4L");
 
-  MakeName(0xFF40, "T2CRH");
-  MakeName(0xFF41, "T2CRL");
-  MakeName(0xFF42, "T2SRH");
-  MakeName(0xFF43, "T2SRL");
-  MakeName(0xFF44, "T2OER");
-  MakeName(0xFF46, "T2CNTH");
-  MakeName(0xFF47, "T2CNTL");
-  MakeName(0xFF48, "T2GR1H");
-  MakeName(0xFF49, "T2GR1L");
-  MakeName(0xFF4A, "T2GR2H");
-  MakeName(0xFF4B, "T2GR2L");
-  MakeName(0xFF4C, "T2DR1H");
-  MakeName(0xFF4D, "T2DR1L");
-  MakeName(0xFF4E, "T2DR2H");
-  MakeName(0xFF4F, "T2DR2L");
+  SafeMakeName(0xFF40, "T2CRH");
+  SafeMakeName(0xFF41, "T2CRL");
+  SafeMakeName(0xFF42, "T2SRH");
+  SafeMakeName(0xFF43, "T2SRL");
+  SafeMakeName(0xFF44, "T2OER");
+  SafeMakeName(0xFF46, "T2CNTH");
+  SafeMakeName(0xFF47, "T2CNTL");
+  SafeMakeName(0xFF48, "T2GR1H");
+  SafeMakeName(0xFF49, "T2GR1L");
+  SafeMakeName(0xFF4A, "T2GR2H");
+  SafeMakeName(0xFF4B, "T2GR2L");
+  SafeMakeName(0xFF4C, "T2DR1H");
+  SafeMakeName(0xFF4D, "T2DR1L");
+  SafeMakeName(0xFF4E, "T2DR2H");
+  SafeMakeName(0xFF4F, "T2DR2L");
 
-  MakeName(0xFF50, "T3CRH");
-  MakeName(0xFF51, "T3CRL");
-  MakeName(0xFF52, "T3SRH");
-  MakeName(0xFF53, "T3SRL");
-  MakeName(0xFF54, "T3OER");
-  MakeName(0xFF56, "T3CNTH");
-  MakeName(0xFF57, "T3CNTL");
-  MakeName(0xFF58, "T3GR1H");
-  MakeName(0xFF59, "T3GR1L");
-  MakeName(0xFF5A, "T3GR2H");
-  MakeName(0xFF5B, "T3GR2L");
-  MakeName(0xFF5C, "T3DR1H");
-  MakeName(0xFF5D, "T3DR1L");
-  MakeName(0xFF5E, "T3DR2H");
-  MakeName(0xFF5F, "T3DR2L");
+  SafeMakeName(0xFF50, "T3CRH");
+  SafeMakeName(0xFF51, "T3CRL");
+  SafeMakeName(0xFF52, "T3SRH");
+  SafeMakeName(0xFF53, "T3SRL");
+  SafeMakeName(0xFF54, "T3OER");
+  SafeMakeName(0xFF56, "T3CNTH");
+  SafeMakeName(0xFF57, "T3CNTL");
+  SafeMakeName(0xFF58, "T3GR1H");
+  SafeMakeName(0xFF59, "T3GR1L");
+  SafeMakeName(0xFF5A, "T3GR2H");
+  SafeMakeName(0xFF5B, "T3GR2L");
+  SafeMakeName(0xFF5C, "T3DR1H");
+  SafeMakeName(0xFF5D, "T3DR1L");
+  SafeMakeName(0xFF5E, "T3DR2H");
+  SafeMakeName(0xFF5F, "T3DR2L");
 
-  MakeName(0xFF60, "T4CRH");
-  MakeName(0xFF61, "T4CRL");
-  MakeName(0xFF62, "T4SRH");
-  MakeName(0xFF63, "T4SRL");
-  MakeName(0xFF64, "T4OER");
-  MakeName(0xFF66, "T4CNTH");
-  MakeName(0xFF67, "T4CNTL");
-  MakeName(0xFF68, "T4GR1H");
-  MakeName(0xFF69, "T4GR1L");
-  MakeName(0xFF6A, "T4GR2H");
-  MakeName(0xFF6B, "T4GR2L");
-  MakeName(0xFF6C, "T4DR1H");
-  MakeName(0xFF6D, "T4DR1L");
-  MakeName(0xFF6E, "T4DR2H");
-  MakeName(0xFF6F, "T4DR2L");
+  SafeMakeName(0xFF60, "T4CRH");
+  SafeMakeName(0xFF61, "T4CRL");
+  SafeMakeName(0xFF62, "T4SRH");
+  SafeMakeName(0xFF63, "T4SRL");
+  SafeMakeName(0xFF64, "T4OER");
+  SafeMakeName(0xFF66, "T4CNTH");
+  SafeMakeName(0xFF67, "T4CNTL");
+  SafeMakeName(0xFF68, "T4GR1H");
+  SafeMakeName(0xFF69, "T4GR1L");
+  SafeMakeName(0xFF6A, "T4GR2H");
+  SafeMakeName(0xFF6B, "T4GR2L");
+  SafeMakeName(0xFF6C, "T4DR1H");
+  SafeMakeName(0xFF6D, "T4DR1L");
+  SafeMakeName(0xFF6E, "T4DR2H");
+  SafeMakeName(0xFF6F, "T4DR2L");
 
-  MakeName(0xFF70, "T5CRH");
-  MakeName(0xFF71, "T5CRL");
-  MakeName(0xFF72, "T5SRH");
-  MakeName(0xFF73, "T5SRL");
-  MakeName(0xFF74, "T5OER");
-  MakeName(0xFF76, "T5CNTH");
-  MakeName(0xFF77, "T5CNTL");
-  MakeName(0xFF78, "T5GR1H");
-  MakeName(0xFF79, "T5GR1L");
-  MakeName(0xFF7A, "T5GR2H");
-  MakeName(0xFF7B, "T5GR2L");
-  MakeName(0xFF7C, "T5DR1H");
-  MakeName(0xFF7D, "T5DR1L");
-  MakeName(0xFF7E, "T5DR2H");
-  MakeName(0xFF7F, "T5DR2L");
+  SafeMakeName(0xFF70, "T5CRH");
+  SafeMakeName(0xFF71, "T5CRL");
+  SafeMakeName(0xFF72, "T5SRH");
+  SafeMakeName(0xFF73, "T5SRL");
+  SafeMakeName(0xFF74, "T5OER");
+  SafeMakeName(0xFF76, "T5CNTH");
+  SafeMakeName(0xFF77, "T5CNTL");
+  SafeMakeName(0xFF78, "T5GR1H");
+  SafeMakeName(0xFF79, "T5GR1L");
+  SafeMakeName(0xFF7A, "T5GR2H");
+  SafeMakeName(0xFF7B, "T5GR2L");
+  SafeMakeName(0xFF7C, "T5DR1H");
+  SafeMakeName(0xFF7D, "T5DR1L");
+  SafeMakeName(0xFF7E, "T5DR2H");
+  SafeMakeName(0xFF7F, "T5DR2L");
 
-  MakeName(0xFF80, "T6CRH");
-  MakeName(0xFF81, "T6CRL");
-  MakeName(0xFF82, "T6SRH");
-  MakeName(0xFF83, "T6SRL");
-  MakeName(0xFF84, "T6OER");
-  MakeName(0xFF86, "T6CNTH");
-  MakeName(0xFF87, "T6CNTL");
-  MakeName(0xFF88, "T6GR1H");
-  MakeName(0xFF89, "T6GR1L");
-  MakeName(0xFF8A, "T6GR2H");
-  MakeName(0xFF8B, "T6GR2L");
+  SafeMakeName(0xFF80, "T6CRH");
+  SafeMakeName(0xFF81, "T6CRL");
+  SafeMakeName(0xFF82, "T6SRH");
+  SafeMakeName(0xFF83, "T6SRL");
+  SafeMakeName(0xFF84, "T6OER");
+  SafeMakeName(0xFF86, "T6CNTH");
+  SafeMakeName(0xFF87, "T6CNTL");
+  SafeMakeName(0xFF88, "T6GR1H");
+  SafeMakeName(0xFF89, "T6GR1L");
+  SafeMakeName(0xFF8A, "T6GR2H");
+  SafeMakeName(0xFF8B, "T6GR2L");
 
-  MakeName(0xFF90, "T7CRH");
-  MakeName(0xFF91, "T7CRL");
-  MakeName(0xFF92, "T7SRH");
-  MakeName(0xFF93, "T7SRL");
-  MakeName(0xFF94, "T7OER");
-  MakeName(0xFF96, "T7CNTH");
-  MakeName(0xFF97, "T7CNTL");
-  MakeName(0xFF98, "T7GR1H");
-  MakeName(0xFF99, "T7GR1L");
-  MakeName(0xFF9A, "T7GR2H");
-  MakeName(0xFF9B, "T7GR2L");
+  SafeMakeName(0xFF90, "T7CRH");
+  SafeMakeName(0xFF91, "T7CRL");
+  SafeMakeName(0xFF92, "T7SRH");
+  SafeMakeName(0xFF93, "T7SRL");
+  SafeMakeName(0xFF94, "T7OER");
+  SafeMakeName(0xFF96, "T7CNTH");
+  SafeMakeName(0xFF97, "T7CNTL");
+  SafeMakeName(0xFF98, "T7GR1H");
+  SafeMakeName(0xFF99, "T7GR1L");
+  SafeMakeName(0xFF9A, "T7GR2H");
+  SafeMakeName(0xFF9B, "T7GR2L");
 
-  MakeName(0xFFA0, "MLTCR");
-  MakeName(0xFFA1, "MLTBR");
-  MakeName(0xFFA2, "MLTMAR");
-  MakeName(0xFFA3, "MLTAR");
+  SafeMakeName(0xFFA0, "MLTCR");
+  SafeMakeName(0xFFA1, "MLTBR");
+  SafeMakeName(0xFFA2, "MLTMAR");
+  SafeMakeName(0xFFA3, "MLTAR");
 
-  MakeName(0xFFB0, "MULT_CA");
-  MakeName(0xFFB1, "MULT_(CA)");
-  MakeName(0xFFB2, "MULT_CB");
-  MakeName(0xFFB3, "MULT_(CB)");
-  MakeName(0xFFB4, "MULT_CC");
-  MakeName(0xFFB5, "MULT_(CC)");
-  MakeName(0xFFB6, "MULT_XH");
-  MakeName(0xFFB7, "MULT_(XH)");
-  MakeName(0xFFB8, "MULT_H");
-  MakeName(0xFFB9, "MULT_(H)");
-  MakeName(0xFFBA, "MULT_L");
-  MakeName(0xFFBB, "MULT_(L)");
-  MakeName(0xFFBC, "MULT_MR");
-  MakeName(0xFFBD, "MULT_(MR)");
-  MakeName(0xFFBE, "MULT_MMR");
-  MakeName(0xFFBF, "MULT_(MMR)");
+  SafeMakeName(0xFFB0, "MULT_CA");
+  SafeMakeName(0xFFB1, "MULT_(CA)");
+  SafeMakeName(0xFFB2, "MULT_CB");
+  SafeMakeName(0xFFB3, "MULT_(CB)");
+  SafeMakeName(0xFFB4, "MULT_CC");
+  SafeMakeName(0xFFB5, "MULT_(CC)");
+  SafeMakeName(0xFFB6, "MULT_XH");
+  SafeMakeName(0xFFB7, "MULT_(XH)");
+  SafeMakeName(0xFFB8, "MULT_H");
+  SafeMakeName(0xFFB9, "MULT_(H)");
+  SafeMakeName(0xFFBA, "MULT_L");
+  SafeMakeName(0xFFBB, "MULT_(L)");
+  SafeMakeName(0xFFBC, "MULT_MR");
+  SafeMakeName(0xFFBD, "MULT_(MR)");
+  SafeMakeName(0xFFBE, "MULT_MMR");
+  SafeMakeName(0xFFBF, "MULT_(MMR)");
 }
 
 static SegmentsSH4B() {
@@ -354,19 +359,8 @@ static SegmentsSH4B() {
   if (SegName(0xFFFFE400) != "HWREG")
     AddSeg(0xFFFFE400, 0xFFFFF860, 0x0, 1, saAbs, scStack);
   SegRename(0xFFFFE400, "HWREG");
-  SegClass(0xFFFF6000, "DATA");
+  SegClass(0xFFFFE400, "DATA");
   Message("Done\n");
-}
-
-// Label some common IDs that exist in every rom
-static LabelGlobalIds() {
-  MakeStr(SegEnd(0) - 6, SegEnd(0));
-  MakeNameEx(0x00000F52, "rom_id", SN_NOLIST);
-  MakeDword(0x00000F52);
-  MakeNameEx(SegEnd(0) - 6, "rom_id_string", SN_NOLIST);
-}
-
-static FixSH4B() {
 }
 
 static ByteRegister(ea, name, comment) {
@@ -828,6 +822,8 @@ static SH7052RegisterNames() {
   ByteRegister(0xFFFFF76E, "ADTRGR0", "A/D trigger register 0");
   ByteRegister(0xFFFFF838, "ADCSR1", "");
   ByteRegister(0xFFFFF839, "ADCR1", "");
+  ByteRegister(0xFFFFF858, "ADCSR2", "");
+  ByteRegister(0xFFFFF859, "ADCR2", "");
   ByteRegister(0xFFFFF72E, "ADTRGR1", "");
 
 
@@ -920,6 +916,7 @@ static SH7052RegisterNames() {
   Message("Done\n");
 }
 
+/* M32R Functions
 static LoadM32RX() {
   Fixup_VT_M32R(0x0000, M32R_ROM_START / 2 + 1, 0x10);
   Fixup_VT_M32R(0x40, M32R_ROM_START + 1, 0x4);
@@ -940,20 +937,14 @@ static Fixup_VT_M32R(segoffset, romstart, increment) {
   }
   Message("VT_M32R Entry Point Fixups Performed\n", i);
 }
+*/
 
 static AddVTEntry(ea, name, funcname) {
   auto j;
-  MakeDword(ea);
-  OpOff(ea, 0, 0);
-  if (!HasName(ea))
-    MakeNameEx(ea, "e" + name, SN_NOLIST);
   j = Dword(ea);
-  if (funcname != "" && (GetFunctionName(j) == "" || strstr(GetFunctionName(j), "sub_") == 0)) {
-    MakeName(j, funcname);
-    //AddEntryPoint(j, j, funcname, 1);
-  }
+  SafeMakeNameEx(ea, "e" + name, SN_NOLIST);
+  SafeMakeName(j, funcname);
   MakeFunction(j, BADADDR);
-  AutoMark(j, AU_PROC);
 }
 
 static Fixup_VT(segoffset, romstart) {
@@ -967,7 +958,6 @@ static Fixup_VT(segoffset, romstart) {
     if (i == 0x04 || i == 0x0C)
       continue;
     j = Dword(i);
-    errcode = AddEntryPoint(j, j, "", 1);
     MakeCode(j);
     AutoMark(j, AU_PROC);
   }
@@ -984,9 +974,8 @@ static Fixup_VT(segoffset, romstart) {
   AddVTEntry(0x0000002C, "NMI", "nmi");
   AddVTEntry(0x00000030, "UBC", "userbreak");
   AddVTEntry(0x00000080, "TRAP0", "trap");
-  for (i = 33; i <= 63; i++) {
+  for (i = 33; i <= 63; i++)
     AddVTEntry(0x00000080 + ((i - 32) * 4), form("TRAP%d", i - 32), "");
-  }
   AddVTEntry(0x00000100, "IRQ0", "irq0");
   AddVTEntry(0x00000104, "IRQ1", "irq1");
   AddVTEntry(0x00000108, "IRQ2", "irq2");
@@ -1194,9 +1183,10 @@ static Fix_Missing_Code(ea, end, is_byte_check) {
 }
 
 static LabelMutRequestVar(req, name) {
-  auto ea = LocByName(req);
-  if (ea != BADADDR && !HasName(ea - 1))
-    MakeName(ea - 1, name);
+  auto ea;
+  ea = LocByName(req);
+  if (ea != BADADDR)
+    SafeMakeName(ea - 1, name);
 }
 
 static Fix_MUT_Table(void) {
@@ -1236,8 +1226,7 @@ static Fix_MUT_Table(void) {
       break;
     MakeDword(ea);
     mutname = form("MUT_%02X", i++);
-    if (!HasName(ea))
-      MakeName(Dword(ea), mutname);
+    SafeMakeName(Dword(ea), mutname);
   }
 
   // Label some common MUT requests
@@ -1383,46 +1372,95 @@ static CreateStructures() {
 }
 
 static WellKnownFunc(ea, name, comment) {
-  if (!HasName(ea))
-    MakeName(ea, name);
+  if (ea == BADADDR)
+    return;
+  SafeMakeName(ea, name);
+  MakeCode(ea);
   SetFunctionFlags(ea, 0);
+  MakeFunction(ea, BADADDR);
   if (comment != "" && GetFunctionCmt(ea, 0) == "")
     SetFunctionCmt(ea, comment, 0);
 }
 
 static LabelLibraryFuncs() {
-  auto start;
+  auto start, ea, i, end;
 
   WellKnownFunc(BYTE_TABLE_LOOKUP_FUNC, "table_lookup_byte", "Look up the current BYTE value at the table stored at R4");
   WellKnownFunc(WORD_TABLE_LOOKUP_FUNC, "table_lookup_word", "Look up the current WORD value at the table stored at R4");
   WellKnownFunc(AXIS_LOOKUP_FUNC, "axis_lookup", "Look up the current value in the axis stored at R4");
 
-  // Define some functions with local variables
-  start = 0xEEE;
-  WellKnownFunc(start, "multiply", "Multiply R4 and R5, storing DWORD result in R0");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r4", "a");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r5", "b");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r0", "result");
+  {
+    // Label the enable and disable_interrupts functions, and the global variables they use
+    start = 0x400;
+    end = GetFunctionAttr(start, FUNCATTR_END);
+    WellKnownFunc(start, "disable_interrupts", "Set interrupt mask of SR to 15, storing the old SR on the stack");
+    for (i = start; i != BADADDR; i = NextHead(i, end)) {
+      if (GetMnem(i) == "mov.l" && GetOpnd(i, 1) == "r0") {
+        SafeMakeName(Dnext(i, Dfirst(i)), "sr_stack_ptr");
+        break;
+      }
+    }
+  }
 
-  start = 0xED8;
-  WellKnownFunc(start, "multiply_capped", "Multiply R4 and R5, storing DWORD result in R0, max 0xFFFFFFFF");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r4", "a");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r5", "b");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r0", "result");
-
-  start = 0x52C;
-  WellKnownFunc(start, "memset", "Clear RAM between R4 and R5");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r4", "start");
-  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r5", "end");
-
+  WellKnownFunc(0x41E, "enable_interrupts", "Restore the previous SR, pushed to the stack by disable_interrupts");
+  WellKnownFunc(0x430, "set_interrupt_mask", "Set a specific interrupt mask in SR. Takes a 4 bit number in R4 for the mask.");
   WellKnownFunc(0x500, "add_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFFFFFF");
   WellKnownFunc(0x51C, "add_word_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFFFFFF");
-  WellKnownFunc(0xDC6, "readb_mapindex_times_4_plus_r4", "Reads BYTE at (R4 + (MAPindex * 4)) into R0");
+  WellKnownFunc(0x52C, "memset", "Clear RAM between R4 and R5");
+  WellKnownFunc(0x590, "min_ff", "Set R0 the BYTE minimum of R4 and 0xFF");
+  WellKnownFunc(0x598, "min_ffff", "Set R0 the WORD minimum of R4 and 0xFFFF");
+  WellKnownFunc(0x5A8, "max_3_word", "Return the WORD maximum of R4, R5, R6 in R0");
+  WellKnownFunc(0x5B0, "max_3", "Return the maximum of R4, R5, R6 in R0");
+  WellKnownFunc(0x902, "divide_long_by_word", "Divide DWORD R4 by WORD R5, returning the WORD result in R0. If R5 is 0, 0xFFFF is returned.");
+  WellKnownFunc(0x9B0, "divide_words", "Divide WORD R4 by WORD R5, returning the WORD result in R0. If R5 is 0, 0xFFFF is returned.");
+  WellKnownFunc(0xDC6, "read_mapindex_byte", "Reads BYTE at (R4 + (MAPindex * 4)) into R0");
+  WellKnownFunc(0xDD2, "read_mapindex_word", "Reads WORD at (R4 + (MAPindex * 4)) into R0");
+  WellKnownFunc(0xDF6, "read_mapindex_long", "Reads DWORD at (R4 + (MAPindex * 4)) into R0");
   WellKnownFunc(0xDE0, "table_lookup_byte_mapindex", "Call table_lookup_byte with a table at (R4 + (MAPindex * 4))");
-  WellKnownFunc(0xDF6, "readl_mapindex_times_4_plus_r4", "Reads LONG at (R4 + (MAPindex * 4)) into R0");
+  WellKnownFunc(0xEA6, "table_lookup_word_mapindex", "Call table_lookup_word with a table at (R4 + (MAPindex * 4))");
+  WellKnownFunc(0xED8, "multiply_capped", "Multiply R4 and R5, storing DWORD result in R0, max 0xFFFFFFFF");
+  WellKnownFunc(0xEEE, "multiply", "Multiply R4 and R5, storing DWORD result in R0");
   WellKnownFunc(0xF0C, "subtract_nowrap_word", "Subtract R5 from R4, storing result in R0. Set R0 to 0 on wrap.");
   WellKnownFunc(0xF12, "subtract_nowrap_byte", "Subtract R5 from R4, storing result in R0. Set R0 to 0 on wrap.");
+  WellKnownFunc(0x864, "shlr8_byte", "Store the 2nd BYTE of R4 in R0. 0xFD24 -> 0xFD.");
+  WellKnownFunc(0x86A, "shlr16_word", "Store the 2nd WORD of R4 in R0. 0xFD241231 -> 0xFD24.");
+  WellKnownFunc(0x870, "shll8_byte", "Store the BYTE in R4 as the 2nd BYTE in R0. 0x21 -> 0x2100.");
+  WellKnownFunc(0x876, "shll16_word", "Store the WORD in R4 as the 2nd WORD in R0. 0x2155 -> 0x21550000.");
+  WellKnownFunc(0x87C, "second_byte_plus_1", "Add 1 to the second BYTE of R4 and return it in BYTE R0, capped at 0xFF");
+  WellKnownFunc(0x898, "second_word_plus_1", "Add 1 to the second WORD of R4 and return it in WORD R0, capped at 0xFFFF");
 
+  {
+    // Look for the main() function, it should be the only sub called from 'init'
+    start = Dword(0);
+    end = GetFunctionAttr(start, FUNCATTR_END);
+    for (i = start; i != BADADDR; i = NextHead(i, end)) {
+      if (GetMnem(i) == "jsr") {
+        start = Rfirst0(i);
+        // Message("Real init starts at %x\n", start);
+        WellKnownFunc(start, "main", "ROM entry point");
+        break;
+      }
+    }
+  }
+}
+
+// You can run this handily by selecing the start of an axis table, pressing Shift-F2 to bring up the "Run IDC Command" window and entering:
+// MakeAxis(ScreenEA());
+static MakeAxis(ea) {
+  MakeComm(ea, "lookup result pointer");
+  MakeDword(ea);
+  MakeDword(ea + 4);
+  MakeComm(ea + 4, "lookup input pointer");
+  MakeWord(ea + 8);
+  MakeComm(ea + 8, "axis length");
+  if (Word(ea + 8) > 0) {
+    MakeWord(ea + 10);
+    MakeArray(ea + 10, Word(ea + 8));
+    MakeComm(ea + 10, "axis data");
+    SetArrayFormat(ea + 11, 0, Word(ea + 8), -1);
+  }
+  OpDecimal(ea + 8, 0);
+  OpDecimal(ea + 10, 0);
 }
 
 static LocateAxisTables() {
@@ -1442,22 +1480,8 @@ static LocateAxisTables() {
           if (!(Dword(table) & 0xFFFF0000) || !(Dword(table + 4) & 0xFFFF0000) || Word(table + 8) == 0)
             continue;
           // First 2 dwords of the table are pointers to RAM, and it has a length, it's probably valid
-          if (!HasName(table))
-            MakeName(table, form("unknown_axis_%d", counter));
-          MakeComm(table, "lookup result pointer");
-          MakeDword(table);
-          MakeDword(table + 4);
-          MakeComm(table + 4, "lookup input pointer");
-          MakeWord(table + 8);
-          MakeComm(table + 8, "axis length");
-          if (Word(table + 8) > 0) {
-            MakeWord(table + 10);
-            MakeArray(table + 10, Word(table + 8));
-            MakeComm(table + 10, "axis data");
-            SetArrayFormat(table + 11, 0, Word(table + 8), -1);
-          }
-          OpDecimal(table + 8, 0);
-          OpDecimal(table + 10, 0);
+          MakeNameSequence(table, "unknown_axis");
+          MakeAxis(table);
           counter++;
           found = 1;
           break;
@@ -1473,7 +1497,7 @@ static LocateAxisTables() {
 }
 
 static GetMapHeight(table, ea) {
-  auto xaxisloc, mapheight, ea2;
+  auto xaxisloc, mapheight, ea2, code, ea3, ref, good;
   if (Byte(table) == 3) {
     xaxisloc = Dword(table + 6);
   } else if (Word(table) == 3) {
@@ -1494,14 +1518,12 @@ static GetMapHeight(table, ea) {
   // in this map.
   mapheight = 0;
   for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
-    auto code = GetDisasm(ea2);
+    code = GetDisasm(ea2);
     if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
-      auto ea3;
       for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
         code = GetDisasm(ea3);
         if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
           // This is an axis table, look for the map's x or y input in the output of this axis table
-          auto ref;
           for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
             if (!mapheight && Dword(ref) == xaxisloc)
               mapheight = Word(ref + 8);
@@ -1515,7 +1537,7 @@ static GetMapHeight(table, ea) {
   if (!mapheight && (Byte(table) == 2 || Word(table) == 2)) {
     // Couldn't find the axis by searching through the code, attempt to
     // find it from references to the input.
-    auto good = 1;
+    good = 1;
     for (ref = DfirstB(xaxisloc); ref && ref != BADADDR; ref = DnextB(xaxisloc, ref)) {
       if (strstr(CommentEx(ref, 0), "lookup result pointer") != -1) {
         // This is an axis
@@ -1541,7 +1563,7 @@ static GetMapHeight(table, ea) {
 }
 
 static GetMapWidth(table, ea) {
-  auto yaxisloc, mapwidth, ea2;
+  auto yaxisloc, mapwidth, ea2, ea3, code, ref;
   if (Byte(table) == 3) {
     yaxisloc = Dword(table + 2);
   } else if (Word(table) == 3) {
@@ -1558,14 +1580,12 @@ static GetMapWidth(table, ea) {
   // in this map.
   mapwidth = 0;
   for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
-    auto code = GetDisasm(ea2);
+    code = GetDisasm(ea2);
     if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
-      auto ea3;
       for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
         code = GetDisasm(ea3);
         if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
           // This is an axis table, look for the map's x or y input in the output of this axis table
-          auto ref;
           for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
             if (!mapwidth && Dword(ref) == yaxisloc)
               mapwidth = Word(ref + 8);
@@ -1588,8 +1608,7 @@ static LabelTable(table, ea) {
   mapwidth = GetMapWidth(table, ea);
   mapheight = GetMapHeight(table, ea);
   if (Byte(table) == 3) {
-    if (!HasName(table))
-      MakeNameSequence(table, "unknown_3d_byte_table");
+    MakeNameSequence(table, "unknown_3d_byte_table");
     MakeByte(table);
     MakeComm(table, "number of dimensions");
     OpDecimal(table, 0);
@@ -1608,8 +1627,7 @@ static LabelTable(table, ea) {
     MakeComm(table + 11, "map data");
     datastart = table + 11;
   } else if (Word(table) == 3) {
-    if (!HasName(table))
-      MakeNameSequence(table, "unknown_3d_word_table");
+    MakeNameSequence(table, "unknown_3d_word_table");
     MakeWord(table);
     MakeComm(table, "number of dimensions");
     OpDecimal(table, 0);
@@ -1628,8 +1646,7 @@ static LabelTable(table, ea) {
     MakeComm(table + 14, "map data");
     datastart = table + 14;
   } else if (Byte(table) == 2) {
-    if (!HasName(table))
-      MakeNameSequence(table, "unknown_2d_byte_table");
+    MakeNameSequence(table, "unknown_2d_byte_table");
     MakeByte(table);
     MakeComm(table, "number of dimensions");
     OpDecimal(table, 0);
@@ -1643,8 +1660,7 @@ static LabelTable(table, ea) {
     MakeComm(table + 6, "map data");
     datastart = table + 6;
   } else if (Word(table) == 2) {
-    if (!HasName(table))
-      MakeNameSequence(table, "unknown_2d_word_table");
+    MakeNameSequence(table, "unknown_2d_word_table");
     MakeWord(table);
     MakeComm(table, "number of dimensions");
     OpDecimal(table, 0);
@@ -1703,18 +1719,18 @@ static LocateMapsHelper(base) {
 }
 
 static LocateMapsIndirectHelper(base) {
-  auto i, ea, table, found;
+  auto i, ea, table, found, code, j, validindex, index;
   for (i = RfirstB(base); i > 0; i = RnextB(base, i)) {
     if (i == BADADDR || i == 0)
       continue;
     // Look back at most 16 instructions for r4 being set
     for (ea = i; ea > 0 && ea > (i - 32); ea = ea - 2) {
-      auto code = GetDisasm(ea), index;
+      code = GetDisasm(ea);
       if (strstr(code, "mov.l ") == -1 || strstr(code, ", r4") == -1)
         continue;
       found = 0;
       for (index = Dfirst(ea); index != BADADDR; index = Dnext(ea, index)) {
-        auto j, validindex = 1;
+        validindex = 1;
         for (j = 0; j < 8; j++) {
           MakeDword(index + j * 4);
           if (Dword(index + j * 4) > SegEnd(0)) {
@@ -1742,6 +1758,7 @@ static LocateMaps() {
   LocateMapsHelper(BYTE_TABLE_LOOKUP_FUNC);
   LocateMapsHelper(WORD_TABLE_LOOKUP_FUNC);
   LocateMapsIndirectHelper(LocByName("table_lookup_byte_mapindex"));
+  LocateMapsIndirectHelper(LocByName("table_lookup_word_mapindex"));
 }
 
 //-----------------------------------------------------------------------
@@ -1759,7 +1776,7 @@ static get_processor(void) {
 }
 
 static main() {
-  auto processor;
+  auto processor, newaf;
 
   SetLongPrm(INF_MAXREF, 16);
   SetCharPrm(INF_INDENT, 22);
@@ -1771,7 +1788,7 @@ static main() {
   SetCharPrm(INF_ASMTYPE, 0);                          // use GNU asm format
   {
     // Disable some analysis options that don't suit the SH2/SH4 code
-    auto newaf = GetShortPrm(INF_START_AF);
+    newaf = GetShortPrm(INF_START_AF);
     newaf = newaf & ~AF_MARKCODE; // Mark typical code sequences as code
     newaf = newaf & ~AF_FLIRT;    // Use flirt signatures
     newaf = newaf & ~AF_PROCPTR;  // Create function if data xref->code32 exists
@@ -1791,8 +1808,9 @@ static main() {
   processor = get_processor();
   if (strstr(processor, "SH4") == 0) {
     SegmentsSH4B();
+    MakeNameEx(0x00000F52, "rom_id", SN_NOLIST);
+    MakeDword(0x00000F52);
     Wait();
-    LabelGlobalIds();
     CreateStructures();
     FixConstants();
     Wait();
@@ -1843,6 +1861,9 @@ static main() {
     Message("H8/500 Create RAM\n");
     SegCreate(0xEE80, 0xFFFF, 0, 1, saRelWord, 0);
     SegRename(0XEE80, "RAM");
+
+    MakeNameEx(0x0001021A, "rom_id", SN_NOLIST);
+    MakeDword(0x0001021A);
 
     LowVoids(0);
     HighVoids(H8_CODE_OFFSET);
