@@ -41,6 +41,7 @@
  	<scaling name="Flashtime" units="ms" toexpr="1000*x/102" frexpr="102*x/1000" format="%.0f" min="0" max="100000" inc="1" storagetype="uint16" endian="big"/>
  	<scaling name="Hex16" units="hex" toexpr="x" frexpr="x" format="%04X" min="0" max="65535" inc="1" storagetype="uint16" endian="big"/>
 	<scaling name="Hex8" units="hex" toexpr="x" frexpr="x" format="%02X" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="IgnTimingECUa" units="deg" toexpr="61-x*90/256" frexpr="(61-x)*256/90" format="%.1f" min="-30" max="50" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="IPW mcsec" units="mcSec" toexpr="x*432/1000" frexpr="x/432*1000" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="ISCVSteps" units="Steps" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
 	<scaling name="ISCVSteps16" units="Steps" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint16" endian="big"/>
@@ -252,22 +253,30 @@
 	</table>
 
 	<table name="Percent Low Temp Timing Trim vs Coolant Temp" category="Timing" type="2D" level="2" scaling="Percent255">
-    		<table name="Engine Temp" type="Y Axis" elements="8" scaling="Temp"/>
-  	</table>
+		<table name="Engine Temp" type="Y Axis" elements="8" scaling="Temp"/>
+	</table>
 
 
 	<!-- *** Limits *** -->
 
-	<table name="Rev Limit" category="Limits" type="1D" scaling="RPMLimit"/>
+	<table name="Rev Limit" category="Limits" type="1D" scaling="RPMLimit">
+		<table type="Static Y Axis" elements="1">
+			<data>Maximum RPM engine can achieve under ANY condtions:</data>
+		</table>
+	</table>
 
-	<table name="Stationary Rev Limit" category="Limits" type="1D" scaling="RPMStatLimit"/>
+	<table name="Stationary Rev Limit" category="Limits" type="1D" scaling="RPMStatLimit">
+		<table type="Static Y Axis" elements="1">
+			<data>Maximum RPM engine can achieve while the vehicle is STATIONARY:</data>
+		</table>
+	</table>
 	
-	<table name="Timing Retard Limit" category="Limits" address="173f" type="1D" level="1" scaling="uint8"/>
+	<table name="Timing Retard Limit" category="Limits" address="173f" type="1D" level="1" scaling="IgnTimingECUa"/>
 	
 	<table name="Speed Limit" category="Limits" type="2D" scaling="VehicleSpeed">
 		<table name="Condition" type="Static Y Axis" elements="2">
 			<data>Limiter Enable Speed</data>
-       			<data>Limiter Disable Speed</data>
+			<data>Limiter Disable Speed</data>
 		</table>
 	</table>
 
@@ -491,7 +500,7 @@
 
 	<!-- *** Turbo *** -->
 
-	<table name="Boost Control Load Offset" category="Turbo" type="1D" scaling="Load16"/>
+	<table name="Boost Adder" category="Turbo" type="1D" scaling="Load16"/>
 
 	<table name="Turbo Boost Error Correction" category="Turbo" type="2D" scaling="DynamicBoost">
 		<table name="Boost Error" type="Y Axis" elements="17" scaling="BoostError"/>
@@ -580,7 +589,7 @@
 
 	<!--  *** TURBO BOOST SINGLE SOLENOID ***  -->
 
-	<table name="Boost Control Load Offset" category="Turbo Boost Single Solenoid" type="1D" scaling="Load16"/>
+	<table name="Boost Adder" category="Turbo Boost Single Solenoid" type="1D" scaling="Load16"/>
 
 	<table name="Boost Desired Engine Load (High Gear Range)" category="Turbo Boost Single Solenoid" type="2D" scaling="Load8">
 		<table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
@@ -644,7 +653,7 @@
 
 	<!--  *** TURBO BOOST DUAL SOLENOID***  -->
 
-	<table name="Boost Control Load Offset" category="Turbo Boost Dual Solenoid" type="1D" scaling="Load16"/>
+	<table name="Boost Adder" category="Turbo Boost Dual Solenoid" type="1D" scaling="Load16"/>
 
 	<table name="Boost Desired Engine Load 1A (High Gear Range)" category="Turbo Boost Dual Solenoid" type="2D" scaling="Load8">
     		<table name="RPM" type="Y Axis" elements="16" scaling="RPM"/>
@@ -865,7 +874,7 @@
                         <data>bit.07: Enable High Oct Ign Map Lookup (and many other subroutines)  -</data>
                         <data>bit.06: Enable Speed Limit Test                                      -</data>
                         <data>bit.05:                                                              -</data>
-                        <data>bit.04: Allow closed loop                                            -</data>
+                        <data>bit.04: Allow closed loop (set to 0 for full time open loop)         -</data>
                         <data>bit.02: Enable immobilizer                                           -</data>
                         <data>bit.02:                                                              -</data>
                         <data>bit.01: Rear o2                                                      -</data>
@@ -889,7 +898,7 @@
                         <data>bit.03:                      -</data>
                         <data>bit.02:                      -</data>
                         <data>bit.01:                      -</data>
-                        <data>bit.00: Lean Spool           -</data>
+                        <data>bit.00: Lean Spool Enabled   -</data>
                 </table>
         </table>
         <table name="ECU Periphery2 (FCA) Bits" category="ECUPeriphery" address="fca" type="2D" level="2" scaling="blobbits">
