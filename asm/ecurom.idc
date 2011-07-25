@@ -2,16 +2,42 @@
 //
 // This is based on Acamus's Auto Disassembler.
 //
-
-// Change History
-// 31/05/11 dparrish (david@dparrish.com):
-//  + split out from onload.idc and reformat to be consistent
-//  + add sh7052 registers
+// vim:foldmethod=syntax foldnestmax=1 sw=2 et smarttab smartindent ft=c
+//
+// STEP-BY-STEP TO DISASSEMBLING YOUR ROM IMAGE:
+//
+// Run "idaw -psh4b <rom image filename>" (use "udal" on Linux). (Another
+//   option would be to open IDA Pro, drag your ROM image onto the main
+//   window, and choose the "Hitachi SH4B" processor.)
+//
+// Accept the default options for segments, analysis, etc. Don't bother
+//   creating a RAM segment; this script will do it for you.
+//
+// Once you are presented with the main disassembly view window,
+//   go to the "Options" drop-down menu, and select "Target assembler...".
+//   Choose "GNU Assembler" when asked. (If you happen to have a copy of
+//   SHASM, feel free to leave this alone, but most people will want to
+//   use the free GNU assembler for the SH-ELF platform.)
+//
+// Next, go to the "Options" drop-down meny, and select "Analysis options...".
+//   Choose "Kernel analyzer options 1", and uncheck:
+//     "Create ascii string if data xref exists"
+//     "Create offset if data xref to seg32 exists"
+//   Choose "Kernel analyzer options 2", and uncheck:
+//     "Check for unicode strings"
+//   (There are no ASCII or Unicode strings in a typical SH7052F ROM image,
+//   and IDA doesn't take alignment into account when converting referenced
+//   32-bit values to offsets for some reason.)
+//
+// Finally, go to the "File" drop-down menu, select "Load file", select
+//   "IDC file...", and choose this script. It will automatically start
+//   disassembling the ROM, labeling known memory, register, and function
+//   addresses as it goes.
+//
 
 #include <idc.idc>
 #include <memcpy.idc>
 
-#define IVT_START      0x0000
 #define H8_ROM_START   0x0140
 #define H8_CODE_OFFSET 0x10000
 #define SH_ROM_START   0x0400
@@ -19,9 +45,10 @@
 
 
 // Locations of well-known functions
-#define BYTE_TABLE_LOOKUP_FUNC 0x00000C28
-#define AXIS_LOOKUP_FUNC       0x00000CC6
-#define WORD_TABLE_LOOKUP_FUNC 0x00000E02
+#define BYTE_TABLE_LOOKUP_FUNC      0x00000C28
+#define BYTE_TABLE_LOOKUP_WRAP_FUNC 0x00000DE0
+#define AXIS_LOOKUP_FUNC            0x00000CC6
+#define WORD_TABLE_LOOKUP_FUNC      0x00000E02
 
 
 static HasName(ea) {
@@ -29,44 +56,15 @@ static HasName(ea) {
     return 0;
   return 1;
 }
-
-
-static FixH8500() {
-  auto ea, end;
-
-  Message("H8/500 create segment %x-%x\n", 0x10000, 0x1ffff);
-  SegCreate(0x10000, 0x1ffff, 0x0, 0, 1, 2);
-  SegRename(0x10000, "seg001");
-  SegClass (0x10000, "CODE");
-  SegDefReg(0x10000, "br", 0x0);
-  SegDefReg(0x10000, "dp", 0x1);
-  SetSegmentType(0x10000, 2);
-
-  //Message("H8/500 create segment %x-%x\n", 0x14000, 0x1ffff);
-  //SegCreate(0x14000, 0x20000, 0x0, 0, 1, 2);
-  //SegRename(0x14000, "seg001");
-  //SegClass (0x14000, "CODE");
-  //SegDefReg(0x14000, "br", 0x0);
-  //SegDefReg(0x14000, "dp", 0x1);
-  //SetSegmentType(0x14000, 2);
-
-  Message("H8/500 create segment %x-%x\n", 0x20000, 0x2ffff);
-  SegCreate(0x20000, 0x2ffff, 0x0, 0, 1, 2);
-  SegRename(0x20000, "seg002");
-  SegClass (0x20000, "CODE");
-  SegDefReg(0x20000, "br", 0x0);
-  SegDefReg(0x20000, "dp", 0x2);
-  SetSegmentType(0x20000, 2);
-
-  Message("H8/500 Create RAM\n");
-  SegCreate(0xEE80, 0xFFFF, 0, 1, saRelWord, 0);
-  SegRename(0XEE80, "RAM");
-
-  LowVoids(ea);
-  HighVoids(end + H8_CODE_OFFSET);
-  Message("H8/500 Perform Vector Table Fixups \n");
-  Fixup_VT(0x10000, H8_ROM_START);
-  Message("H8/500 Mitsubishi ECU autonalysis finished.\n");
+static MakeNameSequence(ea, name) {
+  auto i, fullname;
+  for (i = 1; i < 5000; i++) {
+    fullname = form("%s_%d", name, i);
+    if (LocByName(fullname) == BADADDR) {
+      MakeName(ea, fullname);
+      return;
+    }
+  }
 }
 
 static H8RegisterNames() {
@@ -338,61 +336,37 @@ static H8RegisterNames() {
   MakeName(0xFFBF, "MULT_(MMR)");
 }
 
-static SegmentsSA4B() {
+static SegmentsSH4B() {
   Message("Creating segments... ");
-  AddSeg(0x00000000, 0x00040000, 0x0, 1, saAbs, scPriv);
+  // Label the ROM segment
   SegRename(0x00000000, "ROM");
-  SegClass(0x00000000, "CODE");
+  SegClass(0x00000000, "UNK"); // This should be "CODE" but then IDA finds bad code where stack variables are.
   SegDefReg(0x00000000, "br", 0x0);
   SegDefReg(0x00000000, "dp", 0x1);
-  AddSeg(0xFFFF8000, 0xFFFFE000, 0x0, 1, saAbs, scStack);
-  SegRename(0xFFFF8000, "RAM");
+  if (SegName(0xFFFF6000) != "RAM")
+    // Create a RAM segment if it doesn't already exist
+    // This is the size for the SH7055. SH7052 has 12k and SH7054 has 16k. They
+    // start from 0xFFFF8000, so this start will include all possibilities.
+    AddSeg(0xFFFF6000, 0xFFFFE000, 0x0, 1, saAbs, scStack);
+  SegRename(0xFFFF6000, "RAM");
+  SegClass(0xFFFF6000, "DATA");
+  // Create a segment for the hardware registers
+  if (SegName(0xFFFFE400) != "HWREG")
+    AddSeg(0xFFFFE400, 0xFFFFF860, 0x0, 1, saAbs, scStack);
+  SegRename(0xFFFFE400, "HWREG");
+  SegClass(0xFFFF6000, "DATA");
   Message("Done\n");
 }
 
-static FixSH7052F() {
-  FixConstants();
-  Wait();
-  Fixup_VT(0x0000, SH_ROM_START);
-  Wait();
-  FixupJumps();
-  Wait();
-  Fix_Missing_Code(SH_ROM_START, 0xF20, 1);
-  Fix_Missing_Code(Word(2), SegEnd(Word(2)), 0);
-  Wait();
-  Fix_MUT_Table();
-  Wait();
-  FixDataOffsets();
-  Wait();
-  SH7052RegisterNames();
-  Wait();
-  Message("SH7052F Mitsubishi ECU autoanalysis finished\n");
+// Label some common IDs that exist in every rom
+static LabelGlobalIds() {
+  MakeStr(SegEnd(0) - 6, SegEnd(0));
+  MakeNameEx(0x00000F52, "rom_id", SN_NOLIST);
+  MakeDword(0x00000F52);
+  MakeNameEx(SegEnd(0) - 6, "rom_id_string", SN_NOLIST);
 }
 
 static FixSH4B() {
-  CreateStructures();
-  FixConstants();
-  Wait();
-  Fixup_VT(0x0000, SH_ROM_START);
-  Wait();
-  FixupJumps();
-  Wait();
-  Fix_Missing_Code(SH_ROM_START, 0xF20, 1);
-  Fix_Missing_Code(Word(2), SegEnd(Word(2)), 0);
-  Wait();
-  Fix_MUT_Table();
-  Wait();
-  FixDataOffsets();
-  Wait();
-  SH7052RegisterNames();
-  Wait();
-  LabelKnownFuncs();
-  Wait();
-  LocateAxisTables();
-  Wait();
-  LocateMaps();
-  Wait();
-  Message("SH4B Mitsubishi ECU autoanalysis finished\n");
 }
 
 static ByteRegister(ea, name, comment) {
@@ -947,17 +921,16 @@ static SH7052RegisterNames() {
 }
 
 static LoadM32RX() {
-  Fixup_VT_M32R(0x0000, M32R_ROM_START/2+1, 0x10);
-  Fixup_VT_M32R(0x40, M32R_ROM_START+1, 0x4);
+  Fixup_VT_M32R(0x0000, M32R_ROM_START / 2 + 1, 0x10);
+  Fixup_VT_M32R(0x40, M32R_ROM_START + 1, 0x4);
   Message("M32R Vector Table Fixups Performed\n");
 }
-
 
 static Fixup_VT_M32R(segoffset, romstart, increment) {
   auto i;
 
   // fixup all vector table entries
-  for (i = (segoffset + IVT_START); i < (segoffset + romstart); i = i + increment) {
+  for (i = segoffset; i < (segoffset + romstart); i = i + increment) {
     if (!MakeCode(i)) {
       MakeDword(i);
       OpOff(i, 0, 0);
@@ -967,7 +940,6 @@ static Fixup_VT_M32R(segoffset, romstart, increment) {
   }
   Message("VT_M32R Entry Point Fixups Performed\n", i);
 }
-
 
 static AddVTEntry(ea, name, funcname) {
   auto j;
@@ -984,12 +956,11 @@ static AddVTEntry(ea, name, funcname) {
   AutoMark(j, AU_PROC);
 }
 
-
 static Fixup_VT(segoffset, romstart) {
   auto i, j, errcode;
 
   // fixup all vector table entries
-  for (i = (segoffset + IVT_START); i < (segoffset + romstart); i = i + 4) {
+  for (i = segoffset; i < (segoffset + romstart); i = i + 4) {
     MakeDword(i);
     OpOff(i, 0, 0);
     // These are stack pointers, not code
@@ -1150,55 +1121,53 @@ static Fixup_VT(segoffset, romstart) {
   Message("VT Entry Point Fixups Performed\n", j);
 }
 
-
 static FixupJumps(void) {
   auto ea, end, indexa, indexj, xref_from, xref_to;
 
   ea = 0;
   end = SegEnd(ea);
-  if (ea == BADADDR || end == BADADDR) {
-    Message("nothing selected\n");
-    return;
-  }
   Message("Fixing jmp from %x to %x... ", ea, end);
 
   for (ea; ea <= end; ea = NextAddr(ea)) {
-    if (ea == BADADDR || ea >= end) {
+    if (ea == BADADDR) {
       // Message("No more hits\n");
       break;
-    } else {
-      // Check for "mova"
-      if (GetMnem(ea) == "mova") {
-        //Message("mova @ %x\n", ea);
+    }
+
+    // Check for "mova"
+    if (GetMnem(ea) == "mova") {
+      // Message("mova @ %x\n", ea);
+      if (Word(GetOperandValue(ea, 0)) == 0xFFFF)
+        indexa = GetOperandValue(ea, 0);
+      else
         indexa = NextHead(ea, end) + GetOperandValue(ea, 0);
-        //Message("mova initial @ %x\n", indexa);
+      //Message("mova initial @ %x\n", indexa);
 
-        while (Word(indexa) == 0xFFFF) {
-          MakeWord(indexa);
-          indexa = indexa + 2;
+      while (Word(indexa) == 0xFFFF) {
+        MakeWord(indexa);
+        indexa = indexa + 2;
+      }
+      //Message("mova points to @ %x\n", indexa);
+      do {
+        ea = NextAddr(ea);
+        if (GetMnem(ea) == "jmp") {
+          xref_from = ea;
+          //Message("jmp @ %x\n", xref_from);
+          break;
         }
-        //Message("mova points to @ %x\n", indexa);
-        do {
-          ea = NextAddr(ea);
-          if (GetMnem(ea) == "jmp") {
-            xref_from = ea;
-            // Message("jmp @ %x\n", xref_from);
-            break;
-          }
 
-        } while (ea != BADADDR);
+      } while (ea != BADADDR);
 
-        indexj = indexa;
-        while (isUnknown(GetFlags(indexj))) {
-          MakeWord(indexj);
-          xref_to = indexa + Word(indexj);
-          MakeCode(xref_to);
-          AddCodeXref(xref_from, xref_to, fl_JN);
-          //Message("Adding jump from %x to %x\n", xref_from, xref_to);
-          MakeComm(indexj, "jsr " + NameEx(indexj, xref_to));
-          indexj = indexj + 2;
-          ea = indexj;
-        }
+      indexj = indexa;
+      while (isUnknown(GetFlags(indexj))) {
+        MakeWord(indexj);
+        xref_to = indexa + Word(indexj);
+        MakeCode(xref_to);
+        AddCodeXref(xref_from, xref_to, fl_JN);
+        //Message("Adding jump from %x to %x\n", xref_from, xref_to);
+        MakeComm(indexj, "jsr " + NameEx(indexj, xref_to));
+        indexj = indexj + 2;
+        ea = indexj;
       }
     }
   }
@@ -1224,32 +1193,35 @@ static Fix_Missing_Code(ea, end, is_byte_check) {
   Message("Done\n");
 }
 
+static LabelMutRequestVar(req, name) {
+  auto ea = LocByName(req);
+  if (ea != BADADDR && !HasName(ea - 1))
+    MakeName(ea - 1, name);
+}
+
 static Fix_MUT_Table(void) {
   auto ea, end, i, mutname;
 
   ea = 0;
   end = SegEnd(ea);
-  if (ea == BADADDR || end == BADADDR) {
-    Message("nothing selected\n");
-    return;
-  }
-  Message("searching for MUT table %x to %x... ", ea, end);
+  Message("Searching for MUT table %x to %x... ", ea, end);
 
-  for (ea; ea <= end; ea = NextAddr(ea)) {
-    if (ea == BADADDR)
-      break;
-
+  for (ea; ea <= end && ea != BADADDR; ea = NextAddr(ea)) {
     // Check for "mov.w"
     if (GetMnem(ea) == "mov.w") {
-      if (Word(NextHead(NextHead(ea, end) + GetOperandValue(ea, 0), end)) == 0xBF && GetMnem(ea + 6) == "shll2") {
-        ea = Dword(NextAddr(NextAddr(ea + 8) + GetOperandValue(ea + 8, 0)));
-        Message("Found at 0x%x... ", ea);
+      //Message("Found mov.w at 0x%x\n", ea);
+      if ((GetOperandValue(ea, 0) == 0xBF || Word(NextHead(NextHead(ea, end) + GetOperandValue(ea, 0), end)) == 0xBF) && GetMnem(ea + 6) == "shll2") {
+        if (Word(NextHead(NextHead(ea, end) + GetOperandValue(ea, 0), end)) == 0xBF)
+          ea = Dword(NextAddr(NextAddr(ea + 8) + GetOperandValue(ea + 8, 0)));
+        else
+          ea = GetOperandValue(ea + 8, 0);
+        //Message("Found at 0x%x... ", ea);
         break;
       }
     }
   }
 
-  if (ea == end) {
+  if (ea == end || ea == BADADDR) {
     Warning("MUT table not found");
     return;
   }
@@ -1260,15 +1232,69 @@ static Fix_MUT_Table(void) {
       Message("No more matches...\n");
       return;
     }
-    if (Dword(ea) != 0xFFFFFFFF) {
-      MakeDword(ea);
-      mutname = form("MUT_%X", i++);
-      if (!HasName(ea))
-        MakeName(Dword(ea), mutname);
-    } else {
+    if (Dword(ea) == 0xFFFFFFFF)
       break;
-    }
+    MakeDword(ea);
+    mutname = form("MUT_%02X", i++);
+    if (!HasName(ea))
+      MakeName(Dword(ea), mutname);
   }
+
+  // Label some common MUT requests
+  LabelMutRequestVar("MUT_04", "TimingAdvInterp");
+  LabelMutRequestVar("MUT_06", "TimingAdv");
+  LabelMutRequestVar("MUT_06", "TimingAdvScaled");
+  LabelMutRequestVar("MUT_07", "CoolantTemp");
+  LabelMutRequestVar("MUT_0C", "LTFTLo");
+  LabelMutRequestVar("MUT_0D", "LTFTMid");
+  LabelMutRequestVar("MUT_0E", "LTFTHigh");
+  LabelMutRequestVar("MUT_0F", "STFT");
+  LabelMutRequestVar("MUT_10", "CoolantTempScaled");
+  LabelMutRequestVar("MUT_11", "MAFAirTempScaled");
+  LabelMutRequestVar("MUT_12", "EGRTemp");
+  LabelMutRequestVar("MUT_13", "O2Sensor");
+  LabelMutRequestVar("MUT_13", "O2Sensor");
+  LabelMutRequestVar("MUT_14", "Battery");
+  LabelMutRequestVar("MUT_14", "Battery");
+  LabelMutRequestVar("MUT_15", "Baro");
+  LabelMutRequestVar("MUT_16", "ISCSteps");
+  LabelMutRequestVar("MUT_17", "TPS");
+  LabelMutRequestVar("MUT_1A", "AirFlow");
+  LabelMutRequestVar("MUT_1C", "Load");
+  LabelMutRequestVar("MUT_1D", "AccelEnrich");
+  LabelMutRequestVar("MUT_1F", "PrevLoad");
+  LabelMutRequestVar("MUT_20", "RPM_Idle_Scaled");
+  LabelMutRequestVar("MUT_21", "RPM");
+  LabelMutRequestVar("MUT_24", "TargetIdleRPM");
+  LabelMutRequestVar("MUT_25", "ISCV_Value");
+  LabelMutRequestVar("MUT_26", "KnockSum");
+  LabelMutRequestVar("MUT_27", "OctaneFlag");
+  LabelMutRequestVar("MUT_2C", "AirVol");
+  LabelMutRequestVar("MUT_2F", "Speed");
+  LabelMutRequestVar("MUT_30", "Knock");
+  LabelMutRequestVar("MUT_31", "VE");
+  LabelMutRequestVar("MUT_32", "AFRMAP");
+  LabelMutRequestVar("MUT_33", "Corr_TimingAdv");
+  LabelMutRequestVar("MUT_34", "MAPIndex");
+  LabelMutRequestVar("MUT_38", "MAP");
+  LabelMutRequestVar("MUT_3C", "O2Sensor2");
+  LabelMutRequestVar("MUT_4A", "PurgeDuty");
+  LabelMutRequestVar("MUT_54", "AccelEnrichTPS");
+  LabelMutRequestVar("MUT_55", "DecelLeanTPS");
+  LabelMutRequestVar("MUT_56", "AccelLoadChg");
+  LabelMutRequestVar("MUT_57", "DecelLoadChg");
+  LabelMutRequestVar("MUT_6A", "knock_adc");
+  LabelMutRequestVar("MUT_6B", "knock_base");
+  LabelMutRequestVar("MUT_6C", "knock_var");
+  LabelMutRequestVar("MUT_6D", "knock_change");
+  LabelMutRequestVar("MUT_6E", "knock_dynamics");
+  LabelMutRequestVar("MUT_6F", "knock_flag");
+  LabelMutRequestVar("MUT_79", "InjectorLatency");
+  LabelMutRequestVar("MUT_85", "EgrDuty");
+  LabelMutRequestVar("MUT_86", "WGDC");
+  LabelMutRequestVar("MUT_8A", "LoadError");
+  LabelMutRequestVar("MUT_8B", "WGDCCorr");
+
   Message("Done\n");
 }
 
@@ -1292,7 +1318,7 @@ static FixDataOffsets(void) {
 
     if ((strstr(disass, ".data.l loc_") != -1 && strstr(disass, "+") != -1) ||
         (strstr(disass, ".data.l off_") != -1 && strstr(disass, "+") != -1)) {
-      // Message("fixing %s  @0x%x\n", disass, ea);
+      //Message("fixing %s  @0x%x\n", disass, ea);
       MakeWord(ea);
     }
   }
@@ -1306,13 +1332,11 @@ static FixConstants(void) {
   end = 0x3500;
 
   Message("Fixing constants from %x to %x... ", ea, end);
-
-  for (ea; ea <= end; ea = NextAddr(ea)) {
-    if (ea == BADADDR)
-      break;
-    MakeWord(ea);
+  for (ea; ea <= end && ea != BADADDR; ea = NextAddr(ea)) {
+    if (Name(ea) == "" || strstr(Name(ea), "unk_") == 0)
+      MakeWord(ea);
   }
-  Message("done\n");
+  Message("Done\n");
 }
 
 static CreateStructures() {
@@ -1358,20 +1382,48 @@ static CreateStructures() {
   }
 }
 
-static LabelKnownFuncs() {
-  if (!HasName(BYTE_TABLE_LOOKUP_FUNC))
-    MakeName(BYTE_TABLE_LOOKUP_FUNC, "table_lookup_byte");
-  SetFunctionFlags(BYTE_TABLE_LOOKUP_FUNC, 0);
-
-  if (!HasName(WORD_TABLE_LOOKUP_FUNC))
-    MakeName(WORD_TABLE_LOOKUP_FUNC, "table_lookup_word");
-  SetFunctionFlags(WORD_TABLE_LOOKUP_FUNC, 0);
-
-  if (!HasName(AXIS_LOOKUP_FUNC))
-    MakeName(AXIS_LOOKUP_FUNC, "axis_lookup");
-  SetFunctionFlags(AXIS_LOOKUP_FUNC, 0);
+static WellKnownFunc(ea, name, comment) {
+  if (!HasName(ea))
+    MakeName(ea, name);
+  SetFunctionFlags(ea, 0);
+  if (comment != "" && GetFunctionCmt(ea, 0) == "")
+    SetFunctionCmt(ea, comment, 0);
 }
 
+static LabelLibraryFuncs() {
+  auto start;
+
+  WellKnownFunc(BYTE_TABLE_LOOKUP_FUNC, "table_lookup_byte", "Look up the current BYTE value at the table stored at R4");
+  WellKnownFunc(WORD_TABLE_LOOKUP_FUNC, "table_lookup_word", "Look up the current WORD value at the table stored at R4");
+  WellKnownFunc(AXIS_LOOKUP_FUNC, "axis_lookup", "Look up the current value in the axis stored at R4");
+
+  // Define some functions with local variables
+  start = 0xEEE;
+  WellKnownFunc(start, "multiply", "Multiply R4 and R5, storing DWORD result in R0");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r4", "a");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r5", "b");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r0", "result");
+
+  start = 0xED8;
+  WellKnownFunc(start, "multiply_capped", "Multiply R4 and R5, storing DWORD result in R0, max 0xFFFFFFFF");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r4", "a");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r5", "b");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r0", "result");
+
+  start = 0x52C;
+  WellKnownFunc(start, "memset", "Clear RAM between R4 and R5");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r4", "start");
+  MakeLocal(start, GetFunctionAttr(start, FUNCATTR_END), "r5", "end");
+
+  WellKnownFunc(0x500, "add_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFFFFFF");
+  WellKnownFunc(0x51C, "add_word_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFFFFFF");
+  WellKnownFunc(0xDC6, "readb_mapindex_times_4_plus_r4", "Reads BYTE at (R4 + (MAPindex * 4)) into R0");
+  WellKnownFunc(0xDE0, "table_lookup_byte_mapindex", "Call table_lookup_byte with a table at (R4 + (MAPindex * 4))");
+  WellKnownFunc(0xDF6, "readl_mapindex_times_4_plus_r4", "Reads LONG at (R4 + (MAPindex * 4)) into R0");
+  WellKnownFunc(0xF0C, "subtract_nowrap_word", "Subtract R5 from R4, storing result in R0. Set R0 to 0 on wrap.");
+  WellKnownFunc(0xF12, "subtract_nowrap_byte", "Subtract R5 from R4, storing result in R0. Set R0 to 0 on wrap.");
+
+}
 
 static LocateAxisTables() {
   auto i, ea, code, table, counter, found;
@@ -1420,197 +1472,229 @@ static LocateAxisTables() {
   Message("Done\n");
 }
 
+static GetMapHeight(table, ea) {
+  auto xaxisloc, mapheight, ea2;
+  if (Byte(table) == 3) {
+    xaxisloc = Dword(table + 6);
+  } else if (Word(table) == 3) {
+    xaxisloc = Dword(table + 8);
+  } else if (Byte(table) == 2) {
+    xaxisloc = Dword(table + 2);
+  } else if (Word(table) == 2) {
+    xaxisloc = Dword(table + 4);
+  } else {
+    return 0;
+  }
+
+  if (!xaxisloc || xaxisloc == BADADDR)
+    return 0;
+
+  // Search back from the map lookup call to find the axis lookup
+  // calls. Multiply the size of both axes to work out how many items are
+  // in this map.
+  mapheight = 0;
+  for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
+    auto code = GetDisasm(ea2);
+    if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
+      auto ea3;
+      for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
+        code = GetDisasm(ea3);
+        if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+          // This is an axis table, look for the map's x or y input in the output of this axis table
+          auto ref;
+          for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
+            if (!mapheight && Dword(ref) == xaxisloc)
+              mapheight = Word(ref + 8);
+          }
+        }
+        if (mapheight)
+          break;
+      }
+    }
+  }
+  if (!mapheight && (Byte(table) == 2 || Word(table) == 2)) {
+    // Couldn't find the axis by searching through the code, attempt to
+    // find it from references to the input.
+    auto good = 1;
+    for (ref = DfirstB(xaxisloc); ref && ref != BADADDR; ref = DnextB(xaxisloc, ref)) {
+      if (strstr(CommentEx(ref, 0), "lookup result pointer") != -1) {
+        // This is an axis
+        if (Word(ref + 8) == 0)
+          continue;
+        if (mapheight && Word(ref + 8) == mapheight)
+          continue;
+        if (mapheight) {
+          Message("Multiple length axes found referencing %x for map %x\n", xaxisloc, table);
+          return 1;
+        }
+        mapheight = Word(ref + 8);
+      }
+    }
+    if (!good)
+      mapheight = 0;
+  }
+  if (!mapheight) {
+    Message("Couldn't detect size for 3d map starting at %x\n", table);
+    mapheight = 1;
+  }
+  return mapheight;
+}
+
+static GetMapWidth(table, ea) {
+  auto yaxisloc, mapwidth, ea2;
+  if (Byte(table) == 3) {
+    yaxisloc = Dword(table + 2);
+  } else if (Word(table) == 3) {
+    yaxisloc = Dword(table + 4);
+  } else {
+    return 0;
+  }
+
+  if (!yaxisloc || yaxisloc == BADADDR)
+    return 0;
+
+  // Search back from the map lookup call to find the axis lookup
+  // calls. Multiply the size of both axes to work out how many items are
+  // in this map.
+  mapwidth = 0;
+  for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
+    auto code = GetDisasm(ea2);
+    if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
+      auto ea3;
+      for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
+        code = GetDisasm(ea3);
+        if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
+          // This is an axis table, look for the map's x or y input in the output of this axis table
+          auto ref;
+          for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
+            if (!mapwidth && Dword(ref) == yaxisloc)
+              mapwidth = Word(ref + 8);
+          }
+        }
+        if (mapwidth)
+          break;
+      }
+    }
+  }
+  if (!mapwidth) {
+    Message("Couldn't detect size for 3d map starting at %x\n", table);
+    mapwidth = 1;
+  }
+  return mapwidth;
+}
+
+static LabelTable(table, ea) {
+  auto mapheight, mapwidth, datastart;
+  mapwidth = GetMapWidth(table, ea);
+  mapheight = GetMapHeight(table, ea);
+  if (Byte(table) == 3) {
+    if (!HasName(table))
+      MakeNameSequence(table, "unknown_3d_byte_table");
+    MakeByte(table);
+    MakeComm(table, "number of dimensions");
+    OpDecimal(table, 0);
+    MakeByte(table + 1);
+    MakeComm(table + 1, "adder");
+    OpDecimal(table + 1, 0);
+    MakeDword(table + 2);
+    MakeComm(table + 2, "x axis position");
+    MakeDword(table + 6);
+    MakeComm(table + 6, "y axis position");
+    MakeByte(table + 10);
+    MakeComm(table + 10, "num columns");
+    OpDecimal(table + 10, 0);
+    MakeByte(table + 11);
+    OpDecimal(table + 11, 0);
+    MakeComm(table + 11, "map data");
+    datastart = table + 11;
+  } else if (Word(table) == 3) {
+    if (!HasName(table))
+      MakeNameSequence(table, "unknown_3d_word_table");
+    MakeWord(table);
+    MakeComm(table, "number of dimensions");
+    OpDecimal(table, 0);
+    MakeWord(table + 2);
+    MakeComm(table + 2, "adder");
+    OpDecimal(table + 2, 0);
+    MakeDword(table + 4);
+    MakeComm(table + 4, "x axis position");
+    MakeDword(table + 8);
+    MakeComm(table + 8, "y axis position");
+    MakeWord(table + 12);
+    MakeComm(table + 12, "num columns");
+    OpDecimal(table + 12, 0);
+    MakeWord(table + 14);
+    OpDecimal(table + 14, 0);
+    MakeComm(table + 14, "map data");
+    datastart = table + 14;
+  } else if (Byte(table) == 2) {
+    if (!HasName(table))
+      MakeNameSequence(table, "unknown_2d_byte_table");
+    MakeByte(table);
+    MakeComm(table, "number of dimensions");
+    OpDecimal(table, 0);
+    MakeByte(table + 1);
+    MakeComm(table + 1, "adder");
+    OpDecimal(table + 1, 0);
+    MakeDword(table + 2);
+    MakeComm(table + 2, "input position");
+    MakeByte(table + 6);
+    OpDecimal(table + 6, 0);
+    MakeComm(table + 6, "map data");
+    datastart = table + 6;
+  } else if (Word(table) == 2) {
+    if (!HasName(table))
+      MakeNameSequence(table, "unknown_2d_word_table");
+    MakeWord(table);
+    MakeComm(table, "number of dimensions");
+    OpDecimal(table, 0);
+    MakeWord(table + 2);
+    MakeComm(table + 2, "adder");
+    OpDecimal(table + 2, 0);
+    MakeDword(table + 4);
+    MakeComm(table + 4, "input position");
+    MakeWord(table + 8);
+    OpDecimal(table + 8, 0);
+    MakeComm(table + 8, "map data");
+    datastart = table + 8;
+  } else {
+    Message("Unknown dimensions for table at %x\n", table);
+    return;
+  }
+
+  if (Byte(table) == 3 || Word(table) == 3) {
+    if (mapwidth != Byte(table + 10)) {
+      Message("Detected axis lookup for 3d map starting at %x found mismatching width\n", table);
+      mapheight = 1;
+      mapwidth = 1;
+    }
+
+    MakeArray(datastart, mapheight * mapwidth);
+    SetArrayFormat(datastart, 0, mapwidth, 0);
+  } else if (Byte(table) == 2 || Word(table) == 2) {
+    if (!mapheight) {
+      Message("Couldn't detect size for 2d map starting at %x (code at %x)\n", table, ea);
+      mapheight = 1;
+    }
+
+    MakeArray(datastart, mapheight);
+    SetArrayFormat(datastart, 0, mapheight, -1);
+  }
+}
+
 static LocateMapsHelper(base) {
-  auto i, ea, ea2, ea3, code, table, counter, found, xaxisloc, yaxisloc, mapheight, mapwidth, ref, dimensions, datastart;
-  Message("Locating maps from %x... \n", base);
-  counter = 1;
+  auto i, ea, code, table;
+  Message("Locating maps from %x... ", base);
   for (i = RfirstB(base); i > 0; i = RnextB(base, i)) {
     if (i == BADADDR || i == 0)
       continue;
-    found = 0;
     // Look back at most 16 instructions for r4 being set
     for (ea = i; ea > 0 && ea > (i - 32); ea = ea - 2) {
       code = GetDisasm(ea);
       if (strstr(code, "mov.l ") == -1 || strstr(code, ", r4") == -1)
         continue;
       for (table = Dfirst(ea); table != BADADDR; table = Dnext(ea, table)) {
-        if (base == BYTE_TABLE_LOOKUP_FUNC)
-          dimensions = Byte(table);
-        else
-          dimensions = Word(table);
-
-        if (dimensions == 3) {
-          if (base == BYTE_TABLE_LOOKUP_FUNC) {
-            if (!HasName(table))
-              MakeName(table, form("unknown_3d_byte_table_%d", counter));
-            MakeByte(table);
-            MakeComm(table, "number of dimensions");
-            OpDecimal(table, 0);
-            MakeByte(table + 1);
-            MakeComm(table + 1, "adder");
-            OpDecimal(table + 1, 0);
-            MakeDword(table + 2);
-            MakeComm(table + 2, "x axis position");
-            MakeDword(table + 6);
-            MakeComm(table + 6, "y axis position");
-            MakeByte(table + 10);
-            MakeComm(table + 10, "num columns");
-            OpDecimal(table + 10, 0);
-            MakeByte(table + 11);
-            OpDecimal(table + 11, 0);
-            MakeComm(table + 11, "map data");
-            yaxisloc = Dword(table + 2);
-            xaxisloc = Dword(table + 6);
-            datastart = table + 11;
-          } else {
-            if (!HasName(table))
-              MakeName(table, form("unknown_3d_word_table_%d", counter));
-            MakeWord(table);
-            MakeComm(table, "number of dimensions");
-            OpDecimal(table, 0);
-            MakeWord(table + 2);
-            MakeComm(table + 2, "adder");
-            OpDecimal(table + 2, 0);
-            MakeDword(table + 4);
-            MakeComm(table + 4, "x axis position");
-            MakeDword(table + 8);
-            MakeComm(table + 8, "y axis position");
-            MakeWord(table + 12);
-            MakeComm(table + 12, "num columns");
-            OpDecimal(table + 12, 0);
-            MakeWord(table + 14);
-            OpDecimal(table + 14, 0);
-            MakeComm(table + 14, "map data");
-            yaxisloc = Dword(table + 4);
-            xaxisloc = Dword(table + 8);
-            datastart = table + 14;
-          }
-
-          // Search back from the map lookup call to find the axis lookup
-          // calls. Multiply the size of both axes to work out how many items are
-          // in this map.
-          mapheight = 0;
-          mapwidth = 0;
-          for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
-            code = GetDisasm(ea2);
-            if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
-              for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
-                code = GetDisasm(ea3);
-                if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
-                  // This is an axis table, look for the map's x or y input in the output of this axis table
-                  for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
-                    if (!mapheight && Dword(ref) == xaxisloc)
-                      mapheight = Word(ref + 8);
-                    if (!mapwidth && Dword(ref) == yaxisloc)
-                      mapwidth = Word(ref + 8);
-                  }
-                }
-                if (mapheight && mapwidth)
-                  break;
-              }
-            }
-          }
-          if (!mapheight || !mapwidth) {
-            Message("Couldn't detect size for 3d map starting at %x\n", table);
-            mapheight = 1;
-            mapwidth = 1;
-          } else if (mapwidth != Byte(table + 10)) {
-            Message("Detected axis lookup for 3d map starting at %x found mismatching width\n", table);
-            mapheight = 1;
-            mapwidth = 1;
-          }
-
-          MakeArray(datastart, mapheight * mapwidth);
-          SetArrayFormat(datastart, 0, mapwidth, 0);
-        } else if (dimensions == 2) {
-          if (base == BYTE_TABLE_LOOKUP_FUNC) {
-            if (!HasName(table))
-              MakeName(table, form("unknown_2d_byte_table_%d", counter));
-            MakeByte(table);
-            MakeComm(table, "number of dimensions");
-            OpDecimal(table, 0);
-            MakeByte(table + 1);
-            MakeComm(table + 1, "adder");
-            OpDecimal(table + 1, 0);
-            MakeDword(table + 2);
-            MakeComm(table + 2, "input position");
-            MakeByte(table + 6);
-            OpDecimal(table + 6, 0);
-            MakeComm(table + 6, "map data");
-            xaxisloc = Dword(table + 2);
-            datastart = table + 6;
-          } else {
-            if (!HasName(table))
-              MakeName(table, form("unknown_2d_word_table_%d", counter));
-            MakeWord(table);
-            MakeComm(table, "number of dimensions");
-            OpDecimal(table, 0);
-            MakeWord(table + 2);
-            MakeComm(table + 2, "adder");
-            OpDecimal(table + 2, 0);
-            MakeDword(table + 4);
-            MakeComm(table + 4, "input position");
-            MakeWord(table + 8);
-            OpDecimal(table + 8, 0);
-            MakeComm(table + 8, "map data");
-            xaxisloc = Dword(table + 4);
-            datastart = table + 8;
-          }
-
-          // Search back from the map lookup call to find the axis lookup
-          // call.
-          mapwidth = 0;
-          for (ea2 = ea; ea2 > 0 && ea2 > (ea - 256); ea2 = ea2 - 2) {
-            code = GetDisasm(ea2);
-            if (strstr(code, "jsr") == 0 && strstr(code, "axis_lookup") > 0) {
-              for (ea3 = ea2; ea3 > 0 && ea3 > (ea2 - 32); ea3 = ea3 - 2) {
-                code = GetDisasm(ea3);
-                if (strstr(code, "mov.l ") == 0 && strstr(code, ", r4") > 0) {
-                  // This is an axis table, look for the map's x or y input in the output of this axis table
-                  for (ref = Dfirst(ea3); ref && ref != BADADDR; ref = Dnext(ea3, ref)) {
-                    if (!mapwidth && Dword(ref) == xaxisloc)
-                      mapwidth = Word(ref + 8);
-                  }
-                }
-                if (mapwidth)
-                  break;
-              }
-            }
-          }
-
-          // Couldn't find the axis by searching through the code, attempt to
-          // find it from references to the input.
-          if (!mapwidth) {
-            auto good;
-            good = 1;
-            for (ref = DfirstB(xaxisloc); ref && ref != BADADDR; ref = DnextB(xaxisloc, ref)) {
-              if (strstr(CommentEx(ref, 0), "lookup result pointer") != -1) {
-                // This is an axis
-                if (Word(ref + 8) == 0)
-                  continue;
-                if (mapwidth && Word(ref + 8) == mapwidth)
-                  continue;
-                if (mapwidth) {
-                  Message("Multiple length axes found referencing %x for map %x\n", xaxisloc, table);
-                  good = 0;
-                  break;
-                }
-                mapwidth = Word(ref + 8);
-              }
-            }
-            if (!good)
-              mapwidth = 0;
-          }
-          if (!mapwidth) {
-            Message("Couldn't detect size for 2d map starting at %x (code at %x)\n", table, i);
-            mapwidth = 1;
-          }
-
-          MakeArray(datastart, mapwidth);
-          SetArrayFormat(datastart, 0, mapwidth, -1);
-        }
-        counter++;
-        found = 1;
+        LabelTable(table, ea);
         break;
       }
     }
@@ -1618,15 +1702,50 @@ static LocateMapsHelper(base) {
   Message("Done\n");
 }
 
+static LocateMapsIndirectHelper(base) {
+  auto i, ea, table, found;
+  for (i = RfirstB(base); i > 0; i = RnextB(base, i)) {
+    if (i == BADADDR || i == 0)
+      continue;
+    // Look back at most 16 instructions for r4 being set
+    for (ea = i; ea > 0 && ea > (i - 32); ea = ea - 2) {
+      auto code = GetDisasm(ea), index;
+      if (strstr(code, "mov.l ") == -1 || strstr(code, ", r4") == -1)
+        continue;
+      found = 0;
+      for (index = Dfirst(ea); index != BADADDR; index = Dnext(ea, index)) {
+        auto j, validindex = 1;
+        for (j = 0; j < 8; j++) {
+          MakeDword(index + j * 4);
+          if (Dword(index + j * 4) > SegEnd(0)) {
+            // Only consider tables in ROM
+            validindex = 0;
+            break;
+          }
+        }
+        if (!validindex)
+          break;
+        for (j = 0; j < 8; j++) {
+          LabelTable(Dword(index + j * 4), ea);
+        }
+        found = 1;
+        MakeArray(index, 8);
+        break;
+      }
+      if (found)
+        break;
+    }
+  }
+}
+
 static LocateMaps() {
   LocateMapsHelper(BYTE_TABLE_LOOKUP_FUNC);
   LocateMapsHelper(WORD_TABLE_LOOKUP_FUNC);
+  LocateMapsIndirectHelper(LocByName("table_lookup_byte_mapindex"));
 }
 
 //-----------------------------------------------------------------------
 // Get name of the current processor
-
-// usually, we don't use this function now...
 static get_processor(void) {
   auto i, procname, chr;
 
@@ -1639,22 +1758,98 @@ static get_processor(void) {
   return procname;
 }
 
-
 static main() {
   auto processor;
 
-  Indent(22);
-  CmtIndent(70);
-  TailDepth(0x10);
-  SetShortPrm(INF_MARGIN, 120);
+  SetLongPrm(INF_MAXREF, 16);
+  SetCharPrm(INF_INDENT, 22);
+  SetCharPrm(INF_COMMENT, 70);
+  SetCharPrm(INF_MARGIN, 120);
+  SetCharPrm(INF_PREFFLAG, PREF_SEGADR | PREF_FNCOFF); // show segment and function prefixes
+  SetCharPrm(INF_NULL, 0);                             // don't generate empty lines
+  SetCharPrm(INF_CMTFLAG, SW_ALLCMT);                  // show all comments
+  SetCharPrm(INF_ASMTYPE, 0);                          // use GNU asm format
+  {
+    // Disable some analysis options that don't suit the SH2/SH4 code
+    auto newaf = GetShortPrm(INF_START_AF);
+    newaf = newaf & ~AF_MARKCODE; // Mark typical code sequences as code
+    newaf = newaf & ~AF_FLIRT;    // Use flirt signatures
+    newaf = newaf & ~AF_PROCPTR;  // Create function if data xref->code32 exists
+    newaf = newaf & ~AF_LVAR;     // Create stack variables
+    newaf = newaf & ~AF_TRACE;    // Trace stack pointer
+    newaf = newaf & ~AF_ASCII;    // Create ascii string if data xref exists
+    newaf = newaf & ~AF_FINAL;    // Final pass of analysis
+    SetShortPrm(INF_START_AF, newaf);
+
+    newaf = GetShortPrm(INF_AF2);
+    newaf = newaf & ~AF2_JUMPTBL; // Locate and create jump tables
+    newaf = newaf & ~AF2_DODATA;  // Coagulate data segs in final pass
+    newaf = newaf & ~AF2_CHKUNI;  // Check for unicode strings
+    SetShortPrm(INF_AF2, newaf);
+  }
 
   processor = get_processor();
-  if (processor == "h8500")
-    FixH8500();
-  if (processor == "SH4B")
-    FixSH4B();
-  if (processor == "m32rx")
-    FixM32RX();
+  if (strstr(processor, "SH4") == 0) {
+    SegmentsSH4B();
+    Wait();
+    LabelGlobalIds();
+    CreateStructures();
+    FixConstants();
+    Wait();
+    Fixup_VT(0x0000, SH_ROM_START);
+    FixupJumps();
+    Wait();
+    Fix_Missing_Code(SH_ROM_START, 0xF20, 1);
+    Fix_Missing_Code(Word(2), SegEnd(Word(2)), 0);
+    Wait();
+    FixDataOffsets();
+    Wait();
+    SH7052RegisterNames();
+    Wait();
+    Fix_MUT_Table();
+    Wait();
+    LabelLibraryFuncs();
+    Wait();
+    LocateAxisTables();
+    Wait();
+    LocateMaps();
+    Wait();
+    Message("SH4B Mitsubishi ECU autoanalysis finished\n");
+  } else if (processor == "h8500") {
+    Message("H8/500 create segment %x-%x\n", 0x10000, 0x1ffff);
+    SegCreate(0x10000, 0x1ffff, 0x0, 0, 1, 2);
+    SegRename(0x10000, "seg001");
+    SegClass (0x10000, "CODE");
+    SegDefReg(0x10000, "br", 0x0);
+    SegDefReg(0x10000, "dp", 0x1);
+    SetSegmentType(0x10000, 2);
+
+    //Message("H8/500 create segment %x-%x\n", 0x14000, 0x1ffff);
+    //SegCreate(0x14000, 0x20000, 0x0, 0, 1, 2);
+    //SegRename(0x14000, "seg001");
+    //SegClass (0x14000, "CODE");
+    //SegDefReg(0x14000, "br", 0x0);
+    //SegDefReg(0x14000, "dp", 0x1);
+    //SetSegmentType(0x14000, 2);
+
+    Message("H8/500 create segment %x-%x\n", 0x20000, 0x2ffff);
+    SegCreate(0x20000, 0x2ffff, 0x0, 0, 1, 2);
+    SegRename(0x20000, "seg002");
+    SegClass (0x20000, "CODE");
+    SegDefReg(0x20000, "br", 0x0);
+    SegDefReg(0x20000, "dp", 0x2);
+    SetSegmentType(0x20000, 2);
+
+    Message("H8/500 Create RAM\n");
+    SegCreate(0xEE80, 0xFFFF, 0, 1, saRelWord, 0);
+    SegRename(0XEE80, "RAM");
+
+    LowVoids(0);
+    HighVoids(H8_CODE_OFFSET);
+    Message("H8/500 Perform Vector Table Fixups \n");
+    Fixup_VT(0x10000, H8_ROM_START);
+    Message("H8/500 Mitsubishi ECU autonalysis finished.\n");
+  } else {
+    Message("Unknown processor type %s\n", processor);
+  }
 }
-
-
