@@ -156,11 +156,11 @@
 		<table name="RPM" type="Y Axis" elements="15" scaling="RPM"/>
 	</table>
 
-	<table name="Open Loop Throttle Low Load" category="Fuel" type="2D" scaling="ThrottleVoltage">
+	<table name="Open Loop Throttle Low Load" category="Fuel" type="2D" scaling="TPS">
 		<table name="RPM" type="Y Axis" elements="15" scaling="RPM"/>
 	</table>
 
-	<table name="Open Loop Throttle High Load" category="Fuel" type="2D" scaling="ThrottleVoltage">
+	<table name="Open Loop Throttle High Load" category="Fuel" type="2D" scaling="TPS">
 		<table name="RPM" type="Y Axis" elements="15" scaling="RPM"/>
 	</table>
 
