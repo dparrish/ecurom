@@ -423,13 +423,13 @@
 		<table name="RPM" address="5e5a" type="Y Axis" elements="16" scaling="RPM"/>
 	</table>
 
-	<table name="Variable for Boost Control" category="DirectBoost" address="1e972" type="1D" level="1" scaling="Hex16"/>
+	<table name="Variable for Boost Control (LOAD=0x898a PSI=0x8932)" category="DirectBoost" address="1e972" type="1D" level="1" scaling="Hex16"/>
 
-	<table name="SHLR->SHLL for EBC" category="DirectBoost" address="1e6b6" type="1D" level="1" scaling="Hex16"/>
+	<table name="SHLR->SHLL for EBC (SHLR=0x4a01 SHLL=0x4a00)" category="DirectBoost" address="1e6b6" type="1D" level="1" scaling="Hex16"/>
 
-	<table name="Boost Error RAM Address" category="DirectBoost" address="1e966" type="1D" level="1" scaling="Hex16"/>
+	<table name="Boost Error RAM Address (LOAD=0x8866 PSI=0x8D1C)" category="DirectBoost" address="1e966" type="1D" level="1" scaling="Hex16"/>
 
-	<table name="Boost Error RAM Address in Load Error Table" category="DirectBoost" address="5e80" type="1D" level="1" scaling="Hex16"/>
+	<table name="Boost Error RAM Address in Load Error Table (LOAD=0x8866 PSI=0x8D1C)" category="DirectBoost" address="5e80" type="1D" level="1" scaling="Hex16"/>
 
 	<table name="WGDC Correction Interval #1 (High Gear Range)" category="DirectBoost" address="1a54" type="1D" level="1" scaling="uint16"/>
 
@@ -454,22 +454,22 @@
 
 	<table name="Boost Desired Engine 'PSI'" category="DirectBoost" address="399cd" type="3D" level="1" swapxy="true" scaling="PSIa8 GM3barMAP">
 		<table name="Gear" address="3f1c2" type="X Axis" elements="7" scaling="uint16"/>
-		<table name="RPM" address="6bd4" type="Y Axis" elements="16" scaling="RPM"/>
-	</table>
-
-	<table name="Base Boost #1 (High Gear Range)" category="DirectBoost" address="41b0" type="2D" level="1" scaling="PSIa8 GM3barMAP">
 		<table name="RPM" address="5e5a" type="Y Axis" elements="16" scaling="RPM"/>
 	</table>
 
-	<table name="Base Boost #3 (Low Gear Range)" category="DirectBoost" address="41f2" type="2D" level="1" scaling="psia8">
+	<table name="Base Boost #1 (High Gear Range)" category="DirectBoost" address="4116" type="2D" level="1" scaling="PSIa8 GM3barMAP">
 		<table name="RPM" address="5e5a" type="Y Axis" elements="16" scaling="RPM"/>
 	</table>
 
-	<table name="MUT8A Use for Boost Error" category="DirectBoost" address="34752" type="1D" level="1" scaling="Hex16"/>
+	<table name="Base Boost #3 (Low Gear Range)" category="DirectBoost" address="4184" type="2D" level="1" scaling="PSIa8 GM3barMAP">
+		<table name="RPM" address="5e5a" type="Y Axis" elements="16" scaling="RPM"/>
+	</table>
 
-	<table name="MUT8B Use for WGDC Correction" category="DirectBoost" address="34756" type="1D" level="1" scaling="Hex16"/>
+	<table name="MUT8A Use for Boost Error (LOAD=0x8913 PSI=0x8D1D)" category="DirectBoost" address="34752" type="1D" level="1" scaling="Hex16"/>
 
-	<table name="Max Total Upward WGDC Correction vs TPS3f10" type="2D" level="1" scaling="OffsetWGDC">
+	<table name="MUT8B Use for WGDC Correction (LOAD=0x8D9F PSI=0x8D21)" category="DirectBoost" address="34756" type="1D" level="1" scaling="Hex16"/>
+
+	<table name="Max Total Upward WGDC Correction vs TPS" address="3f10" type="2D" level="1" scaling="OffsetWGDC">
 		<table name="TPS" type="X Axis" scaling="ThrottlePercentage"/>
 	</table>
 
