@@ -53,12 +53,11 @@
 
 // Locations of well-known functions
 #define BYTE_TABLE_LOOKUP_FUNC      0x00000C28
-#define BYTE_TABLE_LOOKUP_WRAP_FUNC 0x00000DE0
 #define AXIS_LOOKUP_FUNC            0x00000CC6
 #define WORD_TABLE_LOOKUP_FUNC      0x00000E02
 
 // Set a name for a location if there is not already a manual name set.
-#define SafeMakeName(ea, name) SafeMakeNameEx(ea, name, SN_NOWARN)
+#define SafeMakeName(ea, name) if (name) SafeMakeNameEx(ea, name, SN_NOWARN)
 #define SafeMakeNameEx(ea, name, opts) if (ea != BADADDR && !HasName(ea)) MakeNameEx(ea, name, opts);
 #define HasName(ea) !(Name(ea) == "" || strstr(Name(ea), "off_") == 0 || strstr(Name(ea), "unk_") == 0 || strstr(Name(ea), "sub_") == 0 || strstr(Name(ea), "byte_") == 0 || strstr(Name(ea), "word_") == 0 || strstr(Name(ea), "dword_") == 0)
 static MakeNameSequence(ea, name) {
@@ -1182,11 +1181,13 @@ static Fix_Missing_Code(ea, end, is_byte_check) {
   Message("Done\n");
 }
 
-static LabelMutRequestVar(req, name) {
+static LabelMutVar(req, name, comment) {
   auto ea;
   ea = LocByName(req);
   if (ea != BADADDR)
     SafeMakeName(ea - 1, name);
+  if (comment != "")
+    MakeComm(ea, comment);
 }
 
 static Fix_MUT_Table(void) {
@@ -1229,60 +1230,181 @@ static Fix_MUT_Table(void) {
     SafeMakeName(Dword(ea), mutname);
   }
 
-  // Label some common MUT requests
-  LabelMutRequestVar("MUT_04", "TimingAdvInterp");
-  LabelMutRequestVar("MUT_06", "TimingAdv");
-  LabelMutRequestVar("MUT_06", "TimingAdvScaled");
-  LabelMutRequestVar("MUT_07", "CoolantTemp");
-  LabelMutRequestVar("MUT_0C", "LTFTLo");
-  LabelMutRequestVar("MUT_0D", "LTFTMid");
-  LabelMutRequestVar("MUT_0E", "LTFTHigh");
-  LabelMutRequestVar("MUT_0F", "STFT");
-  LabelMutRequestVar("MUT_10", "CoolantTempScaled");
-  LabelMutRequestVar("MUT_11", "MAFAirTempScaled");
-  LabelMutRequestVar("MUT_12", "EGRTemp");
-  LabelMutRequestVar("MUT_13", "O2Sensor");
-  LabelMutRequestVar("MUT_13", "O2Sensor");
-  LabelMutRequestVar("MUT_14", "Battery");
-  LabelMutRequestVar("MUT_14", "Battery");
-  LabelMutRequestVar("MUT_15", "Baro");
-  LabelMutRequestVar("MUT_16", "ISCSteps");
-  LabelMutRequestVar("MUT_17", "TPS");
-  LabelMutRequestVar("MUT_1A", "AirFlow");
-  LabelMutRequestVar("MUT_1C", "Load");
-  LabelMutRequestVar("MUT_1D", "AccelEnrich");
-  LabelMutRequestVar("MUT_1F", "PrevLoad");
-  LabelMutRequestVar("MUT_20", "RPM_Idle_Scaled");
-  LabelMutRequestVar("MUT_21", "RPM");
-  LabelMutRequestVar("MUT_24", "TargetIdleRPM");
-  LabelMutRequestVar("MUT_25", "ISCV_Value");
-  LabelMutRequestVar("MUT_26", "KnockSum");
-  LabelMutRequestVar("MUT_27", "OctaneFlag");
-  LabelMutRequestVar("MUT_2C", "AirVol");
-  LabelMutRequestVar("MUT_2F", "Speed");
-  LabelMutRequestVar("MUT_30", "Knock");
-  LabelMutRequestVar("MUT_31", "VE");
-  LabelMutRequestVar("MUT_32", "AFRMAP");
-  LabelMutRequestVar("MUT_33", "Corr_TimingAdv");
-  LabelMutRequestVar("MUT_34", "MAPIndex");
-  LabelMutRequestVar("MUT_38", "MAP");
-  LabelMutRequestVar("MUT_3C", "O2Sensor2");
-  LabelMutRequestVar("MUT_4A", "PurgeDuty");
-  LabelMutRequestVar("MUT_54", "AccelEnrichTPS");
-  LabelMutRequestVar("MUT_55", "DecelLeanTPS");
-  LabelMutRequestVar("MUT_56", "AccelLoadChg");
-  LabelMutRequestVar("MUT_57", "DecelLoadChg");
-  LabelMutRequestVar("MUT_6A", "knock_adc");
-  LabelMutRequestVar("MUT_6B", "knock_base");
-  LabelMutRequestVar("MUT_6C", "knock_var");
-  LabelMutRequestVar("MUT_6D", "knock_change");
-  LabelMutRequestVar("MUT_6E", "knock_dynamics");
-  LabelMutRequestVar("MUT_6F", "knock_flag");
-  LabelMutRequestVar("MUT_79", "InjectorLatency");
-  LabelMutRequestVar("MUT_85", "EgrDuty");
-  LabelMutRequestVar("MUT_86", "WGDC");
-  LabelMutRequestVar("MUT_8A", "LoadError");
-  LabelMutRequestVar("MUT_8B", "WGDCCorr");
+  // Common MUT requests
+  LabelMutVar("MUT_04", "TimingAdv", "Timing Advance Interpolated");
+  LabelMutVar("MUT_06", "TimingAdv", "Timing Advance Scaled");
+  LabelMutVar("MUT_06", "TimingAdv", "Timing Advance");
+  LabelMutVar("MUT_07", "CoolantTemp", "Coolant Temp");
+  LabelMutVar("MUT_0C", "LTFTLo", "Fuel Trim Low (LTFT)");
+  LabelMutVar("MUT_0D", "LTFTMid", "Fuel Trim Mid (LTFT)");
+  LabelMutVar("MUT_0E", "LTFTHigh", "Fuel Trim High (LTFT)");
+  LabelMutVar("MUT_0F", "STFT", "Oxygen Feedback Trim (STFT)");
+  LabelMutVar("MUT_10", "CoolantTempScaled", "Coolant Temp Scaled");
+  LabelMutVar("MUT_11", "MAFAirTempScaled", "MAF Air Temp Scaled");
+  LabelMutVar("MUT_12", "EGRTemp", "EGR Temperature");
+  LabelMutVar("MUT_13", "O2Sensor", "Front Oxygen Sensor");
+  LabelMutVar("MUT_14", "Battery", "Battery Level");
+  LabelMutVar("MUT_15", "Baro", "Barometer");
+  LabelMutVar("MUT_16", "ISCSteps", "ISC Steps");
+  LabelMutVar("MUT_17", "TPS", "Throttle Position");
+  LabelMutVar("MUT_18", "", "Open Loop Bit Array");
+  LabelMutVar("MUT_19", "", "Startup Check Bits");
+  LabelMutVar("MUT_1A", "AirFlow", "Air Flow - (TPS Idle Adder ?)");
+  LabelMutVar("MUT_1A", "", "TPS Idle Adder");
+  LabelMutVar("MUT_1C", "Load", "ECULoad");
+  LabelMutVar("MUT_1D", "AccelEnrich", "Acceleration Enrichment - (Manifold_Absolute_Pressure_Mean ?)");
+  LabelMutVar("MUT_1F", "PrevLoad", "ECU Load Previous");
+  LabelMutVar("MUT_20", "RPM_Idle_Scaled", "Engine RPM Idle Scaled");
+  LabelMutVar("MUT_21", "RPM", "Engine RPM");
+  LabelMutVar("MUT_22", "", "Idle Related Value (unknown)");
+  LabelMutVar("MUT_24", "TargetIdleRPM", "Target Idle RPM");
+  LabelMutVar("MUT_25", "ISCV_Value", "Idle Stepper Value");
+  LabelMutVar("MUT_26", "KnockSum", "Knock Sum");
+  LabelMutVar("MUT_27", "OctaneFlag", "Octane Level");
+  LabelMutVar("MUT_29", "InjPulseWidth", "Injector Pulse Width (LSB)");
+  LabelMutVar("MUT_2A", "InjPulseWidth", "Injector Pulse Width (MSB)");
+  LabelMutVar("MUT_2C", "AirVol", "Air Volume");
+  LabelMutVar("MUT_2D", "", "Ignition Battery Trim");
+  LabelMutVar("MUT_2E", "", "Vehicle speed Frequency");
+  LabelMutVar("MUT_2F", "Speed", "Speed");
+  LabelMutVar("MUT_30", "Knock", "Knock Voltage");
+  LabelMutVar("MUT_31", "VE", "Volumetric Efficiency");
+  LabelMutVar("MUT_32", "AFRMAP", "Air/Fuel Ratio (Map reference)");
+  LabelMutVar("MUT_33", "Corr_TimingAdv", "Corrected Timing Advance");
+  LabelMutVar("MUT_34", "", "MAP Index");
+  LabelMutVar("MUT_35", "", "Limp Home Fuel TPS Based");
+  LabelMutVar("MUT_36", "", "Active Fault Count");
+  LabelMutVar("MUT_37", "Stored Fault Count", "Count");
+  LabelMutVar("MUT_38", "MAP", "Boost (MDP)");
+  LabelMutVar("MUT_39", "", "Fuel Tank Pressure");
+  LabelMutVar("MUT_3A", "UnscaledAirTemp", "Unscaled Air Temperature");
+  LabelMutVar("MUT_3B", "", "Masked Map Index");
+  LabelMutVar("MUT_3C", "O2Sensor2", "Rear Oxygen Sensor #1");
+  LabelMutVar("MUT_3D", "", "Front Oxygen Sensor #2");
+  LabelMutVar("MUT_3E", "", "Rear Oxygen Sensor #2");
+  LabelMutVar("MUT_3F", "", "Short Term Fuel Feedback Trim O2 Map Index");
+  LabelMutVar("MUT_40", "", "Stored Faults Lo");
+  LabelMutVar("MUT_41", "", "Stored Faults Hi");
+  LabelMutVar("MUT_42", "", "Stored Faults Lo 1");
+  LabelMutVar("MUT_43", "", "Stored Faults Hi 1");
+  LabelMutVar("MUT_44", "", "Stored Faults Lo 2");
+  LabelMutVar("MUT_45", "", "Stored Faults Hi 2");
+  LabelMutVar("MUT_47", "", "Active Faults Lo");
+  LabelMutVar("MUT_48", "", "Active Faults Hi");
+  LabelMutVar("MUT_49", "ACRelaySw", "Air Conditioning Relay");
+  LabelMutVar("MUT_4A", "PurgeDuty", "Purge Solenoid Duty Cycle");
+  LabelMutVar("MUT_4C", "", "Fuel Trim Low Bank 2");
+  LabelMutVar("MUT_4D", "", "Fuel Trim Mid Bank 2");
+  LabelMutVar("MUT_4E", "", "Fuel Trim High Bank 2");
+  LabelMutVar("MUT_4F", "", "Oxygen Feedback Trim Bank 2");
+  LabelMutVar("MUT_50", "", "Long Fuel Trim Bank 1");
+  LabelMutVar("MUT_51", "", "Long Fuel Trim Bank 2");
+  LabelMutVar("MUT_52", "", "Rear Long Fuel Trim Bank 1");
+  LabelMutVar("MUT_53", "", "Rear Long Fuel Trim Bank 2");
+  LabelMutVar("MUT_54", "AccelEnrichTPS", "Acceleration Enrichment (increasing TPS)");
+  LabelMutVar("MUT_55", "DecelLeanTPS", "Deceleration Enleanment (decreasing TPS)");
+  LabelMutVar("MUT_56", "AccelLoadChg", "Acceleration Load Change");
+  LabelMutVar("MUT_57", "DecelLoadChg", "Deceleration Load Change");
+  LabelMutVar("MUT_58", "", "AFR Ct Adder");
+  LabelMutVar("MUT_5B", "", "Rear O2 Voltage");
+  LabelMutVar("MUT_5C", "", "ADC Rear O2 Voltage");
+  LabelMutVar("MUT_60", "", "Rear O2 Trim - Low");
+  LabelMutVar("MUT_61", "", "Rear O2 Trim - Mid");
+  LabelMutVar("MUT_62", "", "Rear O2 Trim - High");
+  LabelMutVar("MUT_63", "", "Rear O2 Feedback Trim");
+  LabelMutVar("MUT_6A", "knock_adc", "knock adc processed");
+  LabelMutVar("MUT_6B", "knock_base", "knock base");
+  LabelMutVar("MUT_6C", "knock_var", "knock var (AKA Knock Sum Addition)");
+  LabelMutVar("MUT_6D", "knock_change", "knock change");
+  LabelMutVar("MUT_6E", "knock_dynamics", "knock dynamics");
+  LabelMutVar("MUT_6F", "knock_flag", "knock flag (AKA Knock Acceleration)");
+  LabelMutVar("MUT_70", "", "Array of Serial Receive Data Register 2 RDR 2 Values");
+  LabelMutVar("MUT_71", "", "Sensor Error");
+  LabelMutVar("MUT_72", "", "Knock Present");
+  LabelMutVar("MUT_73", "", "Throttle Position Delta 1");
+  LabelMutVar("MUT_74", "", "Throttle Position Delta 2");
+  LabelMutVar("MUT_76", "ISCV % Demand", "ISCV % Demand (Columns)");
+  LabelMutVar("MUT_79", "InjectorLatency", "Injector Latency");
+  LabelMutVar("MUT_7A", "", "Continuous Monitor Completion Status 1");
+  LabelMutVar("MUT_7B", "", "Continuous Monitor Completion Status 2");
+  LabelMutVar("MUT_7C", "", "Continuous Monitor Completion Status 3");
+  LabelMutVar("MUT_7D", "", "Non Continuous Monitor Completion Status OBD");
+  LabelMutVar("MUT_7E", "", "Continuous Monitor Completion Status Low 4");
+  LabelMutVar("MUT_7F", "", "Continuous Monitor Completion Status High 4");
+  LabelMutVar("MUT_80", "", "ECU ID Type (LSB)");
+  LabelMutVar("MUT_81", "", "ECU ID Type (MSB)");
+  LabelMutVar("MUT_82", "", "ECU ID Version");
+  LabelMutVar("MUT_83", "", "ADC Channel F");
+  LabelMutVar("MUT_84", "ThermoFanDuty", "Thermo Fan Dutycycle");
+  LabelMutVar("MUT_85", "EgrDuty", "EGR Dutycycle");
+  LabelMutVar("MUT_86", "WGDC", "Wastegate Duty Cycle");
+  LabelMutVar("MUT_87", "FuelTemperature", "Fuel Temperature");
+  LabelMutVar("MUT_88", "FuelLevel", "Fuel Level");
+  LabelMutVar("MUT_89", "", "ADC Channel 8 2");
+  LabelMutVar("MUT_8A", "LoadError", "Load Error - (Throttle Position Corrected ?)");
+  LabelMutVar("MUT_8B", "WGDCCorr", "WGDC Correction");
+  LabelMutVar("MUT_8E", "", "Solenoid Duty");
+  LabelMutVar("MUT_90", "", "Timer Status Register 9 TSR9");
+  LabelMutVar("MUT_96", "MAF_ADC", "RAW MAF ADC value");
+  LabelMutVar("MUT_9A", "ACClutch", "AC clutch");
+  LabelMutVar("MUT_9B", "", "Output Pins");
+  LabelMutVar("MUT_A2", "CrankPulse", "Crankshaft sensor pulse");
+  LabelMutVar("MUT_A2", "MafPulse", "MAF sensor pulse");
+  LabelMutVar("MUT_A2", "CamPulse", "Camshaft sensor pulse");
+  LabelMutVar("MUT_A8", "ATInShaftPulse", "Input shaft speed pulse (A/T)");
+  LabelMutVar("MUT_A8", "ATOutShaftPulse", "Output shaft speed pulse (A/T)");
+  LabelMutVar("MUT_A8", "ATGearL", "Gear: Low (A/T)");
+  LabelMutVar("MUT_A8", "ATGear2", "Gear: 2 (A/T)");
+  LabelMutVar("MUT_A8", "ATGear3", "Gear: 3 (A/T)");
+  LabelMutVar("MUT_A9", "O2HeaterFrontLeft", "Front O2 heater bank 1 (left)");
+  LabelMutVar("MUT_A9", "O2HeaterRearLeft", "Rear O2 heater bank 1 (left)");
+  LabelMutVar("MUT_A9", "O2HeaterFrontRight", "Front O2 heater bank 2 (right)");
+  LabelMutVar("MUT_A9", "O2HeaterRearRight", "Rear O2 heater bank 2 (right)");
+  LabelMutVar("MUT_AA", "Braking", "Brakes Pressed");
+  LabelMutVar("MUT_B3", "ATGearNeutral", "Gear: Neutral (A/T)");
+  LabelMutVar("MUT_B3", "ATGearDrive", "Gear: Drive (A/T)");
+  LabelMutVar("MUT_B4", "ATGearPark", "Gear: Park (A/T)");
+  LabelMutVar("MUT_B4", "ATGearRev", "Gear: Reverse (A/T)");
+  LabelMutVar("MUT_B7", "O2HeaterBrokenFrRt", "front O2 heater circuit open (broken): bank 2 (right)");
+  LabelMutVar("MUT_B8", "O2HeaterBrokenFrLt", "front O2 heater circuit open (broken): bank 1 (left)");
+  LabelMutVar("MUT_B8", "NewACSwitch", "Air Conditioning Switch (Mattjin)");
+  LabelMutVar("MUT_B8", "PowerSteering", "Power Steering");
+  LabelMutVar("MUT_B9", "O2HeaterBrokenRearRt", "rear O2 heater circuit open (broken): bank 2 (right)");
+  LabelMutVar("MUT_BA", "O2HeaterBrokenRearLt", "rear O2 heater circuit open (broken): bank 1 (left)");
+
+  // Common MUT commands
+  LabelMutVar("MUT_C3", "", "SAS (Speed Adjusting Screw)");
+  LabelMutVar("MUT_C5", "", "Purge solenoid venting");
+  LabelMutVar("MUT_CA", "", "Invalid command");
+  LabelMutVar("MUT_CB", "", "Invalid command");
+  LabelMutVar("MUT_CD", "", "A/C fan high");
+  LabelMutVar("MUT_CE", "", "A/C fan low");
+  LabelMutVar("MUT_CF", "", "Main fan high");
+  LabelMutVar("MUT_D0", "", "Main fan low");
+  LabelMutVar("MUT_D2", "", "Lower RPM");
+  LabelMutVar("MUT_D3", "", "Boost control solenoid");
+  LabelMutVar("MUT_D5", "", "EGR solenoid");
+  LabelMutVar("MUT_D6", "", "Fuel pressure solenoid");
+  LabelMutVar("MUT_D7", "", "Purge solenoid");
+  LabelMutVar("MUT_D8", "", "Fuel pump");
+  LabelMutVar("MUT_D9", "", "Fix timing at 5 degrees");
+  LabelMutVar("MUT_DA", "", "Disable injector 1");
+  LabelMutVar("MUT_DB", "", "Disable injector 2");
+  LabelMutVar("MUT_DC", "", "Disable injector 3");
+  LabelMutVar("MUT_DD", "", "Disable injector 4");
+  LabelMutVar("MUT_DE", "", "Disable injector 5 (unused)");
+  LabelMutVar("MUT_DF", "", "Disable injector 6 (unused)");
+  LabelMutVar("MUT_EC", "", "Calibration F6A");
+  LabelMutVar("MUT_ED", "", "Calibration");
+  LabelMutVar("MUT_EE", "", "Calibration");
+  LabelMutVar("MUT_EF", "", "Calibration");
+  LabelMutVar("MUT_F3", "", "Cancel previously-active command (ie. SAS mode)");
+  LabelMutVar("MUT_F9", "", "some keep alive function to keep the accuator engaged. response is 0xff");
+  LabelMutVar("MUT_FA", "", "Clear active and stored faults");
+  LabelMutVar("MUT_FB", "", "Force tests to run");
+  LabelMutVar("MUT_FC", "", "Clear active faults");
+  LabelMutVar("MUT_FE", "", "Immobilizer");
+  LabelMutVar("MUT_FF", "", "Init code");
 
   Message("Done\n");
 }
@@ -1404,30 +1526,53 @@ static LabelLibraryFuncs() {
 
   WellKnownFunc(0x41E, "enable_interrupts", "Restore the previous SR, pushed to the stack by disable_interrupts");
   WellKnownFunc(0x430, "set_interrupt_mask", "Set a specific interrupt mask in SR. Takes a 4 bit number in R4 for the mask.");
-  WellKnownFunc(0x500, "add_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFFFFFF");
-  WellKnownFunc(0x51C, "add_word_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFFFFFF");
-  WellKnownFunc(0x52C, "memset", "Clear RAM between R4 and R5");
+  WellKnownFunc(0x500, "add_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFF");
+  WellKnownFunc(0x514, "add_r4_and_r5", "Add R4 and R5, storing WORD result in R0");
+  WellKnownFunc(0x51C, "add_word_capped", "Add R4 and R5, storing WORD result in R0, max 0xFFFF");
+  WellKnownFunc(0x52C, "memclear", "Clear RAM between R4 and R5");
+  WellKnownFunc(0x53e, "decrement_block", "Subtract 1 from all words between R4 and R5. R4 is set to the next word after R5.");
+  WellKnownFunc(0x562, "increment_block", "Add 1 to all words between R4 and R5. R4 is set to the next word after R5.");
   WellKnownFunc(0x590, "min_ff", "Set R0 the BYTE minimum of R4 and 0xFF");
   WellKnownFunc(0x598, "min_ffff", "Set R0 the WORD minimum of R4 and 0xFFFF");
   WellKnownFunc(0x5A8, "max_3_word", "Return the WORD maximum of R4, R5, R6 in R0");
   WellKnownFunc(0x5B0, "max_3", "Return the maximum of R4, R5, R6 in R0");
-  WellKnownFunc(0x902, "divide_long_by_word", "Divide DWORD R4 by WORD R5, returning the WORD result in R0. If R5 is 0, 0xFFFF is returned.");
-  WellKnownFunc(0x9B0, "divide_words", "Divide WORD R4 by WORD R5, returning the WORD result in R0. If R5 is 0, 0xFFFF is returned.");
+  WellKnownFunc(0x5D0, "r4_mult_r5_div_r6_capped_to_R0", "Lesser of ((R4*R5)/R6) and 0xFFFF -> R0");
+  WellKnownFunc(0x5E8, "r4_mult_r5_div_r6_to_R0", "Multiply R4 by R5, divide by R6 and return result in R0, capped at 0xFFFFFFFF");
+  WellKnownFunc(0x68A, "multR4R5divr6", "(((R4 * R5) / r6) + 1/2) -> R0");
+  WellKnownFunc(0x6A2, "sub_6A2", "(((R4 * R5) / r6) + 1/2) -> R0");
+  WellKnownFunc(0x752, "sub_752", "Lesser of [(R4 * R5) / 128] and 0xFFFF");
+  WellKnownFunc(0x762, "r0_is_r4_x_r5", "Lesser of ([(R4 * R5) / 128] + 1/2) and 0xFFFF -> R0");
+  WellKnownFunc(0x780, "r4xr5_strange", "Lesser of [(R4 * R5) / 128] and 0xFFFFFFFF -> R0, R5 is word length, R4 can be long word");
+  WellKnownFunc(0x7A6, "sub_7A6", "Lesser of [(R4 * R5) / 128] and 0xFFFFFFFF -> R0");
+  WellKnownFunc(0x7D0, "r4xr5", "Lesser of [(R4 * R5) / 256] and 0xFFFF -> R0");
+  WellKnownFunc(0x7E6, "sub_7E6", "Lesser of [(R4 * R5) / 256] and 0xFFFFFFFF -> R0");
+  WellKnownFunc(0x804, "r4_mult_r5_div_64_add_1_etc2_into_r0", "Lesser of ([(R4 * R5) / 256] +1/2) and 0xFFFF -> R0");
+  WellKnownFunc(0x864, "shlr8_byte", "(R4 / 256) -> R0");
+  WellKnownFunc(0x86A, "shlr16_word", "(R4 / 65536) -> R0");
+  WellKnownFunc(0x870, "shll8_byte", "(R4 * 256) -> R0");
+  WellKnownFunc(0x876, "shll16_word", "(R4 * 65536) -> R0");
+  WellKnownFunc(0x87C, "second_byte_plus_1", "Lesser of (MSB of R4) and (0xFF) -> R0");
+  WellKnownFunc(0x898, "second_word_plus_1", "Lesser of (MSW of R4) and (0xFFFF) -> R0");
+  WellKnownFunc(0x8B8, "NOT_SHLL8_OR_R4_INTO_R0", "inv(byte(R4))|byte(R4) -> R0 (word length value is result)");
+  WellKnownFunc(0x8C4, "R5_Div_R4_Into_R0", "min(R4 / R5, 0xFFFF) -> R0");
+  WellKnownFunc(0x902, "divide_long_by_word", "min(R4 / R5, 0xFFFF) -> R0");
+  WellKnownFunc(0x9B0, "divide_words", "min((R4 / R5) + 1/2), 0xFFFF) -> R0");
+  WellKnownFunc(0x9F2, "R4_DIV_R5_Into_R0_0", "min((R4 / R5) + 1/2, 0xFFFF) -> R0");
+  WellKnownFunc(0x9FA, "sub_9FA", "min((R4 / R5) + 1/2, 0xFFFF) -> R0");
+  WellKnownFunc(0xAB8, "R5x_R0minusR6_plusR6xR4", "min(((R4 * r6) + (R5 * (256 - r6))) / 256), 0xFFFF) -> R0");
+  WellKnownFunc(0xAE0, "sub_AE0", "min((R4 * r6) + (R5 * (256 - r6)) / 256, 0xFFFFFFFF) -> R0");
+  WellKnownFunc(0xB16, "BETWEEN_R4_R5byR6", "min((R4 * r6 + R5 * (255 - R6)) / 255, 0x????) -> R0. This is a sub to interpolate between R4 and R5 using r6");
+  WellKnownFunc(0xD7A, "sub_D7A", "Linear Interpolation of R4 and R5 using r6 as the scalar, results -> R0");
   WellKnownFunc(0xDC6, "read_mapindex_byte", "Reads BYTE at (R4 + (MAPindex * 4)) into R0");
   WellKnownFunc(0xDD2, "read_mapindex_word", "Reads WORD at (R4 + (MAPindex * 4)) into R0");
-  WellKnownFunc(0xDF6, "read_mapindex_long", "Reads DWORD at (R4 + (MAPindex * 4)) into R0");
   WellKnownFunc(0xDE0, "table_lookup_byte_mapindex", "Call table_lookup_byte with a table at (R4 + (MAPindex * 4))");
+  WellKnownFunc(0xDF6, "read_mapindex_long", "Reads DWORD at (R4 + (MAPindex * 4)) into R0");
   WellKnownFunc(0xEA6, "table_lookup_word_mapindex", "Call table_lookup_word with a table at (R4 + (MAPindex * 4))");
-  WellKnownFunc(0xED8, "multiply_capped", "Multiply R4 and R5, storing DWORD result in R0, max 0xFFFFFFFF");
-  WellKnownFunc(0xEEE, "multiply", "Multiply R4 and R5, storing DWORD result in R0");
-  WellKnownFunc(0xF0C, "subtract_nowrap_word", "Subtract R5 from R4, storing result in R0. Set R0 to 0 on wrap.");
-  WellKnownFunc(0xF12, "subtract_nowrap_byte", "Subtract R5 from R4, storing result in R0. Set R0 to 0 on wrap.");
-  WellKnownFunc(0x864, "shlr8_byte", "Store the 2nd BYTE of R4 in R0. 0xFD24 -> 0xFD.");
-  WellKnownFunc(0x86A, "shlr16_word", "Store the 2nd WORD of R4 in R0. 0xFD241231 -> 0xFD24.");
-  WellKnownFunc(0x870, "shll8_byte", "Store the BYTE in R4 as the 2nd BYTE in R0. 0x21 -> 0x2100.");
-  WellKnownFunc(0x876, "shll16_word", "Store the WORD in R4 as the 2nd WORD in R0. 0x2155 -> 0x21550000.");
-  WellKnownFunc(0x87C, "second_byte_plus_1", "Add 1 to the second BYTE of R4 and return it in BYTE R0, capped at 0xFF");
-  WellKnownFunc(0x898, "second_word_plus_1", "Add 1 to the second WORD of R4 and return it in WORD R0, capped at 0xFFFF");
+  WellKnownFunc(0xED8, "multiply_capped", "min(R4 * R5, 0xFFFF) -> R0");
+  WellKnownFunc(0xEEE, "multiply", "min(R4 * R5, 0xFFFF) -> R0");
+  WellKnownFunc(0xEF8, "multiply_word", "Lesser of R4*R5 and 0xFFFFFFFF -> R0");
+  WellKnownFunc(0xF0C, "subtract_nowrap_word", "(R4 > R5) ? (R4 - R5) : 0  -> R0");
+  WellKnownFunc(0xF12, "subtract_nowrap_byte", "max(R4 - R5, 0) -> R0");
 
   {
     // Look for the main() function, it should be the only sub called from 'init'
@@ -1467,7 +1612,7 @@ static LocateAxisTables() {
   auto i, ea, code, table, counter, found;
 
   Message("Locating axis tables... ");
-  counter = 1;
+  counter = 0;
   for (i = RfirstB(AXIS_LOOKUP_FUNC); i > 0; i = RnextB(AXIS_LOOKUP_FUNC, i)) {
     if (i == BADADDR || i == 0)
       continue;
@@ -1493,7 +1638,7 @@ static LocateAxisTables() {
     if (!found)
       Message("Couldn't find axis table searching back from %x\n", i);
   }
-  Message("Done\n");
+  Message("Done, found %d tables\n", counter);
 }
 
 static GetMapHeight(table, ea) {
