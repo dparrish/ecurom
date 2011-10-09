@@ -1,0 +1,38 @@
+<rom>
+	<romid>
+		<xmlid>81900016</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>81900016</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Lancer</model>
+		<submodel>es</submodel>
+		<transmission>Auto</transmission>
+		<year>2003</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>81900006</include>
+
+	<table name="High Octane Fuel Map">
+		<table name="Load" address="6784"/>
+		<table name="RPM" address="6706"/>
+	</table>
+
+	<table name="Low Octane Fuel Map">
+		<table name="Load" address="6784"/>
+		<table name="RPM" address="6706"/>
+	</table>
+
+	<table name="High Octane Ignition Map 1">
+		<table name="Load" address="69a0"/>
+		<table name="RPM" address="6972"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1">
+		<table name="Load" address="69a0"/>
+		<table name="RPM" address="6972"/>
+	</table>
+
+</rom>

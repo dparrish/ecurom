@@ -1,0 +1,19 @@
+<rom>
+	<romid>
+		<xmlid>97250005</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>97250005</internalidhex>
+		<caseid>MR578519</caseid>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Lancer</model>
+		<submodel>OZ</submodel>
+		<transmission>Manual</transmission>
+		<year>2002</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>98720010</include>
+
+</rom>

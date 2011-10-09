@@ -1,0 +1,18 @@
+<rom>
+	<romid>
+		<xmlid>JM9229</xmlid>
+		<internalidaddress>3fffa</internalidaddress>
+		<internalidstring>JM9229</internalidstring>
+		<caseid>MN132864</caseid>
+		<ecuid/>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Lancer</model>
+		<submodel>OZ</submodel>
+		<transmission>Manual</transmission>
+		<year>2004</year>
+		<flashmethod>evo</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+	<include>evo7base</include>
+</rom>

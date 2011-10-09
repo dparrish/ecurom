@@ -1,0 +1,22 @@
+<rom>
+	<romid>
+		<xmlid>93270017</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>93270017</internalidhex>
+		<make>Mitsubishi</make>
+		<market>EDM</market>
+		<model>Lancer</model>
+		<transmission>5MT</transmission>
+		<year>2004</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>evo7base</include>
+
+	<table name="High Octane Fuel Map" address="5662">
+		<table name="Load" address="5662"/>
+		<table name="RPM" address="5662" elements="22"/>
+	</table>
+
+</rom>
