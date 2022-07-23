@@ -1,0 +1,95 @@
+<rom>
+	<romid>
+		<xmlid>23810004</xmlid>
+		<internalidaddress>1021a</internalidaddress>
+		<internalidhex>23810004</internalidhex>
+		<caseid>MR</caseid>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Galant</model>
+		<submodel>VR4</submodel>
+		<transmission>TIPTRONIC</transmission>
+		<year>2002</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539FA</memmodel>
+	</romid>
+
+	<include>vr4base1</include>
+
+	<table name="Fuel Map 1 - HI OCTANE #1" category="Fuel" address="110a3" type="3D" swapxy="true" scaling="AFR">
+		<table name="Load" address="2d154" type="X Axis" elements="15" scaling="Load"/>
+		<table name="RPM" address="2d130" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map 2 - HI OCTANE #2" category="Fuel" address="1118b" type="3D" swapxy="true" scaling="AFR">
+		<table name="Load" address="2d154" type="X Axis" elements="15" scaling="Load"/>
+		<table name="RPM" address="2d130" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map 3 - LO OCTANE #1" category="Fuel" address="11273" type="3D" swapxy="true" scaling="AFR">
+		<table name="Load" address="2d3ce" type="X Axis" elements="15" scaling="Load"/>
+		<table name="RPM" address="2d130" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map 4 - LO OCTANE #2" category="Fuel" address="1135b" type="3D" swapxy="true" scaling="AFR">
+		<table name="Load" address="2d3ce" type="X Axis" elements="15" scaling="Load"/>
+		<table name="RPM" address="2d130" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Injector Latency v Battery Voltage" category="Fuel" address="116af" type="2D" scaling="InjectorLatency1">
+		<table name="Battery Voltage" address="2d0b0" type="Y Axis" elements="7" scaling="BatteryVoltage"/>
+	</table>
+
+	<table name="Limp Mode Table" category="Fuel" address="1157b" type="3D" swapxy="true" scaling="uint8">
+		<table name="TPS" address="2d27c" type="X Axis" elements="7" scaling="Volts16"/>
+		<table name="Engine Speed" address="2d26c" type="Y Axis" elements="5" scaling="RPM"/>
+	</table>
+
+	<table name="Ignition Map 1 - HI OCTANE #1" category="Timing" address="1176f" type="3D" swapxy="true" scaling="Timing">
+		<table name="Load" address="2d1d4" type="X Axis" elements="17" scaling="Load"/>
+		<table name="RPM" address="2d19a" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Ignition Map 2 - HI OCTANE #2" category="Timing" address="118b9" type="3D" swapxy="true" scaling="Timing">
+		<table name="Load" address="2d1d4" type="X Axis" elements="17" scaling="Load"/>
+		<table name="RPM" address="2d19a" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Ignition Map 3 - LO OCTANE #1" category="Timing" address="11a03" type="3D" swapxy="true" scaling="Timing">
+		<table name="Load" address="2d1d4" type="X Axis" elements="17" scaling="Load"/>
+		<table name="RPM" address="2d19a" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Ignition Map 4 - LO OCTANE #2" category="Timing" address="11b4d" type="3D" swapxy="true" scaling="Timing">
+		<table name="Load" address="2d1d4" type="X Axis" elements="17" scaling="Load"/>
+		<table name="RPM" address="2d19a" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Cat-Warmup Ignition Retard Map #1" category="Timing" address="11c97" type="3D" swapxy="true" scaling="TimingTrim8">
+		<table name="Load" address="2d1d4" type="X Axis" elements="17" scaling="Load"/>
+		<table name="RPM" address="2d19a" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Cat-Warmup Ignition Retard Map #2" category="Timing" address="11de1" type="3D" swapxy="true" scaling="TimingTrim8">
+		<table name="Load" address="2d1d4" type="X Axis" elements="17" scaling="Load"/>
+		<table name="RPM" address="2d19a" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Warmup Retard Control" category="Timing" address="11fae" type="2D" scaling="Percent255">
+		<table name="Engine Temp" address="2d2f4" type="Y Axis" elements="8" scaling="Temp"/>
+	</table>
+
+	<table name="Timing Trim v Engine Temp" category="Timing" address="11f7c" type="2D" scaling="Enrich">
+		<table name="Engine Temp" address="2d290" type="Y Axis" elements="8" scaling="Temp"/>
+	</table>
+
+	<table name="Timing Trim v Air Temp" category="Timing" address="11f88" type="2D" scaling="Enrich">
+		<table name="Air Temp" address="2d30a" type="Y Axis" elements="7" scaling="Temp"/>
+	</table>
+
+	<table name="Target Idle RPM - Neutral" category="Idle" address="12004" type="2D" scaling="RPM8">
+		<table name="Engine Temp" address="2d290" type="Y Axis" elements="8" scaling="Temp"/>
+	</table>
+
+	
+</rom>

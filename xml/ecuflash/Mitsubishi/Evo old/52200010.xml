@@ -1,0 +1,87 @@
+<rom>
+	<romid>
+		<xmlid>52200010</xmlid>
+		<internalidaddress>5002a</internalidaddress>
+		<internalidhex>52200010</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Lancer</model>
+		<submodel>GTS</submodel>
+		<transmission>SST</transmission>
+		<year>2009</year>
+		<flashmethod>mitsucan</flashmethod>
+		<memmodel>M32186F8</memmodel>
+		<checksummodule>mitsucan</checksummodule>
+	</romid>
+
+	<include>evo10base</include>
+
+	<table name="High Octane Timing Map" address="5364f">
+		<table name="Load" address="5bb2c" elements="13"/>
+		<table name="RPM" address="5bafe" elements="20"/>
+	</table>
+
+	<table name="Low Octane Timing Map" address="5375b">
+		<table name="Load" address="5bb2c" elements="13"/>
+		<table name="Y" address="5bafe" elements="20"/>
+	</table>
+
+	<table name="MIVEC Intake #1" address="59b35">
+		<table name="Load" address="5c07a" elements="10"/>
+		<table name="RPM" address="5c094" elements="22"/>
+	</table>
+
+	<table name="MIVEC Intake #2" address="59c19">
+		<table name="Load" address="5c07a" elements="10"/>
+		<table name="RPM" address="5c094" elements="22"/>
+	</table>
+
+	<table name="MIVEC Exhaust #1" address="59cfd">
+		<table name="Load" address="5c07a" elements="10"/>
+		<table name="RPM" address="5c094" elements="22"/>
+	</table>
+
+	<table name="MIVEC Exhaust #2" address="59de1">
+		<table name="Load" address="5c07a" elements="10"/>
+		<table name="RPM" address="5c094" elements="22"/>
+	</table>
+
+	<table name="High Octane Fuel Map" address="53027">
+		<table name="Load" address="5bac8" elements="13"/>
+		<table name="RPM" address="5baa6" elements="14"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="531a3">
+		<table name="Load" address="5bac8" elements="13"/>
+		<table name="RPM" address="5baa6" elements="14"/>
+	</table>
+
+	<table name="Fuel Injector Scaling" address="51894"/>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="5344a">
+		<table name="Battery Voltage" address="5ba3a"/>
+	</table>
+
+	<table name="Open Loop Load Low Octane #1" address="54924">
+		<table name="RPM" address="5b97e" elements="16"/>
+	</table>
+
+	<table name="Open Loop Load High Octane #1" address="5334c">
+		<table name="RPM" address="5b97e" elements="16"/>
+	</table>
+
+	<table name="Open Loop Load Low Octane #2" address="54938">
+		<table name="RPM" address="5b97e" elements="16"/>
+	</table>
+
+	<table name="Open Loop Load High Octane #2" address="53360">
+		<table name="RPM" address="5b97e" elements="16"/>
+	</table>
+
+	<table name="Rev Limiter" address="5125e">
+	</table>
+
+	<table name="Speed Limiter" address="51262">
+	</table>
+
+</rom>

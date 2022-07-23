@@ -1,18 +1,24 @@
 <rom>
-  <romid>
-    <xmlid>A2WC522S</xmlid>
-    <internalidaddress>2000</internalidaddress>
-    <internalidstring>A2WC522S</internalidstring>
-    <ecuid>2F12795606</ecuid>
-    <year>05</year>
-    <market>USDM</market>
-    <make>Subaru</make>
-    <model>Outback</model>
-    <submodel>XT</submodel>
-    <transmission>MT</transmission>
-    <memmodel>SH7058</memmodel>
-    <flashmethod>sti05</flashmethod>
-    <checksummodule>subarudbw</checksummodule>
-  </romid>
-  <include>A2WC521N</include>
+	<romid>
+		<xmlid>A2WC522S</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>A2WC522S</internalidstring>
+		<ecuid>2F12795606</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Outback</model>
+		<submodel>XT</submodel>
+		<transmission>MT</transmission>
+		<year>05</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>A2WC521N</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
 </rom>

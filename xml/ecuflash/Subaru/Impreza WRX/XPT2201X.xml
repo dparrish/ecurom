@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>XPT2201X</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>XPT2201X</internalidstring>
+		<ecuid>4D12584006</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Impreza</model>
+		<submodel>WRX</submodel>
+		<transmission>MT</transmission>
+		<year>07</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

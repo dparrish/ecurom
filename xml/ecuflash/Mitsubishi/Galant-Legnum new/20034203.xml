@@ -1,0 +1,364 @@
+<rom>
+	<romid>
+		<xmlid>20034203</xmlid>
+		<internalidaddress>1021a</internalidaddress>
+		<internalidhex>20034203</internalidhex>
+		<caseid>MR578135/MD340289</caseid>
+		<ecuid>HALO v3 EM2004/EM2005</ecuid>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Galant/Legnum</model>
+		<submodel>VR4</submodel>
+		<transmission>5-MT</transmission>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539FA</memmodel>
+	</romid>
+
+	<include>20030013</include>
+
+	<table name="Feature Enable Bits" category="HALO General Options" address="10c00" type="2D" scaling="EnableDisableBit">
+		<table name="Setup Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15, Global Enable                                  .</data>
+			<data>bit.14, FuelPumpMod Enable (n/a)                       .</data>
+			<data>bit.13,                                                .</data>
+			<data>bit.12, DMA/LiveTune (n/a)                             .</data>
+			<data>bit.11, WideBandScaling Enable                         .</data>
+			<data>bit.10,                                                .</data>
+			<data>bit.09, Speed Density Enable (n/a)                     .</data>
+			<data>bit.08, FuelFlex Enable                                .</data>
+			<data>bit.07, NTLS Enable (n/a)                              .</data>
+			<data>bit.06, Antilag/Launch Control Enable                  .</data>
+			<data>bit.05,                                                .</data>
+			<data>bit.04, InputMod Enable                                .</data>
+			<data>bit.03, Immobiliser (n/a)                              .</data>
+			<data>bit.02, Valet Mod Enable                               .</data>
+			<data>bit.01, OutputMod 2 (pin B2) Enable                             .</data>
+			<data>bit.00, OutputMod 1 (pin B1) Enable                             .</data>
+		</table>
+	</table>
+
+	<table name="CEL Options" category="HALO CEL Options" address="10c38" type="2D" scaling="EnableDisableBit">
+		<table name="Setup Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15,                                                .</data>
+			<data>bit.14,                                                .</data>
+			<data>bit.13,                                                .</data>
+			<data>bit.12,                                                .</data>
+			<data>bit.11,                                                .</data>
+			<data>bit.10,                                                .</data>
+			<data>bit.09,                                                .</data>
+			<data>bit.08,                                                .</data>
+			<data>bit.07,                                                .</data>
+			<data>bit.06, CEL on Immobiliser (n/a)                       .</data>
+			<data>bit.05, CEL On OutputMod2 Active                       .</data>
+			<data>bit.04, CEL On OutputMod1 Active                       .</data>
+			<data>bit.03, CEL On LaunchControl Active                    .</data>
+			<data>bit.02, CEL On ValetLimitReached                       .</data>
+			<data>bit.01, CEL On FlexFailsafe Active                     .</data>
+			<data>bit.00, CEL On KnockSum                                .</data>
+		</table>
+	</table>
+
+	<table name="CEL On Knocksum value" category="HALO CEL Options" address="10c52" type="1D" level="3" scaling="uint16"/>
+
+	<table name="Wide to Narrowband scaling" category="HALO WideBand Scaling" address="13d4e" type="2D" level="3" scaling="uint8">
+		<table name="Engine Temp" address="2d6a6" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="LC/Antilag features" category="HALO Antilag/Launch Control" address="10c02" type="2D" scaling="EnableDisableBit">
+		<table name="Setup Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15,                                                .</data>
+			<data>bit.14,                                                .</data>
+			<data>bit.13,                                                .</data>
+			<data>bit.12,                                                .</data>
+			<data>bit.11,                                                .</data>
+			<data>bit.10,                                                .</data>
+			<data>bit.09,                                                .</data>
+			<data>bit.08,                                                .</data>
+			<data>bit.07,                                                .</data>
+			<data>bit.06,                                                .</data>
+			<data>bit.05,                                                .</data>
+			<data>bit.04,                                                .</data>
+			<data>bit.03, Antilag on Decel Inj Cut (n/a)                 .</data>
+			<data>bit.02, Anitlag AFR control                            .</data>
+			<data>bit.01, Antilag Timing Control                         .</data>
+			<data>bit.00, Use Stationary RPM Limit                       .</data>
+		</table>
+	</table>
+
+	<table name="LaunchControl RPM Limit" category="HALO Antilag/Launch Control" address="10c04" type="1D" level="3" scaling="RPMLimit_16bit"/>
+
+	<table name="LaunchControl TPS Switch" category="HALO Antilag/Launch Control" address="10c06" type="1D" level="3" scaling="TPS_Percent_16bit"/>
+
+	<table name="LaunchControl Speed Switch" category="HALO Antilag/Launch Control" address="10c08" type="1D" level="3" scaling="VehicleSpeed_16bit"/>
+
+	<table name="Antilag Start RPM" category="HALO Antilag/Launch Control" address="10c4a" type="1D" level="3" scaling="RPMLimit_16bit"/>
+
+	<table name="Antilag Retard Limit" category="HALO Antilag/Launch Control" address="10c4c" type="1D" level="3" scaling="TimingLimit_16bit"/>
+
+	<table name="Antilag AFR Value" category="HALO Antilag/Launch Control" address="10c4e" type="1D" level="3" scaling="AFR_16bit"/>
+
+	<table name="Anitlag Ign Value" category="HALO Antilag/Launch Control" address="10c50" type="1D" level="3" scaling="TimingAntilag_16bit"/>
+
+	<table name="Gear Calculation" category="HALO GearCalc" address="13d68" type="2D" level="3" scaling="uint8">
+		<table name="Ratio" address="2d798" type="Y Axis" elements="6" scaling="uint16"/>
+	</table>
+
+	<table name="Valet Bits" category="HALO Valet Mode" address="10c0a" type="2D" scaling="EnableDisableBit">
+		<table name="Setup Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15,                                                .</data>
+			<data>bit.14,                                                .</data>
+			<data>bit.13,                                                .</data>
+			<data>bit.12,                                                .</data>
+			<data>bit.11                                                 .</data>
+			<data>bit.10,                                                .</data>
+			<data>bit.09                                                 .</data>
+			<data>bit.08                                                 .</data>
+			<data>bit.07                                                 .</data>
+			<data>bit.06                                                 .</data>
+			<data>bit.05,                                                .</data>
+			<data>bit.04,                                                .</data>
+			<data>bit.03, Use Throttle                                   .</data>
+			<data>bit.02, Use Speed Limit                                .</data>
+			<data>bit.01, Use RPM Limit                                  .</data>
+			<data>bit.00, Enabled By Default                             .</data>
+		</table>
+	</table>
+
+	<table name="Valet RPM Limit" category="HALO Valet Mode" address="10c12" type="1D" level="3" scaling="RPMLimit_16bit"/>
+
+	<table name="Valet Speed Limiter" category="HALO Valet Mode" address="10c14" type="2D" level="3" scaling="VehicleSpeed_16bit">
+		<table name="Condition" type="Static Y Axis" elements="2">
+			<data>Limiter  ON</data>
+			<data>Limiter OFF</data>
+		</table>
+	</table>
+
+	<table name="Valet Throttle" category="HALO Valet Mode" address="10c0e" type="2D" level="3" scaling="TPS_Percent_16bit">
+		<table name="Condition" type="Static Y Axis" elements="2">
+			<data>Throttle MIN</data>
+			<data>Throttle MAX</data>
+		</table>
+	</table>
+
+	<table name="Valet IgnCount" category="HALO Valet Mode" address="10c0c" type="1D" level="3" scaling="uint16"/>
+
+	<table name="Flex Table Enable Bits" category="HALO FuelFlex" address="10c18" type="2D" scaling="EnableDisableBit">
+		<table name="Setup Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15,                                                .</data>
+			<data>bit.14,                                                .</data>
+			<data>bit.13,                                                .</data>
+			<data>bit.12,                                                .</data>
+			<data>bit.11,                                                .</data>
+			<data>bit.10,                                                .</data>
+			<data>bit.09, Accel Enrich Table Enable                      .</data>
+			<data>bit.08, Base Enrich Table Enable                       .</data>
+			<data>bit.07, Crank Primer Table Enable                      .</data>
+			<data>bit.06, Injector Latency Enable                        .</data>
+			<data>bit.05, Injector Scaling Enable                        .</data>
+			<data>bit.04, OpenLoop Load Table Enable                     .</data>
+			<data>bit.03, BDEL Table Enable                              .</data>
+			<data>bit.02, Base WGDC Table Enable                         .</data>
+			<data>bit.01, Ignition Table Enable                          .</data>
+			<data>bit.00, Fuel Table Enable                              .</data>
+		</table>
+	</table>
+
+	<table name="Fuel Interpolation Factor" category="HALO FuelFlex" address="13c4a" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="Ignition Interpolation Factor" category="HALO FuelFlex" address="13c64" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="Injector Size Interpolation Factor" category="HALO FuelFlex" address="13c7e" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="CrankPulse Interpolation Factor" category="HALO FuelFlex" address="13c98" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="WGDC Interpolation Factor" category="HALO FuelFlex" address="13cb2" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="BDEL Interpolation Factor" category="HALO FuelFlex" address="13ccc" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="Open Loop Interpolation Factor" category="HALO FuelFlex" address="13ce6" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="Inj Latency Interpolation Factor" category="HALO FuelFlex" address="13d00" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="Base Enrich vs Temp Interpolation Factor" category="HALO FuelFlex" address="13d1a" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="Accel Enrich vs Tem Interpolation Factor" category="HALO FuelFlex" address="13d34" type="2D" level="3" scaling="Percent256_8bit">
+		<table name="o2 voltage" address="2d676" type="Y Axis" elements="21" scaling="Volts5_16bit"/>
+	</table>
+
+	<table name="E85 Injector Size" category="HALO FuelFlex" address="10c1e" type="1D" level="3" scaling="InjectorSize_16bit"/>
+
+	<table name="Flex Failsafe Injector Size" category="HALO FuelFlex" address="10c20" type="1D" level="3" scaling="InjectorSize_16bit"/>
+
+	<table name="FlexMinVoltage" category="HALO FuelFlex" address="10c1a" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="FlexMaxVoltage" category="HALO FuelFlex" address="10c1c" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="FlexMinStartupVoltage" category="HALO FuelFlex" address="10c22" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="FlexMaxStartupVoltage" category="HALO FuelFlex" address="10c24" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="Minimum Load Ignition Correction" category="HALO Corrections" address="10c54" type="1D" level="3" scaling="Load_16bit"/>
+
+	<table name="Minimum Load AFR Correction" category="HALO Corrections" address="10c56" type="1D" level="3" scaling="Load_16bit"/>
+
+	<table name="Minimum Load BWGDC/BDEL Correction" category="HALO Corrections" address="10c58" type="1D" level="3" scaling="Load_16bit"/>
+
+	<table name="WGDC - ETHANOL" category="Boost" address="13bca" type="2D" level="3" scaling="WGDuty_8Bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="17" scaling="RPM4_16bit"/>
+	</table>
+
+	<table name="Boost Desired Engine Load - ETHANOL" category="Boost" address="13be0" type="2D" level="3" scaling="Load_8bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="17" scaling="RPM4_16bit"/>
+	</table>
+
+	<table name="Inputmod Bits" category="HALO InputMod" address="10c26" type="2D" scaling="EnableDisableBit">
+		<table name="Setup Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15,                                                .</data>
+			<data>bit.14,                                                .</data>
+			<data>bit.13,                                                .</data>
+			<data>bit.12,                                                .</data>
+			<data>bit.11                                                 .</data>
+			<data>bit.10,                                                .</data>
+			<data>bit.09                                                 .</data>
+			<data>bit.08                                                 .</data>
+			<data>bit.07, TPS Voltage Override                           .</data>
+			<data>bit.06, Coolant Sensor Voltage Override                .</data>
+			<data>bit.05, IAT Sensor Voltage Override                    .</data>
+			<data>bit.04, Barometric Sensor Voltage Override             .</data>
+			<data>bit.03, Battery Voltage Override                       .</data>
+			<data>bit.02, Rear O2 Sensor Voltage Override                .</data>
+			<data>bit.01, Front O2 Sensor Voltage Override               .</data>
+			<data>bit.00, Knock Voltage Override                         .</data>
+		</table>
+	</table>
+
+	<table name="InputMod Knock Voltage" category="HALO InputMod" address="10c28" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="InputMod Front O2 Voltage" category="HALO InputMod" address="10c32" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="InputMod Rear O2 Voltage" category="HALO InputMod" address="10c34" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="InputMod Battery Voltage" category="HALO InputMod" address="10c2e" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="InputMod Barometric Sensor Voltage" category="HALO InputMod" address="10c2a" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="InputMod IAT Sensor Voltage" category="HALO InputMod" address="10c30" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="InputMod Coolant Sensor Voltage" category="HALO InputMod" address="10c2c" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="InputMod TPS Voltage" category="HALO InputMod" address="10c36" type="1D" level="3" scaling="Volts5_16bit"/>
+
+	<table name="Output 1 (pin b1) Address 1" category="HALO OutputMod" address="10c3a" type="1D" level="3" scaling="Hex16"/>
+
+	<table name="Output 1 (pin b1) Value 1" category="HALO OutputMod" address="10c3c" type="1D" level="3" scaling="uint16"/>
+
+	<table name="Output 1 (pin b1) Address 2" category="HALO OutputMod" address="10c3e" type="1D" level="3" scaling="Hex16"/>
+
+	<table name="Output 1 (pin b1) Value 2" category="HALO OutputMod" address="10c40" type="1D" level="3" scaling="uint16"/>
+
+	<table name="Output 2 (pin b2) Address 1" category="HALO OutputMod" address="10c42" type="1D" level="3" scaling="Hex16"/>
+
+	<table name="Output 2 (pin b2) Value 1" category="HALO OutputMod" address="10c44" type="1D" level="3" scaling="uint16"/>
+
+	<table name="Output 2 (pin b2) Address 2" category="HALO OutputMod" address="10c46" type="1D" level="3" scaling="Hex16"/>
+
+	<table name="Output 2 (pin b2) Value 2" category="HALO OutputMod" address="10c48" type="1D" level="3" scaling="uint16"/>
+
+	<table name="Petrol Fuel Map" category="HALO Flex Fuel Maps" address="130d1" type="3D" swapxy="true" scaling="AFR_8bit">
+		<table name="Load" address="2d702" type="X Axis" elements="22" scaling="Load_16bit"/>
+		<table name="RPM" address="2d6d6" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="E85 Fuel Map" category="HALO Flex Fuel Maps" address="13839" type="3D" swapxy="true" scaling="AFR_8bit">
+		<table name="Load" address="2d702" type="X Axis" elements="22" scaling="Load_16bit"/>
+		<table name="RPM" address="2d6d6" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" category="HALO Flex Fuel Maps" address="12f27" type="3D" swapxy="true" scaling="AFR_8bit">
+		<table name="Load" address="2d702" type="X Axis" elements="22" scaling="Load_16bit"/>
+		<table name="RPM" address="2d6d6" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Petrol Ign Map" category="HALO Flex Ign Maps" address="13465" type="3D" swapxy="true" scaling="Timing_8bit">
+		<table name="Load" address="2d764" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="2d734" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="E85 Ign Map" category="HALO Flex Ign Maps" address="139e3" type="3D" swapxy="true" scaling="Timing_8bit">
+		<table name="Load" address="2d764" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="2d734" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="Low Octane Ign Map" category="HALO Flex Ign Maps" address="1327b" type="3D" swapxy="true" scaling="Timing_8bit">
+		<table name="Load" address="2d764" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="2d734" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="CatWarm Map" category="HALO Flex Ign Maps" address="1364f" type="3D" swapxy="true" scaling="TimingTrim_8bit">
+		<table name="Load" address="2d764" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="2d734" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="Accel Enrichment Base vs Engine Temp (E85)" category="Fuel" address="13c12" type="2D" level="3" scaling="Percent128_8bit">
+		<table name="Engine Temp" address="2d090" type="Y Axis" elements="8" scaling="Temp_*C_16bit"/>
+	</table>
+
+	<table name="Cranking Primer - First Pulse (E85)" category="Fuel" address="13bf6" type="2D" level="3" scaling="uint8">
+		<table name="Engine Temp" address="2d0be" type="Y Axis" elements="9" scaling="Temp_*C_16bit"/>
+	</table>
+
+	<table name="Engine Temp Fuel Base Enrichment (E85)" category="Fuel" address="13c04" type="2D" level="3" scaling="Percent128_8bit">
+		<table name="Coolant Temp" address="2d0a6" type="Y Axis" elements="9" scaling="Temp_*C_16bit"/>
+	</table>
+
+	<table name="Injector Latency (E85)" category="Fuel" address="13c3e" type="2D" level="3" scaling="InjectorLatency_8bit">
+		<table name="Battery Voltage" address="2ceb0" type="Y Axis" elements="7" scaling="Volts18_16bit"/>
+	</table>
+
+	<table name="Open Loop Load 1 (E85)" category="Fuel" address="13c1e" type="2D" level="3" scaling="Load_8bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="15" scaling="RPM4_16bit"/>
+	</table>
+
+	<table name="Open Loop Load 2 (E85)" category="Fuel" address="13c2e" type="2D" level="3" scaling="Load_8bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="15" scaling="RPM4_16bit"/>
+	</table>
+
+	<table name="WGDC (Per Gear) - ETHANOL" category="Boost" address="13d75" type="3D" level="3" swapxy="true" scaling="WGDuty_8Bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="17" scaling="RPM4_16bit"/>
+		<table name="Gear" address="2d7aa" type="X Axis" elements="6" scaling="uint8"/>
+	</table>
+
+	<table name="BDEL (Per Gear) - ETHANOL" category="Boost" address="13e51" type="3D" level="3" swapxy="true" scaling="Load_8bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="17" scaling="RPM4_16bit"/>
+		<table name="Gear" address="2d7aa" type="X Axis" elements="6" scaling="uint8"/>
+	</table>
+
+	<table name="WGDC (Per Gear) - Petrol" category="Boost" address="13de3" type="3D" level="3" swapxy="true" scaling="WGDuty_8Bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="17" scaling="RPM4_16bit"/>
+		<table name="Gear" address="2d7aa" type="X Axis" elements="6" scaling="uint8"/>
+	</table>
+
+	<table name="BDEL (Per Gear) - Petrol" category="Boost" address="13ebf" type="3D" level="3" swapxy="true" scaling="Load_8bit">
+		<table name="RPM" address="2d232" type="Y Axis" elements="17" scaling="RPM4_16bit"/>
+		<table name="Gear" address="2d7aa" type="X Axis" elements="6" scaling="uint8"/>
+	</table>
+
+</rom>

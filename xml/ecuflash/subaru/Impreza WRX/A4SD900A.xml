@@ -1,23 +1,34 @@
 <rom>
-  <romid>
-    <xmlid>A4SD900A</xmlid>
-    <internalidaddress>200</internalidaddress>
-    <internalidstring>A4SD900A</internalidstring>
-    <ecuid>1B04400605</ecuid>
-    <year>01/02</year>
-    <market>JDM</market>
-    <make>Subaru</make>
-    <model>Impreza</model>
-    <submodel>WRX</submodel>
-    <transmission>MT/AT</transmission>
-    <memmodel>68HC16Y5</memmodel>
-    <flashmethod>wrx02</flashmethod>
-  </romid>
-  <include>A4SD900B</include>
-  <table name="CL Delay Maximum EGT" address="29277" />
-  <table name="EGT Sensor Scaling" address="28584" />
-  <table name="EGT Limit (Failsafe)" address="2cda2">
-    <table name="X" address="2cd8a" elements="11" />
-    <table name="Y" address="2cd71" elements="12" />
-  </table>
+	<romid>
+		<xmlid>A4SD900A</xmlid>
+		<internalidaddress>200</internalidaddress>
+		<internalidstring>A4SD900A</internalidstring>
+		<ecuid>1B04400605</ecuid>
+		<make>Subaru</make>
+		<market>JDM</market>
+		<model>Impreza</model>
+		<submodel>WRX</submodel>
+		<transmission>MT/AT</transmission>
+		<year>01/02</year>
+		<flashmethod>wrx02</flashmethod>
+		<memmodel>68HC16Y5</memmodel>
+	</romid>
+
+	<include>A4SD900B</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+	<table name="CL Delay Maximum (EGT)" address="29277">
+	</table>
+
+	<table name="EGT Limit (Failsafe)" address="2cda2">
+		<table name="Engine Load" address="2cd8a" elements="11"/>
+		<table name="Engine Speed" address="2cd71" elements="12"/>
+	</table>
+
+	<table name="EGT Sensor Scaling" address="28584">
+	</table>
+
 </rom>

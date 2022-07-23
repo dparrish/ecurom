@@ -1,0 +1,69 @@
+<rom>
+	<romid>
+		<xmlid>A2TB100B</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>A2TB100B</internalidstring>
+		<ecuid>5204584007</ecuid>
+		<make>Subaru</make>
+		<market>JDM</market>
+		<model>Legacy</model>
+		<submodel>GT</submodel>
+		<transmission>MT</transmission>
+		<year>07</year>
+		<flashmethod>subarucan</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>A2TB100K</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+	<table name="Requested Torque A (Accelerator Pedal) SI-DRIVE Sport" address="dc930">
+		<table name="Accelerator Pedal Angle" address="dc888"/>
+		<table name="Engine Speed" address="dc8d8"/>
+	</table>
+
+	<table name="Requested Torque B (Accelerator Pedal) SI-DRIVE Sport" address="dd578">
+		<table name="Accelerator Pedal Angle" address="dd4d0"/>
+		<table name="Engine Speed" address="dd520"/>
+	</table>
+
+	<table name="Requested Torque A (Accelerator Pedal) SI-DRIVE Sport Sharp" address="dcd48">
+		<table name="Accelerator Pedal Angle" address="dcca0"/>
+		<table name="Engine Speed" address="dccf0"/>
+	</table>
+
+	<table name="Requested Torque B (Accelerator Pedal) SI-DRIVE Sport Sharp" address="dd990">
+		<table name="Accelerator Pedal Angle" address="dd8e8"/>
+		<table name="Engine Speed" address="dd938"/>
+	</table>
+
+	<table name="Requested Torque A (Accelerator Pedal) SI-DRIVE Intelligent" address="dd160">
+		<table name="Accelerator Pedal Angle" address="dd0b8"/>
+		<table name="Engine Speed" address="dd108"/>
+	</table>
+
+	<table name="Requested Torque B (Accelerator Pedal) SI-DRIVE Intelligent" address="ddda8">
+		<table name="Accelerator Pedal Angle" address="ddd00"/>
+		<table name="Engine Speed" address="ddd50"/>
+	</table>
+
+	<table name="Target Throttle Plate Position Cruise (Requested Torque)" address="dbf80">
+		<table name="Requested Torque" address="dbeec"/>
+		<table name="Engine Speed" address="dbf40"/>
+	</table>
+
+	<table name="Target Throttle Plate Position Non-Cruise (Requested Torque)" address="dc2b4">
+		<table name="Requested Torque" address="dc220"/>
+		<table name="Engine Speed" address="dc274"/>
+	</table>
+
+	<table name="Target Throttle Plate Position Maximum (Requested Torque)" address="dc5e8">
+		<table name="Requested Torque" address="dc554"/>
+		<table name="Engine Speed" address="dc5a8"/>
+	</table>
+
+</rom>

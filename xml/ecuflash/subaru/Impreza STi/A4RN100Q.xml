@@ -3,7 +3,7 @@
 		<xmlid>A4RN100Q</xmlid>
 		<internalidaddress>200</internalidaddress>
 		<internalidstring>A4RN100Q</internalidstring>
-	      <caseid>AG821-2593</caseid>
+		<caseid>AG821-2593</caseid>
 		<make>Subaru</make>
 		<market>EDM</market>
 		<model>Impreza</model>
@@ -15,5 +15,9 @@
 	</romid>
 
 	<include>A4RN200H</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
 
 </rom>

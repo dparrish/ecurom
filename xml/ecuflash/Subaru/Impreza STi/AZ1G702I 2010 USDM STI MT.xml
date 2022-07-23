@@ -1,0 +1,25 @@
+<rom>
+	<romid>
+		<xmlid>AZ1G702I</xmlid>
+		<internalidaddress>2004</internalidaddress>
+		<internalidstring>AZ1G702I</internalidstring>
+		<ecuid>7212786107</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>STi</model>
+		<submodel>SE</submodel>
+		<transmission>MT</transmission>
+		<year>10</year>
+		<flashmethod>subarucan</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>AZ1G701I</include>
+
+	<notes>2012/11/30 [Tactrix] Untested experimental definition from RomRaider. Standardized file name.
+2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

@@ -1,18 +1,24 @@
 <rom>
-  <romid>
-    <xmlid>A2ZJA00Q</xmlid>
-    <internalidaddress>2000</internalidaddress>
-    <internalidstring>A2ZJA00Q</internalidstring>
-    <ecuid>3BA4503006</ecuid>
-    <year>05</year>
-    <market>SADM</market>
-    <make>Subaru</make>
-    <model>Forester</model>
-    <submodel>XT</submodel>
-    <transmission>MT/AT</transmission>
-    <memmodel>SH7055</memmodel>
-    <flashmethod>sti04</flashmethod>
-    <checksummodule>subarudbw</checksummodule>
-  </romid>
-  <include>A2ZJA00P</include>
+	<romid>
+		<xmlid>A2ZJA00Q</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>A2ZJA00Q</internalidstring>
+		<ecuid>3BA4503006</ecuid>
+		<make>Subaru</make>
+		<market>SADM</market>
+		<model>Forester</model>
+		<submodel>XT</submodel>
+		<transmission>MT/AT</transmission>
+		<year>05</year>
+		<flashmethod>sti04</flashmethod>
+		<memmodel>SH7055</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>A2ZJA00P</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
 </rom>

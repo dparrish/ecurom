@@ -1,0 +1,19 @@
+<rom>
+  <romid>
+    <xmlid>53610012</xmlid>
+    <internalidaddress>5002a</internalidaddress>
+    <internalidhex>53610012</internalidhex>
+    <make>Mitsubishi</make>
+    <market>EDM</market>
+    <model>Lancer</model>
+    <submodel>Ralliart</submodel>
+    <transmission>SST</transmission>
+    <year>2009</year>
+    <flashmethod>mitsucan</flashmethod>
+    <memmodel>M32186F8</memmodel>
+    <checksummodule>mitsucan</checksummodule>
+  </romid>
+
+  <include>53610013</include>
+
+</rom>

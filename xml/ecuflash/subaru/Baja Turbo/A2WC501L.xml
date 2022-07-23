@@ -1,18 +1,24 @@
 <rom>
-  <romid>
-    <xmlid>A2WC501L</xmlid>
-    <internalidaddress>2000</internalidaddress>
-    <internalidstring>A2WC501L</internalidstring>
-    <ecuid>3F12484206</ecuid>
-    <year>05</year>
-    <market>USDM</market>
-    <make>Subaru</make>
-    <model>Baja</model>
-    <submodel>Turbo</submodel>
-    <transmission>MT</transmission>
-    <memmodel>SH7058</memmodel>
-    <flashmethod>sti05</flashmethod>
-    <checksummodule>subarudbw</checksummodule>
-  </romid>
-  <include>A2WC500L</include>
+	<romid>
+		<xmlid>A2WC501L</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>A2WC501L</internalidstring>
+		<ecuid>3F12484206</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Baja</model>
+		<submodel>Turbo</submodel>
+		<transmission>MT</transmission>
+		<year>05</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>A2WC500L</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
 </rom>

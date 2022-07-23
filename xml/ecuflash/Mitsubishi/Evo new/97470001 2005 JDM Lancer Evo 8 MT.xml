@@ -1,0 +1,22 @@
+<rom>
+	<romid>
+		<xmlid>97470001</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>97470001</internalidhex>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Lancer</model>
+		<submodel>EVO8</submodel>
+		<transmission>Manual</transmission>
+		<year>2005</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+	
+	<notes>
+	     2012/11/16 [Tactrix] updating to standard file naming.
+	     2012/11/19 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+             2012/11/23 [Tactrix] removed all table definitions as there were many mistakes.
+	</notes>	
+
+</rom>

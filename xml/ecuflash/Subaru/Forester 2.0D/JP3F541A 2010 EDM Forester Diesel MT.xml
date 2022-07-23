@@ -1,0 +1,620 @@
+<rom>
+	<romid>
+		<xmlid>JP3F541A</xmlid>
+		<internalidaddress>400c</internalidaddress>
+		<internalidstring>JP3F541A</internalidstring>
+		<caseid>22611AP207</caseid>
+		<ecuid>6144D87607</ecuid>
+		<make>Subaru</make>
+		<market>EDM</market>
+		<model>Forester</model>
+		<submodel>2.0D</submodel>
+		<transmission>6MT</transmission>
+		<year>2010</year>
+		<flashmethod>subarucand</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudiesel</checksummodule>
+	</romid>
+
+	<include>32BITDIESELBASE</include>
+
+	<notes>2014/06/10 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+	<table name="Boost pressure base map (Engine Speed, Injection Quantity)" address="d1714">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="d16bc"/>
+	</table>
+
+	<table name="CAT Boost pressure reduction (Engine Speed, Charge Air Temperature)" address="d1974">
+		<table name="EngineSpeed" address="d1924"/>
+		<table name="ChargeAirTemperature" address="d194c"/>
+	</table>
+
+	<table name="Limiter Boost pressure (Engine Speed, athmos. pressure)" address="d1a28">
+		<table name="EngineSpeed" address="d19d8"/>
+		<table name="AthmosphericPressure" address="d1a00"/>
+	</table>
+
+	<table name="Upper Limit of Pilot control #1 (Engine Speed)" address="b38bc">
+		<table name="EngineSpeed" address="b3860"/>
+	</table>
+
+	<table name="Upper Limit of Pilot control #2 (Engine Speed)" address="b3930">
+		<table name="EngineSpeed" address="b38d4"/>
+	</table>
+
+	<table name="Pilot control of boost pressure control valve #1 (Engine Speed, Injection Quantity)" address="d0f60">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="d0f08"/>
+	</table>
+
+	<table name="Charge air dep. corr. of pilot control #1.1 (Engine Speed, Charge Air Temp)" address="d11c0">
+		<table name="EngineSpeed" address="d1170"/>
+		<table name="ChargeAirTemperature" address="d1198"/>
+	</table>
+
+	<table name="Charge air dep. corr. of pilot control #1.2 (Engine Speed, Charge Air Temp)" address="d1274">
+		<table name="EngineSpeed" address="d1224"/>
+		<table name="ChargeAirTemperature" address="d124c"/>
+	</table>
+
+	<table name="Pilot control of boost pressure control valve #2 (Engine Speed, Injection Quantity)" address="d1330">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="d12d8"/>
+	</table>
+
+	<table name="Charge air dep. corr. of pilot control #2.1 (Engine Speed, Charge Air Temp)" address="d1590">
+		<table name="EngineSpeed" address="d1540"/>
+		<table name="ChargeAirTemperature" address="d1568"/>
+	</table>
+
+	<table name="Charge air dep. corr. of pilot control #2.2 (Engine Speed, Charge Air Temp)" address="d1644">
+		<table name="EngineSpeed" address="d15f4"/>
+		<table name="ChargeAirTemperature" address="d161c"/>
+	</table>
+
+	<table name="Boost pressure failsafe value" address="fdfb8"/>
+
+	<table name="Boost pressure sensor linearization" address="fdfbc">
+	</table>
+
+	<table name="Limits of boost pressure sensor linearization" address="fdfc4">
+	</table>
+
+	<table name="Athmos. pressure failsafe value" address="fdf50"/>
+
+	<table name="Athmos. pressure sensor linearization" address="fdf54">
+	</table>
+
+	<table name="Limits of athmos. pressure sensor linearization" address="fdf5c">
+	</table>
+
+	<table name="Manifold Air Temp sensor failsafe value" address="fdde0"/>
+
+	<table name="Calibration Manifold Air Temp sensor" address="b9728">
+		<table name="MAT Voltage" address="b96d8"/>
+	</table>
+
+	<table name="Inlet Air Temp sensor failsafe value" address="fde0c"/>
+
+	<table name="Calibration Inlet Air Temp sensor" address="b97c8">
+		<table name="Inlet Temperatur Sensor Voltage" address="b9778"/>
+	</table>
+
+	<table name="Calibration Air Mass Sensor (MAF)" address="b9540">
+		<table name="MAF Sensor Voltage" address="b94a0"/>
+	</table>
+
+	<table name="Calibration opening angel throttle sensor" address="b960c">
+		<table name="Throttle Opening Angle Sensor Voltage" address="b95e0"/>
+	</table>
+
+	<table name="Switch-off hysteresis of EGR control (low airmass)" address="b44dc">
+		<table name="EngineSpeed" address="b44f0"/>
+	</table>
+
+	<table name="Switch-on hysteresis of EGR control (low airmass)" address="b4540">
+		<table name="EngineSpeed" address="b44f0"/>
+	</table>
+
+	<table name="Switch-off hysteresis of EGR control (high airmass)" address="b4620">
+		<table name="EngineSpeed" address="b45d0"/>
+	</table>
+
+	<table name="Switch-on hysteresis of EGR control (high airmass)" address="b4684">
+		<table name="EngineSpeed" address="b45d0"/>
+	</table>
+
+	<table name="Target angle of EGR-valve (low air mass) (Engine Speed, Injection Quantity)" address="d0994">
+		<table name="EngineSpeed" address="d08e8"/>
+		<table name="InjectionQuantity" address="d0938"/>
+	</table>
+
+	<table name="Target angle of EGR-valve (high air mass) (Engine Speed, Injection Quantity)" address="d0c0a">
+		<table name="EngineSpeed" address="d0b60"/>
+		<table name="InjectionQuantity" address="d0bb0"/>
+	</table>
+
+	<table name="Pilot control of throttle (mode 1) (Engine Speed, Injection Quantity)" address="d1b4c">
+		<table name="EngineSpeed" address="b3008"/>
+		<table name="InjectionQuantity" address="d1b14"/>
+	</table>
+
+	<table name="Pilot control of throttle (mode 2) (Engine Speed, Injection Quantity)" address="d1c74">
+		<table name="EngineSpeed" address="b3008"/>
+		<table name="InjectionQuantity" address="d1c3c"/>
+	</table>
+
+	<table name="Pilot control of throttle (mode 3) (Engine Speed, Injection Quantity)" address="d1d9c">
+		<table name="EngineSpeed" address="b3008"/>
+		<table name="InjectionQuantity" address="d1d64"/>
+	</table>
+
+	<table name="Pilot control of throttle in idle (Engine Speed, Injection Quantity)" address="d1f00">
+		<table name="EngineSpeed" address="d1eb0"/>
+		<table name="InjectionQuantity" address="d1d64"/>
+	</table>
+
+	<table name="EGR base map air-mass setvalue (Low airmass) (Engine Speed, Injection Quantity)" address="e9018">
+		<table name="EngineSpeed" address="e8f6c"/>
+		<table name="InjectionQuantity" address="e8fbc"/>
+	</table>
+
+	<table name="EGR base map air-mass setvalue (high airmass) (Engine Speed, Injection Quantity)" address="e9560">
+		<table name="EngineSpeed" address="e9488"/>
+		<table name="InjectionQuantity" address="e94f0"/>
+	</table>
+
+	<table name="Initial Value Injection Quantity" address="b0ea4"/>
+
+	<table name="Injection Quantity limiter main (Engine Speed)" address="b6ad4">
+		<table name="EngineSpeed" address="b6a78"/>
+	</table>
+
+	<table name="Injection Quantity limiter sec. (Engine Speed)" address="b5138">
+		<table name="EngineSpeed" address="b50dc"/>
+	</table>
+
+	<table name="ColdCoolant dep. Injection Quantitiy limiter (Engine Speed, Coolant temp)" address="d654c">
+		<table name="EngineSpeed" address="d64cc"/>
+		<table name="CoolantTemperature" address="d6528"/>
+	</table>
+
+	<table name="Coolant dep. Injection Quantity limiter (Vehicle Speed, Coolant Temp)" address="ccd40">
+		<table name="VehicleSpeed" address="ccce0"/>
+		<table name="CoolantTemperature" address="ccd14"/>
+	</table>
+
+	<table name="Railpressure dep. Injection Quantity limiter (Engine Speed, Railpressure)" address="ccc88">
+		<table name="EngineSpeed" address="ccc3c"/>
+		<table name="Railpressure" address="ccc68"/>
+	</table>
+
+	<table name="overboost dep. Injection Quantity limiter (Engine Speed, charge air pressure)" address="cce0c">
+		<table name="EngineSpeed" address="ccdd0" elements="7"/>
+		<table name="ChargeAirPressure" address="ccdec" elements="8"/>
+	</table>
+
+	<table name="Charge air temp dep. Injection Quantity limiter (Engine Speed, charge air temp)" address="cbf20">
+		<table name="EngineSpeed" address="cbedc"/>
+		<table name="ChargeAirTemp" address="cbf00"/>
+	</table>
+
+	<table name="athmos. Pressure dep. Torque limiter (Engine Speed, athmos. Pressure)" address="cce8c">
+		<table name="EngineSpeed" address="cce44"/>
+		<table name="AthmosphericPressure" address="cce74"/>
+	</table>
+
+	<table name="Gear dep. Injection Quantity limiter (Engine Speed, Gear)" address="cd1bc">
+		<table name="EngineSpeed" address="cd144"/>
+		<table name="ActualGear" address="cd1a0"/>
+	</table>
+
+	<table name="Rail pressure limiter (main) (Engine Speed)" address="b6c14">
+		<table name="EngineSpeed" address="b6bec"/>
+	</table>
+
+	<table name="Rail pressure limiter (sec) (Engine Speed)" address="b6c50">
+		<table name="EngineSpeed" address="b6c28"/>
+	</table>
+
+	<table name="Railpressure base map low (Engine Speed, Injection Quantity)" address="cfc10">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b2a90"/>
+	</table>
+
+	<table name="Railpressure base map high (Engine Speed, Injection Quantity)" address="cfa00">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b2a90"/>
+	</table>
+
+	<table name="Railpressure cranking map (Engine Speed, Temperature)" address="cfe84">
+		<table name="EngineSpeed" address="cfe20"/>
+		<table name="CoolantTemperature" address="cfe58"/>
+	</table>
+
+	<table name="Diesel Temp dep. Railpressure Limiter map (Engine Speed, Temperature)" address="e6e08">
+		<table name="EngineSpeed" address="e6dd8"/>
+		<table name="DieselTemperature" address="e6df4"/>
+	</table>
+
+	<table name="Rail pressure failsafe value" address="fde64"/>
+
+	<table name="Rail pressure sensor linearization" address="fde68">
+	</table>
+
+	<table name="Limits of rail pressure sensor linearization" address="fde70">
+	</table>
+
+	<table name="air mass dep. smoke limiter (1) (Engine Speed, air mass)" address="d6774">
+		<table name="EngineSpeed" address="d66ec"/>
+		<table name="AirMass" address="d6748"/>
+	</table>
+
+	<table name="air mass dep. smoke limiter (2) (Engine Speed, air mass)" address="d69f8">
+		<table name="EngineSpeed" address="d6970"/>
+		<table name="AirMass" address="d69cc"/>
+	</table>
+
+	<table name="air mass dep. smoke limiter (3) (Engine Speed, air mass)" address="d6c7c">
+		<table name="EngineSpeed" address="d6bf4"/>
+		<table name="AirMass" address="d6c50"/>
+	</table>
+
+	<table name="Pre- Injection base map (Engine Speed, Injection Quantity)" address="ce518">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b29c8"/>
+	</table>
+
+	<table name="expac. leaging losses (Engine Speed, Rail pressure)" address="e76f0">
+		<table name="EngineSpeed" address="e7650"/>
+		<table name="RailPressure" address="e76b8"/>
+	</table>
+
+	<table name="Conversation Injection duration to Injection Quantity (Rail pressure, Injection duration)" address="e74ac">
+		<table name="RailPressure" address="e7438"/>
+		<table name="InjectionDuration" address="e7470"/>
+	</table>
+
+	<table name="Injection duration (Rail pressure, Injection Quantity)" address="e7a94">
+		<table name="RailPressure" address="e79c8"/>
+		<table name="InjectionQuantity" address="e7a0c"/>
+	</table>
+
+	<table name="SOI of 4. pre injection during cranking (Engine Speed, Fuel temp)" address="d76d0">
+		<table name="EngineSpeed" address="d7678"/>
+		<table name="DieselTemp" address="d76a4"/>
+	</table>
+
+	<table name="SOI 4. pre injection (Engine Speed, Injection Quantity)" address="d77ca">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b29c8"/>
+	</table>
+
+	<table name="SOI of 3. pre injection during cranking (Engine Speed, Fuel temp)" address="d7c44">
+		<table name="EngineSpeed" address="d7bec"/>
+		<table name="DieselTemp" address="d7c18"/>
+	</table>
+
+	<table name="SOI 3. pre injection (Engine Speed, Injection Quantity)" address="d7d3e">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b29c8"/>
+	</table>
+
+	<table name="SOI of 2. pre injection during cranking (Engine Speed, Fuel temp)" address="d81b8">
+		<table name="EngineSpeed" address="d8160"/>
+		<table name="DieselTemp" address="d818c"/>
+	</table>
+
+	<table name="SOI 2. pre injection 1(Engine Speed, Injection Quantity)" address="d82aa">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b29c8"/>
+	</table>
+
+	<table name="SOI 2. pre injection 2(Engine Speed, Injection Quantity)" address="d86ca">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b29c8"/>
+	</table>
+
+	<table name="SOI of main injection during cranking (Engine Speed, Fuel temp)" address="d8be0">
+		<table name="EngineSpeed" address="d8b84"/>
+		<table name="DieselTemp" address="d8bb4"/>
+	</table>
+
+	<table name="SOI main injection 1(Engine Speed, Injection Quantity)" address="d8ce8">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b29c8"/>
+	</table>
+
+	<table name="SOI main injection 2(Engine Speed, Injection Quantity)" address="d9108">
+		<table name="EngineSpeed" address="b2830"/>
+		<table name="InjectionQuantity" address="b29c8"/>
+	</table>
+
+	<table name="fuel temp based corr of SOI 4.injection (T_Fuel)" address="b50a8">
+		<table name="DieselTemp" address="b2c9c"/>
+	</table>
+
+	<table name="fuel temp based corr of SOI 3.injection (T_Fuel)" address="b50b0">
+		<table name="DieselTemp" address="b2c9c"/>
+	</table>
+
+	<table name="fuel temp based corr of SOI 2.injection (T_Fuel)" address="b50b8">
+		<table name="DieselTemp" address="b2c9c"/>
+	</table>
+
+	<table name="fuel temp based corr of SOI main injection (T_Fuel)" address="b50c0">
+		<table name="DieselTemp" address="b2c9c"/>
+	</table>
+
+	<table name="injection quantity during cranking #1 (EngineSpeed, T_Engine)" address="ccf34">
+		<table name="EngineSpeed" address="cced4"/>
+		<table name="EngineTemp" address="ccf0c"/>
+	</table>
+
+	<table name="injection quantity during cranking #2 (EngineSpeed, T_Engine)" address="cd030">
+		<table name="EngineSpeed" address="ccfc0"/>
+		<table name="EngineTemp" address="cd00c"/>
+	</table>
+
+	<table name="Torque Demand-drivers request(Engine Speed, Accelerator Pos)" address="e616c">
+		<table name="EngineSpeed" address="e6104"/>
+		<table name="AcceleratorPosition" address="e6140"/>
+	</table>
+
+	<table name="corr. of Torque Demand dep. on diff. engine speed to idle target (diff Engine Speed, Gear)" address="e6308">
+		<table name="EngineSpeed" address="e62b8"/>
+		<table name="Gear" address="e62ec"/>
+	</table>
+
+	<table name="Torque Friction loss (Engine Speed)" address="b660c">
+		<table name="EngineSpeed" address="b65a0"/>
+	</table>
+
+	<table name="Coolant dep. correction of Torque Friction loss (Coolant Temp)" address="b6684">
+		<table name="CoolantTemp" address="b6644"/>
+	</table>
+
+	<table name="Conversation Torque to Injection Quatity (1) (Engine Speed, Torque)" address="d6f4c">
+		<table name="EngineSpeed" address="d6ea8"/>
+		<table name="Torque" address="d6f04"/>
+	</table>
+
+	<table name="Conversation Torque to Injection Quatity (2) (Engine Speed, Torque)" address="d733c">
+		<table name="EngineSpeed" address="d7298"/>
+		<table name="Torque" address="d72f4"/>
+	</table>
+
+	<table name="Conversation Injection Quatity to Torque (Engine Speed, Injection Quantity)" address="d5c90">
+		<table name="EngineSpeed" address="d5be0"/>
+		<table name="InjectionQuantity" address="d5c3c"/>
+	</table>
+
+	<table name="Torque limiter (Engine Speed)" address="b696c">
+		<table name="EngineSpeed" address="b6900"/>
+	</table>
+
+	<table name="Coolant Temp Sensor failsafe value" address="fddb4"/>
+
+	<table name="Calibration Coolant Temp Sensor" address="b3748">
+		<table name="NTC Sensor Voltage" address="b36d4"/>
+	</table>
+
+	<table name="Fuel temperatur sensor failsafe value" address="fde38"/>
+
+	<table name="Calibration fuel temperatur sensor" address="b9688">
+		<table name="NTC Sensor Voltage" address="b9638"/>
+	</table>
+
+	<table name="Exhaust Gas Temp before CAT failsafe value" address="fe04c"/>
+
+	<table name="Calibration Exhaust Gas Temp sensor before CAT" address="b9870">
+		<table name="NTC Sensor Voltage" address="b9818"/>
+	</table>
+
+	<table name="Exhaust Gas Temp before DPF failsafe value" address="fe078"/>
+
+	<table name="Calibration Exhaust Gas Temp sensor before DPF" address="b9920">
+		<table name="NTC Sensor Voltage" address="b98c8"/>
+	</table>
+
+	<table name="DPF differential pressure failsafe value" address="fe10c"/>
+
+	<table name="DPF differential pressure sensor linearization" address="fe110">
+	</table>
+
+	<table name="Limits of DPF differential pressure sensor linearization" address="fe118">
+	</table>
+
+	<table name="Boost pressure during Regeneration 1 (Engine Speed, Injection Quantity)" address="eea70">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Boost pressure during Regeneration 2 (Engine Speed, Injection Quantity)" address="f0750">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Boost pressure during Regeneration 3 (Engine Speed, Injection Quantity)" address="f3090">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Pilot control of boost pressure value during Regeneration 1 (Engine Speed, Injection Quantity)" address="eee90">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Pilot control of boost pressure value during Regeneration 2 (Engine Speed, Injection Quantity)" address="f0b70">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Pilot control of boost pressure value during Regeneration 3 (Engine Speed, Injection Quantity)" address="f34b0">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="EGR base map air-mass setvalue during regeneration 1 (Engine Speed, Injection Quantity)" address="ee650">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="EGR base map air-mass setvalue during regeneration 2 (Engine Speed, Injection Quantity)" address="f0330">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="EGR base map air-mass setvalue during regeneration 3 (Engine Speed, Injection Quantity)" address="f2c70">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Pilot control of throttle during Regeneration 1 (Engine Speed, Injection Quantity)" address="d2be0">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Pilot control of throttle during Regeneration 2 (Engine Speed, Injection Quantity)" address="d3c60">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Pilot control of throttle during Regeneration 3 (Engine Speed, Injection Quantity)" address="d4ce0">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Maximum allowed EGT during Regeneration 1 (Engine Speed, Injection Quantity)" address="ee230">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Maximum allowed EGT during Regeneration 2 (Engine Speed, Injection Quantity)" address="eff10">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Maximum allowed EGT during Regeneration 3 (Engine Speed, Injection Quantity)" address="f2850">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Railpressure base map (low) during regeneration 1 (Engine Speed, Injection Quantity)" address="d29d0">
+		<table name="EngineSpeed" address="b30a8"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Railpressure base map (low) during regeneration 2 (Engine Speed, Injection Quantity)" address="d3840">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Railpressure base map (high) during regeneration 2 (Engine Speed, Injection Quantity)" address="d3a50">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Railpressure base map (low) during regeneration 3 (Engine Speed, Injection Quantity)" address="d48c0">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Railpressure base map (high) during regeneration 3 (Engine Speed, Injection Quantity)" address="d4ad0">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI main injection during regeneration 1.1 (Engine Speed, Injection Quantity)" address="dc954">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI main injection during regeneration 2.1 (Engine Speed, Injection Quantity)" address="de214">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI main injection during regeneration 2.2 (Engine Speed, Injection Quantity)" address="de634">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI main injection during regeneration 3.1 (Engine Speed, Injection Quantity)" address="e0314">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI main injection during regeneration 3.2 (Engine Speed, Injection Quantity)" address="e0734">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI pre injection during regeneration 1.2 (Engine Speed, Injection Quantity)" address="dcd74">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI pre injection during regeneration 2.1 (Engine Speed, Injection Quantity)" address="dea54">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI pre injection during regeneration 2.2 (Engine Speed, Injection Quantity)" address="dee74">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI pre injection during regeneration 3.1 (Engine Speed, Injection Quantity)" address="e0b54">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="SOI pre injection during regeneration 3.2 (Engine Speed, Injection Quantity)" address="e0f74">
+		<table name="EngineSpeed" address="b30ac"/>
+		<table name="InjectionQuantity" address="b310c"/>
+	</table>
+
+	<table name="Soot Load Coeffizient (Differential Pressure, Air Mass)" address="ea584">
+		<table name="DifferentialPressure" address="ea4ac"/>
+		<table name="AirMass" address="ea514"/>
+	</table>
+
+	<table name="Soot Reduction Coeffizient (Differential Pressure, Exhaust Gas Temp)" address="d211c">
+		<table name="DifferentialPressure" address="d2044"/>
+		<table name="ExhausGasTemperature" address="d20ac"/>
+	</table>
+
+	<table name="Distance to Oil Change (Oil Dilution Ratio)" address="b4e98">
+		<table name="OilDilution" address="b4e78"/>
+	</table>
+
+	<table name="Oil Dilution Evaporation Factor (Oil Dilution, Coolant Temp)" address="d5790">
+		<table name="OilDilution" address="d5738"/>
+		<table name="CoolantTemperature" address="d5764"/>
+	</table>
+
+	<table name="Idle Speed Target A" address="b63cc">
+		<table name="AmbientTemperature" address="b639c"/>
+	</table>
+
+	<table name="Idle Speed Target B" address="b6414">
+		<table name="AmbientTemperature" address="b63e4"/>
+	</table>
+
+	<table name="Idle Speed Target C" address="b64d8">
+		<table name="AmbientTemperature" address="b64ac"/>
+	</table>
+
+	<table name="IQ adaption dep. on differencial engine speed" address="b6554">
+		<table name="DifferentialEngineSpeed" address="b651c"/>
+	</table>
+
+	<table name="Flashcounter" address="ffb00"/>
+
+	<table name="Flashcounter Invers" address="ffb02"/>
+
+</rom>

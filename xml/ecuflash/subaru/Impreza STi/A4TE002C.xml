@@ -1,17 +1,23 @@
 <rom>
-  <romid>
-    <xmlid>A4TE002C</xmlid>
-    <internalidaddress>200</internalidaddress>
-    <internalidstring>A4TE002C</internalidstring>
-    <ecuid>2E044A6005</ecuid>
-    <year>03</year>
-    <market>JDM</market>
-    <make>Subaru</make>
-    <model>Impreza</model>
-    <submodel>STi</submodel>
-    <transmission>MT/AT</transmission>
-    <memmodel>68HC16Y5</memmodel>
-    <flashmethod>wrx02</flashmethod>
-  </romid>
-  <include>A4TE002B</include>
+	<romid>
+		<xmlid>A4TE002C</xmlid>
+		<internalidaddress>200</internalidaddress>
+		<internalidstring>A4TE002C</internalidstring>
+		<ecuid>2E044A6005</ecuid>
+		<make>Subaru</make>
+		<market>JDM</market>
+		<model>Impreza</model>
+		<submodel>STi</submodel>
+		<transmission>MT/AT</transmission>
+		<year>03</year>
+		<flashmethod>wrx02</flashmethod>
+		<memmodel>68HC16Y5</memmodel>
+	</romid>
+
+	<include>A4TE002B</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
 </rom>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rom>
+  <romid>
+    <xmlid>98850010</xmlid>
+    <internalidaddress>f52</internalidaddress>
+    <internalidhex>98850010</internalidhex>
+    <make>Mitsubishi</make>
+    <market>USDM</market>
+    <model>Eclipse</model>
+    <submodel>GT</submodel>
+    <transmission>Manual</transmission>
+    <year>2002</year>
+    <flashmethod>mitsukernel</flashmethod>
+    <memmodel>SH7052</memmodel>
+  </romid>
+  
+  <notes>
+       2014/03/21 [Tactrix] Visually examined tables for obvious errors. Several table scalings are obviosly innaccurate. No in-car verification has been done. USE WITH CAUTION.
+  </notes>
+  
+  <include>evo7base</include>
+  <scaling name="AirFlowHz" units="units" toexpr="x/10.24" frexpr="x*10.24" format="%.0f" min="0" max="6400" inc="1" storagetype="uint16" endian="big" />
+  <scaling name="Flashtime" units="ms" toexpr="1000*x/102" frexpr="102*x/1000" format="%.0f" min="0" max="100000" inc="1" storagetype="uint16" endian="big" />
+  <scaling name="TimingTrim8" units="units" toexpr="x-128" frexpr="x+128" format="%.0f" min="-128" max="128" inc="1" storagetype="uint8" endian="big" />
+  <scaling name="blobbits" storagetype="bloblist" storagebits="1">
+    <data name="0" value="00" />
+    <data name="1" value="01" />
+  </scaling>
+  <table name="High Octane Fuel Map" category="Fuel" address="3e10b" type="3D" swapxy="true" scaling="AFR">
+    <table name="Load" address="3f030" type="X Axis" elements="30" scaling="Load" />
+    <table name="RPM" address="3efea" type="Y Axis" elements="30" scaling="RPM" />
+  </table>
+  <table name="Low Octane Fuel Map " category="Fuel" address="3e49b" type="3D" swapxy="true" scaling="AFR">
+    <table name="Load" address="3f030" type="X Axis" elements="30" scaling="Load" />
+    <table name="RPM" address="3efea" type="Y Axis" elements="30" scaling="RPM" />
+  </table>
+  <table name="Injector Scaling" category="Fuel" address="1506"></table>
+  <table name="Injector Battery Voltage Latency Compensation" category="Fuel" address="3864">
+    <table name="Battery Voltage" address="5daa" elements="7" />
+  </table>
+  <table name="Accel Enrichment" category="Fuel" address="391c">
+    <table name="RPM" address="5bca" elements="12" />
+  </table>
+  <table name="Min Coolant Temp for Closed Loop" category="Fuel" address="1588" />
+  <table name="Open Loop Load # 1" category="Fuel" address="375a">
+    <table name="RPM" address="5bec" elements="12" />
+  </table>
+  <table name="Open Loop Load # 2" category="Fuel" address="376c">
+    <table name="RPM" address="5bec" elements="12" />
+  </table>
+  <table name="Front O2 Patch" category="Fuel" address="a831" type="2D" scaling="Hex8">
+    <table name="Code Change" type="Static X Axis" elements="1">
+      <data>0x08-&gt;0x0A</data>
+    </table>
+  </table>
+  <table name="Rear O2 Patch" category="Fuel" address="a827" type="2D" scaling="Hex8">
+    <table name="Code Change" type="Static X Axis" elements="1">
+      <data>0x07-&gt;0x09</data>
+    </table>
+  </table>
+  <table name="High Octane Ignition Map" category="Timing" address="3e82b" type="3D" swapxy="true" scaling="Timing">
+    <table name="Load" address="3efa0" type="X Axis" elements="30" scaling="Load" />
+    <table name="RPM" address="3ef5a" type="Y Axis" elements="30" scaling="RPM" />
+  </table>
+  <table name="Low Octane Ignition" category="Timing" address="3ebbb" type="3D" swapxy="true" scaling="Timing">
+    <table name="Load" address="3efa0" type="X Axis" elements="30" scaling="Load" />
+    <table name="RPM" address="3ef5a" type="Y Axis" elements="30" scaling="RPM" />
+  </table>
+  <table name="Warmup Timing" category="Timing" address="3c8d" type="3D" swapxy="true" scaling="TimingTrim8">
+    <table name="Load" address="5ebc" type="X Axis" elements="12" scaling="Load" />
+    <table name="RPM" address="5e8c" type="Y Axis" elements="19" scaling="RPM" />
+  </table>
+  <table name="EGR Advance" category="Timing" address="5769" type="3D" swapxy="true" scaling="Timing">
+    <table name="Load" address="5ebc" type="X Axis" elements="12" scaling="Load" />
+    <table name="RPM" address="5e8c" type="Y Axis" elements="19" scaling="RPM" />
+  </table>
+  <table name="Flash CEL on Knock?" category="Knock Control" address="3f13c" type="1D" scaling="uint16" />
+  <table name="CEL on Knock flash time" category="Knock Control" address="3f142" type="1D" scaling="Flashtime" />
+  <table name="KnockSum Required for CEL" category="Knock Control" address="3f13e" type="1D" scaling="uint16" />
+  <table name="Min Load for CEL on Knock" category="Knock Control" address="3f140" type="1D" scaling="Load" />
+  <table name="MAF Size" address="150c" category="Air" />
+  <table name="MAF Scaling" category="Air" address="3506" scaling="uint8">
+    <table name="Load" address="5d5a" scaling="AirFlowHz" />
+  </table>
+  <table name="MAF Smoothing Table" category="Air" address="3522">
+    <table name="Load" address="5d5a" />
+  </table>
+  <table name="MAF Sensor Filtering" category="Air" address="1508">
+    <table name="Load" />
+  </table>
+  <table name="Barometric Pressure Compensation" category="Air" address="3551">
+    <table name="Atmosphere Pressure" address="5d48" />
+    <table name="RPM" address="5d8e" />
+  </table>
+  <table name="MAF Cliping coefficient" category="Air" address="357c" type="2D" scaling="uint8">
+    <table name="RPM" address="5c62" type="Y Axis" elements="12" scaling="RPM" />
+  </table>
+  <table name="MAFLoadScale" category="Air" address="37f4" type="2D" scaling="uint8">
+    <table name="Load" address="5cee" type="Y Axis" elements="12" scaling="Load" />
+  </table>
+  <table name="Enable EGR" category="Emissions EGR" address="103d" type="1D" scaling="uint8" />
+  <table name="EGR Duty #1" category="Emissions EGR" address="43eb" type="3D" swapxy="true" scaling="WGDuty">
+    <table name="Load" address="6094" type="X Axis" elements="12" scaling="Load" />
+    <table name="RPM" address="6074" type="Y Axis" elements="11" scaling="RPM" />
+  </table>
+  <table name="EGR Duty #2" category="Emissions EGR" address="435b" type="3D" swapxy="true" scaling="WGDuty">
+    <table name="Load" address="6094" type="X Axis" elements="12" scaling="Load" />
+    <table name="RPM" address="6074" type="Y Axis" elements="11" scaling="RPM" />
+  </table>
+  <table name="Rev Limit" category="Limits" address="156a" />
+  <table name="Stationary Rev Limit" category="Limits" level="1"></table>
+  <table name="Speed Limit" category="Limits" address="156c">
+    <table name="Condition" />
+  </table>
+  <table name="Desired ISCV intial step position with AC off-Neutral" category="ISCV Control" address="3e56">
+    <table name="Engine Temp" address="601c" elements="8" />
+  </table>
+  <table name="Desired ISCV intial step position with AC off-Drive" category="ISCV Control" address="3e64">
+    <table name="Engine Temp" address="601c" elements="8" />
+  </table>
+  <table name="Desired ISCV intial step position with AC on-Neutral" category="ISCV Control" address="3e72">
+    <table name="Engine Temp" address="601c" elements="8" />
+  </table>
+  <table name="High Intake Air Temp ISCV Increase" category="ISCV Control" level="1">
+    <table name="Condition" />
+  </table>
+  <table name="Desired Idle RPM-Neutral" category="ISCV Control" address="3e3a">
+    <table name="Engine Temp" address="601c" elements="8" />
+  </table>
+  <table name="Desired Idle RPM-Drive" category="ISCV Control" address="3e48">
+    <table name="Engine Temp" address="601c" elements="8" />
+  </table>
+  <table name="Desired Idle RPM with AC on" category="ISCV Control" level="1">
+    <table name="Condition" />
+  </table>
+  <table name="High Intake Air Temp Idle Speed Target" category="ISCV Control" level="1">
+    <table name="Condition" />
+  </table>
+  <table name="Idle Stepper Look-up Table" category="ISCV Control" address="3fab">
+    <table name="Throttle Position" address="601c" />
+    <table name="RPM" address="6036" elements="26" />
+  </table>
+  <table name="Non-Continuous Monitor Completion Patch" category="OBD-II" address="33310" type="2D" scaling="Hex16">
+    <table type="Static Y Axis" elements="2">
+      <data>DA3D-&gt;EAFF</data>
+      <data>6AA1-&gt;6AA7</data>
+    </table>
+  </table>
+  <table name="Non-Continuous Monitor Availability Patch Part 1" category="OBD-II" address="332f4" type="2D" scaling="Hex16">
+    <table type="Static Y Axis" elements="1">
+      <data>4019-&gt;E000</data>
+    </table>
+  </table>
+  <table name="Non-Continuous Monitor Availability Patch Part 2" category="OBD-II" address="3330a" type="2D" scaling="Hex16">
+    <table type="Static Y Axis" elements="1">
+      <data>6AA1-&gt;EAFF</data>
+    </table>
+  </table>
+  <table name="Monitor Available(1)/Not Available(0)" category="OBD-II" address="380b7" type="2D" scaling="blobbits">
+    <table name="Non-Continuous Monitor Availability Bits" type="Static Y Axis" flipy="true" elements="8">
+      <data>EGR system</data>
+      <data>Oxygen heater sensor</data>
+      <data>Oxygen sensor</data>
+      <data>A/C system refrigerant</data>
+      <data>Secondary air system</data>
+      <data>Evaporative system</data>
+      <data>Heated catalyst</data>
+      <data>Catalyst</data>
+    </table>
+  </table>
+  <table name="Monitor Passed(1)/Failed(0)" category="OBD-II" address="380bd" type="2D" scaling="blobbits">
+    <table name="Non-Continuous Monitor Completion Bits" type="Static Y Axis" flipy="true" elements="8">
+      <data>EGR system</data>
+      <data>Oxygen heater sensor</data>
+      <data>Oxygen sensor</data>
+      <data>A/C system refrigerant</data>
+      <data>Secondary air system</data>
+      <data>Evaporative system</data>
+      <data>Heated catalyst</data>
+      <data>Catalyst</data>
+    </table>
+  </table>
+  <table name="ECU Periphery00 (F9A) Bits" category="ECUPeriphery" address="f9a" type="2D" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+  <table name="ECU Periphery0 (FAA) Bits" category="ECUPeriphery" address="faa" type="2D" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>bit.15</data>
+      <data>front o2 sensor heater circuit (bit.14)</data>
+      <data>bit.13</data>
+      <data>Disable EGR Solenoid (bit.12)</data>
+      <data>Disable EGR / Enabled Ign Adv (set bit=1) (bit.11)</data>
+      <data>Timing knockdown on light accel &amp; less than 3000rpm (bit.10)</data>
+      <data>Warmup Ign Retard (bit.9)</data>
+      <data>bit.8</data>
+      <data>Enable High Oct Ign Map Lookup (and many other subroutines) (bit.7)</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>Full time open loop set to 0 (bit.4)</data>
+      <data>Immobilizer 1=enable 0=disable(bit.3)</data>
+      <data>bit.2</data>
+      <data>Disable Rear O2 (bit.1)</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+  <table name="ECU Periphery1 (FBA) Bits" category="ECUPeriphery" address="fba" type="2D" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0: Lean Spool</data>
+    </table>
+  </table>
+  <table name="ECU Periphery2 (FCA) Bits" category="ECUPeriphery" address="fca" type="2D" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>P0443, P0446, P0403, P0243, P0090, P2263 (bit.15)</data>
+      <data>P0450, P0451, P0452, P0453 Evap (bit.14)</data>
+      <data>P0441, P0442 Evap (bit.13)</data>
+      <data>bit.12</data>
+      <data>P0031, P0032, P0037, P0038 (bit.11)</data>
+      <data>P1400 MAP Sensor (bit.10)</data>
+      <data>P0401 EGR Test (bit.09)</data>
+      <data>P0506, P0507 Idle Test (bit.08</data>
+      <data>P0170, P0171, P0172 (bit.7)</data>
+      <data>P0134 Front O2 (bit.6)</data>
+      <data>P0300; set bit.4 and bit.5 to 0 to disable (bit.5)</data>
+      <data>P0300; set bit.4 and bit.5 to 0 to disable (bit.4)</data>
+      <data>P0132, P0136 O2 (bit.3)</data>
+      <data>P0133, P0159 (bit.2)</data>
+      <data>P0421 (bit.1)</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+  <table name="ECU Periphery3 (FDA) Bits" category="ECUPeriphery" address="fda" type="2D" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>P0128 CT Below Reg (bit.15)</data>
+      <data>P1603 Battery Backup (bit.14)</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>P0180 - P0183, P0461, P2066 Fuel Sensors (bit.11)</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>P0551 PS Pressure (bit.7)</data>
+      <data>P0500 Speed Sens (bit.6)</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>P0234, P0243, P2263 (bit.2)</data>
+      <data>0510 (bit.1)</data>
+      <data>P1715, P1750, etc (bit.0)</data>
+    </table>
+  </table>
+  <table name="ECU Periphery4 (FEA) Bits" category="ECUPeriphery" address="fea" type="2D" scaling="blobbits">
+    <table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+      <data>P0140 Rear O2 No Act (bit.15)</data>
+      <data>P0069 MAP vs Baro (bit.14)</data>
+      <data>P0111 IAT Circuit (bit.13)</data>
+      <data>P0554 PS Press Sens (bit.12)</data>
+      <data>P1530 A/C1 Switch (bit.11)</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>P0830 Clutch Pedal Circuit (bit.8)</data>
+      <data>P0090 Fuel Pressure Circuit (bit.7)</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+  <table name="MUT table" category="MUT" address="34898" type="3D" scaling="Hex16">
+    <table name="X" type="Static X Axis" elements="32" scaling="Hex16">
+      <data>-</data>
+      <data>0</data>
+      <data>-</data>
+      <data>1</data>
+      <data>-</data>
+      <data>2</data>
+      <data>-</data>
+      <data>3</data>
+      <data>-</data>
+      <data>4</data>
+      <data>-</data>
+      <data>5</data>
+      <data>-</data>
+      <data>6</data>
+      <data>-</data>
+      <data>7</data>
+      <data>-</data>
+      <data>8</data>
+      <data>-</data>
+      <data>9</data>
+      <data>-</data>
+      <data>A</data>
+      <data>-</data>
+      <data>B</data>
+      <data>-</data>
+      <data>C</data>
+      <data>-</data>
+      <data>D</data>
+      <data>-</data>
+      <data>E</data>
+      <data>-</data>
+      <data>F</data>
+    </table>
+    <table name="Y" type="Static Y Axis" elements="30">
+      <data>MUT0X</data>
+      <data>MUT1X</data>
+      <data>MUT2X</data>
+      <data>MUT3X</data>
+      <data>MUT4X</data>
+      <data>MUT5X</data>
+      <data>MUT6X</data>
+      <data>MUT7X</data>
+      <data>MUT8X</data>
+      <data>MUT9X</data>
+      <data>MUTAX</data>
+      <data>MUTBX</data>
+      <data>MUTCX</data>
+      <data>MUTDX</data>
+      <data>MUTEX</data>
+      <data>MUTFX</data>
+      <data>MUT10X</data>
+      <data>MUT11X</data>
+      <data>MUT12X</data>
+      <data>MUT13X</data>
+      <data>MUT14X</data>
+      <data>MUT15X</data>
+      <data>MUT16X</data>
+      <data>MUT17X</data>
+      <data>MUT18X</data>
+      <data>MUT19X</data>
+      <data>MUT1AX</data>
+      <data>MUT1BX</data>
+      <data>MUT1CX</data>
+      <data>MUT1DX</data>
+    </table>
+  </table>
+</rom>

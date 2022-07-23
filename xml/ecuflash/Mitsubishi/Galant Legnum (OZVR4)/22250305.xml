@@ -1,0 +1,28 @@
+<!--Produced by XML Creator By BCX-->
+<!--Published: 30/03/2012 @ 17:37:21.0594484-->
+<!---->
+<!---->
+<!--######################### ROM INFO #########################-->
+<!---->
+<rom>
+    <romid>
+        <xmlid>22250305</xmlid>
+        <internalidaddress>1020a</internalidaddress>
+        <internalidhex>22250305</internalidhex>
+        <ecuid>TM2225</ecuid>
+        <market>JDM</market>
+        <make>Mitsubishi</make>
+        <model>Galant/Legnum</model>
+        <submodel>VR4</submodel>
+        <transmission>5-AT</transmission>
+        <flashmethod>mitsukernel</flashmethod>
+        <memmodel>H8539F</memmodel>
+    </romid>
+    <!---->
+    <!--######################### INHERITS #########################-->
+    <!---->
+    <include>vr4_AT_base</include>
+    <!---->
+    <!--######################### TABLES #########################-->
+    <!---->
+</rom>

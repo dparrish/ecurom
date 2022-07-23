@@ -1,0 +1,132 @@
+<rom>
+	<romid>
+		<xmlid>85850013</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>85850013</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse</model>
+		<submodel>GS</submodel>
+		<transmission>Auto</transmission>
+		<year>2001</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<notes>
+	     2014/03/21 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+	</notes>
+
+	<include>evo7base</include>
+
+	<table name="High Octane Fuel Map" address="35cb">
+		<table name="Load" address="55e4" elements="10"/>
+		<table name="RPM" address="5566" elements="14"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="3663">
+		<table name="Load" address="55e4" elements="10"/>
+		<table name="RPM" address="5566" elements="14"/>
+	</table>
+
+	<table name="Rev Limit" address="156a"/>
+
+	<table name="Injector size scaling" address="1506"/>
+
+	<table name="MAF Sensor Filtering" address="1508">
+		<table name="Load"/>
+	</table>
+
+	<table name="MAF Size" address="150c"/>
+
+	<table name="Speed Limit" address="156c">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Octane Ignition Map 1" address="3b43">
+		<table name="Load" address="57da" elements="12"/>
+		<table name="RPM" address="57ac" elements="18"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" address="3c27">
+		<table name="Load" address="57da" elements="12"/>
+		<table name="RPM" address="57ac" elements="18"/>
+	</table>
+
+	<table name="Accel Enrichment" address="38dc">
+		<table name="RPM" address="5af2" elements="10"/>
+	</table>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="4252">
+		<table name="Battery Voltage" address="55e6"/>
+	</table>
+
+	<table name="Desired Idle RPM-Neutral" address="3e0c">
+		<table name="Engine Temp" address="587a" elements="8"/>
+	</table>
+
+	<table name="Idle Stepper Lookup Table" address="3f11"/>
+
+	<table name="Desired ISCV intial step position with AC off-Neutral" address="3e28">
+		<table name="Engine Temp" address="587a" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Drive" address="3e36">
+		<table name="Engine Temp" address="587a" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC on-Neutral" address="3e1a">
+		<table name="Engine Temp" address="587a" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Drive" level="2">
+		<table name="Engine Temp" address="587a" elements="8"/>
+	</table>
+
+	<table name="Open Loop Load # 1" address="373a">
+		<table name="RPM" address="572a" elements="14"/>
+	</table>
+
+	<table name="Open Loop Load # 2" address="3750">
+		<table name="RPM" address="572a" elements="14"/>
+	</table>
+
+	<table name="Open Loop Throttle Low Load" address="376c" scaling="ThrottleVoltage">
+		<table name="RPM" address="572a" elements="14"/>
+	</table>
+
+	<table name="Open Loop Throttle High Load" address="3782" scaling="ThrottleVoltage">
+		<table name="RPM" address="572a" elements="14"/>
+	</table>
+
+	<table name="MAF Scaling" address="3516" scaling="AirFlow8">
+		<table name="Load" address="5680"/>
+	</table>
+
+	<table name="MAF Smoothing Table" address="3532" scaling="AirFlow8">
+		<table name="Load" address="5680"/>
+	</table>
+
+	<table name="Barometric Pressure Compensation" address="3561">
+		<table name="Atmosphere Pressure" address="566e"/>
+		<table name="RPM" address="56b4"/>
+	</table>
+
+	<table name="Desired Idle RPM with AC on" address="1820">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp ISCV Increase">
+		<table name="Condition" elements="2"/>
+	</table>
+
+	<table name="Min Coolant Temp for Closed Loop" address="1588"/>
+
+	<table name="Injector Scaling" address="1506"/>
+
+	<table name="Idle Stepper Look-up Table" address="3f11">
+		<table name="Throttle Position" address="5948"/>
+		<table name="RPM" address="5962"/>
+	</table>
+
+</rom>

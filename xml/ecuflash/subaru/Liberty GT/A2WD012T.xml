@@ -1,18 +1,24 @@
 <rom>
-  <romid>
-    <xmlid>A2WD012T</xmlid>
-    <internalidaddress>2000</internalidaddress>
-    <internalidstring>A2WD012T</internalidstring>
-    <ecuid>3C54784316</ecuid>
-    <year>05</year>
-    <market>ADM</market>
-    <make>Subaru</make>
-    <model>Liberty</model>
-    <submodel>GT</submodel>
-    <transmission>MT</transmission>
-    <memmodel>SH7055</memmodel>
-    <flashmethod>sti04</flashmethod>
-    <checksummodule>subarudbw</checksummodule>
-  </romid>
-  <include>A2WD010T</include>
+	<romid>
+		<xmlid>A2WD012T</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>A2WD012T</internalidstring>
+		<ecuid>3C54784316</ecuid>
+		<make>Subaru</make>
+		<market>ADM</market>
+		<model>Liberty</model>
+		<submodel>GT</submodel>
+		<transmission>MT</transmission>
+		<year>05</year>
+		<flashmethod>sti04</flashmethod>
+		<memmodel>SH7055</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>A2WD010T</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
 </rom>

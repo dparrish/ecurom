@@ -1,18 +1,24 @@
 <rom>
-  <romid>
-    <xmlid>E2ZJ103G</xmlid>
-    <internalidaddress>2000</internalidaddress>
-    <internalidstring>E2ZJ103G</internalidstring>
-    <ecuid>3E12084006</ecuid>
-    <year>05</year>
-    <market>USDM</market>
-    <make>Subaru</make>
-    <model>Impreza</model>
-    <submodel>2.5RS</submodel>
-    <transmission>MT/AT</transmission>
-    <memmodel>SH7058</memmodel>
-    <flashmethod>sti05</flashmethod>
-    <checksummodule>subarudbw</checksummodule>
-  </romid>
-  <include>E2ZJ101G</include>
+	<romid>
+		<xmlid>E2ZJ103G</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>E2ZJ103G</internalidstring>
+		<ecuid>3E12084006</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Impreza</model>
+		<submodel>2.5RS</submodel>
+		<transmission>MT/AT</transmission>
+		<year>05</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>E2ZJ101G</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
 </rom>

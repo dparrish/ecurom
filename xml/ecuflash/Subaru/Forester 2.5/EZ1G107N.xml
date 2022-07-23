@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>EZ1G107N</xmlid>
+		<internalidaddress>2004</internalidaddress>
+		<internalidstring>EZ1G107N</internalidstring>
+		<ecuid>5C52184007</ecuid>
+		<make>Subaru</make>
+		<market>ADM</market>
+		<model>Forester</model>
+		<submodel>2.5</submodel>
+		<transmission>4EAT</transmission>
+		<year>09</year>
+		<flashmethod>subarucan</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

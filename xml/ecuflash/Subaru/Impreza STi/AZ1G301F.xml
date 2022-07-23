@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>AZ1G301F</xmlid>
+		<internalidaddress>2004</internalidaddress>
+		<internalidstring>AZ1G301F</internalidstring>
+		<ecuid>5A04784207</ecuid>
+		<make>Subaru</make>
+		<market>JDM</market>
+		<model>Impreza</model>
+		<submodel>STi</submodel>
+		<transmission>MT</transmission>
+		<year>08</year>
+		<flashmethod>subarucan</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>AZ1G300F</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

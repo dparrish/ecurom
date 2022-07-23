@@ -1,0 +1,25 @@
+<rom>
+	<romid>
+		<xmlid>JP3D300A</xmlid>
+		<internalidaddress>400c</internalidaddress>
+		<internalidstring>JP3D300A</internalidstring>
+		<caseid>22611AP200</caseid>
+		<ecuid>JP3D300A</ecuid>
+		<make>Subaru</make>
+		<market>EDM</market>
+		<model>Forester</model>
+		<submodel>Diesel</submodel>
+		<transmission>Auto</transmission>
+		<year>EURO4</year>
+		<flashmethod>subarucand</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

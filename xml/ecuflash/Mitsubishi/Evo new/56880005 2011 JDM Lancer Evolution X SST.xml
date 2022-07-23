@@ -1,0 +1,722 @@
+	<rom>
+	  <romid>
+	    <xmlid>56880005</xmlid>
+	    <internalidaddress>5002a</internalidaddress>
+	    <internalidhex>56880005</internalidhex>
+	    <make>Mitsubishi</make>
+	    <market>JDM</market>
+	    <model>Lancer</model>
+	    <submodel>Evolution X</submodel>
+	    <transmission>SST</transmission>
+	    <year>2011</year>
+	    <flashmethod>mitsucan</flashmethod>
+	    <memmodel>M32186F8</memmodel>
+	    <checksummodule>mitsucan</checksummodule>
+	  </romid>
+	  
+          <notes>
+               2012/11/23 [Tactrix] Moved most non-address attributes to evoxbase.xml base class. Standardized file naming.
+               2012/11/19 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+          </notes>
+	  
+  	  <include>evo10base</include>
+
+	  <table name="Mode 23 - IFMode 0x05 -> 0x23 #1" address="7f6af"/>
+
+	  <table name="Mode 23 - IFMode 0x05 -> 0x23 #2" address="8ac0f"/>
+
+	  <table name="Mode 23 - DoMode 0x4D -> 0x5D" level="1" />
+
+	  <table name="ASC OFF, SST OFF Fix 0x00E9 -> 0x0100" address="53b14"/>
+
+	  <table name="DTC P1238 0x0384 -> 0xFFFF Mass airflow sensor plausibility (Torque Monitor)" address="63c50"/>
+
+	  <table name="DTC P1241 0x03E8 -> 0xFFFF Torque monitor" address="63c46"/>
+
+	  <table name="DTC P1235 0x0026 -> 0xFFFF Mass airflow sensor plausibility" address="54a0e"/>
+
+	  <table name="DTC P1233 0x0028 -> 0xFFFF Throttle position sensor (main) plausibility" address="54a0a"/>
+
+	  <table name="DTC P1234 0x0028 -> 0xFFFF Throttle position sensor (sub) plausibility" address="54a0c"/>
+
+	  <table name="DTC P0139 0x1 -> 0x0 Oxygen Sensor Circuit Slow Response (Bank1, Sensor2)" address="503b8"/>
+
+	  <table name="ECU ID" address="5002a"/>
+
+	  <table name="High Octane Timing Map" address="55957">
+	    <table name="Load" address="618b2"/>
+	    <table name="RPM" address="6187e"/>
+	  </table>
+
+	  <table name="Low Octane Timing Map" address="55b59">
+	    <table name="Load" address="618b2"/>
+	    <table name="RPM" address="6187e"/>
+	  </table>
+
+	  <table name="Upper Bound Ignition Timing" address="60ca9">
+	    <table name="Load" address="618b2"/>
+	    <table name="RPM" address="6187e"/>
+	  </table>
+
+	  <table name="Lower Bound Ignition Timing" address="507a8">
+	    <table name="Load" address="61d3e"/>
+	    <table name="RPM" address="61cc6"/>
+	  </table>
+
+	  <table name="Lower Bound Ignition Timing Adder vs CTS" address="52d04">
+	    <table name="Coolant Temp" address="61ba0"/>
+	  </table>
+
+	  <table name="Ignition Warmup Retard" address="5bbf9">
+	    <table name="Load" address="618b2"/>
+	    <table name="RPM" address="6187e"/>
+	  </table>
+
+	  <table name="EGR Timing Advance" address="57359">
+	    <table name="Load" address="61f3a"/>
+	    <table name="RPM" address="61f20"/>
+	  </table>
+
+	  <table name="Timing Reduction vs Load/RPM" address="5064d">
+	    <table name="Load" address="61d3e"/>
+	    <table name="RPM" address="61cc6"/>
+	  </table>
+
+	  <table name="IAT Ignition Advance Compensation" address="56184">
+	    <table name="IAT" address="61a80"/>
+	  </table>
+
+	  <table name="Percent Low Temp Timing Trim vs Coolant Temp" address="561bc">
+	    <table name="Engine Temp" address="61a42"/>
+	  </table>
+
+	  <table name="Barometric Ignition Advance Compensation" address="56190">
+	    <table name="Baro" address="617ba"/>
+	  </table>
+
+	  <table name="MIVEC Intake Normal Coolant Temp" address="5deab">
+	    <table name="Load" address="61fd6"/>
+	    <table name="RPM" address="62006"/>
+	  </table>
+
+	  <table name="MIVEC Intake Low Coolant Temp" address="5e0ab">
+	    <table name="Load" address="61fd6"/>
+	    <table name="RPM" address="62006"/>
+	  </table>
+	
+	  <table name="MIVEC Intake Map Interpolation" address="5e6a8">
+	    <table name="Coolant Temperature" address="62e6c"/>
+	  </table>
+	
+	  <table name="MIVEC Exhaust Normal Coolant Temp" address="5e2ab">
+	    <table name="Load" address="61fd6"/>
+	    <table name="RPM" address="62006"/>
+	  </table>
+	
+	  <table name="MIVEC Exhaust Low Coolant Temp" address="5e4ab">
+	    <table name="Load" address="61fd6"/>
+	    <table name="RPM" address="62006"/>
+	  </table>
+	
+	  <table name="MIVEC Exhaust Map Interpolation" address="5e6b6">
+	    <table name="Coolant Temperature" address="62e6c"/>
+	  </table>
+	
+	  <table name="Percent MIVEC Intake vs Unknown" address="5e6c4">
+	    <table name="Unknown" address="62e84"/>
+	  </table>
+	
+	  <table name="Percent MIVEC Exhaust vs Unknown" address="5e6d4">
+	    <table name="Unknown" address="62e84"/>
+	  </table>
+	
+	  <table name="High Octane Fuel Map" address="55027">
+	    <table name="Load" address="61838"/>
+	    <table name="RPM" address="61812"/>
+	  </table>
+	 
+	  <table name="Low Octane Fuel Map" address="552d7">
+	    <table name="Load" address="61838"/>
+	    <table name="RPM" address="61812"/>
+	  </table>
+	
+	  <table name="Calibration Fuel Map" address="57777">
+	    <table name="Load" address="62228"/>
+	    <table name="RPM" address="621fc"/>
+	  </table>
+	
+	  <table name="Cylinder Fuel Trim #1" address="57eb1">
+	    <table name="Load" address="61838"/>
+	    <table name="RPM" address="62424"/>
+	  </table>
+	 
+	  <table name="Cylinder Fuel Trim #2" address="5809b">
+	    <table name="Load" address="61838"/>
+	    <table name="RPM" address="62424"/>
+	  </table>
+	
+	  <table name="Cylinder Fuel Trim #3" address="58285">
+	    <table name="Load" address="61838"/>
+	    <table name="RPM" address="62424"/>
+	  </table>
+	
+	  <table name="Cylinder Fuel Trim #4" address="5846f">
+	    <table name="Load" address="61838"/>
+	    <table name="RPM" address="62424"/>
+	  </table>
+	
+	  <table name="Evap Map #1" address="55d5b">
+	    <table name="Load" address="618b2"/>
+	    <table name="RPM" address="6187e"/>
+	  </table>
+	
+	  <table name="Evap Map #2" address="55f5d">
+	    <table name="Load" address="618b2"/>
+	    <table name="RPM" address="6187e"/>
+	  </table>
+	
+	  <table name="Max Lean Oct Avg AFR vs Load" address="57a86">
+	    <table name="Unknown" address="621e0"/>
+	  </table>
+	
+	  <table name="Max Rich AFR Clip vs Coolant Temp" address="5a4dc">
+	    <table name="Coolant Temperature" address="5d61e"/>
+	  </table>
+	
+	  <table name="Octane Related" address="5abb4">
+	    <table name="Coolant Temp" address="61916"/>
+	  </table>
+	
+	  <table name="Fuel Injector Scaling" address="536d2"/>
+	  
+	  <table name="Injector Battery Voltage Latency Compensation" address="556d0">
+	    <table name="Battery Voltage" address="6178e"/>
+	  </table>
+	
+	  <table name="Cranking Enrichment IPW Adder" address="5753e">
+	    <table name="Coolant Temperature" address="6196c"/>
+	  </table>
+	
+	  <table name="Injector Base Latency" address="53000"/>
+	
+	  <table name="Minimum IPW SHLL5 (stock)" address="53002"/>
+	
+	  <table name="Minimum IPW SHLL0" address="53002"/>
+	
+	  <table name="Closed Loop - LT Trim Control" address="5557f">
+	    <table name="Conditions">
+	      <data>Low -> Mid</data>
+	      <data>Mid -> Low</data>
+	      <data>Mid -> High</data>
+	      <data>High -> Mid</data>
+	    </table>
+	  </table>
+	  
+	<table name="Open Loop Load High Octane #1" address="5756c">
+	<table name="RPM" address="6169e"/>
+	</table>
+	
+	<table name="Open Loop Load Low Octane #1" address="555da">
+	<table name="RPM" address="6169e"/>
+	</table>
+	
+	<table name="Open Loop Load High Octane #2" address="57554">
+	<table name="RPM" address="6169e"/>
+	</table>
+	
+	<table name="Open Loop Load Low Octane #2" address="555c2">
+	<table name="RPM" address="6169e"/>
+	</table>
+	
+	<table name="MAF Scaling Part 1" address="575de">
+	<table name="Volts" address="6203c"/>
+	</table>
+	
+	<table name="MAF Scaling Part 2" address="57636">
+	<table name="Volts" address="62094"/>
+	</table>
+	
+	<table name="MAF Scaling Part 3" address="5768e">
+	<table name="Volts" address="620ec"/>
+	</table>
+	
+	<table name="MAP based Load Calc #1 - Hot/Interpolated 2010" address="6094a">
+	<table name="MAP" address="634a0"/>
+	<table name="RPM" address="63474"/>
+	</table>
+	
+	<table name="MAP based Load Calc #2 - Cold/Interpolated 2010" address="60648">
+	<table name="MAP" address="644a0"/>
+	<table name="RPM" address="63474"/>
+	</table>
+	
+	<table name="MAP based Load Calc #3 2010" address="60346">
+	<table name="MAP" address="644a0"/>
+	<table name="RPM" address="63474"/>
+	</table>
+	
+	<table name="Boost Control Load Offset" address="53488"/>
+	
+	<table name="Boost Target Engine Load #1A (High Gear Range)" address="58f45">
+	  <table name="Throttle" address="63074"/>
+	  <table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Boost Target Engine Load #1B (High Gear Range)" address="58fef">
+	<table name="Throttle" address="63074"/>
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Boost Target Engine Load #2 (Low Gear Range)" address="57494">
+	<table name="Throttle" address="63074"/>
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Reactive Solenoid Turbo Boost Error Correction" address="58dd8">
+	<table name="Load Error" address="6301c"/>
+	</table>
+	
+	<table name="Boost Cut Delay Timer" address="5306c"/>
+	<table name="Boost Limit" address="555b4">
+	<table name="RPM" address="61fac"/>
+	</table>
+	
+	<table name="Boost Control RPM Per MPH Xover (Gear Based)" address="546aa"/>
+	<table name="Reactive Solenoid Base WGDC Map #1A (High Gear Range)" address="58df1">
+	<table name="Throttle" address="63074"/>
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Reactive Solenoid Base WGDC Map #1B (High Gear Range)" address="58e9b">
+	<table name="Throttle" address="63074"/>
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Reactive Solenoid Base WGDC Map #2 (Low Gear Range)" address="573eb">
+	<table name="Throttle" address="63074"/>
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Reactive Solenoid WGDC Correction Interval (High Gear Range)" address="5346e"/>
+	<table name="Reactive Solenoid WGDC Correction Interval (Low Gear Range)" address="546ba"/>
+	<table name="Reactive Solenoid Max Total Upward WGDC Correction vs TPS" address="58dca">
+	<table name="TPS" address="6305c"/>
+	</table>
+	
+	<table name="Reactive Solenoid Max Total Downward WGDC Correction" address="5346c"/>
+	<table name="Passive Solenoid Base WGDC Map #1A (High Gear Range)" address="5a512">
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Passive Solenoid Base WGDC Map #1B (High Gear Range)" address="5a528">
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Passive Solenoid Base WGDC Map #2 (Low Gear Range)" address="5a53e">
+	<table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Throttle Map #1" address="50ce0">
+	<table name="Load" address="61dea"/>
+	<table name="RPM" address="61cec"/>
+	</table>
+	
+	<table name="Throttle Map #2" address="5130a">
+	<table name="Load" address="61dea"/>
+	<table name="RPM" address="61cec"/>
+	</table>
+	
+	<table name="Throttle Map #3" address="51934">
+	<table name="Load" address="61dea"/>
+	<table name="RPM" address="61cec"/>
+	</table>
+	
+	<table name="Throttle Map #4" address="51f5e">
+	<table name="Load" address="61dea"/>
+	<table name="RPM" address="61cec"/>
+	</table>
+	
+	<table name="Throttle Map #5" address="52588">
+	<table name="Load" address="61dea"/>
+	<table name="RPM" address="61cec"/>
+	</table>
+	
+	<table name="Throttle Conditional Switch" address="54998"/>
+	
+	<table name="Rev Limiter" address="53062">
+	  <table>
+	    <data>Rev Limiter ON</data>
+	    <data>Rev Limiter OFF</data>
+	  </table>
+	</table>
+	
+	<table name="Stationary Rev Limiter" address="546b0"/>
+	
+	<table name="Stationary Rev Limit Cross Under Max Speed Enable Delay" address="546b2"/>
+	
+	<table name="Max Speed for Stationary Rev Limit" address="546ae"/>
+	
+	<table name="Speed Limiter #1" address="53066">
+	  <table name="X">
+	    <data>Limiter ON</data>
+	    <data>Limiter OFF</data>
+	  </table>
+	</table>
+	
+	<table name="Airflow Check #1" address="5ed07">
+	  <table name="Throttle Main or SUB Inverted Opening" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Airflow Check #2" address="5edfd">
+	  <table name="Throttle Main or SUB Inverted Opening" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Airflow Check #3" address="5eef3">
+	  <table name="Throttle Main or SUB Inverted Opening" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Airflow Check #4" address="5effd">
+	  <table name="TPS-Related" address="62f3a"/>
+	  <table name="RPM" address="62f14"/>
+	</table>
+	
+	<table name="Airflow Check #1 (Old Style)" address="5ed07">
+	  <table name="TPS-Related" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Airflow Check #2 (Old Style)" address="5edfd">
+	  <table name="TPS-Related" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Airflow Check #3 (Old Style)" address="5eef3">
+	  <table name="TPS-Related" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Airflow Check Offset" address="60fa5">
+	  <table name="TPS-Related" address="634ce"/>
+	  <table name="Reactive Solenoid BWGDC-Related" address="634e6"/>
+	</table>
+	
+	<table name="Torque Limiter #1" address="642ad">
+	  <table name="TPS-Related" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Torque Limiter #2" address="643a3">
+	  <table name="TPS-Related" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Torque Limiter #3" address="64499">
+	  <table name="TPS-Related" address="62ef2"/>
+	  <table name="RPM" address="62eca"/>
+	</table>
+	
+	<table name="Torque Limiter #4" address="6458f">
+	  <table name="TPS-Related" address="62f3a"/>
+	  <table name="RPM" address="62f14"/>
+	</table>
+	
+	<table name="Knock Sensitivity Load Threshold" address="561ec">
+	  <table name="RPM" address="632f4"/>
+	</table>
+	
+	<table name="Knock Background Noise Multiplier" address="5a0f4">
+	  <table name="RPM" address="6253a"/>
+	</table>
+	
+	<table name="Knock Background Noise Adder (SINGLE GAIN) #1" address="6032c">
+	  <table name="RPM" address="6253a"/>
+	</table>
+	
+	<table name="Knock Background Noise Adder (SINGLE GAIN) #2" address="5a0cc">
+	  <table name="RPM" address="6253a"/>
+	</table>
+	
+	<table name="Knock Background Noise Adder (TRIPLE GAIN) #1" address="60318">
+	  <table name="RPM" address="6253a"/>
+	</table>
+	
+	<table name="Knock Background Noise Adder (TRIPLE GAIN) #2" address="5a0e0">
+	  <table name="RPM" address="6253a"/>
+	</table>
+	
+	<table name="1st gear TPS limiter (Drive)" address="60c48">
+	  <table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="1st gear TPS limiter (Reverse)" address="60c72">
+	  <table name="RPM" address="62ff2"/>
+	</table>
+	
+	<table name="Idle RPM #1 vs Coolant Temp 2010" address="5f6cc">
+	  <table name="Coolant Temperature" address="61a54"/>
+	</table>
+	
+	<table name="Idle RPM #2 vs Coolant Temp 2010" address="5f6bc">
+	  <table name="Coolant Temperature" address="61a54"/>
+	</table>
+	
+	<table name="Idle RPM #3 vs Coolant Temp 2010" address="56248">
+	  <table name="Coolant Temperature" address="61a54"/>
+	</table>
+	
+	<table name="Idle RPM #4 vs Coolant Temp 2010" address="5abc0">
+	  <table name="Coolant Temperature" address="61a54"/>
+	</table>
+	
+	<table name="Idle RPM #5 vs Coolant Temp 2010" address="56258">
+	  <table name="Coolant Temperature" address="61a54"/>
+	</table>
+	
+	<table name="Idle RPM #6 vs Coolant Temp" address="5abf2">
+	  <table name="Coolant Temperature" address="6193e"/>
+	</table>
+	
+	<table name="Idle RPM #7 vs Coolant Temp" address="5abe6">
+	  <table name="Coolant Temperature" address="6193e"/>
+	</table>
+	
+	<table name="Idle RPM #8 vs Coolant Temp" address="5a13c">
+	  <table name="Coolant Temperature" address="6193e"/>
+	</table>
+	
+	<table name="Idle RPM #9 vs Coolant Temp" address="5a130">
+	  <table name="Coolant Temperature" address="6193e"/>
+	</table>
+	
+	<table name="Idle Adder #1 vs Coolant Temp" address="60ea8">
+	  <table name="Coolant Temperature" address="61954"/>
+	</table>
+	
+	<table name="Idle Adder #2 vs Coolant Temp" address="60eb6">
+	  <table name="Coolant Temperature" address="61954"/>
+	</table>
+	
+	<table name="Target Idle #1" address="533ca"/>
+	
+	<table name="Target Idle #2" address="53c86"/>
+	
+	<table name="Target Idle #3" address="53c88"/>
+	
+	<table name="Target Idle #4" address="532e2"/>
+	
+	<table name="Target Idle #5" address="53d8a"/>
+	
+	<table name="Target Idle #6" address="532de"/>
+	
+	<table name="Target Idle #7" address="532e4"/>
+	
+	<table name="Target Idle #8" address="53d8c"/>
+	
+	<table name="Target Idle #9" address="532e0"/>
+	
+	<table name="Target Idle #10" address="5403a"/>
+	
+	<table name="Target Idle #11" address="5403e"/>
+	
+	<table name="Target Idle #12" address="548ce"/>
+	
+	<table name="Target Idle #13" address="548cf"/>
+	
+	<table name="Target Idle #14" address="54b18"/>
+	
+	<table name="ECU Options Set #1" address="50072">
+	  <table name="Periphery Bit Number">
+	<data>bit.15</data>
+	<data>bit.14</data>
+	<data>bit.13</data>
+	<data>bit.12</data>
+	<data>bit.11</data>
+	<data>bit.10</data>
+	<data>bit.9</data>
+	<data>bit.8</data>
+	<data>bit.7</data>
+	<data>bit.6</data>
+	<data>bit.5</data>
+	<data>bit.4</data>
+	<data>bit.3</data>
+	<data>bit.2</data>
+	<data>bit.1</data>
+	<data>bit.0</data>
+	</table>
+	</table>
+	<table name="ECU Options Set #2" address="50082">
+	<table name="Periphery Bit Number">
+	<data>bit.15</data>
+	<data>bit.14</data>
+	<data>bit.13</data>
+	<data>bit.12</data>
+	<data>bit.11</data>
+	<data>bit.10</data>
+	<data>bit.9</data>
+	<data>bit.8</data>
+	<data>bit.7: Enable Knock Retard</data>
+	<data>bit.6</data>
+	<data>bit.5</data>
+	<data>bit.4</data>
+	<data>bit.3</data>
+	<data>bit.2</data>
+	<data>bit.1: Enable Rear O2 Sensor</data>
+	<data>bit.0</data>
+	</table>
+	</table>
+	<table name="ECU Options Set #3" address="50092">
+	<table name="Periphery Bit Number">
+	<data>bit.15</data>
+	<data>bit.14: Cruise Control Enabled/Disabled</data>
+	<data>bit.13</data>
+	<data>bit.12</data>
+	<data>bit.11</data>
+	<data>bit.10</data>
+	<data>bit.9</data>
+	<data>bit.8</data>
+	<data>bit.7</data>
+	<data>bit.6</data>
+	<data>bit.5</data>
+	<data>bit.4</data>
+	<data>bit.3</data>
+	<data>bit.2</data>
+	<data>bit.1</data>
+	<data>bit.0: Lean Spool Off/On</data>
+	</table>
+	</table>
+	<table name="ECU Options Set #4" address="500a2">
+	<table name="Periphery Bit Number">
+	<data>bit.15</data>
+	<data>bit.14</data>
+	<data>bit.13</data>
+	<data>bit.12</data>
+	<data>bit.11</data>
+	<data>bit.10</data>
+	<data>bit.9</data>
+	<data>bit.8</data>
+	<data>bit.7</data>
+	<data>bit.6</data>
+	<data>bit.5</data>
+	<data>bit.4</data>
+	<data>bit.3</data>
+	<data>bit.2</data>
+	<data>bit.1</data>
+	<data>bit.0</data>
+	</table>
+	</table>
+	<table name="ECU Options Set #5" address="500b2">
+	<table name="Periphery Bit Number">
+	<data>bit.15</data>
+	<data>bit.14</data>
+	<data>bit.13</data>
+	<data>bit.12</data>
+	<data>bit.11</data>
+	<data>bit.10</data>
+	<data>bit.9</data>
+	<data>bit.8</data>
+	<data>bit.7</data>
+	<data>bit.6</data>
+	<data>bit.5</data>
+	<data>bit.4</data>
+	<data>bit.3</data>
+	<data>bit.2</data>
+	<data>bit.1</data>
+	<data>bit.0</data>
+	</table>
+	</table>
+	<table name="ECU Options Set #6" address="500c2">
+	<table name="Periphery Bit Number">
+	<data>bit.15</data>
+	<data>bit.14</data>
+	<data>bit.13</data>
+	<data>bit.12</data>
+	<data>bit.11</data>
+	<data>bit.10</data>
+	<data>bit.9</data>
+	<data>bit.8</data>
+	<data>bit.7</data>
+	<data>bit.6</data>
+	<data>bit.5</data>
+	<data>bit.4</data>
+	<data>bit.3</data>
+	<data>bit.2</data>
+	<data>bit.1</data>
+	<data>bit.0</data>
+	</table>
+	</table>
+	<table name="ECU Options Set #7" address="500d2">
+	<table name="Periphery Bit Number">
+	<data>bit.15</data>
+	<data>bit.14</data>
+	<data>bit.13</data>
+	<data>bit.12</data>
+	<data>bit.11</data>
+	<data>bit.10</data>
+	<data>bit.9</data>
+	<data>bit.8</data>
+	<data>bit.7</data>
+	<data>bit.6</data>
+	<data>bit.5</data>
+	<data>bit.4</data>
+	<data>bit.3</data>
+	<data>bit.2</data>
+	<data>bit.1</data>
+	<data>bit.0</data>
+	</table>
+	</table>
+	<table name="MUT Table" address="3d8e4">
+	<table name="X">
+	<data>0</data>
+	<data>1</data>
+	<data>2</data>
+	<data>3</data>
+	<data>4</data>
+	<data>5</data>
+	<data>6</data>
+	<data>7</data>
+	<data>8</data>
+	<data>9</data>
+	<data>A</data>
+	<data>B</data>
+	<data>C</data>
+	<data>D</data>
+	<data>E</data>
+	<data>F</data>
+	</table>
+	<table name="Y">
+	<data>MUT0X</data>
+	<data>MUT1X</data>
+	<data>MUT2X</data>
+	<data>MUT3X</data>
+	<data>MUT4X</data>
+	<data>MUT5X</data>
+	<data>MUT6X</data>
+	<data>MUT7X</data>
+	<data>MUT8X</data>
+	<data>MUT9X</data>
+	<data>MUTAX</data>
+	<data>MUTBX</data>
+	<data>MUTCX</data>
+	<data>MUTDX</data>
+	<data>MUTEX</data>
+	<data>MUTFX</data>
+	<data>MUT10X</data>
+	<data>MUT11X</data>
+	<data>MUT12X</data>
+	<data>MUT13X</data>
+	<data>MUT14X</data>
+	<data>MUT15X</data>
+	<data>MUT16X</data>
+	<data>MUT17X</data>
+	<data>MUT18X</data>
+	<data>MUT19X</data>
+	<data>MUT1AX</data>
+	<data>MUT1BX</data>
+	<data>MUT1CX</data>
+	<data>MUT1DX</data>
+	</table>
+	</table>
+	</rom>

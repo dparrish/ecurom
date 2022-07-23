@@ -1,0 +1,28 @@
+<rom>
+  <romid>
+    <xmlid>88590016</xmlid>
+    <internalidaddress>f52</internalidaddress>
+    <internalidhex>88590016</internalidhex>
+    <make>Mitsubishi</make>
+    <market>USDM</market>
+    <model>Lancer</model>
+    <submodel>EVO9</submodel>
+    <transmission>Manual</transmission>
+    <year>2006</year>
+    <flashmethod>mitsukernelocp</flashmethod>
+    <memmodel>SH7055</memmodel>
+  </romid>
+  
+  <notes>
+	2012/11/23 [Tactrix] Created and performed basic testing.
+	2012/11/19 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+  </notes>	
+
+  <include>88590015</include>
+
+  <table name="MUT Table" category="MUT" address="3efd0">
+    <table name="X"/>
+    <table name="Y"/>
+  </table>
+
+</rom>

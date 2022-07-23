@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>E2VH101C</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>E2VH101C</internalidstring>
+		<ecuid>4312044006</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Impreza</model>
+		<submodel>2.5i</submodel>
+		<transmission>MT/AT</transmission>
+		<year>06</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>E2VH102C</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

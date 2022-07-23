@@ -1,0 +1,642 @@
+<rom>
+	<romid>
+		<xmlid>53040010</xmlid>
+		<internalidaddress>5002a</internalidaddress>
+		<internalidhex>53040010</internalidhex>
+		<make>Mitsubishi</make>
+		<market>EDM</market>
+		<model>Lancer</model>
+		<submodel>Evolution X</submodel>
+		<transmission>5MT</transmission>
+		<year>2008</year>
+		<flashmethod>mitsucan</flashmethod>
+		<memmodel>M32186F8</memmodel>
+		<checksummodule>mitsucan</checksummodule>
+	</romid>
+
+	<include>evo10base</include>
+
+	<notes>2014/05/01 [Tactrix] Original file from Golden Evo repository.  If this file is useful to you, please consider donating at http://goldenevo.com/
+2014/05/01 [Tactrix] Moved most non-address attributes to evoxbase.xml base class. Standardized file naming.
+2014/05/01 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+2014/05/20 [Tactrix] Tactrix definition auto cleaned|merged w/ GoldenEvoMay2014.
+</notes>
+
+
+	<table name="Mode 23 - IFMode 0x05 -> 0x23 #1" address="7f145" scaling="Mode 23 - IFMode 0x05 -> 0x23 #1"/>
+
+	<table name="Mode 23 - IFMode 0x05 -> 0x23 #2" address="8aa59" scaling="Mode 23 - IFMode 0x05 -> 0x23 #2"/>
+
+	<table name="Mode 23 - DoMode 0x42 -> 0x52" address="8aa5e" scaling="Mode 23 - DoMode 0x42 -> 0x52"/>
+
+	<table name="ASC OFF, SST OFF Fix 0x00E9 -> 0x0100" address="53b0a" scaling="ASC OFF, SST OFF Fix 0x00E9 -> 0x0100"/>
+
+	<table name="DTC P1238 0x0384 -> 0xFFFF Mass airflow sensor plausibility (Torque Monitor)" address="631ea" scaling="DTC P1238 0x0384 -> 0xFFFF Mass airflow sensor plausibility (Torque Monitor)"/>
+
+	<table name="DTC P1241 0x03E8 -> 0xFFFF Torque monitor" address="631e0" scaling="DTC P1241 0x03E8 -> 0xFFFF Torque monitor"/>
+
+	<table name="DTC P1235 0x0026 -> 0xFFFF Mass airflow sensor plausibility" address="549c0" scaling="DTC P1235 0x0026 -> 0xFFFF Mass airflow sensor plausibility"/>
+
+	<table name="DTC P1233 0x0028 -> 0xFFFF Throttle position sensor (main) plausibility" address="549bc" scaling="DTC P1233 0x0028 -> 0xFFFF Throttle position sensor (main) plausibility"/>
+
+	<table name="DTC P1234 0x0028 -> 0xFFFF Throttle position sensor (sub) plausibility" address="549be" scaling="DTC P1234 0x0028 -> 0xFFFF Throttle position sensor (sub) plausibility"/>
+
+	<table name="ECU ID" address="5002a" scaling="ECU ID"/>
+
+	<table name="High Octane Timing Map" address="5590f" scaling="Timing">
+		<table name="Load" address="60fb2"/>
+		<table name="RPM" address="60f7e"/>
+	</table>
+
+	<table name="Low Octane Timing Map" address="55b11" scaling="Timing">
+		<table name="Load" address="60fb2"/>
+		<table name="RPM" address="60f7e"/>
+	</table>
+
+	<table name="Ignition Warmup Retard" address="5b8c5" scaling="Timing">
+		<table name="Load" address="60fb2"/>
+		<table name="RPM" address="60f7e"/>
+	</table>
+
+	<table name="EGR Timing Advance" address="572b9" scaling="Timing">
+		<table name="Load" address="6155c"/>
+		<table name="RPM" address="61542"/>
+	</table>
+
+	<table name="MIVEC Intake Normal Coolant Temp" address="5db59" scaling="ValveTimingIntake">
+		<table name="Load" address="615c0"/>
+		<table name="RPM" address="615f0"/>
+	</table>
+
+	<table name="MIVEC Intake Low Coolant Temp" address="5dd59" scaling="ValveTimingIntake">
+		<table name="Load" address="615c0"/>
+		<table name="RPM" address="615f0"/>
+	</table>
+
+	<table name="MIVEC Exhaust Normal Coolant Temp" address="5df59" scaling="ValveTimingExhaust">
+		<table name="Load" address="615c0"/>
+		<table name="RPM" address="615f0"/>
+	</table>
+
+	<table name="MIVEC Exhaust Low Coolant Temp" address="5e159" scaling="ValveTimingExhaust">
+		<table name="Load" address="615c0"/>
+		<table name="RPM" address="615f0"/>
+	</table>
+
+	<table name="High Octane Fuel Map" address="55027" scaling="AFR">
+		<table name="Load" address="60f38"/>
+		<table name="RPM" address="60f12"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="552d7" scaling="AFR">
+		<table name="Load" address="60f38"/>
+		<table name="RPM" address="60f12"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #1" address="57db1" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f38"/>
+		<table name="RPM" address="61a0e"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #2" address="57f9b" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f38"/>
+		<table name="RPM" address="61a0e"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #3" address="58185" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f38"/>
+		<table name="RPM" address="61a0e"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #4" address="5836f" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f38"/>
+		<table name="RPM" address="61a0e"/>
+	</table>
+
+	<table name="Evap Map #1" address="55d13" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60fb2"/>
+		<table name="RPM" address="60f7e"/>
+	</table>
+
+	<table name="Evap Map #2" address="55f15" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60fb2"/>
+		<table name="RPM" address="60f7e"/>
+	</table>
+
+	<table name="Fuel Injector Scaling" address="536cc" scaling="InjectorScaling"/>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="556d0" scaling="InjectorLatency">
+		<table name="Battery Voltage" address="60ea2"/>
+	</table>
+
+	<table name="Injector Base Latency" address="53000" scaling="InjectorLatency"/>
+
+	<table name="Minimum IPW SHLL5 (stock)" address="53002" scaling="IPW16:SHLL5"/>
+
+	<table name="Open Loop Load High Octane #1" address="574cc" scaling="Load8">
+		<table name="RPM" address="60db2"/>
+	</table>
+
+	<table name="Open Loop Load Low Octane #1" address="555da" scaling="Load8">
+		<table name="RPM" address="60db2"/>
+	</table>
+
+	<table name="Open Loop Load High Octane #2" address="574b4" scaling="Load8">
+		<table name="RPM" address="60db2"/>
+	</table>
+
+	<table name="Open Loop Load Low Octane #2" address="555c2" scaling="Load8">
+		<table name="RPM" address="60db2"/>
+	</table>
+
+	<table name="Boost Control Load Offset" address="53484" scaling="Load16"/>
+
+	<table name="Boost Target Engine Load #1A (High Gear Range)" address="58e45" scaling="Load8">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Boost Target Engine Load #1B (High Gear Range)" address="58eef" scaling="Load8">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Boost Target Engine Load #2 (Low Gear Range)" address="573f5" scaling="Load8">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Reactive Solenoid Turbo Boost Error Correction" address="58cd8" scaling="DynamicBoost">
+		<table name="Load Error" address="625f6"/>
+	</table>
+
+	<table name="Boost Cut Delay Timer" address="53068" scaling="Time"/>
+
+	<table name="Boost Limit" address="555b4" scaling="LoadBoost">
+		<table name="RPM" address="61596"/>
+	</table>
+
+	<table name="Boost Control RPM Per MPH Xover (Gear Based)" address="54678" scaling="RPMPerMPH"/>
+
+	<table name="Reactive Solenoid Base WGDC Map #1A (High Gear Range)" address="58cf1" scaling="WGDuty">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Reactive Solenoid Base WGDC Map #1B (High Gear Range)" address="58d9b" scaling="WGDuty">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Reactive Solenoid Base WGDC Map #2 (Low Gear Range)" address="5734b" scaling="WGDuty">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Reactive Solenoid WGDC Correction Interval (High Gear Range)" address="5346a" scaling="uint16"/>
+
+	<table name="Reactive Solenoid WGDC Correction Interval (Low Gear Range)" address="54688" scaling="uint16"/>
+
+	<table name="Reactive Solenoid Max Total Upward WGDC Correction vs TPS" address="58cca" scaling="OffsetWGDC">
+		<table name="TPS" address="62636"/>
+	</table>
+
+	<table name="Reactive Solenoid Max Total Downward WGDC Correction" address="5346c" scaling="OffsetWGDC16"/>
+
+	<table name="Passive Solenoid Base WGDC Map #1A (High Gear Range)" address="5a1e6" scaling="WGDuty">
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Passive Solenoid Base WGDC Map #1B (High Gear Range)" address="5a1fc" scaling="WGDuty">
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Passive Solenoid Base WGDC Map #2 (Low Gear Range)" address="5a212" scaling="WGDuty">
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Throttle Map #1" address="50b64" scaling="Throttle Opening">
+		<table name="Load" address="6140c"/>
+		<table name="RPM" address="61338"/>
+	</table>
+
+	<table name="Throttle Map #2" address="5118e" scaling="Throttle Opening">
+		<table name="Load" address="6140c"/>
+		<table name="RPM" address="61338"/>
+	</table>
+
+	<table name="Throttle Map #3" address="517b8" scaling="Throttle Opening">
+		<table name="Load" address="6140c"/>
+		<table name="RPM" address="61338"/>
+	</table>
+
+	<table name="Throttle Map #4" address="51de2" scaling="Throttle Opening">
+		<table name="Load" address="6140c"/>
+		<table name="RPM" address="61338"/>
+	</table>
+
+	<table name="Throttle Map #5" address="5240c" scaling="Throttle Opening">
+		<table name="Load" address="6140c"/>
+		<table name="RPM" address="61338"/>
+	</table>
+
+	<table name="Throttle Conditional Switch" address="5495a" scaling="RPMStatLimit"/>
+
+	<table name="Rev Limiter" address="5305e" scaling="RPMLimit">
+	</table>
+
+	<table name="Stationary Rev Limiter" address="5467e" scaling="RPMStatLimit"/>
+
+	<table name="Stationary Rev Limit Cross Under Max Speed Enable Delay" address="54680" scaling="Time"/>
+
+	<table name="Max Speed for Stationary Rev Limit" address="5467c" scaling="VehicleSpeedFreq"/>
+
+	<table name="Speed Limiter #1" address="53062" scaling="VehicleSpeed">
+	</table>
+
+	<table name="Airflow Check #1" address="5e985" scaling="EngineTorque">
+		<table name="Throttle Main or SUB Inverted Opening" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Airflow Check #2" address="5ea7b" scaling="EngineTorque">
+		<table name="Throttle Main or SUB Inverted Opening" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Airflow Check #3" address="5eb71" scaling="EngineTorque">
+		<table name="Throttle Main or SUB Inverted Opening" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Airflow Check #4" address="5ec7b" scaling="uint8">
+		<table name="TPS-Related" address="62514"/>
+		<table name="RPM" address="624a6"/>
+	</table>
+
+	<table name="Airflow Check #1 (Old Style)" address="5e985" scaling="uint8">
+		<table name="TPS-Related" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Airflow Check #2 (Old Style)" address="5ea7b" scaling="uint8">
+		<table name="TPS-Related" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Airflow Check #3 (Old Style)" address="5eb71" scaling="uint8">
+		<table name="TPS-Related" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Airflow Check Offset" address="60ac5" scaling="uint8">
+		<table name="TPS-Related" address="62a98"/>
+		<table name="Reactive Solenoid BWGDC-Related" address="62ab0"/>
+	</table>
+
+	<table name="Torque Limiter #1" address="63847" scaling="uint8">
+		<table name="TPS-Related" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Torque Limiter #2" address="6393d" scaling="uint8">
+		<table name="TPS-Related" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Torque Limiter #3" address="63a33" scaling="uint8">
+		<table name="TPS-Related" address="624cc"/>
+		<table name="RPM" address="624a4"/>
+	</table>
+
+	<table name="Torque Limiter #4" address="63b29" scaling="uint8">
+		<table name="TPS-Related" address="62514"/>
+		<table name="RPM" address="624a6"/>
+	</table>
+
+	<table name="ECU Options Set #1" address="50072" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #2" address="50082" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #3" address="50092" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #4" address="500a2" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #5" address="500b2" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #6" address="500c2" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #7" address="500d2" scaling="blobbits">
+	</table>
+
+	<table name="MUT Table" address="3e3b8" scaling="MUT32">
+	</table>
+
+	<table name="IAT Ignition Advance Compensation" address="5613c" scaling="IgnitionCompensation">
+		<table name="IAT" address="61132"/>
+	</table>
+
+	<table name="Percent Low Temp Timing Trim vs Coolant Temp" address="56174" scaling="Percent255">
+		<table name="Engine Temp" address="6111c"/>
+	</table>
+
+	<table name="MIVEC Intake Map Interpolation" address="5e356" scaling="MIVECInterpolation">
+		<table name="Coolant Temperature" address="62440"/>
+	</table>
+
+	<table name="MIVEC Exhaust Map Interpolation" address="5e364" scaling="MIVECInterpolation">
+		<table name="Coolant Temperature" address="62440"/>
+	</table>
+
+	<table name="Calibration Fuel Map" address="576d7" scaling="Percent128">
+		<table name="Load" address="61812"/>
+		<table name="RPM" address="617e6"/>
+	</table>
+
+	<table name="Max Rich AFR Clip vs Coolant Temp" address="5a1b0" scaling="AFR">
+		<table name="Coolant Temperature" address="5d2cc"/>
+	</table>
+
+	<table name="Cranking Enrichment IPW Adder" address="5749e" scaling="TimeInjCranking">
+		<table name="Coolant Temperature" address="6105a"/>
+	</table>
+
+	<table name="Cranking IPW" address="57b9a" scaling="CrankingIPW">
+		<table name="Coolant Temperature" address="6108a"/>
+	</table>
+
+	<table name="Closed Loop - LT Trim Control" address="5557f" scaling="LT Trim Hz">
+	</table>
+
+	<table name="MAF Scaling Horizontal" address="5753e" scaling="GramsPerSecond">
+		<table name="Volts" address="61626"/>
+	</table>
+
+	<table name="MAF Scaling Part 1" address="5753e" scaling="uint16">
+		<table name="Volts" address="61626"/>
+	</table>
+
+	<table name="MAF Scaling Part 2" address="57596" scaling="uint16">
+		<table name="Volts" address="6167e"/>
+	</table>
+
+	<table name="MAF Scaling Part 3" address="575ee" scaling="uint16">
+		<table name="Volts" address="616d6"/>
+	</table>
+
+	<table name="MAP based Load Calc #1 - Hot/Interpolated" address="60490" scaling="Loadify">
+		<table name="MAP" address="62a6c"/>
+		<table name="RPM" address="62a40"/>
+	</table>
+
+	<table name="MAP based Load Calc #2 - Cold/Interpolated" address="601b4" scaling="Loadify">
+		<table name="MAP" address="62a6c"/>
+		<table name="RPM" address="62a40"/>
+	</table>
+
+	<table name="MAP based Load Calc #3" address="5fed8" scaling="Loadify">
+		<table name="MAP" address="62a6c"/>
+		<table name="RPM" address="62a40"/>
+	</table>
+
+	<table name="Atmospheric Boost" address="53484" scaling="psia16"/>
+
+	<table name="Boost Target #1A (High Gear Range)" address="58e45" scaling="psia8">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Boost Target #1B (High Gear Range)" address="58eef" scaling="psia8">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Boost Target #2 (Low Gear Range)" address="573f5" scaling="psia8">
+		<table name="Throttle" address="6264e"/>
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Target Boost Error Correction" address="58cd8" scaling="OffsetWGDC">
+		<table name="Boost Error" address="625f6"/>
+	</table>
+
+	<table name="Variable for Boost Control 0xC76C -> 0xC712" address="9e732" scaling="Variable for Boost Control 0xC76C -> 0xC712"/>
+
+	<table name="SHLR->SHLR2 0x5101 -> 0x5102" address="9e734" scaling="SHLR->SHLR2 0x5101 -> 0x5102"/>
+
+	<table name="Boost Error RAM Address 0xC588 -> 0xC586 (is 0x808586 for logging)" address="9e75a" scaling="Boost Error RAM Address 0xC588 -> 0xC586 (is 0x808586 for logging)"/>
+
+	<table name="Boost Error RAM Address in Load Error Table 0xC588 -> 0xC586" address="625f2" scaling="Boost Error RAM Address in Load Error Table 0xC588 -> 0xC586"/>
+
+	<table name="Speed Limiter #2" address="533d2" scaling="VehicleSpeed">
+	</table>
+
+	<table name="Speed Limiter #3" address="53fb2" scaling="VehicleSpeed">
+	</table>
+
+	<table name="Idle RPM #1 vs Coolant Temp" address="5f344" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle RPM #2 vs Coolant Temp" address="5f338" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle RPM #3 vs Coolant Temp" address="561f2" scaling="RPM8">
+		<table name="Coolant Temperature" address="61268"/>
+	</table>
+
+	<table name="Idle RPM #4 vs Coolant Temp" address="5a894" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle RPM #5 vs Coolant Temp" address="561fe" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle RPM #6 vs Coolant Temp" address="5a8c2" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle RPM #7 vs Coolant Temp" address="5a8b6" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle RPM #8 vs Coolant Temp" address="59e10" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle RPM #9 vs Coolant Temp" address="59e04" scaling="RPM8">
+		<table name="Coolant Temperature" address="6102c"/>
+	</table>
+
+	<table name="Idle Adder #1 vs Coolant Temp" address="609c8" scaling="RPM8">
+		<table name="Coolant Temperature" address="61042"/>
+	</table>
+
+	<table name="Idle Adder #2 vs Coolant Temp" address="609d6" scaling="RPM8">
+		<table name="Coolant Temperature" address="61042"/>
+	</table>
+
+	<table name="Target Idle #1" address="533c6" scaling="RPMTarget"/>
+
+	<table name="Target Idle #2" address="53c78" scaling="RPMTarget"/>
+
+	<table name="Target Idle #3" address="53c7a" scaling="RPMTarget"/>
+
+	<table name="Target Idle #4" address="532de" scaling="RPMTarget"/>
+
+	<table name="Target Idle #5" address="53d74" scaling="RPMTarget"/>
+
+	<table name="Target Idle #6" address="532da" scaling="RPMTarget"/>
+
+	<table name="Target Idle #7" address="532e0" scaling="RPMTarget"/>
+
+	<table name="Target Idle #8" address="53d76" scaling="RPMTarget"/>
+
+	<table name="Target Idle #9" address="532dc" scaling="RPMTarget"/>
+
+	<table name="Target Idle #10" address="54016" scaling="RPMTarget"/>
+
+	<table name="Target Idle #11" address="5401a" scaling="RPMTarget"/>
+
+	<table name="Target Idle #12" address="54894" scaling="RPMTarget"/>
+
+	<table name="Target Idle #13" address="54894" scaling="RPMTarget"/>
+
+	<table name="Target Idle #14" address="54ac4" scaling="RPMTarget"/>
+
+	<table name="Low Pulse Width IPW Adder" address="556d8" scaling="IPW_Adder_div_2">
+	</table>
+
+	<table name="Asynchronous Injection - TPS Accel - Adder ECT based" address="55818" scaling="uint8">
+		<table name="ECT" address="61016"/>
+	</table>
+
+	<table name="Asynchronous Injection - TPS Accel - Adder RPM based" address="5a1d2" scaling="uint8">
+		<table name="RPM" address="5d2e4"/>
+	</table>
+
+	<table name="Asynchronous Injection - TPS Accel - Max TPS Threshold" address="55804" scaling="Percent255">
+		<table name="RPM" address="60d6e"/>
+	</table>
+
+	<table name="Asynchronous Injection - TPS Accel - Max IPW Limit" address="5310a" scaling="IPW 2byte"/>
+
+	<table name="Asynchronous Injection - TPS Accel - IPW per change in TPS" address="557f7" scaling="IPW">
+	</table>
+
+	<table name="Fuel Compensation MAT vs MAP - Stock3bar" address="60b89" scaling="Percent_128_add_385_div_512">
+		<table name="MAP" address="62af2"/>
+		<table name="MAT" address="62ae0"/>
+	</table>
+
+	<table name="Load Ramp Rate #1 (Load>70)" address="54a6e" scaling="ReverseInterpolated_Percent255_2byte"/>
+
+	<table name="Load multiplier end when TPS decreased by % (hysteresis)" address="546a2" scaling="Throttle %"/>
+
+	<table name="1st gear TPS limiter (Drive)" address="60768" scaling="Throttle Cap">
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="1st gear TPS limiter (Reverse)" address="60792" scaling="Throttle Cap">
+		<table name="RPM" address="625cc"/>
+	</table>
+
+	<table name="Idle Timing Compensation 1.1" address="5f55a" scaling="IgnitionCompensation">
+		<table name="RPM" address="626e4"/>
+	</table>
+
+	<table name="Idle Timing Compensation 1.2" address="5f57c" scaling="IgnitionCompensation">
+		<table name="RPM" address="626e4"/>
+	</table>
+
+	<table name="Idle Timing Compensation 2.1" address="5f59e" scaling="IgnitionCompensation">
+		<table name="RPM" address="626e4"/>
+	</table>
+
+	<table name="Idle Timing Compensation 2.2" address="5f5c0" scaling="IgnitionCompensation">
+		<table name="RPM" address="626e4"/>
+	</table>
+
+	<table name="Load Accel/Decel IPW Enrichment/Enleanment Load Limit" address="55842" scaling="Loadify_x102">
+		<table name="Load" address="60d6e"/>
+	</table>
+
+	<table name="Load Accel IPW Enrichment - Countdown" address="530da" scaling="uint16"/>
+
+	<table name="Load Accel IPW Enrichment - Decay Rate" address="557a2" scaling="Percent256_1byte">
+		<table name="ECT" address="61016"/>
+	</table>
+
+	<table name="Load Accel IPW Enrichment - ignore Load changes smaller than this #1" address="557ae" scaling="Loadify_x50_1byte">
+		<table name="Load" address="60e1c"/>
+	</table>
+
+	<table name="Load Accel IPW Enrichment - ignore Load changes smaller than this #2" address="557c8" scaling="Loadify_x50_1byte">
+		<table name="Load" address="60e1c"/>
+	</table>
+
+	<table name="Load Accel IPW Enrichment - RPM multi" address="5a1be" scaling="uint8">
+		<table name="RPM" address="5d2e4"/>
+	</table>
+
+	<table name="Load Accel IPW Enrichment - ECT multi" address="5578a" scaling="uint8">
+		<table name="ECT" address="61016"/>
+	</table>
+
+	<table name="Load Decel IPW Enleanment - ignore Load changes smaller than this #1" address="55890" scaling="Loadify_x50_1byte">
+		<table name="Load" address="60e1c"/>
+	</table>
+
+	<table name="Load Decel IPW Enleanment - ignore Load changes smaller than this #2" address="558aa" scaling="Loadify_x50_1byte">
+		<table name="Load" address="60e1c"/>
+	</table>
+
+	<table name="Load Decel IPW Enleanment - RPM multi" address="55862" scaling="uint8">
+		<table name="RPM" address="60d6e"/>
+	</table>
+
+	<table name="Load Decel IPW Enleanment - ECT multi" address="55856" scaling="uint8">
+		<table name="ECT" address="61016"/>
+	</table>
+
+	<table name="Load Decel IPW Enleanment - Load multi" address="55876" scaling="uint8">
+		<table name="Load" address="60e1c"/>
+	</table>
+
+	<table name="Min Load for Fuel Pump High Voltage" address="58f96" scaling="Load8">
+		<table name="Engine Speed" address="60d6e"/>
+	</table>
+
+	<table name="Fuel Pump Low/Full Voltage Hysteresis" address="53488" scaling="Load16"/>
+
+	<table name="OBTR (Over-Boost Timing Retard)" address="58c74" scaling="TimingOBTR">
+		<table name="Load Error" address="6261e"/>
+	</table>
+
+	<table name="OBTR SHLR->SHLR2 0x5201 -> 0x5202" address="21dc8" scaling="OBTR SHLR->SHLR2 0x5201 -> 0x5202"/>
+
+	<table name="OBTR (Over-Boost Timing Retard) Load" address="58c74" scaling="TimingOBTR">
+		<table name="Load Error" address="6261e"/>
+	</table>
+
+	<table name="Reactive Solenoid Max WGDC vs CTS" address="5a228" scaling="WGDuty">
+		<table name="Coolant Temp" address="5d32a"/>
+	</table>
+
+	<table name="DTC P0247 0xF99F -> 0xF19F Turbocharger Wastegate Solenoid B Malfunction (black solenoid)" address="92ba6" scaling="DTC P0247 0xF99F -> 0xF19F Turbocharger Wastegate Solenoid B Malfunction (black solenoid)"/>
+
+	<table name="OBTR Variable for Boost Control 0xC76C -> 0xC712" address="21dc6" scaling="OBTR Variable for Boost Control 0xC76C -> 0xC712"/>
+
+	<table name="OBTR Boost Error RAM Address 0xC588 -> 0xC586" address="21dde" scaling="OBTR Boost Error RAM Address 0xC588 -> 0xC586"/>
+
+	<table name="OBTR Boost Error RAM Address in Load Error Table 0xC588 -> 0xC586" address="6261a" scaling="OBTR Boost Error RAM Address in Load Error Table 0xC588 -> 0xC586"/>
+
+</rom>

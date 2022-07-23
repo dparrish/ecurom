@@ -1,18 +1,24 @@
 <rom>
-  <romid>
-    <xmlid>A8DK100L</xmlid>
-    <internalidaddress>2000</internalidaddress>
-    <internalidstring>A8DK100L</internalidstring>
-    <ecuid>4D525A6006</ecuid>
-    <year>07</year>
-    <market>ADM</market>
-    <make>Subaru</make>
-    <model>Impreza</model>
-    <submodel>WRX</submodel>
-    <transmission>MT</transmission>
-    <memmodel>SH7058</memmodel>
-    <flashmethod>sti05</flashmethod>
-    <checksummodule>subarudbw</checksummodule>
-  </romid>
-  <include>A8DK100O</include>
+	<romid>
+		<xmlid>A8DK100L</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>A8DK100L</internalidstring>
+		<ecuid>4D525A6006</ecuid>
+		<make>Subaru</make>
+		<market>ADM</market>
+		<model>Impreza</model>
+		<submodel>WRX</submodel>
+		<transmission>MT</transmission>
+		<year>07</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>A8DK100O</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
 </rom>

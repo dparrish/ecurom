@@ -1,0 +1,215 @@
+<rom>
+	<romid>
+		<xmlid>EMKS11</xmlid>
+		<internalidaddress>2fefa</internalidaddress>
+		<internalidstring>EMKS11</internalidstring>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Galant</model>
+		<submodel>VR-4 (KennethMods V1.03)</submodel>
+		<transmission>5MT</transmission>
+		<year>2002</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539FA</memmodel>
+	</romid>
+
+	<include>20030013</include>
+	
+	<scaling name="NLTS_RPMLimit" units="Kph" toexpr="375000/x" frexpr="375000/x" format="%.0f" min="1500" max="10000" inc="6" storagetype="uint8" endian="big"/>
+	<scaling name="NLTS_Speed" units="Kph" toexpr="x*2" frexpr="x/2" format="%.0f" min="0" max="64000" inc="1" storagetype="uint16" endian="big"/>
+
+	<table name="Setup Bits" category="Kenneths Mods" address="10f00" type="2D" scaling="EnableDisableBit">
+		<table name="Setup Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15, All Mods Off                 0=Off, 1=Enable   .</data>
+			<data>bit.14, CEL on KnockSUM      (not working)             .</data>
+			<data>bit.13, One Byte Load (F604) (not working)             .</data>
+			<data>bit.12,                                                .</data>
+			<data>bit.11                                                 .</data>
+			<data>bit.10,                                                .</data>
+			<data>bit.09                                                 .</data>
+			<data>bit.08                                                 .</data>
+			<data>bit.07                                                 .</data>
+			<data>bit.06                                                 .</data>
+			<data>bit.05,                                                .</data>
+			<data>bit.04,                                                .</data>
+			<data>bit.03, NLTS                                           .</data>
+			<data>bit.02, Anti Lag AFR Control (Launch Control)          .</data>
+			<data>bit.01, Anti Lag Timing Control (Launch Control)       .</data>
+			<data>bit.00, Stationary RPM Limit (Launch Control)          .</data>
+		</table>
+	</table>
+
+	<table name="CEL on KnockSum" category="Kenneths Mods" address="10f0c" type="1D" level="4" scaling="uint16"/>
+
+	<table name="Normal Rev Limit" category="Kenneths Mods" address="10f02" type="1D" level="4" scaling="RPMLimit_16bit"/>
+
+	<table name="Lanuch Control Rev Limit (stationary limit)" category="Kenneths LC" address="10f06" type="1D" level="4" scaling="RPMLimit_16bit"/>
+
+	<table name="Stationary Limit Switch Speed" category="Kenneths LC" address="10f04" type="1D" level="4" scaling="VehicleSpeed_16bit"/>
+
+	<table name="Stationary Limit InputAddr" category="Kenneths LC" address="10f28" type="1D" level="4" scaling="Hex16"/>
+
+	<table name="Launch Control Bit Mask ON" category="Kenneths LC" address="10f2a" type="2D" scaling="EnableDisableBit">
+		<table name="Mask Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15, Unused                                         .</data>
+			<data>bit.14, Unused                                         .</data>
+			<data>bit.13, Unused                                         .</data>
+			<data>bit.12, Unused                                         .</data>
+			<data>bit.11  Unused                                         .</data>
+			<data>bit.10, Unused                                         .</data>
+			<data>bit.09  Unused                                         .</data>
+			<data>bit.08  D-21      ON = Connected to GND                .</data>
+			<data>bit.07  D-01      ON = Connected to +12v               .</data>
+			<data>bit.06  C-09      ON = Connected to +12v  (Not Working).</data>
+			<data>bit.05, C-07      ON = Connected to +12v               .</data>
+			<data>bit.04, C-02      ON = Connected to GND                .</data>
+			<data>bit.03, B-16      ON = Connected to GND                .</data>
+			<data>bit.02, B-15      ON = Connected to +12v               .</data>
+			<data>bit.01, B-14      ON = Connected to GND                .</data>
+			<data>bit.00, B-11      ON = Connected to GND                .</data>
+		</table>
+	</table>
+
+	<table name="Launch Control Bit Mask OFF" category="Kenneths LC" address="10f2c" type="2D" scaling="EnableDisableBit">
+		<table name="Mask Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15, Unused                                         .</data>
+			<data>bit.14, Unused                                         .</data>
+			<data>bit.13, Unused                                         .</data>
+			<data>bit.12, Unused                                         .</data>
+			<data>bit.11  Unused                                         .</data>
+			<data>bit.10, Unused                                         .</data>
+			<data>bit.09  Unused                                         .</data>
+			<data>bit.08  D-21                                           .</data>
+			<data>bit.07  D-01                                           .</data>
+			<data>bit.06  C-09     (Not Working)                         .</data>
+			<data>bit.05, C-07                                           .</data>
+			<data>bit.04, C-02                                           .</data>
+			<data>bit.03, B-16                                           .</data>
+			<data>bit.02, B-15                                           .</data>
+			<data>bit.01, B-14                                           .</data>
+			<data>bit.00, B-11                                           .</data>
+		</table>
+	</table>
+
+	<table name="Launch Control Qualifier Addr (TPS)" category="Kenneths LC" address="10f2e" type="1D" level="4" scaling="Hex16"/>
+
+	<table name="Launch Control Qualifier Value" category="Kenneths LC" address="10f30" type="1D" level="4" scaling="TPS_Percent_16bit"/>
+
+	<table name="AntiLag Start RPM" category="Kenneths LC" address="10f08" type="1D" level="4" scaling="RPMLimit_16bit"/>
+
+	<table name="AntiLag Ignition Retard" category="Kenneths LC" address="10f0a" type="1D" level="4" scaling="TimingAntilag_16bit"/>
+
+	<table name="AntiLag Ignition Retard Limit" category="Kenneths LC" address="10f1a" type="1D" level="4" scaling="TimingLimit_16bit"/>
+
+	<table name="AntiLag AFR" category="Kenneths LC" address="10f12" type="1D" level="4" scaling="AFR_16bit"/>
+
+	<table name="No Lift To Shift Input Addr" category="Kenneths NLTS" address="10f1c" type="1D" level="4" scaling="Hex16"/>
+
+	<table name="No Lift To Shift Bit Mask ON" category="Kenneths NLTS" address="10f1e" type="2D" scaling="EnableDisableBit">
+		<table name="Mask Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15, Unused                                         .</data>
+			<data>bit.14, Unused                                         .</data>
+			<data>bit.13, Unused                                         .</data>
+			<data>bit.12, Unused                                         .</data>
+			<data>bit.11  Unused                                         .</data>
+			<data>bit.10, Unused                                         .</data>
+			<data>bit.09  Unused                                         .</data>
+			<data>bit.08  D-21      ON = Connected to GND                .</data>
+			<data>bit.07  D-01      ON = Connected to +12v               .</data>
+			<data>bit.06  C-09      ON = Connected to +12v  (Not Working).</data>
+			<data>bit.05, C-07      ON = Connected to +12v               .</data>
+			<data>bit.04, C-02      ON = Connected to GND                .</data>
+			<data>bit.03, B-16      ON = Connected to GND                .</data>
+			<data>bit.02, B-15      ON = Connected to +12v               .</data>
+			<data>bit.01, B-14      ON = Connected to GND                .</data>
+			<data>bit.00, B-11      ON = Connected to GND                .</data>
+		</table>
+	</table>
+
+	<table name="No Lift To Shift Bit Mask OFF" category="Kenneths NLTS" address="10f20" type="2D" scaling="EnableDisableBit">
+		<table name="Mask Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15, Unused                                         .</data>
+			<data>bit.14, Unused                                         .</data>
+			<data>bit.13, Unused                                         .</data>
+			<data>bit.12, Unused                                         .</data>
+			<data>bit.11  Unused                                         .</data>
+			<data>bit.10, Unused                                         .</data>
+			<data>bit.09  Unused                                         .</data>
+			<data>bit.08  D-21                                           .</data>
+			<data>bit.07  D-01                                           .</data>
+			<data>bit.06  C-09    (Not Working)                          .</data>
+			<data>bit.05, C-07                                           .</data>
+			<data>bit.04, C-02                                           .</data>
+			<data>bit.03, B-16                                           .</data>
+			<data>bit.02, B-15                                           .</data>
+			<data>bit.01, B-14                                           .</data>
+			<data>bit.00, B-11                                           .</data>
+		</table>
+	</table>
+
+	<table name="No Lift To Shift Qualifier Addr (TPS)" category="Kenneths NLTS" address="10f22" type="1D" level="4" scaling="Hex16"/>
+
+	<table name="No Lift To Shift Qualifier Value" category="Kenneths NLTS" address="10f24" type="1D" level="4" scaling="TPS_Percent_16bit"/>
+
+	<table name="NLTS Map" category="Kenneths NLTS" address="13067" type="3D" swapxy="true" scaling="NLTS_RPMLimit">
+		<table name="Speed" address="13026" type="X Axis" elements="16" scaling="NLTS_Speed"/>
+		<table name="Gear" address="13006" type="Y Axis" elements="9" scaling="uint16">
+			<data>1st</data>
+			<data>2nd</data>
+			<data>3rd</data>
+			<data>4th</data>
+			<data>5th</data>
+		</table>
+	</table>
+
+	<table name="KS Fuel Map High OCTANE #1" category="Kenneths Maps - Fuel" address="19e47" type="3D" swapxy="true" scaling="AFR_8bit">
+		<table name="Load" address="198e6" type="X Axis" elements="22" scaling="Load_16bit"/>
+		<table name="RPM" address="19926" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="KS Fuel Map High OCTANE #2" category="Kenneths Maps - Fuel" address="1a0b7" type="3D" swapxy="true" scaling="AFR_8bit">
+		<table name="Load" address="198e6" type="X Axis" elements="22" scaling="Load_16bit"/>
+		<table name="RPM" address="19926" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="KS Fuel Map Low OCTANE #1" category="Kenneths Maps - Fuel" address="19967" type="3D" swapxy="true" scaling="AFR_8bit">
+		<table name="Load" address="198e6" type="X Axis" elements="22" scaling="Load_16bit"/>
+		<table name="RPM" address="19926" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="KS Fuel Map Low OCTANE #2" category="Kenneths Maps - Fuel" address="19bd7" type="3D" swapxy="true" scaling="AFR_8bit">
+		<table name="Load" address="198e6" type="X Axis" elements="22" scaling="Load_16bit"/>
+		<table name="RPM" address="19926" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="KS Ignition Map High OCTANE #1" category="Kenneths Maps - Ignition" address="1a3a7" type="3D" swapxy="true" scaling="Timing_8bit">
+		<table name="Load" address="1a366" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="1a326" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="KS Ignition Map High OCTANE #2" category="Kenneths Maps - Ignition" address="1a617" type="3D" swapxy="true" scaling="Timing_8bit">
+		<table name="Load" address="1a366" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="1a326" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="KS Ignition Map Low OCTANE #1" category="Kenneths Maps - Ignition" address="1a887" type="3D" swapxy="true" scaling="Timing_8bit">
+		<table name="Load" address="1a366" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="1a326" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="KS Ignition Map Low OCTANE #2" category="Kenneths Maps - Ignition" address="1aaf7" type="3D" swapxy="true" scaling="Timing_8bit">
+		<table name="Load" address="1a366" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="1a326" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="KS Ignition Map Warmup Retard1" category="Kenneths Maps - Ignition" address="1ad77" type="3D" swapxy="true" scaling="TimingTrim_8bit">
+		<table name="Load" address="1a366" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="1a326" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+	<table name="KS Ignition Map Warmup Retard2" category="Kenneths Maps - Ignition" address="1afe7" type="3D" swapxy="true" scaling="TimingTrim_8bit">
+		<table name="Load" address="1a366" type="X Axis" elements="23" scaling="Load_16bit"/>
+		<table name="RPM" address="1a326" type="Y Axis" elements="21" scaling="RPM"/>
+	</table>
+
+</rom>

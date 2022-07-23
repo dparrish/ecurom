@@ -1,0 +1,136 @@
+<rom>
+	<romid>
+		<xmlid>98950010</xmlid>
+		<internalidaddress>f52</internalidaddress>
+		<internalidhex>98950010</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse</model>
+		<submodel>GS</submodel>
+		<transmission>Manual</transmission>
+		<year>2002</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>SH7052</memmodel>
+	</romid>
+
+	<include>evo7base</include>
+	<notes>2014/03/21 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+	<notes>2014/06/16 [Tactrix] Manually examined hex data to complete MAF table definitions and Open Loop table definitions.
+</notes>
+
+	<table name="Idle Stepper Look-up Table" address="3f11"/>
+
+	<table name="High Octane Fuel Map" address="35cb" level="2">
+		<table name="Engine Load" address="58dc" elements="10"/>
+		<table name="RPM" address="585e" elements="14"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="3663" level="2">
+		<table name="Load" address="58dc" elements="10"/>
+		<table name="RPM" address="585e" elements="14"/>
+	</table>
+
+	<table name="Injector Scaling" address="1506" level="3"/>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="4266" level="3">
+		<table name="Battery Voltage" address="58de" elements="7"/>
+	</table>
+
+	<table name="Accel Enrichment" address="38dc" level="2">
+		<table name="RPM" address="5dee" elements="10"/>
+	</table>
+
+	<table name="Open Loop Load # 1" address="373a" level="2">
+		<table name="RPM" address="585e" elements="14"/>
+	</table>
+
+	<table name="Open Loop Load # 2" address="3750" level="2">
+		<table name="RPM" address="585e" elements="14"/>
+	</table>
+
+	<table name="Open Loop Throttle Low Load" address="376c" level="1">
+		<table name="RPM" address="585e"/>
+	</table>
+
+	<table name="Open Loop Throttle High Load" address="3782" level="1">
+		<table name="RPM" address="585e"/>
+	</table>
+
+	<table name="Min Coolant Temp for Closed Loop" address="1588" level="3"/>
+
+	<table name="MAF Size" address="150c"/>
+
+	<table name="MAF Scaling" address="3516" level="2">
+		<table name="Load" address="5978"/>
+	</table>
+
+	<table name="MAF Smoothing Table" address="3532" level="2">
+		<table name="Load" address="5978"/>
+	</table>
+
+	<table name="MAF Sensor Filtering" address="1508">
+		<table name="Load"/>
+	</table>
+
+	<table name="Air Temperature Compensation" address="354d">
+		<table name="Degrees" address="5b72"/>
+	</table>
+
+	<table name="Barometric Pressure Compensation" address="3561">
+		<table name="Atmosphere Pressure" address="5966"/>
+		<table name="RPM" address="59ac"/>
+	</table>
+
+	<table name="High Octane Ignition Map 1" address="3b43" level="2">
+		<table name="Load" address="5ad2" elements="12"/>
+		<table name="RPM" address="5aa4" elements="18"/>
+	</table>
+
+	<table name="Low Octane Ignition Map 1" address="3c27" level="2">
+		<table name="Load" address="5ad2" elements="12"/>
+		<table name="RPM" address="5aa4" elements="18"/>
+	</table>
+
+	<table name="Rev Limit" address="156a" level="3"/>
+
+	<table name="Stationary Rev Limit" level="1"/>
+
+	<table name="Speed Limit" address="156c" level="3">
+		<table name="Condition"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Neutral" address="3e28" level="1">
+		<table name="Engine Temp" address="5b72" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC off-Drive" address="3e36" level="1">
+		<table name="Engine Temp" address="5b72" elements="8"/>
+	</table>
+
+	<table name="Desired ISCV intial step position with AC on-Neutral" address="3e1a" level="1">
+		<table name="Engine Temp" address="5b72" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Neutral" address="3e0c" level="2">
+		<table name="Engine Temp" address="5b72" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM-Drive" level="1">
+		<table name="Engine Temp" address="5b72" elements="8"/>
+	</table>
+
+	<table name="Desired Idle RPM with AC on" address="1820" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp Idle Speed Target" address="2452" level="1">
+		<table name="Condition"/>
+	</table>
+
+	<table name="High Intake Air Temp ISCV Increase" address="2456" level="2">
+		<table name="Condition" elements="2"/>
+	</table>
+
+	<table name="Immobilizer" level="2"/>
+
+</rom>

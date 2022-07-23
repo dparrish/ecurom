@@ -3,7 +3,6 @@
 		<xmlid>A4TF520E</xmlid>
 		<internalidaddress>200</internalidaddress>
 		<internalidstring>A4TF520E</internalidstring>
-		<caseid></caseid>
 		<make>Subaru</make>
 		<market>USDM</market>
 		<model>Impreza</model>
@@ -15,5 +14,9 @@
 	</romid>
 
 	<include>A4TF520F</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
 
 </rom>

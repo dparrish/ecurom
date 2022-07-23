@@ -1,0 +1,490 @@
+<rom>
+  <romid>
+    <xmlid>50845084</xmlid>
+    <internalidaddress>5002a</internalidaddress>
+    <internalidhex>50845084</internalidhex>
+    <make>Mitsubishi</make>
+    <market>EDM</market>
+    <model>Lancer</model>
+    <submodel>Evolution X</submodel>
+    <transmission>5MT</transmission>
+    <year>2014</year>
+    <flashmethod>mitsucan</flashmethod>
+    <memmodel>M32186F8</memmodel>
+    <checksummodule>mitsucan</checksummodule>
+  </romid>
+
+  <notes>
+       2014/01/24 [Tephra] Created original definition
+  </notes>
+
+  <include>evo10base</include>
+
+  <table name="Mode 23 - IFMode 0x05 -> 0x23 #1" address="7f797"/>
+
+  <table name="Mode 23 - IFMode 0x05 -> 0x23 #2" address="8ae53"/>
+
+  <table name="Mode 23 - DoMode 0x4B -> 0x5B" address="8ae5b"/>
+
+  <table name="ASC OFF, SST OFF Fix 0x00E9 -> 0x0100" address="53b12"/>
+
+  <table name="DTC P1238 0x0384 -> 0xFFFF Mass airflow sensor plausibility (Torque Monitor)" address="63be8"/>
+
+  <table name="DTC P1241 0x03E8 -> 0xFFFF Torque monitor" address="63bde"/>
+
+  <table name="DTC P1235 0x0026 -> 0xFFFF Mass airflow sensor plausibility" address="54a16"/>
+
+  <table name="DTC P1233 0x0028 -> 0xFFFF Throttle position sensor (main) plausibility" address="54a12"/>
+
+  <table name="DTC P1234 0x0028 -> 0xFFFF Throttle position sensor (sub) plausibility" address="54a14"/>
+
+  <table name="DTC P0139 0x1 -> 0x0 Oxygen Sensor Circuit Slow Response (Bank1, Sensor2)" address="503bc"/>
+
+  <table name="ECU ID" address="5002a"/>
+
+	<table name="DTC P0247 Disable 0xF99F -> 0xF19F" category="Misc" address="943c2" type="1D" scaling="Hex16"/>
+
+	<table name="DTC 247/243/443/446 Disables" category="Misc" address="943c2" type="2D" level="2" scaling="blobbits">
+		<table name="Periphery Bit Number" type="Static Y Axis" flipy="true" elements="16">
+			<data>bit.15</data>
+			<data>bit.14</data>
+			<data>bit.13</data>
+			<data>bit.12</data>
+			<data>bit.11: DTC P0247 Enable</data>
+			<data>bit.10</data>
+			<data>bit.9</data>
+			<data>bit.8: DTC P0243 Enable</data>
+			<data>bit.7: DTC P0443 Enable</data>
+			<data>bit.6: DTC P0446 Enable</data>
+			<data>bit.5</data>
+			<data>bit.4</data>
+			<data>bit.3</data>
+			<data>bit.2</data>
+			<data>bit.1</data>
+			<data>bit.0</data>
+		</table>
+	</table>
+	
+  <table name="High Octane Timing Map" address="55957">
+    <table name="Load" address="61826"/>
+    <table name="RPM" address="617f2"/>
+  </table>
+
+  <table name="Low Octane Timing Map" address="55b59">
+    <table name="Load" address="61826"/>
+    <table name="RPM" address="617f2"/>
+  </table>
+
+  <table name="Upper Bound Ignition Timing" address="60c55">
+    <table name="Load" address="6185e"/>
+    <table name="RPM" address="6182a"/>
+  </table>
+
+  <table name="Lower Bound Ignition Timing" address="507ac">
+    <table name="Load" address="61cea"/>
+    <table name="RPM" address="61c72"/>
+  </table>
+
+  <table name="MIVEC Intake Normal Coolant Temp" address="5de03">
+    <table name="Load" address="61f5a"/>
+    <table name="RPM" address="61f8a"/>
+  </table>
+
+  <table name="MIVEC Intake Low Coolant Temp" address="5e003">
+    <table name="Load" address="61f5a"/>
+    <table name="RPM" address="61f8a"/>
+  </table>
+
+  <table name="MIVEC Exhaust Normal Coolant Temp" address="5e203">
+    <table name="Load" address="61f5a"/>
+    <table name="RPM" address="61f8a"/>
+  </table>
+
+  <table name="MIVEC Exhaust Low Coolant Temp" address="5e403">
+    <table name="Load" address="61f5a"/>
+    <table name="RPM" address="61f8a"/>
+  </table>
+
+  <table name="High Octane Fuel Map" address="55027">
+    <table name="Load" address="617ac"/>
+    <table name="RPM" address="61786"/>
+  </table>
+
+  <table name="Low Octane Fuel Map" address="552d7">
+    <table name="Load" address="617ac"/>
+    <table name="RPM" address="61786"/>
+  </table>
+
+  <table name="Fuel Injector Scaling" address="536d2"/>
+
+  <table name="Injector Battery Voltage Latency Compensation" address="556d0">
+    <table name="Battery Voltage" address="61702"/>
+  </table>
+
+  <table name="Cranking Enrichment IPW Adder" address="574da">
+    <table name="Coolant Temperature" address="618e0"/>
+  </table>
+
+  <table name="Minimum IPW SHLL5 (stock)" address="53002"/>
+
+  <table name="Closed Loop - LT Trim Control" address="5557f">
+    <table name="Conditions">
+      <data>Low -> Mid</data>
+      <data>Mid -> Low</data>
+      <data>Mid -> High</data>
+      <data>High -> Mid</data>
+    </table>
+  </table>
+
+  <table name="Open Loop Load High Octane #1" address="57508">
+    <table name="RPM" address="61612"/>
+  </table>
+
+  <table name="Open Loop Load Low Octane #1" address="555da">
+    <table name="RPM" address="61612"/>
+  </table>
+
+  <table name="Open Loop Load High Octane #2" address="574f0">
+    <table name="RPM" address="61612"/>
+  </table>
+
+  <table name="Open Loop Load Low Octane #2" address="555c2">
+    <table name="RPM" address="61612"/>
+  </table>
+
+  <table name="MAF Scaling Part 1" address="5757a">
+    <table name="Volts" address="61fc0"/>
+  </table>
+
+  <table name="MAF Scaling Part 2" address="575d2">
+    <table name="Volts" address="62018"/>
+  </table>
+
+  <table name="MAF Scaling Part 3" address="5762a">
+    <table name="Volts" address="62070"/>
+  </table>
+
+  <table name="MAP based Load Calc #1 - Hot/Interpolated 2010" address="608ae">
+    <table name="MAP" address="6343a"/>
+    <table name="RPM" address="6340e"/>
+  </table>
+
+  <table name="MAP based Load Calc #2 - Cold/Interpolated 2010" address="605ac">
+    <table name="MAP" address="6343a"/>
+    <table name="RPM" address="6340e"/>
+  </table>
+
+  <table name="MAP based Load Calc #3 2010" address="602aa">
+    <table name="MAP" address="6343a"/>
+    <table name="RPM" address="6340e"/>
+  </table>
+
+  <table name="Boost Control Load Offset" address="53488"/>
+
+  <table name="Boost Target Engine Load #1A (High Gear Range)" address="58e9d">
+    <table name="Throttle" address="6300e"/>
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Boost Target Engine Load #1B (High Gear Range)" address="58f47">
+    <table name="Throttle" address="6300e"/>
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Boost Target Engine Load #2 (Low Gear Range)" address="57431">
+    <table name="Throttle" address="6300e"/>
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Reactive Solenoid Turbo Boost Error Correction" address="58d30">
+    <table name="Load Error" address="62fb6"/>
+  </table>
+
+  <table name="Boost Cut Delay Timer" address="5306c"/>
+
+  <table name="Boost Limit" address="555b4">
+    <table name="RPM" address="61f58"/>
+  </table>
+
+  <table name="Boost Control RPM Per MPH Xover (Gear Based)" address="546a8"/>
+
+  <table name="Reactive Solenoid Base WGDC Map #1A (High Gear Range)" address="58d49">
+    <table name="Throttle" address="6300e"/>
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Reactive Solenoid Base WGDC Map #1B (High Gear Range)" address="58df3">
+    <table name="Throttle" address="6300e"/>
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Reactive Solenoid Base WGDC Map #2 (Low Gear Range)" address="57387">
+    <table name="Throttle" address="6300e"/>
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Reactive Solenoid WGDC Correction Interval (High Gear Range)" address="5346e"/>
+
+  <table name="Reactive Solenoid WGDC Correction Interval (Low Gear Range)" address="546b8"/>
+
+  <table name="Reactive Solenoid Max Total Upward WGDC Correction vs TPS" address="58d76">
+    <table name="TPS" address="63008"/>
+  </table>
+
+  <table name="Reactive Solenoid Max Total Downward WGDC Correction" address="5346c"/>
+
+  <table name="Passive Solenoid Base WGDC Map #1A (High Gear Range)" address="5a46a">
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Passive Solenoid Base WGDC Map #1B (High Gear Range)" address="5a480">
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Passive Solenoid Base WGDC Map #2 (Low Gear Range)" address="5a496">
+    <table name="RPM" address="62f8c"/>
+  </table>
+
+  <table name="Throttle Map #1" address="50ce8">
+    <table name="Load" address="61d6e"/>
+    <table name="RPM" address="61c70"/>
+  </table>
+
+  <table name="Throttle Map #2" address="51312">
+    <table name="Load" address="61d6e"/>
+    <table name="RPM" address="61c70"/>
+  </table>
+
+  <table name="Throttle Map #3" address="5193c">
+    <table name="Load" address="61d6e"/>
+    <table name="RPM" address="61c70"/>
+  </table>
+
+  <table name="Throttle Map #4" address="51f66">
+    <table name="Load" address="61d6e"/>
+    <table name="RPM" address="61c70"/>
+  </table>
+
+  <table name="Throttle Map #5" address="52590">
+    <table name="Load" address="61d6e"/>
+    <table name="RPM" address="61c70"/>
+  </table>
+
+  <table name="Rev Limiter" address="53062">
+    <table>
+      <data>Rev Limiter ON</data>
+      <data>Rev Limiter OFF</data>
+    </table>
+  </table>
+
+  <table name="Stationary Rev Limiter" address="546ae"/>
+
+  <table name="Speed Limiter #1" address="53066">
+    <table name="X">
+      <data>Limiter ON</data>
+      <data>Limiter OFF</data>
+    </table>
+  </table>
+
+  <table name="ECU Options Set #1" address="50076">
+    <table name="Periphery Bit Number">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="ECU Options Set #2" address="50086">
+    <table name="Periphery Bit Number">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7: Enable Knock Retard</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1: Enable Rear O2 Sensor</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="ECU Options Set #3" address="50096">
+    <table name="Periphery Bit Number">
+      <data>bit.15</data>
+      <data>bit.14: Cruise Control Enabled/Disabled</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0: Lean Spool Off/On</data>
+    </table>
+  </table>
+
+  <table name="ECU Options Set #4" address="500A6">
+    <table name="Periphery Bit Number">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="ECU Options Set #5" address="500B6">
+    <table name="Periphery Bit Number">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="ECU Options Set #6" address="500C6">
+    <table name="Periphery Bit Number">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="ECU Options Set #7" address="500D6">
+    <table name="Periphery Bit Number">
+      <data>bit.15</data>
+      <data>bit.14</data>
+      <data>bit.13</data>
+      <data>bit.12</data>
+      <data>bit.11</data>
+      <data>bit.10</data>
+      <data>bit.9</data>
+      <data>bit.8</data>
+      <data>bit.7</data>
+      <data>bit.6</data>
+      <data>bit.5</data>
+      <data>bit.4</data>
+      <data>bit.3</data>
+      <data>bit.2</data>
+      <data>bit.1</data>
+      <data>bit.0</data>
+    </table>
+  </table>
+
+  <table name="MUT Table" address="3e034">
+    <table name="X">
+      <data>0</data>
+      <data>1</data>
+      <data>2</data>
+      <data>3</data>
+      <data>4</data>
+      <data>5</data>
+      <data>6</data>
+      <data>7</data>
+      <data>8</data>
+      <data>9</data>
+      <data>A</data>
+      <data>B</data>
+      <data>C</data>
+      <data>D</data>
+      <data>E</data>
+      <data>F</data>
+    </table>
+    <table name="Y">
+      <data>MUT0X</data>
+      <data>MUT1X</data>
+      <data>MUT2X</data>
+      <data>MUT3X</data>
+      <data>MUT4X</data>
+      <data>MUT5X</data>
+      <data>MUT6X</data>
+      <data>MUT7X</data>
+      <data>MUT8X</data>
+      <data>MUT9X</data>
+      <data>MUTAX</data>
+      <data>MUTBX</data>
+      <data>MUTCX</data>
+      <data>MUTDX</data>
+      <data>MUTEX</data>
+      <data>MUTFX</data>
+      <data>MUT10X</data>
+      <data>MUT11X</data>
+      <data>MUT12X</data>
+      <data>MUT13X</data>
+      <data>MUT14X</data>
+      <data>MUT15X</data>
+      <data>MUT16X</data>
+      <data>MUT17X</data>
+      <data>MUT18X</data>
+      <data>MUT19X</data>
+      <data>MUT1AX</data>
+      <data>MUT1BX</data>
+      <data>MUT1CX</data>
+      <data>MUT1DX</data>
+    </table>
+  </table>
+  
+
+</rom>

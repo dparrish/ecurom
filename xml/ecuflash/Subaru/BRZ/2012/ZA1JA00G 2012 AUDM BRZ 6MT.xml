@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>ZA1JA00G</xmlid>
+		<internalidaddress>8000</internalidaddress>
+		<internalidstring>ZA1JA00G</internalidstring>
+		<caseid>8644387107</caseid>
+		<ecuid>ZA1JA00G</ecuid>
+		<make>Subaru</make>
+		<market>AUDM</market>
+		<model>BRZ</model>
+		<transmission>6MT</transmission>
+		<year>2012</year>
+		<flashmethod>subarubrz</flashmethod>
+		<memmodel>SH72531</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>
