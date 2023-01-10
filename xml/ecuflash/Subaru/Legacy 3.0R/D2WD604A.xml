@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>D2WD604A</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>D2WD604A</internalidstring>
+		<ecuid>3C0A384206</ecuid>
+		<make>Subaru</make>
+		<market>JDM</market>
+		<model>Legacy</model>
+		<submodel>3.0R</submodel>
+		<transmission>MT</transmission>
+		<year>05</year>
+		<flashmethod>sti04</flashmethod>
+		<memmodel>SH7055</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

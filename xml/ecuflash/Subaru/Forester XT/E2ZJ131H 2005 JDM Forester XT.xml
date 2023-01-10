@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>E2ZJ131H</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>E2ZJ131H</internalidstring>
+		<ecuid>3B12044206</ecuid>
+		<make>Subaru</make>
+		<market>JDM</market>
+		<model>Forester</model>
+		<submodel>2.5</submodel>
+		<transmission>MT/AT</transmission>
+		<year>05</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>E2ZJ121H</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

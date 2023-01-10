@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>56890109</xmlid>
+		<internalidaddress>5002a</internalidaddress>
+		<internalidhex>56890109</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Lancer</model>
+		<submodel>Evolution X</submodel>
+		<transmission>5MT</transmission>
+		<year>2011</year>
+		<flashmethod>mitsucan</flashmethod>
+		<memmodel>M32186F8</memmodel>
+		<checksummodule>mitsucan</checksummodule>
+	</romid>
+
+	<notes>
+		2012/10/26 [Tactrix] Original file from Golden Evo repository.  If this file is useful to you, please consider donating at http://goldenevo.com/
+		2013/07/23 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+	</notes>
+
+	<include>56890009</include>
+
+</rom>

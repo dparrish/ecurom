@@ -1,0 +1,330 @@
+<rom>
+	<romid>
+		<xmlid>54550003</xmlid>
+		<internalidaddress>5002a</internalidaddress>
+		<internalidhex>54550003</internalidhex>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Lancer</model>
+		<submodel>Evolution X</submodel>
+		<transmission>SST</transmission>
+		<year>2009</year>
+		<flashmethod>mitsucan</flashmethod>
+		<memmodel>M32186F8</memmodel>
+		<checksummodule>mitsucan</checksummodule>
+	</romid>
+
+	<include>evo10base</include>
+
+	<notes>2014/05/01 [Tactrix] Original file from Golden Evo repository.  If this file is useful to you, please consider donating at http://goldenevo.com/
+2014/05/01 [Tactrix] Moved most non-address attributes to evoxbase.xml base class. Standardized file naming.
+2014/05/01 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+2014/05/20 [Tactrix] Tactrix definition auto cleaned|merged w/ GoldenEvoMay2014.
+</notes>
+
+
+	<table name="Mode 23 - IFMode 0x05 -> 0x23 #1" address="7f42d" scaling="Mode 23 - IFMode 0x05 -> 0x23 #1"/>
+
+	<table name="Mode 23 - IFMode 0x05 -> 0x23 #2" address="8acb9" scaling="Mode 23 - IFMode 0x05 -> 0x23 #2"/>
+
+	<table name="Mode 23 - DoMode 0x42 -> 0x52" address="8acbe" scaling="Mode 23 - DoMode 0x42 -> 0x52"/>
+
+	<table name="ASC OFF, SST OFF Fix 0x00E9 -> 0x0100" address="53b0a" scaling="ASC OFF, SST OFF Fix 0x00E9 -> 0x0100"/>
+
+	<table name="DTC P1238 0x0384 -> 0xFFFF Mass airflow sensor plausibility (Torque Monitor)" address="63210" scaling="DTC P1238 0x0384 -> 0xFFFF Mass airflow sensor plausibility (Torque Monitor)"/>
+
+	<table name="DTC P1241 0x03E8 -> 0xFFFF Torque monitor" address="63206" scaling="DTC P1241 0x03E8 -> 0xFFFF Torque monitor"/>
+
+	<table name="DTC P1235 0x0026 -> 0xFFFF Mass airflow sensor plausibility" address="549d4" scaling="DTC P1235 0x0026 -> 0xFFFF Mass airflow sensor plausibility"/>
+
+	<table name="DTC P1233 0x0028 -> 0xFFFF Throttle position sensor (main) plausibility" address="549d0" scaling="DTC P1233 0x0028 -> 0xFFFF Throttle position sensor (main) plausibility"/>
+
+	<table name="DTC P1234 0x0028 -> 0xFFFF Throttle position sensor (sub) plausibility" address="549d2" scaling="DTC P1234 0x0028 -> 0xFFFF Throttle position sensor (sub) plausibility"/>
+
+	<table name="ECU ID" address="5002a" scaling="ECU ID"/>
+
+	<table name="High Octane Timing Map" address="55957" scaling="Timing">
+		<table name="Load" address="60fd6"/>
+		<table name="RPM" address="60fa2"/>
+	</table>
+
+	<table name="Low Octane Timing Map" address="55b59" scaling="Timing">
+		<table name="Load" address="60fd6"/>
+		<table name="RPM" address="60fa2"/>
+	</table>
+
+	<table name="Ignition Warmup Retard" address="5b8f1" scaling="Timing">
+		<table name="Load" address="60fd6"/>
+		<table name="RPM" address="60fa2"/>
+	</table>
+
+	<table name="MIVEC Intake Normal Coolant Temp" address="5db69" scaling="ValveTimingIntake">
+		<table name="Load" address="615e4"/>
+		<table name="RPM" address="61614"/>
+	</table>
+
+	<table name="MIVEC Intake Low Coolant Temp" address="5dd69" scaling="ValveTimingIntake">
+		<table name="Load" address="615e4"/>
+		<table name="RPM" address="61614"/>
+	</table>
+
+	<table name="MIVEC Exhaust Normal Coolant Temp" address="5df69" scaling="ValveTimingExhaust">
+		<table name="Load" address="615e4"/>
+		<table name="RPM" address="61614"/>
+	</table>
+
+	<table name="MIVEC Exhaust Low Coolant Temp" address="5e169" scaling="ValveTimingExhaust">
+		<table name="Load" address="615e4"/>
+		<table name="RPM" address="61614"/>
+	</table>
+
+	<table name="High Octane Fuel Map" address="55027" scaling="AFR">
+		<table name="Load" address="60f5c"/>
+		<table name="RPM" address="60f36"/>
+	</table>
+
+	<table name="Low Octane Fuel Map" address="552d7" scaling="AFR">
+		<table name="Load" address="60f5c"/>
+		<table name="RPM" address="60f36"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #1" address="57df9" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f5c"/>
+		<table name="RPM" address="61a32"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #2" address="57fe3" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f5c"/>
+		<table name="RPM" address="61a32"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #3" address="581cd" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f5c"/>
+		<table name="RPM" address="61a32"/>
+	</table>
+
+	<table name="Cylinder Fuel Trim #4" address="583b7" scaling="Percent_128_add_385_div_512">
+		<table name="Load" address="60f5c"/>
+		<table name="RPM" address="61a32"/>
+	</table>
+
+	<table name="Fuel Injector Scaling" address="536cc" scaling="InjectorScaling"/>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="556d0" scaling="InjectorLatency">
+		<table name="Battery Voltage" address="60eb2"/>
+	</table>
+
+	<table name="Injector Base Latency" address="53000" scaling="InjectorLatency"/>
+
+	<table name="Minimum IPW SHLL5 (stock)" address="53002" scaling="IPW16:SHLL5"/>
+
+	<table name="Open Loop Load High Octane #1" address="57514" scaling="Load8">
+		<table name="RPM" address="60dc2"/>
+	</table>
+
+	<table name="Open Loop Load Low Octane #1" address="574fc" scaling="Load8">
+		<table name="RPM" address="60dc2"/>
+	</table>
+
+	<table name="Open Loop Load High Octane #2" address="555da" scaling="Load8">
+		<table name="RPM" address="60dc2"/>
+	</table>
+
+	<table name="Open Loop Load Low Octane #2" address="555c2" scaling="Load8">
+		<table name="RPM" address="60dc2"/>
+	</table>
+
+	<table name="Boost Control Load Offset" address="53484" scaling="Load16"/>
+
+	<table name="Boost Target Engine Load #1A (High Gear Range)" address="58e8d" scaling="Load8">
+		<table name="Throttle" address="62672"/>
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Boost Target Engine Load #1B (High Gear Range)" address="58f37" scaling="Load8">
+		<table name="Throttle" address="62672"/>
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Boost Target Engine Load #2 (Low Gear Range)" address="5743d" scaling="Load8">
+		<table name="Throttle" address="62672"/>
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Reactive Solenoid Turbo Boost Error Correction" address="58d20" scaling="DynamicBoost">
+		<table name="Load Error" address="6261a"/>
+	</table>
+
+	<table name="Boost Cut Delay Timer" address="53068" scaling="Time"/>
+
+	<table name="Boost Limit" address="555b4" scaling="LoadBoost">
+		<table name="RPM" address="615ba"/>
+	</table>
+
+	<table name="Boost Control RPM Per MPH Xover (Gear Based)" address="5468a" scaling="RPMPerMPH"/>
+
+	<table name="Reactive Solenoid Base WGDC Map #1A (High Gear Range)" address="58d39" scaling="WGDuty">
+		<table name="Throttle" address="62672"/>
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Reactive Solenoid Base WGDC Map #1B (High Gear Range)" address="58de3" scaling="WGDuty">
+		<table name="Throttle" address="62672"/>
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Reactive Solenoid Base WGDC Map #2 (Low Gear Range)" address="57393" scaling="WGDuty">
+		<table name="Throttle" address="62672"/>
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Reactive Solenoid WGDC Correction Interval (High Gear Range)" address="5346a" scaling="uint16"/>
+
+	<table name="Reactive Solenoid WGDC Correction Interval (Low Gear Range)" address="5469a" scaling="uint16"/>
+
+	<table name="Reactive Solenoid Max Total Upward WGDC Correction vs TPS" address="58d12" scaling="OffsetWGDC">
+		<table name="TPS" address="6265a"/>
+	</table>
+
+	<table name="Reactive Solenoid Max Total Downward WGDC Correction" address="534ae" scaling="OffsetWGDC16"/>
+
+	<table name="Passive Solenoid Base WGDC Map #1A (High Gear Range)" address="5a212" scaling="WGDuty">
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Passive Solenoid Base WGDC Map #1B (High Gear Range)" address="5a228" scaling="WGDuty">
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Passive Solenoid Base WGDC Map #2 (Low Gear Range)" address="5a23e" scaling="WGDuty">
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="Throttle Map #1" address="50b6a" scaling="Throttle Opening">
+		<table name="Load" address="61430"/>
+		<table name="RPM" address="6135c"/>
+	</table>
+
+	<table name="Throttle Map #2" address="51194" scaling="Throttle Opening">
+		<table name="Load" address="61430"/>
+		<table name="RPM" address="6135c"/>
+	</table>
+
+	<table name="Throttle Map #3" address="517be" scaling="Throttle Opening">
+		<table name="Load" address="61430"/>
+		<table name="RPM" address="6135c"/>
+	</table>
+
+	<table name="Throttle Map #4" address="51de8" scaling="Throttle Opening">
+		<table name="Load" address="61430"/>
+		<table name="RPM" address="6135c"/>
+	</table>
+
+	<table name="Throttle Map #5" address="52412" scaling="Throttle Opening">
+		<table name="Load" address="61430"/>
+		<table name="RPM" address="6135c"/>
+	</table>
+
+	<table name="Throttle Conditional Switch" address="5496e" scaling="RPMStatLimit"/>
+
+	<table name="Rev Limiter" address="5305e" scaling="RPMLimit">
+	</table>
+
+	<table name="Stationary Rev Limiter" address="54690" scaling="RPMStatLimit"/>
+
+	<table name="Stationary Rev Limit Cross Under Max Speed Enable Delay" address="54692" scaling="Time"/>
+
+	<table name="Max Speed for Stationary Rev Limit" address="5468e" scaling="VehicleSpeedFreq"/>
+
+	<table name="Speed Limiter #1" address="53062" scaling="VehicleSpeed">
+	</table>
+
+	<table name="Airflow Check #1" address="5e995" scaling="EngineTorque">
+		<table name="Throttle Main or SUB Inverted Opening" address="624f0"/>
+		<table name="RPM" address="624c8"/>
+	</table>
+
+	<table name="Airflow Check #2" address="5ea8b" scaling="EngineTorque">
+		<table name="Throttle Main or SUB Inverted Opening" address="624f0"/>
+		<table name="RPM" address="624c8"/>
+	</table>
+
+	<table name="Airflow Check #3" address="5eb81" scaling="EngineTorque">
+		<table name="Throttle Main or SUB Inverted Opening" address="624f0"/>
+		<table name="RPM" address="624c8"/>
+	</table>
+
+	<table name="Airflow Check #4" address="5ec8b" scaling="uint8">
+		<table name="TPS-Related" address="62538"/>
+		<table name="RPM" address="62512"/>
+	</table>
+
+	<table name="Torque Limiter #1" address="6386d" scaling="uint8">
+		<table name="TPS-Related" address="63dce"/>
+		<table name="RPM" address="63da6"/>
+	</table>
+
+	<table name="Torque Limiter #2" address="63963" scaling="uint8">
+		<table name="TPS-Related" address="63dce"/>
+		<table name="RPM" address="63da6"/>
+	</table>
+
+	<table name="Torque Limiter #3" address="63a59" scaling="uint8">
+		<table name="TPS-Related" address="63dce"/>
+		<table name="RPM" address="63da6"/>
+	</table>
+
+	<table name="Torque Limiter #4" address="63b4f" scaling="uint8">
+		<table name="TPS-Related" address="63e8e"/>
+		<table name="RPM" address="63df0"/>
+	</table>
+
+	<table name="ECU Options Set #1" address="50072" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #2" address="50082" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #3" address="50092" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #4" address="500a2" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #5" address="500b2" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #6" address="500c2" scaling="blobbits">
+	</table>
+
+	<table name="ECU Options Set #7" address="500d2" scaling="blobbits">
+	</table>
+
+	<table name="MUT Table" address="3e85c" scaling="MUT32">
+	</table>
+
+	<table name="MAF Scaling Horizontal" address="57586" scaling="GramsPerSecond">
+		<table name="Volts" address="6164a"/>
+	</table>
+
+	<table name="MAF Scaling Part 1" address="57586" scaling="uint16">
+		<table name="Volts" address="6164a"/>
+	</table>
+
+	<table name="MAF Scaling Part 2" address="575de" scaling="uint16">
+		<table name="Volts" address="616a2"/>
+	</table>
+
+	<table name="MAF Scaling Part 3" address="57636" scaling="uint16">
+		<table name="Volts" address="616fa"/>
+	</table>
+
+	<table name="1st gear TPS limiter (Drive)" address="60778" scaling="Throttle Cap">
+		<table name="RPM" address="625f0"/>
+	</table>
+
+	<table name="1st gear TPS limiter (Reverse)" address="607a2" scaling="Throttle Cap">
+		<table name="RPM" address="625f0"/>
+	</table>
+
+</rom>

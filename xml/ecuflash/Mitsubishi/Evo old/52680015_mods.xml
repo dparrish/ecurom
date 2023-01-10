@@ -1,0 +1,73 @@
+<rom>
+    <romid>
+        <xmlid>52680015_mods</xmlid>
+        <internalidaddress>5002A</internalidaddress>
+        <internalidhex>52680015</internalidhex>
+        <make>Mitsubishi</make>
+        <market>USDM</market>
+        <model>Lancer</model>
+        <submodel>Evolution X</submodel>
+        <transmission>5MT</transmission>
+        <year>2008</year>
+        <flashmethod>mitsucan</flashmethod>
+        <checksummodule>mitsucan</checksummodule>
+        <memmodel>M32186F8</memmodel>
+    </romid>
+
+    <include>evo10base</include>
+
+
+<!--  **Timing**  -->
+
+
+
+
+<!--  **Fuel Control**  -->
+
+    <table name="Max Lean Oct Avg AFR vs Unknown" category="Fuel" address="579e2" type="2D" level="1" scaling="AFR">
+      <table name="Unknown" address="6178e" type="Y Axis" elements="11" scaling="uint16"/>
+    </table>
+    
+    <table name="Unknown Fuel Related Map" category="Fuel" type="3D" swapxy="true" scaling="uint8" level="1" address="576d3">
+        <table name="Load" type="X Axis" elements="41" scaling="Load" address="617d6"/>
+        <table name="RPM" type="Y Axis" elements="19" scaling="RPM" address="617AA"/>
+    </table>
+
+    
+    
+<!--  **Turbo Control**  -->
+
+
+  
+    
+<!--  **Throttle Control**  -->
+
+
+    
+    
+<!--  **Limits**  -->
+
+
+ 
+ 
+<!--  **Knock Detection**  -->
+
+
+    
+    
+<!--  **IDLE**  -->
+   
+
+
+
+<!--  **Misc**  -->
+
+
+    
+    
+ <!--  *** MUT ***  -->
+ 
+
+
+
+</rom>

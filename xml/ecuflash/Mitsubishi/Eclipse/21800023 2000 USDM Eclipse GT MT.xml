@@ -1,0 +1,22 @@
+<rom>
+	<romid>
+		<xmlid>21800023</xmlid>
+		<internalidaddress>1021a</internalidaddress>
+		<internalidhex>21800023</internalidhex>
+		<caseid>MD365881</caseid>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse</model>
+		<submodel>GT</submodel>
+		<transmission>Manual</transmission>
+		<year>2000</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539F</memmodel>
+	</romid>
+	
+	<notes>
+	     2015/01/09 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+	</notes>	
+
+	<include>21800024</include>
+</rom>

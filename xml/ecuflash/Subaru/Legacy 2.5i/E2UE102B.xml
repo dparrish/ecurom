@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>E2UE102B</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>E2UE102B</internalidstring>
+		<ecuid>4b12187007</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Legacy</model>
+		<submodel>2.5i</submodel>
+		<transmission>MT</transmission>
+		<year>2007</year>
+		<flashmethod>subarucan</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

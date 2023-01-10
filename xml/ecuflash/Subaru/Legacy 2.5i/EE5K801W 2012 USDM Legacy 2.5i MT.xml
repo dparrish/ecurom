@@ -1,0 +1,24 @@
+<rom>
+	<romid>
+		<xmlid>EE5K801W</xmlid>
+		<internalidaddress>2004</internalidaddress>
+		<internalidstring>EE5K801W</internalidstring>
+		<ecuid>7C121A7407</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Legacy</model>
+		<submodel>2.5i</submodel>
+		<transmission>MT</transmission>
+		<year>12</year>
+		<flashmethod>subarucan</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>

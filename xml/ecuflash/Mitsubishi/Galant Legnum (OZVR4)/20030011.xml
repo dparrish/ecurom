@@ -1,0 +1,938 @@
+<rom>
+  <romid>
+    <xmlid>20030011</xmlid>
+    <internalidaddress>1021a</internalidaddress>
+    <internalidhex>20030011</internalidhex>
+    <ecuid>EM2004/EM2005</ecuid>   
+    <make>Mitsubishi</make>
+    <market>JDM</market>
+    <model>Galant/Legnum</model>
+    <submodel>VR4</submodel>
+    <year>1996-2003</year>
+    <transmission></transmission>
+    <caseid>MD340288/MD340289</caseid>
+    <memmodel>H8539F</memmodel>
+    <flashmethod>mitsukernel</flashmethod>
+  </romid>
+
+
+  <notes>
+    Mitsubishi Galant/Legnum ECUFlash Defintions, Created/complied by BCX http://foxbcx.net/
+    Version: 17/08/2021 11:11:09 AM
+
+        Credits:
+    -TME_Steve http://www.tmemotorport.com.au/
+    -Kenneth http://www.ozvr4.com/
+    -ceddy http://ceddy.us/
+    -WytWun http://www.modifiedmitsubishi.com.au/
+    -kc427 https://www.ozvr4.com/
+    -GLen20 https://www.ozvr4.com/
+   
+   
+   ############################################# Warning! #############################################
+    Ensure memmodel is set correctly before attempting to flash.
+    Incorrect memmodel may result in bricking your ECU.
+    
+    Take cover off ecu to determine processor, and adjust memmodel accordingly:
+    
+    MH7201 - not in scope for these definitions
+    H8/539 - Definitions will work, but not supported by ECUFlash to reflash
+    MH7202 - memmodel = h8539f
+    MH7203 - memmodel = h8539fa
+    #####################################################################################################
+
+  </notes>
+ 
+ <include>vr4base</include>
+  
+
+	<table name="ADC Coolant Temp Scaling" address="1299a">
+		<table name="Coolant Sensor Voltage" address="12a42" type="Y Axis" />
+	</table>
+
+
+	<table name="MAF IAT Scaling" address="12b88">
+		<table name="IAT Sensor Voltage" address="12c1a" type="Y Axis" />
+	</table>
+
+	<table name="Boost Cut Delay Timer" address="10378" />
+
+	<table name="Boost Desired Load Adder" address="10856" />
+
+	<table name="WGDC Correction Stop Temp" address="10858" />
+
+
+	<table name="BDEL Map 1 - Low Octane" address="12228">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="BDEL Map 2 - Low Octane" address="12254">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="BDEL Map 3 - Hi Octane" address="1226a">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="BDEL Map 4 - Hi Octane" address="12280">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="Boost Cut limit (Automatic)" address="114a6">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="Boost Cut limit (Manual)" address="114b6">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="Max Total Upward WGDC Correction vs TPS" address="1219c">
+		<table name="Load Error" address="2d282" type="Y Axis" />
+	</table>
+
+
+	<table name="Turbo Boost Error Correction" address="121aa">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="WGDC Map 1 - Low Octane" address="121c8">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="WGDC Map 2 - Low Octane" address="121de">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="WGDC Map 3 - Hi Octane" address="121f4">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="WGDC Map 4 - Hi Octane" address="1220a">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="WGDC Trim v Engine Temp" address="1229a">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown87 (BDEL Related)" address="1223e">
+		<table name="Engine Speed" address="2d2fa" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown91 (WGDC Correction related)" address="12460">
+		<table name="WGDC Correction" address="2d20a" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown92 (WGDC Correction related)" address="12476">
+		<table name="WGDC Correction" address="2d20a" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown93 WGDC Correction?" address="1248c">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl3d_Unknown6 (WGDC Correction TCL Related)" address="122bd">
+		<table name="Load" address="2d1f2" type="X Axis" />
+		<table name="Engine Speed" address="2d1a6" type="Y Axis" />
+	</table>
+
+	<table name="Alternator G Terminal Dead Zone" address="12574">
+		<table name="Engine Speed" address="2d026" type="Y Axis" />
+	</table>
+
+
+	<table name="Alternator Charge Current" address="12527">
+		<table name="Load" address="2d040" type="X Axis" />
+		<table name="Engine Speed" address="2d010" type="Y Axis" />
+	</table>
+	<table name="Coil Dwell Time Reduction RPM" address="10524" />
+
+
+	<table name="Coil Dwell Time" address="11fba">
+		<table name="Battery Voltage" address="2cec4" type="Y Axis" />
+	</table>
+
+
+	<table name="Coil Dwell Time Correction 2" address="11fd6">
+		<table name="Battery Voltage" address="2cec4" type="Y Axis" />
+	</table>
+
+
+	<table name="Coil Dwell Time Reduction Factor" address="11fc8">
+		<table name="Battery Voltage" address="2cec4" type="Y Axis" />
+	</table>
+
+	<table name="Decel Over RPM" address="10684" />
+
+
+	<table name="Decel Fuel Cut Delay - Drive, A/C off" address="1207c">
+		<table name="Load" address="2d058" type="Y Axis" />
+	</table>
+
+
+	<table name="Decel Fuel Cut Delay - Drive, A/C on" address="120a0">
+		<table name="Load" address="2d058" type="Y Axis" />
+	</table>
+
+
+	<table name="Decel Fuel Cut Delay - Neutral/Manual A/C off" address="12094">
+		<table name="Load" address="2d058" type="Y Axis" />
+	</table>
+
+
+	<table name="Decel Fuel Cut Delay - Neutral/Manual, A/C off, Unknown Condition" address="12088">
+		<table name="Load" address="2d058" type="Y Axis" />
+	</table>
+
+
+	<table name="Decel Fuel Cut Delay - Neutral/Manual, A/C on" address="120b8">
+		<table name="Load" address="2d058" type="Y Axis" />
+	</table>
+
+
+	<table name="Decel Fuel Cut Delay - Neutral/Manual, A/C on, Unknown Condition" address="120ac">
+		<table name="Load" address="2d058" type="Y Axis" />
+	</table>
+
+
+	<table name="Decel Fuel Cut Ignition Retard" address="120fc">
+		<table name="Engine Speed" address="2cd72" type="Y Axis" />
+	</table>
+
+
+	<table name="Decel Fuel Cut Resume RPM Offset" address="1147a">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown67 Decel Related A/C On" address="120cc">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown68 Decel Related" address="120dc">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown69 Decel Related" address="120ec">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+	<table name="Fan Type" address="102d4" />
+
+	<table name="tbl1d_Unknown1 (Fan Duty Cycle Related)" address="108d8" />
+
+	<table name="tbl1d_Unknown2 (Fan Duty Cycle Related)" address="108da" />
+
+	<table name="tbl1d_Unknown3 (Fan Duty Cycle Related)" address="108dc" />
+
+	<table name="tbl1d_Unknown4 (Fan Duty Cycle Related)" address="108de" />
+
+	<table name="tbl1d_Unknown5 (Fan Duty Cycle Related)" address="108e0" />
+
+	<table name="tbl1d_Unknown6 (Fan Duty Cycle Related)" address="108e2" />
+
+	<table name="tbl1d_Unknown7 (Fan Duty Cycle Related)" address="108e4" />
+
+	<table name="tbl1d_Unknown8 (Fan Duty Cycle Related)" address="108e6" />
+
+
+	<table name="tbl2d_Unknown118" address="124b0">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown119" address="124bc">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown120" address="124c8">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown121" address="124d4">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown122" address="124e0">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown123" address="124ec">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown124" address="124f8">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown125" address="12504">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown126" address="12510">
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+
+
+	<table name="Cooling Fan Duty Cycle" address="124b0">
+		<table name="Conditions" type="Static X Axis" />
+		<table name="EGR Temp?" address="2d0d6" type="Y Axis" />
+	</table>
+	<table name="Used Locked Baro (100.45kpa)" address="102b3" />
+
+	<table name="Cranking IPW Compenstation switchover temp" address="1034c" />
+
+	<table name="LimpHome Scaling" address="10310" />
+
+	<table name="Minimum temp Close Loop" address="10448" />
+
+	<table name="RPM Switchover MixtureEnrichment?" address="104f6" />
+
+
+	<table name="Accel Enrichment Base vs Engine Temp" address="1162e">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Accel Enrichment TPS Delta Multiplier" address="11675">
+		<table name="TPS Delta" type="Static Y Axis" />
+	</table>
+
+
+	<table name="Cranking IPW Compensation - Cranking Time (Coolant Temp &gt; switchover Temp)" address="115fe">
+		<table name="Strokes" address="2cda8" type="Y Axis" />
+	</table>
+
+
+	<table name="Cranking IPW Compensation - Cranking Time (Coolant Temp &lt; switchover Temp)" address="1160a">
+		<table name="Strokes" address="2cda8" type="Y Axis" />
+	</table>
+
+
+	<table name="Cranking Primer - First Pulse" address="115f0">
+		<table name="Coolant Temp" address="2d0be" type="Y Axis" />
+	</table>
+
+
+	<table name="Decay Time (per 1.5% Enrichment) vs Coolant Temperature" address="1156a">
+		<table name="Coolant Temp" address="2d0a6" type="Y Axis" />
+	</table>
+
+
+	<table name="Engine Temp Fuel Enrichment" address="1155c">
+		<table name="Coolant Temp" address="2d0a6" type="Y Axis" />
+	</table>
+
+
+	<table name="Load Compenstation vs IAT" address="11530">
+		<table name="Intake Temp" address="2d10a" type="Y Axis" />
+	</table>
+
+
+	<table name="Load Error Adder (Limp Mode Related)" address="12184">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Mixture Enrichment vs Coolant Temperature (Warmup)" address="1154e">
+		<table name="Coolant Temp" address="2d0a6" type="Y Axis" />
+	</table>
+
+
+	<table name="Mixture Enrichment vs Coolant Temperature (Warmup) multiplier Over RPM at 0x104f6" address="1153c">
+		<table name="Load" address="2ce08" type="Y Axis" />
+	</table>
+
+
+	<table name="Open Loop Load 1" address="114c6">
+		<table name="Engine Speed" address="2cd24" type="Y Axis" />
+	</table>
+
+
+	<table name="Open Loop Load 2" address="114d6">
+		<table name="Engine Speed" address="2cd24" type="Y Axis" />
+	</table>
+
+
+	<table name="Open Loop TPS" address="114f2">
+		<table name="Engine Speed" address="2cd24" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown110 (accel enrich related)" address="12732">
+		<table name="Engine Speed" address="2d392" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown111 (accel enrich related)" address="12740">
+		<table name="Engine Speed" address="2d392" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown112 (accel enrich related)" address="1274e">
+		<table name="Engine Speed" address="2d392" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown113 (accel enrich related)" address="1275c">
+		<table name="Engine Speed" address="2d392" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown15 (cranking ipw related)" address="11620">
+		<table name="Coolant Temp" address="2d0be" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown18 (vs Engine Temp)" address="1164a">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown19" address="11656">
+		<table name="Load" address="2cdd6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown21 TPS Related" address="11682">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown22 (vs Engine Temp)" address="11692">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown23 (vs RPM)" address="1169e">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown32" address="11724">
+		<table name="Load" address="2cdd6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown33" address="11736">
+		<table name="Load" address="2cdd6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown7 Open Loop related Timer" address="11502">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Fuel Map 1 - High Octane" address="110a3">
+		<table name="Load" address="2cf54" type="X Axis" />
+		<table name="Engine Speed" address="2cf30" type="Y Axis" />
+	</table>
+
+	<table name="Fuel Map 2 - High Octane" address="1118b">
+		<table name="Load" address="2cf54" type="X Axis" />
+		<table name="Engine Speed" address="2cf30" type="Y Axis" />
+	</table>
+
+	<table name="Fuel Map 3 - Low Octane" address="11273">
+		<table name="Load" address="2cf54" type="X Axis" />
+		<table name="Engine Speed" address="2cf30" type="Y Axis" />
+	</table>
+
+	<table name="Fuel Map 4 - Low Octane" address="1135b">
+		<table name="Load" address="2cf54" type="X Axis" />
+		<table name="Engine Speed" address="2cf30" type="Y Axis" />
+	</table>
+
+	<table name="Limp Mode Fueling Table (MAF Fault)" address="1157b">
+		<table name="Throttle Position" address="2d07c" type="X Axis" />
+		<table name="Engine Speed" address="2d06c" type="Y Axis" />
+	</table>
+
+	<table name="Fuel Pump Speed Load Switchover" address="122a6">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+	<table name="Spec Index" address="10208" />
+
+
+	<table name="Software Version" address="1021a">
+		<table name="Byte Position" type="Static X Axis" />
+	</table>
+
+
+	<table name="Case Number (Spec 0)" address="10233">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="10232" type="Y Axis" />
+	</table>
+
+	<table name="Case Number (Spec 1)" address="10237">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="10236" type="Y Axis" />
+	</table>
+
+	<table name="Case Number (Spec 2)" address="1023b">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="1023a" type="Y Axis" />
+	</table>
+
+	<table name="Case Number (Spec 3)" address="1023f">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="1023e" type="Y Axis" />
+	</table>
+
+	<table name="Case Number (Spec 4)" address="10243">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="10242" type="Y Axis" />
+	</table>
+
+	<table name="Case Number (Spec 5)" address="10247">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="10246" type="Y Axis" />
+	</table>
+
+	<table name="Case Number (Spec 6)" address="1024b">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="1024a" type="Y Axis" />
+	</table>
+
+	<table name="Case Number (Spec 7)" address="1024f">
+		<table name="Part Number" type="Static X Axis" />
+		<table name="PN1" address="1024e" type="Y Axis" />
+	</table>
+
+	<table name="ISC Baro Comp Adder?" address="12070">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="ISC Baro Compensation, A/C off" address="1213e">
+		<table name="Barometer" address="2cedc" type="Y Axis" />
+	</table>
+
+
+	<table name="ISC Baro Compensation, A/C on" address="12152">
+		<table name="Barometer" address="2cedc" type="Y Axis" />
+	</table>
+
+
+	<table name="ISCV Demand A/C On, Drive" address="1204c">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="ISCV Demand A/C On, Neutral" address="12040">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="ISCV Demand unkown condition1" address="12058">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="ISCV Demand unkown condition2" address="12064">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="ISCV Initial Steps, Drive" address="12034">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="ISCV Initial Steps, Neutral 1" address="1201c">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="ISCV Initial Steps, Neutral 2" address="12028">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Idle Error Correction (Manual/drive)" address="1215c">
+		<table name="Engine Speed" address="2cdbe" type="Y Axis" />
+	</table>
+
+
+	<table name="Idle Error Correction (Neutral-Auto)" address="1216a">
+		<table name="Engine Speed" address="2cdbe" type="Y Axis" />
+	</table>
+
+
+	<table name="Idle Post Start Decay Time" address="12126">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Idle Post Start incr vs IAT" address="1211a">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Target Idle RPM (Drive)" address="12010">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Target Idle RPM (Neutral)" address="12004">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown101 (vs RPM)" address="1259e">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown80 Idle trim?" address="12178">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+	<table name="Injector Latency Adder" address="10300" />
+
+	<table name="Injector Size Scaling" address="10306" />
+
+
+	<table name="Injector Flow Rate Linearisation Adder" address="115a9">
+		<table name="Calculated Injector Pulse Width (mSec)" type="Static Y Axis" />
+	</table>
+
+
+	<table name="Injector Latency" address="115a2">
+		<table name="Battery Voltage" address="2ceb0" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_InjectorRelated1" address="1271e">
+		<table name="Coolant Temp" address="2d0a6" type="Y Axis" />
+	</table>
+
+	<table name="MAF Scaling Adder" address="10312" />
+
+	<table name="MAF Size" address="1030c" />
+
+	<table name="Max Allowed MAF Frequency on Reset" address="1030e" />
+
+
+	<table name="Airflow Compensation vs Coolant Temp" address="11080">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Airflow Compensation vs IAT" address="1108c">
+		<table name="Intake Temp" address="2d10a" type="Y Axis" />
+	</table>
+
+
+	<table name="MAF Relative Density" address="11038">
+		<table name="Intake Temp" address="2d10a" type="Y Axis" />
+	</table>
+
+
+	<table name="MAF Scaling Table" address="11004">
+		<table name="MAF Frequency" address="2ce68" type="Y Axis" />
+	</table>
+
+
+	<table name="MAF Smoothing Table" address="1101e">
+		<table name="MAF Frequency" address="2ce68" type="Y Axis" />
+	</table>
+
+
+	<table name="Max Allowed MAF Frequency" address="11070">
+		<table name="Engine Speed" address="2cd8a" type="Y Axis" />
+	</table>
+
+
+	<table name="Barometric Pressure Compensation" address="11047">
+		<table name="Barometer" address="2ce5a" type="X Axis" />
+		<table name="MAF Frequency" address="2ce98" type="Y Axis" />
+	</table>
+	<table name="RPM Limit" address="1036a" />
+
+
+	<table name="Speed Limiter" address="1036c">
+		<table name="Condition" type="Static Y Axis" />
+	</table>
+
+	<table name="MUT Baud Rate" address="1658d" />
+
+
+	<table name="MUT Table" address="2fad0">
+		<table name="X" type="Static X Axis" />
+		<table name="Y" type="Static Y Axis" />
+	</table>
+
+	<table name="ECU Periphery0 Bits" address="10272">
+		<table name="Spec" type="Static X Axis" />
+		<table name="Periphery Option" type="Static Y Axis" />
+	</table>
+
+	<table name="ECU Periphery00 Bits" address="10262">
+		<table name="Spec" type="Static X Axis" />
+		<table name="Periphery Option" type="Static Y Axis" />
+	</table>
+
+	<table name="ECU Periphery1 Bits" address="10282">
+		<table name="Spec" type="Static X Axis" />
+		<table name="Periphery Option" type="Static Y Axis" />
+	</table>
+	<table name="Ignition Max Retard Degrees" address="1051c" />
+
+
+	<table name="Timing Trim v Air Temp" address="11f88">
+		<table name="Intake Temp" address="2d10a" type="Y Axis" />
+	</table>
+
+
+	<table name="Timing Trim v Air Temp Above Load" address="11f9e">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="Timing Trim v Baro Pressure" address="11f94">
+		<table name="Barometer" address="2cedc" type="Y Axis" />
+	</table>
+
+
+	<table name="Timing Trim v Engine Temp" address="11f7c">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Warmup Retard Control" address="11fae">
+		<table name="Coolant Temp" address="2d0f4" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown43 affects Load axis for Timing Target Lookup" address="11f4c">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown44 affects Load axis for Timing Target Lookup" address="11f5c">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown45 affects Load axis for Timing Target Lookup" address="11f6c">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown94 TCL related (vs Engine Temp)" address="12498">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="Cat-Warmup Ignition Retard Map #1" address="11c97">
+		<table name="Load" address="2cfd4" type="X Axis" />
+		<table name="Engine Speed" address="2cf9a" type="Y Axis" />
+	</table>
+
+	<table name="Cat-Warmup Ignition Retard Map #2" address="11de1">
+		<table name="Load" address="2cfd4" type="X Axis" />
+		<table name="Engine Speed" address="2cf9a" type="Y Axis" />
+	</table>
+
+	<table name="Idle Timing Adder (Manual/Neutral)" address="11f2b">
+		<table name="Load" address="2cffc" type="X Axis" />
+		<table name="Engine Speed" address="2cfc6" type="Y Axis" />
+	</table>
+
+	<table name="Ignition Map 1 - High Octane" address="1176f">
+		<table name="Load" address="2cfd4" type="X Axis" />
+		<table name="Engine Speed" address="2cf9a" type="Y Axis" />
+	</table>
+
+	<table name="Ignition Map 2 - High Octane" address="118b9">
+		<table name="Load" address="2cfd4" type="X Axis" />
+		<table name="Engine Speed" address="2cf9a" type="Y Axis" />
+	</table>
+
+	<table name="Ignition Map 3 - Low Octane" address="11a03">
+		<table name="Load" address="2cfd4" type="X Axis" />
+		<table name="Engine Speed" address="2cf9a" type="Y Axis" />
+	</table>
+
+	<table name="Ignition Map 4 - Low Octane" address="11b4d">
+		<table name="Load" address="2cfd4" type="X Axis" />
+		<table name="Engine Speed" address="2cf9a" type="Y Axis" />
+	</table>
+
+	<table name="Traction Control Timing Subtract" address="1235d">
+		<table name="Load" address="2d1ce" type="X Axis" />
+		<table name="Engine Speed" address="2d1a6" type="Y Axis" />
+	</table>
+	<table name="tbl1d_Unknown10 (engine temp)" address="10326" />
+
+	<table name="tbl1d_Unknown11 (baro)" address="10442" />
+
+	<table name="tbl1d_Unknown11 (engine temp)" address="1034E" />
+
+	<table name="tbl1d_Unknown12 (Baro)" address="10440" />
+
+	<table name="tbl1d_Unknown13 (TPS)" address="10990" />
+
+	<table name="tbl1d_Unknown14 (engine temp)" address="105EC" />
+
+	<table name="tbl1d_Unknown15 (engine temp)" address="105ea" />
+
+	<table name="tbl1d_Unknown16 (engine temp)" address="105dc" />
+
+	<table name="tbl1d_Unknown17 (engine temp)" address="10622" />
+
+	<table name="tbl1d_Unknown18 (engine temp)" address="1078c" />
+
+	<table name="tbl1d_Unknown19 (IAT)" address="10792" />
+
+	<table name="tbl1d_Unknown20 (TPS)" address="1098E" />
+
+	<table name="tbl1d_Unknown21 (Airflow)" address="10316" />
+
+	<table name="tbl1d_Unknown22 (Vehicle speed)" address="1065E" />
+
+	<table name="tbl1d_Unknown23 (engine temp, idle related)" address="10776" />
+
+	<table name="tbl1d_Unknown24 (Vehicle speed)" address="106dc" />
+
+	<table name="tbl1d_Unknown25 (TPS)" address="10766" />
+
+	<table name="tbl1d_Unknown26 (Vehicle speed)" address="106da" />
+
+	<table name="tbl1d_Unknown27 (engine temp)" address="1073e" />
+
+	<table name="tbl1d_Unknown28 (Battery Voltage)" address="10444" />
+
+	<table name="tbl1d_Unknown29 (Battery Voltage)" address="105c6" />
+
+	<table name="tbl1d_Unknown30 (Battery Voltage)" address="105c8" />
+
+	<table name="tbl1d_Unknown31 (Battery Voltage)" address="10770" />
+
+	<table name="tbl1d_Unknown32 (Battery Voltage)" address="1076e" />
+
+
+	<table name="tbl2d_Unknown114 (accel enrich related)" address="1276a">
+		<table name="Engine Speed" address="2d392" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown115 (accel enrich related)" address="12778">
+		<table name="Engine Speed" address="2d392" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown17 (vs RPM)" address="1163a">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown20" address="11668">
+		<table name="Load" address="2cdd6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown25 (vs Engine Temp)" address="116ca">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown27 (vs Engine Temp)" address="116da">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown28 (vs RPM)" address="116e6">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown29" address="116f6">
+		<table name="Load" address="2cdd6" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown30 (vs Engine Temp)" address="11708">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown31 (vs RPM)" address="11714">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown6 (vs Engine Temp)" address="114e6">
+		<table name="Coolant Temp" address="2d090" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown71 (vs RPM)" address="1210a">
+		<table name="Engine Speed" address="2cd06" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl2d_Unknown95 (possibly not used)" address="124a4">
+		<table name="Engine Speed" address="2cd54" type="Y Axis" />
+	</table>
+
+
+	<table name="tbl3d_Unknown4" address="12873">
+		<table name="Load" address="2d3c6" type="X Axis" />
+		<table name="Engine Speed" address="2d3ac" type="Y Axis" />
+	</table>
+
+	<table name="tbl3d_Unknown5" address="128c1">
+		<table name="Load" address="2d3c6" type="X Axis" />
+		<table name="Engine Speed" address="2d3ac" type="Y Axis" />
+	</table>
+
+	<table name="tbl3d_Unknown1 (TCL Related)" address="12789">
+		<table name="Load" address="2d3c6" type="X Axis" />
+		<table name="Engine Speed" address="2d3ac" type="Y Axis" />
+	</table>
+
+	<table name="tbl3d_Unknown2 (Neutral)" address="127d7">
+		<table name="Load" address="2d3c6" type="X Axis" />
+		<table name="Engine Speed" address="2d3ac" type="Y Axis" />
+	</table>
+
+	<table name="tbl3d_Unknown3 (Drive)" address="12825">
+		<table name="Load" address="2d3c6" type="X Axis" />
+		<table name="Engine Speed" address="2d3ac" type="Y Axis" />
+	</table>
+
+	<table name="tbl3d_Unknown9 (possibly not used)" address="1144f">
+		<table name="Load" address="2cf8a" type="X Axis" />
+		<table name="Engine Speed" address="2cf78" type="Y Axis" />
+	</table>
+
+</rom>

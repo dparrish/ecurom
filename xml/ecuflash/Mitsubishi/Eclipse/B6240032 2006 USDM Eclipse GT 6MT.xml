@@ -1,0 +1,188 @@
+<rom>
+	<romid>
+		<xmlid>B6240032</xmlid>
+		<internalidaddress>8222</internalidaddress>
+		<internalidhex>B6240032</internalidhex>
+		<make>Mitsubishi</make>
+		<market>USDM</market>
+		<model>Eclipse GT</model>
+		<transmission>6MT</transmission>
+		<year>2006</year>
+		<flashmethod>mitsubootloader</flashmethod>
+		<checksummodule>mitsucan</checksummodule>
+		<memmodel>M32176F4</memmodel>
+	</romid>
+
+	<include>evo10base</include>
+	<scaling name="MAFVoltScaling" units="units" toexpr="x*5/1024" frexpr="x*1024/5" format="%.3f" min="0" max="5" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="ThrottlePercentage" units="%" toexpr="x/255*100" frexpr="x*255/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint16"/>
+	<scaling name="ValveTiming" units="degrees" toexpr="80-x*.625" frexpr="80-x)/0.625" format="%.1f" min="0" max="30" inc="0.6" storagetype="uint8" endian="big"/>
+	<scaling name="ValveTiming16" units="degrees" toexpr="72-x*0.6/32" frexpr="(72-x)*32/0.6" format="%.1f" min="-1.8" max="28.8" inc="0.1" storagetype="uint16" endian="big"/>
+	<scaling name="WGDC" units="%WGDC" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint8" endian="big"/>
+	<scaling name="WGDuty" units="%" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint8" endian="big"/>
+	<scaling name="WGDuty16" units="%" toexpr="x/2" frexpr="x*2" format="%.1f" min="0" max="100" inc="0.5" storagetype="uint16" endian="big"/>
+
+	<table name="MAF Compensation Part 1" category="Intake" address="cc50" type="2D" scaling="AirFlow16">
+		<table name="X" address="125d4" type="X Axis" elements="40" scaling="MAFVoltScaling"/>
+	</table>
+
+	<table name="MAF Compensation Part 2" category="Intake" address="cca0" type="2D" scaling="AirFlow16">
+		<table name="X" address="12624" type="X Axis" elements="40" scaling="MAFVoltScaling"/>
+	</table>
+
+	<table name="MAF Compensation Part 3" category="Intake" address="ccf0" type="2D" scaling="AirFlow16">
+		<table name="X" address="12674" type="X Axis" elements="50" scaling="MAFVoltScaling"/>
+	</table>
+
+	<table name="Timing Map #1" category="Timing" address="cadb" type="3D" level="4" swapxy="true" scaling="Timing">
+		<table name="Load" address="11dde" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="11db2" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Timing Map #2" category="Timing" address="aca9" type="3D" level="4" swapxy="true" scaling="Timing">
+		<table name="Load" address="11dde" type="X Axis" elements="12" scaling="Load"/>
+		<table name="Y" address="11db2" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Timing Map #3" category="Timing" address="aad1" type="3D" level="4" swapxy="true" scaling="Timing">
+		<table name="X" address="11dde" type="X Axis" elements="12" scaling="Load"/>
+		<table name="Y" address="11db2" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Timing Map #4" category="Timing" address="abbd" type="3D" level="4" swapxy="true" scaling="Timing">
+		<table name="X" address="11dde" type="X Axis" elements="12" scaling="Load"/>
+		<table name="Y" address="11db2" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="EGR Timing Advance #2" category="Timing" address="bb59" type="3D" level="4" swapxy="true" scaling="Timing">
+		<table name="X" address="11dde" type="X Axis" elements="12" scaling="Load"/>
+		<table name="Y" address="11db2" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="EGR Timing Advance #3" category="Timing" address="b895" type="3D" level="4" swapxy="true" scaling="Timing">
+		<table name="X" address="11dde" type="X Axis" elements="12" scaling="Load"/>
+		<table name="Y" address="11db2" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="EGR Timing Advance #4" category="Timing" address="ba6d" type="3D" level="4" swapxy="true" scaling="Timing">
+		<table name="X" address="11dde" type="X Axis" elements="12" scaling="Load"/>
+		<table name="Y" address="11db2" type="Y Axis" elements="19" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map #1" category="Fuel" address="db69" type="3D" level="4" swapxy="true" scaling="AFR">
+		<table name="Load" address="11d7a" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="11d54" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map #2" category="Fuel" address="dc25" type="3D" level="4" swapxy="true" scaling="AFR">
+		<table name="Load" address="11d7a" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="11d54" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map #3" category="Fuel" address="a6a3" type="3D" level="4" swapxy="true" scaling="AFR">
+		<table name="Load" address="11d7a" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="11d54" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map #4" category="Fuel" address="ca1f" type="3D" level="4" swapxy="true" scaling="AFR">
+		<table name="Load" address="11d7a" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="11d54" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map Compensation #1" category="Fuel" address="c319" type="3D" level="4" swapxy="true" scaling="AFR">
+		<table name="Load" address="11d7a" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="11d54" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Fuel Map Compensation #2" category="Fuel" address="c3d5" type="3D" level="4" swapxy="true" scaling="AFR">
+		<table name="Load" address="11d7a" type="X Axis" elements="12" scaling="Load"/>
+		<table name="RPM" address="11d54" type="Y Axis" elements="15" scaling="RPM"/>
+	</table>
+
+	<table name="Open Loop Throttle" category="Fuel" address="f840" type="2D" level="4" scaling="ThrottleVoltage">
+		<table name="RPM" address="13016" type="Y Axis" elements="13" scaling="RPM"/>
+	</table>
+
+	<table name="Stationary Rev Limiter?" address="a57e"/>
+
+	<table name="Base Rev Limit" category="Limits" address="886e" type="1D" level="4" scaling="RPMLimit"/>
+
+	<table name="Speed Limiter" address="8870"/>
+
+	<table name="ECU ID" address="8222"/>
+
+	<table name="Ignition Warmup Retard" address="ad95" scaling="ValveTiming">
+		<table name="Load" address="11dde" elements="12"/>
+		<table name="RPM" address="11db2" elements="19"/>
+	</table>
+
+	<table name="EGR Timing Advance" address="b981">
+		<table name="Load" address="11dde" elements="12"/>
+		<table name="RPM" address="11db2" elements="19"/>
+	</table>
+
+	<table name="Fuel Injector Scaling" address="926a"/>
+
+	<table name="Injector Battery Voltage Latency Compensation" address="a88c">
+		<table name="Battery Voltage" address="11cd6"/>
+	</table>
+
+	<table name="Injector Base Latency" address="8800"/>
+
+	<table name="Open Loop Load High Octane #1" address="f82e">
+		<table name="RPM" address="13016" elements="13"/>
+	</table>
+
+	<table name="Open Loop Load Low Octane #1" address="f81c">
+		<table name="RPM" address="13016" elements="13"/>
+	</table>
+
+	<table name="Throttle Map #1" address="e8d1" scaling="ThrottleVoltage">
+		<table name="Load" address="1355a" elements="10"/>
+		<table name="RPM" address="124d0" elements="27"/>
+	</table>
+
+	<table name="Throttle Map #2" address="e9e7" scaling="ThrottleVoltage">
+		<table name="Load" address="1355a" elements="10"/>
+		<table name="RPM" address="124d0" elements="27"/>
+	</table>
+
+	<table name="Throttle Map #3" address="eafd" scaling="ThrottleVoltage">
+		<table name="Load" address="1355a" elements="10"/>
+		<table name="RPM" address="124d0" elements="27"/>
+	</table>
+
+	<table name="Rev Limiter" address="a582">
+		<table elements="2">
+			<data>Rev Limiter ON</data>
+			<data>Rev Limiter OFF</data>
+		</table>
+	</table>
+
+	<table name="Stationary Rev Limiter" address="a582" scaling="RPMLimit"/>
+
+	<table name="ECU Options Set #1" address="826a">
+	</table>
+
+	<table name="ECU Options Set #2" address="827a">
+	</table>
+
+	<table name="ECU Options Set #3" address="828a">
+	</table>
+
+	<table name="ECU Options Set #4" address="829a">
+	</table>
+
+	<table name="ECU Options Set #5" address="82aa">
+	</table>
+
+	<table name="ECU Options Set #6" address="82ba">
+	</table>
+
+	<table name="ECU Options Set #7" address="82ca">
+	</table>
+
+	<table name="MUT Table" address="3c7cc">
+	</table>
+
+</rom>

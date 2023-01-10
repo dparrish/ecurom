@@ -1,0 +1,23 @@
+<rom>
+  <romid>
+    <xmlid>88590014</xmlid>
+    <internalidaddress>f52</internalidaddress>
+    <internalidhex>88590014</internalidhex>
+    <make>Mitsubishi</make>
+    <market>USDM</market>
+    <model>Lancer</model>
+    <submodel>EVO9</submodel>
+    <transmission>Manual</transmission>
+    <year>2006</year>
+    <flashmethod>mitsukernelocp</flashmethod>
+    <memmodel>SH7055</memmodel>
+  </romid>
+  
+  <notes>
+	2012/11/14 [Tactrix] cleaned file to correspond to latest Evo 9 base file. Updated to standard file naming.
+	2012/11/19 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done.
+  </notes>	
+
+<include>88590013</include>
+
+</rom>

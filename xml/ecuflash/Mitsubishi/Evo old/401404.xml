@@ -1,0 +1,303 @@
+<rom>
+	<romid>
+		<xmlid>401404</xmlid>
+		<internalidaddress>11000</internalidaddress>
+		<internalidhex>401404</internalidhex>
+		<make>Mitsubishi</make>
+		<market>AUDM</market>
+		<model>MN168749</model>
+		<submodel>EVO9 ACD+AYC ECU</submodel>
+		<transmission>Manual</transmission>
+		<year>2005</year>
+		<flashmethod>mitsukernel</flashmethod>
+        	<checksummodule>mitsuh8</checksummodule>
+		<memmodel>H8539FA</memmodel>
+	</romid>
+
+
+
+
+
+	<scaling name="Ascii" storagetype="bloblist" storagebits="8">
+		<data name="0" value="30"/>
+		<data name="1" value="31"/>
+		<data name="2" value="32"/>
+		<data name="3" value="33"/>
+		<data name="4" value="34"/>
+		<data name="5" value="35"/>
+		<data name="6" value="36"/>
+		<data name="7" value="37"/>
+		<data name="8" value="38"/>
+		<data name="9" value="39"/>
+		<data name="A" value="41"/>
+		<data name="B" value="42"/>
+		<data name="C" value="43"/>
+		<data name="D" value="44"/>
+		<data name="E" value="45"/>
+		<data name="F" value="46"/>
+		<data name="G" value="47"/>
+		<data name="H" value="48"/>
+		<data name="I" value="49"/>
+		<data name="J" value="4A"/>
+		<data name="K" value="4B"/>
+		<data name="L" value="4C"/>
+		<data name="M" value="4D"/>
+		<data name="N" value="4E"/>
+		<data name="O" value="4F"/>
+		<data name="P" value="50"/>
+		<data name="Q" value="51"/>
+		<data name="R" value="52"/>
+		<data name="S" value="53"/>
+		<data name="T" value="54"/>
+		<data name="U" value="55"/>
+		<data name="V" value="56"/>
+		<data name="W" value="57"/>
+		<data name="X" value="58"/>
+		<data name="Y" value="59"/>
+		<data name="Z" value="5A"/>
+	</scaling>
+
+	<scaling name="TPS Percent" units="%" toexpr="x*100/255" frexpr="x*255/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint16" endian="big"/>
+
+	<scaling name="ThrottlePercentage8" units="%" toexpr="x/256*100" frexpr="x*256/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint8"/>
+	<scaling name="ThrottleVoltage16" units="V" toexpr="x*5/512" frexpr="x*512/5" format="%.2f" min="0" max="5" inc="0.05" storagetype="uint16" endian="big"/>
+	<scaling name="Throttle%16_ACD" units="%" toexpr="x/512*100" frexpr="x*512/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint16"/>
+	<scaling name="ThrottleVoltage" units="V" toexpr="x*5/256" frexpr="x*256/5" format="%.2f" min="0" max="5" inc="0.05" storagetype="uint8" endian="big"/>
+
+	<scaling name="VehicleSpeed" units="mph" toexpr="x*1.2427" frexpr="x/1.2427" format="%.0f" min="0" max="510" inc="1" storagetype="uint16" endian="big"/>
+	<scaling name="VehicleSpeed8" units="units" toexpr="x*2" frexpr="x/2" format="%.0f" min="0" max="510" inc="1" storagetype="uint8" endian="big"/>
+	<scaling name="Volts16" units="Volts" toexpr="x*5/255" frexpr="x*255/5" format="%.2f" min="0" max="5" inc="0.05" storagetype="uint16" endian="big"/>
+
+	<scaling name="blobbits" storagetype="bloblist" storagebits="1">
+		<data name="0" value="00"/>
+		<data name="1" value="01"/>
+	</scaling>
+
+	<scaling name="uint16" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="65535" inc="1" storagetype="uint16" endian="big"/>
+
+	<scaling name="uint8" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Time_uint8" units="Time Ticks" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Hex8" units="hex" toexpr="x" frexpr="x" format="%02X" min="0" max="255" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Hex16" units="hex" toexpr="x" frexpr="x" format="%04X" min="0" max="65535" inc="1" storagetype="uint16" endian="big"/>
+
+	<scaling name="Percent (128)" units="%" toexpr="x/1.28" frexpr="x*1.28" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Percent (256)" units="Lockup %" toexpr="x/2.56" frexpr="x*2.56" format="%.0f" min="0" max="100" inc="0.39" storagetype="uint8" endian="big"/>
+
+
+
+
+	<scaling name="Percent_AYC" units="Outside Wheel Torque %" toexpr="x/2.56" frexpr="x*2.56" format="%.0f" min="0" max="100" inc="0.39" storagetype="uint8" endian="big"/>
+
+	<scaling name="SteeringAngle_ACD" units="degrees" toexpr="x" frexpr="x" format="%.1f" min="0" max="512" inc="1" storagetype="uint16" endian="big"/>
+
+	<scaling name="VehicleSpeed_ACD" units="kph" toexpr="x/58.77" frexpr="x*58.77" format="%.1f" min="0" max="510" inc="1" storagetype="uint16" endian="big"/>
+
+
+	<table name="AYC PROPORTIONING Map - % Torque" category="AYC Maps" address="12171" type="3D" scaling="Percent_AYC">
+		<table name="Steering Angle" address="12158" type="X Axis" elements="9" scaling="SteeringAngle_ACD"/>
+		<table name="Speed" address="120ba" type="Y Axis" elements="36" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+
+
+
+
+	<scaling name="Percent (128)" units="%" toexpr="x/1.28" frexpr="x*1.28" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Throttle%16_ACD" units="%" toexpr="x/512*100" frexpr="x*512/100" format="%.0f" min="0" max="100" inc="1" storagetype="uint16"/>
+
+	<scaling name="VehicleSpeed_ACD" units="kph" toexpr="x/58.77" frexpr="x*58.77" format="%.1f" min="0" max="510" inc="1" storagetype="uint16" endian="big"/>
+
+
+	<table name="ACD Lockup % - Tarmac Accel B1.1" category="ACD Lockup Maps" address="12583" type="3D" scaling="Percent (128)">
+		<table name="Throttle" address="12568" type="X Axis" elements="10" scaling="Throttle%16_ACD"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+	<table name="ACD Lockup % - Gravel Accel B1.3" category="ACD Lockup Maps" address="1265b" type="3D" scaling="Percent (128)">
+		<table name="Throttle" address="12568" type="X Axis" elements="10" scaling="Throttle%16_ACD"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+	
+
+	<table name="ACD Lockup % - Snow Accel B1.2" category="ACD Lockup Maps" address="125ef" type="3D" scaling="Percent (128)">
+		<table name="Throttle" address="12568" type="X Axis" elements="10" scaling="Throttle%16_ACD"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+
+
+	<table name="ACD Lockup % - Tarmac Decel B2.1" category="ACD Lockup Maps" address="12a6f" type="3D" scaling="Percent (128)">
+		<table name="Throttle" address="12568" type="X Axis" elements="10" scaling="Throttle%16_ACD"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+	<table name="ACD Lockup % - Gravel Decel B2.3" category="ACD Lockup Maps" address="12b47" type="3D" scaling="Percent (128)">
+		<table name="Throttle" address="12568" type="X Axis" elements="10" scaling="Throttle%16_ACD"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+	<table name="ACD Lockup % - Snow Decel B2.2" category="ACD Lockup Maps" address="12adb" type="3D" scaling="Percent (128)">
+		<table name="Throttle" address="12568" type="X Axis" elements="10" scaling="Throttle%16_ACD"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+
+
+
+	<scaling name="Lockup Reduction v G" units="ACD Lockup Reduction %" toexpr="x/1.28" frexpr="x*1.28" format="%.0f" min="0" max="100" inc="1" storagetype="uint8" endian="big"/>
+
+	<scaling name="Hex16_4G" units="G" toexpr="x*100/65535/25" frexpr="x*65535*25/100" format="%.1f" min="0" max="4" inc="1" storagetype="uint16" endian="big"/>
+
+	<scaling name="VehicleSpeed_ACD" units="kph" toexpr="x/58.77" frexpr="x*58.77" format="%.1f" min="0" max="510" inc="1" storagetype="uint16" endian="big"/>
+
+
+	<table name="ACD G_Force Lockup Reducer - Tarmac Decel A1.1" category="ACD G-Force Maps" address="12425" type="3D" scaling="Lockup Reduction v G">
+		<table name="G_Force" address="123f0" type="X Axis" elements="10" scaling="Hex16_4G"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+	<table name="ACD G_Force Lockup Reducer - Gravel Decel A1.3" category="ACD G-Force Maps" address="124fd" type="3D" scaling="Lockup Reduction v G">
+		<table name="G_Force" address="123f0" type="X Axis" elements="10" scaling="Hex16_4G"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+	<table name="ACD G_Force Lockup Reducer - Snow Decel A1.2" category="ACD G-Force Maps" address="12491" type="3D" scaling="Lockup Reduction v G">
+		<table name="G_Force" address="123f0" type="X Axis" elements="10" scaling="Hex16_4G"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+
+
+
+	<table name="ACD G_Force Lockup Reducer - Tarmac Accel A2.1" category="ACD G-Force Maps" address="1292b" type="3D" scaling="Lockup Reduction v G">
+		<table name="G_Force" address="123f0" type="X Axis" elements="10" scaling="Hex16_4G"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+	<table name="ACD G_Force Lockup Reducer - Gravel Accel A2.3" category="ACD G-Force Maps" address="12a03" type="3D" scaling="Lockup Reduction v G">
+		<table name="G_Force" address="123f0" type="X Axis" elements="10" scaling="Hex16_4G"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+	<table name="ACD G_Force Lockup Reducer - Snow Accel A2.2" category="ACD G-Force Maps" address="12997" type="3D" scaling="Lockup Reduction v G">
+		<table name="G_Force" address="123f0" type="X Axis" elements="10" scaling="Hex16_4G"/>
+		<table name="Speed" address="1240a" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+
+
+
+
+
+
+
+
+	<table name="C1.1 Tarmac map" category="C Maps" address="12749" type="3D" scaling="Percent (128)">
+		<table name="X" address="1272e" type="X Axis" elements="10" scaling="Hex16"/>
+		<table name="Y" address="12714" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+	<table name="C1.2 Snow map" category="C Maps" address="127b5" type="3D" scaling="Percent (128)">
+		<table name="X" address="1272e" type="X Axis" elements="10" scaling="Hex16"/>
+		<table name="Y" address="12714" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+	<table name="C1.3 Gravel map" category="C Maps" address="12821" type="3D" scaling="Percent (128)">
+		<table name="X" address="1272e" type="X Axis" elements="10" scaling="Hex16"/>
+		<table name="Y" address="12714" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+	<table name="C2.1 Tarmac map" category="C Maps" address="12bd1" type="3D" scaling="Percent (128)">
+		<table name="X" address="1272e" type="X Axis" elements="10" scaling="Hex16"/>
+		<table name="Y" address="12714" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+	<table name="C2.2 Snow map" category="C Maps" address="12c3d" type="3D" scaling="Percent (128)">
+		<table name="X" address="1272e" type="X Axis" elements="10" scaling="Hex16"/>
+		<table name="Y" address="12714" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+	<table name="C2.3 Gravel map" category="C Maps" address="12ca9" type="3D" scaling="Percent (128)">
+		<table name="X" address="1272e" type="X Axis" elements="10" scaling="Hex16"/>
+		<table name="Y" address="12714" type="Y Axis" elements="10" scaling="VehicleSpeed_ACD"/>
+	</table>
+
+
+
+
+
+	<table name="MUT Table 1" category="MUT" address="13316" type="3D" scaling="Hex16">
+		<table name="X" type="Static X Axis" elements="2">
+			<data>RequestID</data>
+			<data>Memory Location</data>
+		</table>
+		<table name="Y" type="Static Y Axis" elements="31"/>
+	</table>
+
+
+	<table name="MUT Table 2" category="MUT" address="13392" type="3D" scaling="Hex16">
+		<table name="X" type="Static X Axis" elements="2">
+			<data>RequestID</data>
+			<data>Memory Location</data>
+		</table>
+		<table name="Y" type="Static Y Axis" elements="26"/>
+	</table>
+	
+
+	<table name="ECU ID Hex Revision" category="Identification" address="11000" type="2D" scaling="Hex8">
+		<table name="Byte Position" type="Static X Axis" elements="3">
+			<data>b1</data>
+			<data>b2</data>
+			<data>b3</data>
+		</table>
+	</table>
+	
+
+	<table name="ECU ID ASCII" category="Identification" address="2fefa" type="2D" scaling="Ascii">
+		<table name="Byte Position" type="Static Y Axis" elements="6">
+			<data>b1</data>
+			<data>b2</data>
+			<data>b3</data>
+			<data>b4</data>
+			<data>b5</data>
+			<data>b6</data>
+		</table>
+	</table>
+
+
+	<table name="ECU ID Logger" category="Identification" address="1350e" type="2D" scaling="Hex8">
+		<table name="Byte Position" type="Static X Axis" elements="2">
+			<data>b1</data>
+			<data>b2</data>
+		</table>
+	</table>
+
+
+	<table name="ECU ID Calibration" category="Identification" address="13510" type="2D" scaling="Hex8">
+		<table name="Byte Position" type="Static X Axis" elements="4">
+			<data>b1</data>
+			<data>b2</data>
+			<data>b3</data>
+			<data>b4</data>
+		</table>
+	</table>
+
+
+</rom>

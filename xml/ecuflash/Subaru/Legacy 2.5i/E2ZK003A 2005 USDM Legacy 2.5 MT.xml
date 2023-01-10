@@ -1,0 +1,18 @@
+<rom>
+	<romid>
+		<xmlid>E2ZK003A</xmlid>
+		<internalidaddress>2000</internalidaddress>
+		<internalidstring>E2ZK003A</internalidstring>
+		<ecuid>2F220A4706</ecuid>
+		<make>Subaru</make>
+		<market>USDM</market>
+		<model>Legacy</model>
+		<submodel>2.5</submodel>
+		<transmission>MT</transmission>
+		<year>2005</year>
+		<flashmethod>sti05</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+	<include>E2ZK001A</include>
+</rom>

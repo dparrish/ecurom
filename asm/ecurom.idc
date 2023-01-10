@@ -1,6 +1,7 @@
 // Auto-Disassembly script for Mitsubishi Evo ROMs.
 //
 // This is based on Acamus's Auto Disassembler.
+// edited for compatibility with ida 7.x by Professor_jonny
 //
 // vim:foldmethod=syntax foldnestmax=1 sw=2 et smarttab smartindent ft=c
 //
@@ -1928,12 +1929,12 @@ static main() {
   SetCharPrm(INF_COMMENT, 70);
   SetCharPrm(INF_MARGIN, 120);
   SetCharPrm(INF_PREFFLAG, PREF_SEGADR | PREF_FNCOFF); // show segment and function prefixes
-  SetCharPrm(INF_NULL, 0);                             // don't generate empty lines
+//  SetCharPrm(INF_NULL, 0);                             // don't generate empty lines
   SetCharPrm(INF_CMTFLAG, SW_ALLCMT);                  // show all comments
   SetCharPrm(INF_ASMTYPE, 0);                          // use GNU asm format
   {
     // Disable some analysis options that don't suit the SH2/SH4 code
-    newaf = GetShortPrm(INF_START_AF);
+  //  newaf = GetShortPrm(INF_START_AF);
     newaf = newaf & ~AF_MARKCODE; // Mark typical code sequences as code
     newaf = newaf & ~AF_FLIRT;    // Use flirt signatures
     newaf = newaf & ~AF_PROCPTR;  // Create function if data xref->code32 exists
@@ -1941,7 +1942,7 @@ static main() {
     newaf = newaf & ~AF_TRACE;    // Trace stack pointer
     newaf = newaf & ~AF_ASCII;    // Create ascii string if data xref exists
     newaf = newaf & ~AF_FINAL;    // Final pass of analysis
-    SetShortPrm(INF_START_AF, newaf);
+  //  SetShortPrm(INF_START_AF, newaf);
 
     newaf = GetShortPrm(INF_AF2);
     newaf = newaf & ~AF2_JUMPTBL; // Locate and create jump tables
@@ -1950,7 +1951,7 @@ static main() {
     SetShortPrm(INF_AF2, newaf);
   }
 
-  processor = get_processor();
+  processor = get_processor_name();
   if (strstr(processor, "SH4") == 0) {
     SegmentsSH4B();
     MakeNameEx(0x00000F52, "rom_id", SN_NOLIST);

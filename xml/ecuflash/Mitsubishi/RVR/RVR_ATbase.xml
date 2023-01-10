@@ -1,0 +1,236 @@
+<!--Produced by XML Creator By BCX-->
+<!--Published: 30/03/2012 @ 17:37:21.0584483-->
+<!---->
+<!---->
+<!--######################### ROM INFO #########################-->
+<!---->
+<rom>
+    <romid>
+        <xmlid>RVR_AT_base</xmlid>
+        <internalidaddress>1020a</internalidaddress>
+        <market>JDM</market>
+        <make>Mitsubishi</make>
+        <model>RVR</model>
+        <submodel>X3</submodel>
+        <transmission>4-AT</transmission>
+        <flashmethod>mitsukernel</flashmethod>
+        <memmodel>H8539F</memmodel>
+    </romid>
+    <!---->
+    <!--######################### SCALING DEFINITIONS #########################-->
+    <!---->
+    <scaling name="VehicleSpeedAT" units="km/h" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big" />
+    <scaling name="SpeedAT" units="km/h" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big" />
+    <scaling name="rpm_AT" units="rpm" toexpr="x*30" frexpr="x/30" format="%.0f" min="0" max="7650" inc="30" storagetype="uint8" endian="big" />
+    <scaling name="Throttle%16" units="TPS %" toexpr="x*100/255" frexpr="x*255/100" format="%.1f" min="0" max="100" inc="0.392" storagetype="uint16" endian="big" />
+    <scaling name="ShiftPressure" units="%" toexpr="x/2.56" frexpr="x*2.56" format="%.2f" min="0" max="100" inc="0.3906" storagetype="uint8" endian="big" />
+    <scaling name="AUTO_LOAD" units="%" toexpr="x/80" frexpr="x*80" format="%.0f" min="0" max="150" inc="10" storagetype="uint16" endian="big" />
+    <scaling name="ShiftTime" units="mSec" toexpr="x*16" frexpr="x/16" format="%.0f" min="0" max="4080" inc="16" storagetype="uint8" endian="big" />
+    <scaling name="uint8" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="uint8" endian="big" />
+    <scaling name="uint16" units="units" toexpr="x" frexpr="x" format="%.0f" min="0" max="65535" inc="1" storagetype="uint16" endian="big" />
+    <scaling name="CaseAlphaNumeric" storagetype="bloblist" storagebits="8">
+        <data name="MB" value="10" />
+        <data name="MD" value="20" />
+        <data name="MR" value="30" />
+        <data name="MN" value="60" />
+        <data name="1860" value="80" />
+    </scaling>
+    <scaling name="ASCII" storagetype="bloblist" storagebits="8">
+        <data name="0" value="30" />
+        <data name="1" value="31" />
+        <data name="2" value="32" />
+        <data name="3" value="33" />
+        <data name="4" value="34" />
+        <data name="5" value="35" />
+        <data name="6" value="36" />
+        <data name="7" value="37" />
+        <data name="8" value="38" />
+        <data name="9" value="39" />
+        <data name="A" value="41" />
+        <data name="B" value="42" />
+        <data name="C" value="43" />
+        <data name="D" value="44" />
+        <data name="E" value="45" />
+        <data name="F" value="46" />
+        <data name="G" value="47" />
+        <data name="H" value="48" />
+        <data name="I" value="49" />
+        <data name="J" value="4A" />
+        <data name="K" value="4B" />
+        <data name="L" value="4C" />
+        <data name="M" value="4D" />
+        <data name="N" value="4E" />
+        <data name="O" value="4F" />
+        <data name="P" value="50" />
+        <data name="Q" value="51" />
+        <data name="R" value="52" />
+        <data name="S" value="53" />
+        <data name="T" value="54" />
+        <data name="U" value="55" />
+        <data name="V" value="56" />
+        <data name="W" value="57" />
+        <data name="X" value="58" />
+        <data name="Y" value="59" />
+        <data name="Z" value="5A" />
+        <data name="_" value="FF" />
+    </scaling>
+    <scaling name="Hex16" units="hex" toexpr="x" frexpr="x" format="%04X" min="0" max="65535" inc="1" storagetype="uint16" endian="big" />
+    <scaling name="Hex8" units="hex" toexpr="x" frexpr="x" format="%02X" min="0" max="255" inc="1" storagetype="uint8" endian="big" />
+    <scaling name="TempScale*C_8bit" units="*C" toexpr="x" frexpr="x" format="%.0f" min="0" max="255" inc="1" storagetype="int8" endian="big" />
+    <scaling name="Temp_*C_16bit" units="*C" toexpr="x-40" frexpr="x+40" format="%.0f" min="-40" max="215" inc="1" storagetype="uint16" endian="big" />
+    <scaling name="Temp_*C_8bit" units="*C" toexpr="x-40" frexpr="x+40" format="%.0f" min="-40" max="215" inc="1" storagetype="uint8" endian="big" />
+    <scaling name="Volts5_16bit" units="Volts" toexpr="x*5/256" frexpr="x*256/5" format="%.2f" min="0" max="5" inc="0.05" storagetype="uint16" endian="big" />
+    <scaling name="Volts18_16bit" units="Volts" toexpr="x*75/1024" frexpr="x*1024/75" format="%.2f" min="0" max="18.75" inc="0.0732422" storagetype="uint16" endian="big" />
+    <!---->
+    <!--######################### TABLES #########################-->
+    <!---->
+    <table name="Software Version" category="Identification" address="1020a" type="2D" level="4" scaling="Hex8">
+        <table name="Byte Position" type="Static X Axis" elements="4">
+            <data>b1</data>
+            <data>b2</data>
+            <data>b3</data>
+            <data>b4</data>
+        </table>
+    </table>
+    <table name="ECUID" category="Identification" address="2fefa" type="2D" level="4" scaling="ASCII">
+        <table name="Byte Position" type="Static Y Axis" elements="6">
+            <data>b1</data>
+            <data>b2</data>
+            <data>b3</data>
+            <data>b4</data>
+            <data>b5</data>
+            <data>b6</data>
+        </table>
+    </table>
+    <table name="Case Part Number" category="Identification" address="10218" type="3D" level="4" scaling="Hex8">
+        <table name="Part Number" type="Static X Axis" elements="3">
+            <data>PN2 .</data>
+            <data>PN3 .</data>
+            <data>PN4 .</data>
+        </table>
+        <table name="PN1" address="10217" type="Y Axis" elements="1" scaling="CaseAlphaNumeric" />
+    </table>
+    <table name="ECUID Logger" category="Identification" address="10208" type="1D" level="4" scaling="Hex16" />
+    <table name="Auto: 1 -&gt; 2 (untested)" category="Auto Shift Points" address="11d08" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Auto: 2 -&gt; 1 (untested)" category="Auto Shift Points" address="11d2c" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Auto: 2 -&gt; 3 (untested)" category="Auto Shift Points" address="11d50" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Auto: 3 -&gt; 2 (untested)" category="Auto Shift Points" address="11d74" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Auto: 3 -&gt; 4 (untested)" category="Auto Shift Points" address="11d98" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Auto: 4 -&gt; 3 (untested)" category="Auto Shift Points" address="11dbc" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Auto: 4 -&gt; 5 (untested)" category="Auto Shift Points" address="11de0" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Auto: 5 -&gt; 4 (untested)" category="Auto Shift Points" address="11e04" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="Throttle Position" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 1 possible H -&gt; L (untested)" category="Auto Shift Points" address="11f24" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 2 possible H -&gt; L (untested)" category="Auto Shift Points" address="11edc" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 3 possible H -&gt; L (untested)" category="Auto Shift Points" address="11e94" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 4 possible H -&gt; L (untested)" category="Auto Shift Points" address="11e4c" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 5 possible L -&gt; H (untested)" category="Auto Shift Points" address="11f00" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 6 possible L -&gt; H (untested)" category="Auto Shift Points" address="11eb8" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 7 possible L -&gt; H (untested)" category="Auto Shift Points" address="11e70" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="unknown shift table 8 possible L -&gt; H (untested)" category="Auto Shift Points" address="11e28" type="2D" level="3" scaling="VehicleSpeedAT">
+        <table name="TPS" address="1152a" type="Y Axis" elements="32" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 1 -&gt; 2 (untested)" category="Auto Shift Pressure" address="11bfe" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 2 -&gt; 3 (untested)" category="Auto Shift Pressure" address="11c12" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 3 -&gt; 4 (untested)" category="Auto Shift Pressure" address="11c26" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 4 -&gt; 5 (untested)" category="Auto Shift Pressure" address="11c34" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 5 -&gt; 4 (untested)" category="Auto Shift Pressure" address="11cda" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 4 -&gt; 3 (untested)" category="Auto Shift Pressure" address="11cc6" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 3 -&gt; 2 (untested)" category="Auto Shift Pressure" address="11cb2" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Pressure: 2 -&gt; 1 (untested)" category="Auto Shift Pressure" address="11c9e" type="2D" level="3" scaling="ShiftPressure">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Time: 1 -&gt; 2 (untested)" category="Auto Shift Time" address="11c4e" type="2D" level="3" scaling="ShiftTime">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Time: 2 -&gt; 3 (untested)" category="Auto Shift Time" address="11c62" type="2D" level="3" scaling="ShiftTime">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Time: 3 -&gt; 4 (untested)" category="Auto Shift Time" address="11c76" type="2D" level="3" scaling="ShiftTime">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="Shift Time: 4 -&gt; 5 (untested)" category="Auto Shift Time" address="11c8a" type="2D" level="3" scaling="ShiftTime">
+        <table name="AUTO_LOAD" address="11bb4" type="Y Axis" elements="16" scaling="Throttle%16" />
+    </table>
+    <table name="MUT Table" category="MUT" address="2fcd0" type="3D" level="4" scaling="Hex16">
+        <table name="X" type="Static X Axis" elements="16">
+            <data>0</data>
+            <data>1</data>
+            <data>2</data>
+            <data>3</data>
+            <data>4</data>
+            <data>5</data>
+            <data>6</data>
+            <data>7</data>
+            <data>8</data>
+            <data>9</data>
+            <data>A</data>
+            <data>B</data>
+            <data>C</data>
+            <data>D</data>
+            <data>E</data>
+            <data>F</data>
+        </table>
+        <table name="Y" type="Static Y Axis" elements="16">
+            <data>MUT0X .</data>
+            <data>MUT1X .</data>
+            <data>MUT2X .</data>
+            <data>MUT3X .</data>
+            <data>MUT4X .</data>
+            <data>MUT5X .</data>
+            <data>MUT6X .</data>
+            <data>MUT7X .</data>
+            <data>MUT8X .</data>
+            <data>MUT9X .</data>
+            <data>MUTAX .</data>
+            <data>MUTBX .</data>
+            <data>MUTCX .</data>
+            <data>MUTDX .</data>
+            <data>MUTEX .</data>
+            <data>MUTFX .</data>
+        </table>
+    </table>
+</rom>

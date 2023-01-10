@@ -1,0 +1,43 @@
+<rom>
+	<romid>
+		<xmlid>20030013</xmlid>
+		<internalidaddress>1021a</internalidaddress>
+		<internalidhex>20030013</internalidhex>
+		<caseid>--</caseid>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>Galant/Legnum</model>
+		<submodel>VR4</submodel>
+		<transmission>Manual/Automatic</transmission>
+		<year>--</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539F</memmodel>
+	</romid>
+
+	<include>vr4base1</include>
+
+	<table name="Boost Desired Engine Load - A">
+		<table name="RPM" address="2d232"/>
+	</table>
+
+	<table name="Boost Desired Engine Load - B">
+		<table name="RPM" address="2d232"/>
+	</table>
+
+	<table name="Boost Desired Engine Load - C">
+		<table name="RPM" address="2d232"/>
+	</table>
+
+	<table name="Boost Desired Engine Load - D">
+		<table name="RPM" address="2d232"/>
+	</table>
+
+	<table name="WGDC - A">
+		<table name="RPM" address="2d232"/>
+	</table>
+
+	<table name="WGDC - B">
+		<table name="RPM" address="2d232"/>
+	</table>
+
+</rom>

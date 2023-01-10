@@ -1,0 +1,16 @@
+<rom>
+	<romid>
+		<xmlid>20030011</xmlid>
+		<internalidaddress>1021a</internalidaddress>
+		<internalidstring>20030011</internalidstring>
+		<make>Mitsubishi</make>
+		<market>JDM</market>
+		<model>galant</model>
+		<transmission>Manual</transmission>
+		<year>1995</year>
+		<flashmethod>mitsukernel</flashmethod>
+		<memmodel>H8539FA</memmodel>
+	</romid>
+
+	<include>evo5base</include>
+</rom>

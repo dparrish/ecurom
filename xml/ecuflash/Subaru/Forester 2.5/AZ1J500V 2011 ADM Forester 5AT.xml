@@ -1,0 +1,26 @@
+<rom>
+	<romid>
+		<xmlid>AZ1J500V</xmlid>
+		<internalidaddress>2004</internalidaddress>
+		<internalidstring>AZ1J500V</internalidstring>
+		<ecuid>7132514007</ecuid>
+		<make>Subaru</make>
+		<market>AUDM</market>
+		<model>Forester</model>
+		<submodel>S.Edition</submodel>
+		<transmission>5EAT</transmission>
+		<year>11</year>
+		<flashmethod>subarucan</flashmethod>
+		<memmodel>SH7058</memmodel>
+		<checksummodule>subarudbw</checksummodule>
+	</romid>
+
+	<include>16BITBASE</include>
+
+	<notes>2012/11/30 [Tactrix] Experimental definition from RomRaider.
+2012/12/05 [Tactrix] Visually examined tables for obvious errors, but no in-car verification has been done. Standardized file name.
+2014/05/22 [Tactrix] Tactrix definition auto cleaned|merged w/ RomRaiderGitHubAlphaMay2014.
+</notes>
+
+
+</rom>
